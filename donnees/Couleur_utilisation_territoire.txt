@@ -1,0 +1,2840 @@
+20,5,255,255,255,Eau
+21,10,255,255,255,Lac
+22,0,196,255,255,Mare et/ou eau peu profonde
+23,0,166,255,255,Réservoir
+24,0,255,255,255,Cours d'eau
+25,0,175,175,255,Eau salée
+26,0,215,215,255,Eau saumâtre
+27,5,215,215,255,Lac de thermokartz
+29,10,215,215,255,Neige et glace permanentes; combe à neige
+30,200,200,200,255,Sol nu; roc-sol à nu; sol dénudé ou semi-dénudé sec
+31,205,200,200,255,Champs de bloc
+50,140,255,0,255,Forêt ou arbustaie improductive
+51,158,255,0,255,Aulnaie
+52,158,155,0,255,Arbustaie basse et mares de thermokarst
+53,140,217,0,255,Arbustaie arctique basse (0.3 à 1 m)
+54,140,217,0,255,Forêt arbustive haute (> 2 m)
+55,49,194,0,255,Friche
+56,190,208,215,255,Arbustaie arctique haute (> 1 m)
+57,140,217,0,255,Forêt arbustive basse (< 2 m)
+60,193,12,218,255,Lande à lichens
+61,196,15,212,255,Lande à lichens et arbustes
+62,199,18,215,255,Lande subarctique
+63,202,22,218,255,Lande subarctique avec 30 à 70 % d’arbustes
+64,205,25,221,255,Lande rocheuse
+65,208,28,224,255,Lande à éricacées
+66,208,28,224,255,Lande herbacée
+67,208,28,224,255,Lande à mousse
+68,208,28,224,255,Lande alpine
+71,211,232,227,255,Toundra à arbustes dressés
+72,211,232,227,255,Toundra à arbustes dressés avec ostioles
+73,208,28,224,255,Toundra à arbustes dressés avec 30 à 70 % d’arbustes
+74,211,232,233,255,Toundra à arbustes dressés avec ostioles et 30 à 70 % d’arbustes
+75,211,232,233,255,Toundra à arbustes prostrés
+76,211,232,233,255,Toundra à arbustes prostrés avec ostioles
+77,211,232,233,255,Toundra herbacée avec arbustes prostrés
+101,220,236,241,255,Serre
+120,255,255,191,255,Agriculture indifférenciée
+122,238,222,173,255,Culture pérenne et pâturage
+131,236,222,173,255,Jachère
+132,204,255,0,255,Autre céréale
+133,255,255,0,255,Orge
+134,153,204,0,255,Sorgho
+135,249,255,217,255,Millet
+136,255,238,112,255,Avoine
+137,219,227,29,255,Seigle
+138,235,176,0,255,Épeautre
+139,158,129,0,255,Triticale
+140,222,163,102,255,Blé
+141,255,212,0,255,Panic érigé
+147,255,211,127,255,Maïs
+153,255,240,0,255,Canola ou colza
+154,214,255,112,255,Graine de lin
+157,217,255,112,255,Tournesol
+158,173,105,0,255,Soya
+160,255,102,51,255,Autre légumineuse
+162,255,125,0,255,Pois
+167,165,245,122,255,Haricot
+168,255,102,102,255,Laitue
+169,204,102,102,255,Ail/Oignon/Poireau
+170,204,102,153,255,Carotte/Panais
+171,204,153,153,255,Cucurbitacée
+172,153,102,153,255,Crucifère (feuilles)
+173,151,255,138,255,Légume à fruits
+175,255,221,191,255,Autre légume
+176,102,51,153,255,Crucifère (racines)
+177,161,255,158,255,Pomme de terre
+178,102,102,153,255,Betterave à sucre
+180,232,125,0,255,Autre fruit
+181,255,144,97,255,Baie
+182,255,69,41,255,Canneberge
+183,255,99,146,255,Bleuet
+188,252,69,41,255,Verger
+190,249,69,41,255,Vignoble
+192,181,251,5,255,Gazonnière
+193,204,255,5,255,Fines herbes
+194,233,255,190,255,Pépinière
+195,163,255,115,255,Sarrasin
+197,238,176,0,255,Chanvre
+210,142,118,114,255,Forêt de conifères
+211,38,115,0,255,Forêt de conifères dense
+212,142,118,114,255,Forêt de conifères avec arbustes décidus
+213,41,115,0,255,Forêt de conifères clairsemée
+214,142,118,114,255,Forêt de conifères sur lichens
+215,0,160,0,255,Forêt de conifères ouverte
+216,142,118,114,255,Forêt de conifères sur lichens et mousses
+218,142,118,114,255,Forêt de conifères sur mousses et éricacées
+220,0,105,0,255,Forêt de feuillus
+221,0,184,0,255,Forêt de feuillus dense
+223,0,204,0,255,Forêt de feuillus clairsemée
+225,0,157,0,255,Forêt de feuillus ouverte
+230,0,127,0,255,Forêt mixte
+231,0,120,0,255,Forêt mixte dense
+233,54,127,74,255,Forêt mixte clairsemée
+235,135,153,0,255,Forêt mixte ouverte
+250,115,153,0,255,Opération forestière
+253,170,85,0,255,Coupe forestière
+255,173,85,0,255,Plantation
+256,173,85,0,255,Plantation de feuillus indigènes
+257,173,85,0,255,Plantation mélangée indigène
+258,173,85,0,255,Plantation de résineux indigènes
+259,173,85,0,255,Plantation de feuillus exotiques
+260,173,85,0,255,Plantation mélangée exotique
+261,173,85,0,255,Plantation de résineux exotiques
+263,176,85,0,255,Brûlis
+280,152,76,0,255,Perturbation naturelle
+300,128,64,64,255,Autre terrain
+301,255,180,180,255,Zone développée
+312,252,110,122,255,Pistes de ski alpin
+313,80,175,80,255,Golf
+320,115,150,100,255,Route ou chemin
+321,255,0,0,255,Aéroport
+322,78,78,78,255,Chemin de fer
+341,3,3,3,255,Carrière ou gravière
+343,101,0,135,255,Mine et déchet de mine
+344,21,0,156,255,Bassin de filtration; de décontamination; de déchets liquides; etc.
+345,25,25,92,255,Dépotoir
+346,135,0,156,255,Zone industrielle et commerce
+351,255,120,125,255,Ligne de transmission ou de transport d'énergie
+360,180,180,180,255,Exploitation de tourbe
+501,0,105,0,255,Bouleau gris
+502,0,127,0,255,Bouleau gris associé à des pins
+503,0,127,0,255,Bouleau gris associé à des résineux tolérants
+504,0,127,0,255,Bouleau gris associé à des résineux
+505,0,105,0,255,Bouleau jaune
+506,0,127,0,255,Bouleau jaune associé à des épinettes noire ou rouge
+507,0,127,0,255,Bouleau jaune associé à du mélèze laricin
+508,0,127,0,255,Bouleau jaune associé à des pins
+509,0,127,0,255,Bouleau jaune associé à de la pruche du Canada
+510,0,127,0,255,Bouleau jaune associé à des résineux
+511,0,127,0,255,Bouleau jaune associé à des sapin baumier et/ou épinette blanche
+512,0,127,0,255,Bouleau jaune associé à des sapin baumier et épinette noire
+513,0,105,0,255,Bouleau jaune associé à du thuyas occidental
+514,0,127,0,255,Bouleau blanc
+515,0,127,0,255,Bouleau blanc associé à des épinettes noire ou rouge
+516,0,127,0,255,Bouleau blanc associé à des pins
+517,0,127,0,255,Bouleau blanc associé à des résineux tolérants
+518,0,127,0,255,Bouleau blanc associé à des résineux
+519,0,105,0,255,Bouleau blanc associé à des sapin baumier et/ou épinette blanche
+520,0,127,0,255,Caryer cordiforme
+521,0,127,0,255,Chênes
+522,0,105,0,255,Chênes associés à des pins
+523,0,127,0,255,Chênes associés à des résineux tolérants
+524,0,127,0,255,Chênes associés à des résineux
+525,0,127,0,255,Cerisier tardif
+526,0,105,0,255,Cerisier tardif associé à des pins
+527,0,127,0,255,Cerisier tardif associé à des résineux tolérants
+528,0,127,0,255,Cerisier tardif associé à des résineux
+529,0,105,0,255,Érable argenté
+530,0,105,0,255,Érable argenté associé à des pins
+531,0,127,0,255,Érable argenté associé à des résineux tolérants
+532,0,127,0,255,Érable argenté associé à des résineux
+533,0,127,0,255,Épinette blanche
+534,142,118,114,255,Épinette blanche associée à des feuillus intolérants
+535,0,127,0,255,Épinette blanche associée à des feuillus tolérants
+536,0,127,0,255,Épinette blanche associée à des feuillus indéterminés
+537,0,127,0,255,Érable noir
+538,0,105,0,255,Épinette noire
+539,142,118,114,255,Épinette noire associée à de l'épinette blanche
+540,142,118,114,255,Épinette noire associée à des feuillus intolérants
+541,0,127,0,255,Épinette noire associée à des feuillus tolérants
+542,0,127,0,255,Épinette noire associée à des feuillus indéterminés
+543,0,127,0,255,Épinette noire associée à du mélèze laricin
+544,142,118,114,255,Épinette noire associée à des pins
+545,142,118,114,255,Épinette noire associée à du sapin baumier
+546,142,118,114,255,Épinette noire associée à des sapin baumier et/ou épinette blanche
+547,142,118,114,255,Érable rouge
+548,0,105,0,255,Érable rouge associé à des épinettes noire ou rouge
+549,0,127,0,255,Érable rouge associé à du mélèze laricin
+550,0,127,0,255,Érable rouge associé à des pins
+551,0,127,0,255,Érable rouge associé à de la pruche du Canada
+552,0,127,0,255,Érable rouge associé à des résineux
+553,0,127,0,255,Érable rouge associé à des sapin baumier et/ou épinette blanche
+554,0,127,0,255,Érable rouge associé à du thuyas occidental
+555,0,127,0,255,Épinettes noire ou rouge
+556,142,118,114,255,Épinettes noire ou rouge associés à de l'épinette blanche
+557,0,127,0,255,Épinettes noire ou rouge associés à des feuillus intolérants
+558,0,127,0,255,Épinettes noire ou rouge associés à des feuillus tolérants
+559,0,127,0,255,Épinettes noire ou rouge associés à des feuillus indéterminés
+560,0,127,0,255,Épinettes noire ou rouge associés à du mélèze laricin
+561,142,118,114,255,Épinettes noire ou rouge associés à des pins
+562,142,118,114,255,Épinettes noire ou rouge associés à du sapin baumier
+563,142,118,114,255,Épinettes noire ou rouge associés à des sapin baumier et/ou épinette blanche
+564,0,105,0,255,Épinettes noire ou rouge associés à du thuyas occidental
+565,142,118,114,255,Érables
+566,0,105,0,255,Érables associés à du bouleau jaune
+567,0,105,0,255,Érables associés à des épinettes noire ou rouge
+568,0,127,0,255,Érables associés à du mélèze laricin
+569,0,127,0,255,Érables associés à des pins
+570,0,127,0,255,Érables associés à de la pruche du Canada
+571,0,127,0,255,Érables associés à des résineux
+572,0,127,0,255,Érables associés à des sapin baumier et/ou épinette blanche
+573,0,127,0,255,Érables associés à du thuyas occidental
+574,0,127,0,255,Érable à sucre
+575,0,105,0,255,Érable à sucre associé à du bouleau jaune
+576,0,105,0,255,Érable à sucre associé à des épinettes noire ou rouge
+577,0,127,0,255,Érable à sucre associé à du mélèze laricin
+578,0,127,0,255,Érable à sucre associé à des pins
+579,0,105,0,255,Érable à sucre associé à de la pruche du Canada
+580,0,127,0,255,Érable à sucre associé à des résineux
+581,0,127,0,255,Érable à sucre associé à des sapin baumier et/ou épinette blanche
+582,0,127,0,255,Érable à sucre associé à du thuyas occidental
+583,0,127,0,255,Épinette rouge
+584,0,127,0,255,Épinette rouge associée à du bouleau jaune
+585,0,127,0,255,Épinette rouge associée à des feuillus intolérants
+586,0,127,0,255,Épinette rouge associée à des feuillus tolérants
+587,0,127,0,255,Épinette rouge associée à des feuillus indéterminés
+588,0,127,0,255,Épinette rouge associée à du mélèze laricin
+589,0,127,0,255,Épinette rouge associée à des pins
+590,0,127,0,255,Épinette rouge associée à des sapin baumier et/ou épinette blanche
+591,142,118,114,255,Frêne d'Amérique
+592,142,118,114,255,Frêne d'Amérique associé à des pins
+593,142,118,114,255,Frêne d'Amérique associé à des résineux tolérants
+594,0,105,0,255,Frêne d'Amérique associé à des résineux
+595,0,127,0,255,Feuillus intolérants
+596,0,127,0,255,Feuillus intolérants associés à des épinettes noire ou rouge
+597,0,127,0,255,Feuillus intolérants associés à du mélèze laricin
+598,0,105,0,255,Feuillus intolérants associés à des pins
+599,0,127,0,255,Feuillus intolérants associés à de la pruche du Canada
+600,0,127,0,255,Feuillus intolérants associés à des résineux
+601,0,127,0,255,Feuillus intolérants associés à des sapin baumier et/ou épinette blanche
+602,0,127,0,255,Feuillus intolérants associés à du thuyas occidental
+603,0,127,0,255,Frêne noir
+604,0,127,0,255,Frêne noir associé à des pins
+605,0,127,0,255,Frêne noir associé à des résineux tolérants
+606,0,105,0,255,Frêne noir associé à des résineux
+607,0,127,0,255,Frêne de Pennsylvanie
+608,0,127,0,255,Frêne de Pennsylvanie associé à des pins
+609,0,127,0,255,Frêne de Pennsylvanie associé à des résineux tolérants
+610,0,105,0,255,Frêne de Pennsylvanie associé à des résineux
+611,0,127,0,255,Frênes
+612,0,127,0,255,Frênes associés à des pins
+613,0,127,0,255,Frênes associés à des résineux tolérants
+614,0,105,0,255,Frênes associés à des résineux
+615,0,127,0,255,Feuillus tolérants
+616,0,127,0,255,Feuillus tolérants associés à des épinettes noire ou rouge
+617,0,127,0,255,Feuillus tolérants associés à du mélèze laricin
+618,0,105,0,255,Feuillus tolérants associés à des pins
+619,0,127,0,255,Feuillus tolérants associés à de la pruche du Canada
+620,0,127,0,255,Feuillus tolérants associés à des résineux
+621,0,127,0,255,Feuillus tolérants associés à des sapin baumier et/ou épinette blanche
+622,0,127,0,255,Feuillus tolérants associés à du thuyas occidental
+623,0,127,0,255,Feuillus indéterminés
+624,0,127,0,255,Feuillus indéterminés associés à des épinettes noire ou rouge
+625,0,127,0,255,Feuillus indéterminés associés à du mélèze laricin
+626,0,105,0,255,Feuillus indéterminés associés à des pins
+627,0,127,0,255,Feuillus indéterminés associés à de la pruche du Canada
+628,0,127,0,255,Feuillus indéterminés associés à des sapin baumier et/ou épinette blanche
+629,0,127,0,255,Feuillus indéterminés associés à du thuyas occidental
+630,0,127,0,255,Hêtre à grandes feuilles
+631,0,127,0,255,Hêtre à grandes feuilles associé à des pins
+632,0,127,0,255,Hêtre à grandes feuilles associé à des résineux tolérants
+633,0,105,0,255,Hêtre à grandes feuilles associé à des résineux
+634,0,127,0,255,Mélèze laricin
+635,0,127,0,255,Mélèze laricin associé à des feuillus intolérants
+636,0,127,0,255,Mélèze laricin associé à des feuillus tolérants
+637,142,118,114,255,Mélèze laricin associé à des feuillus indéterminés
+638,0,127,0,255,Forêt mixte
+639,0,127,0,255,Noyer cendré
+640,0,127,0,255,Noyer cendré associé à des pins
+641,0,127,0,255,Noyer cendré associé à des résineux tolérants
+642,0,127,0,255,Noyer cendré associé à des résineux
+643,0,105,0,255,Ormes
+644,0,127,0,255,Ormes associés à des pins
+645,0,127,0,255,Ormes associés à des résineux tolérants
+646,0,105,0,255,Ormes associés à des résineux
+647,0,127,0,255,Ostryer de Virginie
+648,0,127,0,255,Ostryer de Virginie associé à des pins
+649,0,127,0,255,Ostryer de Virginie associé à des résineux tolérants
+650,0,105,0,255,Ostryer de Virginie associé à des résineux
+651,142,118,114,255,Pin blanc
+652,0,127,0,255,Pin blanc associé à du bouleau jaune
+653,0,127,0,255,Pin blanc associé à des érables
+654,142,118,114,255,Pin blanc associé à des feuillus intolérants
+655,0,127,0,255,Pin blanc associé à des feuillus tolérants
+656,0,127,0,255,Pin blanc associé à des feuillus indéterminés
+657,0,127,0,255,Pin rigide
+658,0,127,0,255,Peupliers
+659,0,127,0,255,Peupliers associés à des épinettes noire ou rouge
+660,142,118,114,255,Peupliers associés à des pins
+661,0,127,0,255,Peupliers associés à des résineux tolérants
+662,0,105,0,255,Peupliers associés à des résineux
+663,0,127,0,255,Peupliers associés à des sapin baumier et/ou épinette blanche
+664,0,127,0,255,Pin gris
+665,0,127,0,255,Pin gris associé à des feuillus intolérants
+666,0,127,0,255,Pin gris associé à des feuillus tolérants
+667,0,127,0,255,Pin gris associé à des feuillus indéterminés
+668,142,118,114,255,Pins
+669,0,127,0,255,Pins associés à des feuillus intolérants
+670,0,127,0,255,Pins associés à des feuillus tolérants
+671,0,127,0,255,Pins associés à des feuillus indéterminés
+672,142,118,114,255,Pin rouge
+673,0,127,0,255,Pin rouge associé à du bouleau jaune
+674,0,127,0,255,Pin rouge associé à des chênes
+675,0,127,0,255,Pin rouge associé à des érables
+676,142,118,114,255,Pin rouge associé à des feuillus intolérants
+677,0,127,0,255,Pin rouge associé à des feuillus tolérants
+678,0,127,0,255,Pin rouge associé à des feuillus indéterminés
+679,0,127,0,255,Pin rouge associé à du hêtre à grandes feuilles
+680,0,127,0,255,Pin rouge associé à du noyer cendré
+681,0,127,0,255,Pin rouge associé à des ormes
+682,0,127,0,255,Pin rouge associé à de l'ostryer de Virginie
+683,0,127,0,255,Pin rouge associé à du tilleul d'Amérique
+684,0,127,0,255,Épinette noire et sapin baumier associés à des feuillus intolérants
+685,0,127,0,255,Épinette noire et sapin baumier associés à des feuillus tolérants
+686,0,127,0,255,Épinette noire et sapin baumier associés à des feuillus indéterminés
+687,142,118,114,255,Pruche du Canada
+688,0,127,0,255,Pruche du Canada associée à du bouleau jaune
+689,142,118,114,255,Pruche du Canada associée à des érables
+690,0,127,0,255,Pruche du Canada associée à des feuillus intolérants
+691,0,127,0,255,Pruche du Canada associée à des feuillus tolérants
+692,0,127,0,255,Pruche du Canada associée à des feuillus indéterminés
+693,0,127,0,255,Résineux
+694,0,127,0,255,Résineux associés à du bouleau jaune
+695,142,118,114,255,Résineux associés à des érables
+696,0,127,0,255,Résineux associés à des feuillus intolérants
+697,0,127,0,255,Résineux associés à des feuillus tolérants
+698,0,127,0,255,Résineux associés à des feuillus indéterminés
+699,0,127,0,255,Sapin baumier
+700,0,127,0,255,Sapin baumier associé à du bouleau jaune
+701,142,118,114,255,Sapin baumier associé à des épinettes noire ou rouge
+702,0,127,0,255,Sapin baumier associé à des érables
+703,142,118,114,255,Sapin baumier associé à des feuillus intolérants
+704,0,127,0,255,Sapin baumier associé à des feuillus tolérants
+705,0,127,0,255,Sapin baumier associé à des feuillus indéterminés
+706,0,127,0,255,Sapin baumier associé à du thuyas occidental
+707,0,127,0,255,Sapin baumier et/ou épinette blanche
+708,142,118,114,255,Sapin baumier et/ou épinette blanche associés à du bouleau jaune
+709,142,118,114,255,Sapin baumier et/ou épinette blanche associés à de l'épinette noire
+710,0,127,0,255,Sapin baumier et/ou épinette blanche associés à des épinettes noire ou rouge
+711,142,118,114,255,Sapin baumier et/ou épinette blanche associés à des érables
+712,142,118,114,255,Sapin baumier et/ou épinette blanche associés à des feuillus intolérants
+713,0,127,0,255,Sapin baumier et/ou épinette blanche associés à des feuillus tolérants
+714,0,127,0,255,Sapin baumier et/ou épinette blanche associés à des feuillus indéterminés
+715,0,127,0,255,Sapin baumier et épinette noire associés à du bouleau jaune
+716,0,127,0,255,Sapin baumier et épinette noire associés à des érables
+717,0,105,0,255,Sapin baumier et épinette noire associés à des feuillus intolérants
+718,0,127,0,255,Sapin baumier et épinette noire associés à des feuillus tolérants
+719,0,127,0,255,Sapin baumier et épinette noire associés à des feuillus indéterminés
+720,0,105,0,255,Tilleul d'Amérique
+721,142,118,114,255,Tilleul d'Amérique associé à des pins
+722,0,127,0,255,Tilleul d'Amérique associé à des résineux tolérants
+723,0,127,0,255,Tilleul d'Amérique associé à des résineux
+724,0,127,0,255,Thuyas occidental
+725,0,127,0,255,Thuyas occidental associé à du bouleau jaune
+726,0,127,0,255,Thuyas occidental associé à des érables
+727,0,127,0,255,Thuyas occidental associé à des feuillus intolérants
+728,0,127,0,255,Thuyas occidental associé à des feuillus tolérants
+729,0,127,0,255,Thuyas occidental associé à des feuillus indéterminés
+730,0,105,0,255,Peuplement issu d'une plantation de feuillus indigènes
+731,0,127,0,255,Peuplement issu d'une plantation mélangée indigène
+732,142,118,114,255,Peuplement issu d'une plantation de résineux indigènes
+733,0,105,0,255,Peuplement issu d'une plantation de feuillus exotiques
+734,0,105,0,255,Peuplement issu d'une plantation mélangée exotique
+735,142,118,114,255,Peuplement issu d'une plantation de résineux exotiques
+2000,137,90,68,255,Tourbière
+2020,5,255,255,255,Eau / Tourbière
+2021,10,255,255,255,Lac / Tourbière
+2022,0,196,255,255,Mare et/ou eau peu profonde / Tourbière
+2023,0,166,255,255,Réservoir / Tourbière
+2024,0,255,255,255,Cours d'eau / Tourbière
+2025,0,175,175,255,Eau salée / Tourbière
+2026,0,215,215,255,Eau saumâtre / Tourbière
+2027,5,215,215,255,Lac de thermokartz / Tourbière
+2029,10,215,215,255,Neige et glace permanentes; combe à neige / Tourbière
+2030,200,200,200,255,Sol nu; roc-sol à nu; sol dénudé ou semi-dénudé sec / Tourbière
+2031,205,200,200,255,Champs de bloc / Tourbière
+2050,140,255,0,255,Forêt ou arbustaie improductive / Tourbière
+2051,158,255,0,255,Aulnaie / Tourbière
+2052,158,155,0,255,Arbustaie basse et mares de thermokarst / Tourbière
+2053,140,217,0,255,Arbustaie arctique basse (0.3 à 1 m) / Tourbière
+2054,140,217,0,255,Forêt arbustive haute (> 2 m) / Tourbière
+2055,49,194,0,255,Friche / Tourbière
+2056,190,208,215,255,Arbustaie arctique haute (> 1 m) / Tourbière
+2057,140,217,0,255,Forêt arbustive haute (> 2 m) \ Tourbière
+2060,193,12,218,255,Lande à lichens / Tourbière
+2061,196,15,212,255,Lande à lichens et arbustes / Tourbière
+2062,199,18,215,255,Lande subarctique / Tourbière
+2063,202,22,218,255,Lande subarctique avec 30 à 70 % d’arbustes / Tourbière
+2064,205,25,221,255,Lande rocheuse / Tourbière
+2065,208,28,224,255,Lande à éricacées / Tourbière
+2066,208,28,224,255,Lande herbacée / Tourbière
+2067,208,28,224,255,Lande à mousse / Tourbière
+2068,208,28,224,255,Lande alpine / Tourbière
+2071,211,232,227,255,Toundra à arbustes dressés / Tourbière
+2072,211,232,227,255,Toundra à arbustes dressés avec ostioles / Tourbière
+2073,208,28,224,255,Toundra à arbustes dressés avec 30 à 70 % d’arbustes / Tourbière
+2074,211,232,233,255,Toundra à arbustes dressés avec ostioles et 30 à 70 % d’arbustes / Tourbière
+2075,211,232,233,255,Toundra à arbustes prostrés / Tourbière
+2076,211,232,233,255,Toundra à arbustes prostrés avec ostioles / Tourbière
+2077,211,232,233,255,Toundra herbacée avec arbustes prostrés / Tourbière
+2101,220,236,241,255,Serre / Tourbière
+2120,255,255,191,255,Agriculture indifférenciée / Tourbière
+2122,238,222,173,255,Culture pérenne et pâturage / Tourbière
+2131,236,222,173,255,Jachère / Tourbière
+2132,204,255,0,255,Autre céréale / Tourbière
+2133,255,255,0,255,Orge / Tourbière
+2134,153,204,0,255,Sorgho / Tourbière
+2135,249,255,217,255,Millet / Tourbière
+2136,255,238,112,255,Avoine / Tourbière
+2137,219,227,29,255,Seigle / Tourbière
+2138,235,176,0,255,Épeautre / Tourbière
+2139,158,129,0,255,Triticale / Tourbière
+2140,222,163,102,255,Blé / Tourbière
+2141,255,212,0,255,Panic érigé / Tourbière
+2147,255,211,127,255,Maïs / Tourbière
+2153,255,240,0,255,Canola ou colza / Tourbière
+2154,214,255,112,255,Graine de lin / Tourbière
+2157,217,255,112,255,Tournesol / Tourbière
+2158,173,105,0,255,Soya / Tourbière
+2160,255,102,51,255,Autre légumineuse / Tourbière
+2162,255,125,0,255,Pois / Tourbière
+2167,165,245,122,255,Haricot / Tourbière
+2168,255,102,102,255,Laitue / Tourbière
+2169,204,102,102,255,Ail/Oignon/Poireau / Tourbière
+2170,204,102,153,255,Carotte/Panais / Tourbière
+2171,204,153,153,255,Cucurbitacée / Tourbière
+2172,153,102,153,255,Crucifère (feuilles) / Tourbière
+2173,151,255,138,255,Légume à fruits / Tourbière
+2175,255,221,191,255,Autre légume / Tourbière
+2176,102,51,153,255,Crucifère (racines) / Tourbière
+2177,161,255,158,255,Pomme de terre / Tourbière
+2178,102,102,153,255,Betterave à sucre / Tourbière
+2180,232,125,0,255,Autre fruit / Tourbière
+2181,255,144,97,255,Baie / Tourbière
+2182,255,69,41,255,Canneberge / Tourbière
+2183,255,99,146,255,Bleuet / Tourbière
+2188,252,69,41,255,Verger / Tourbière
+2190,249,69,41,255,Vignoble / Tourbière
+2192,181,251,5,255,Gazonnière / Tourbière
+2193,204,255,5,255,Fines herbes / Tourbière
+2194,233,255,190,255,Pépinière / Tourbière
+2195,163,255,115,255,Sarrasin / Tourbière
+2197,238,176,0,255,Chanvre / Tourbière
+2210,142,118,114,255,Forêt de conifères / Tourbière
+2211,38,115,0,255,Forêt de conifères dense / Tourbière
+2212,142,118,114,255,Forêt de conifères avec arbustes décidus / Tourbière
+2213,41,115,0,255,Forêt de conifères clairsemée / Tourbière
+2214,142,118,114,255,Forêt de conifères sur lichens / Tourbière
+2215,0,160,0,255,Forêt de conifères ouverte / Tourbière
+2216,142,118,114,255,Forêt de conifères sur lichens et mousses / Tourbière
+2218,142,118,114,255,Forêt de conifères sur mousses et éricacées / Tourbière
+2220,0,105,0,255,Forêt de feuillus / Tourbière
+2221,0,184,0,255,Forêt de feuillus dense / Tourbière
+2223,0,204,0,255,Forêt de feuillus clairsemée / Tourbière
+2225,0,157,0,255,Forêt de feuillus ouverte / Tourbière
+2230,0,127,0,255,Forêt mixte / Tourbière
+2231,0,120,0,255,Forêt mixte dense / Tourbière
+2233,54,127,74,255,Forêt mixte clairsemée / Tourbière
+2235,135,153,0,255,Forêt mixte ouverte / Tourbière
+2250,115,153,0,255,Opération forestière / Tourbière
+2253,170,85,0,255,Coupe forestière / Tourbière
+2255,173,85,0,255,Plantation / Tourbière
+2256,173,85,0,255,Plantation de feuillus indigènes / Tourbière
+2257,173,85,0,255,Plantation mélangée indigène / Tourbière
+2258,173,85,0,255,Plantation de résineux indigènes / Tourbière
+2259,173,85,0,255,Plantation de feuillus exotiques / Tourbière
+2260,173,85,0,255,Plantation mélangée exotique / Tourbière
+2261,173,85,0,255,Plantation de résineux exotiques / Tourbière
+2263,176,85,0,255,Brûlis / Tourbière
+2280,152,76,0,255,Perturbation naturelle / Tourbière
+2300,128,64,64,255,Autre terrain / Tourbière
+2301,255,180,180,255,Zone développée / Tourbière
+2312,252,110,122,255,Pistes de ski alpin / Tourbière
+2313,80,175,80,255,Golf / Tourbière
+2320,115,150,100,255,Route ou chemin / Tourbière
+2321,255,0,0,255,Aéroport / Tourbière
+2322,78,78,78,255,Chemin de fer / Tourbière
+2341,3,3,3,255,Carrière ou gravière / Tourbière
+2343,101,0,135,255,Mine et déchet de mine / Tourbière
+2344,21,0,156,255,Bassin de filtration; de décontamination; de déchets liquides; etc. / Tourbière
+2345,25,25,92,255,Dépotoir / Tourbière
+2346,135,0,156,255,Zone industrielle et commerce / Tourbière
+2351,255,120,125,255,Ligne de transmission ou de transport d'énergie / Tourbière
+2360,180,180,180,255,Exploitation de tourbe / Tourbière
+2501,0,105,0,255,Bouleau gris / Tourbière
+2502,0,127,0,255,Bouleau gris associé à des pins / Tourbière
+2503,0,127,0,255,Bouleau gris associé à des résineux tolérants / Tourbière
+2504,0,127,0,255,Bouleau gris associé à des résineux / Tourbière
+2505,0,105,0,255,Bouleau jaune / Tourbière
+2506,0,127,0,255,Bouleau jaune associé à des épinettes noire ou rouge / Tourbière
+2507,0,127,0,255,Bouleau jaune associé à du mélèze laricin / Tourbière
+2508,0,127,0,255,Bouleau jaune associé à des pins / Tourbière
+2509,0,127,0,255,Bouleau jaune associé à de la pruche du Canada / Tourbière
+2510,0,127,0,255,Bouleau jaune associé à des résineux / Tourbière
+2511,0,127,0,255,Bouleau jaune associé à des sapin baumier et/ou épinette blanche / Tourbière
+2512,0,127,0,255,Bouleau jaune associé à des sapin baumier et épinette noire / Tourbière
+2513,0,105,0,255,Bouleau jaune associé à du thuyas occidental / Tourbière
+2514,0,127,0,255,Bouleau blanc / Tourbière
+2515,0,127,0,255,Bouleau blanc associé à des épinettes noire ou rouge / Tourbière
+2516,0,127,0,255,Bouleau blanc associé à des pins / Tourbière
+2517,0,127,0,255,Bouleau blanc associé à des résineux tolérants / Tourbière
+2518,0,127,0,255,Bouleau blanc associé à des résineux / Tourbière
+2519,0,105,0,255,Bouleau blanc associé à des sapin baumier et/ou épinette blanche / Tourbière
+2520,0,127,0,255,Caryer cordiforme / Tourbière
+2521,0,127,0,255,Chênes / Tourbière
+2522,0,105,0,255,Chênes associés à des pins / Tourbière
+2523,0,127,0,255,Chênes associés à des résineux tolérants / Tourbière
+2524,0,127,0,255,Chênes associés à des résineux / Tourbière
+2525,0,127,0,255,Cerisier tardif / Tourbière
+2526,0,105,0,255,Cerisier tardif associé à des pins / Tourbière
+2527,0,127,0,255,Cerisier tardif associé à des résineux tolérants / Tourbière
+2528,0,127,0,255,Cerisier tardif associé à des résineux / Tourbière
+2529,0,105,0,255,Érable argenté / Tourbière
+2530,0,105,0,255,Érable argenté associé à des pins / Tourbière
+2531,0,127,0,255,Érable argenté associé à des résineux tolérants / Tourbière
+2532,0,127,0,255,Érable argenté associé à des résineux / Tourbière
+2533,0,127,0,255,Épinette blanche / Tourbière
+2534,142,118,114,255,Épinette blanche associée à des feuillus intolérants / Tourbière
+2535,0,127,0,255,Épinette blanche associée à des feuillus tolérants / Tourbière
+2536,0,127,0,255,Épinette blanche associée à des feuillus indéterminés / Tourbière
+2537,0,127,0,255,Érable noir / Tourbière
+2538,0,105,0,255,Épinette noire / Tourbière
+2539,142,118,114,255,Épinette noire associée à de l'épinette blanche / Tourbière
+2540,142,118,114,255,Épinette noire associée à des feuillus intolérants / Tourbière
+2541,0,127,0,255,Épinette noire associée à des feuillus tolérants / Tourbière
+2542,0,127,0,255,Épinette noire associée à des feuillus indéterminés / Tourbière
+2543,0,127,0,255,Épinette noire associée à du mélèze laricin / Tourbière
+2544,142,118,114,255,Épinette noire associée à des pins / Tourbière
+2545,142,118,114,255,Épinette noire associée à du sapin baumier / Tourbière
+2546,142,118,114,255,Épinette noire associée à des sapin baumier et/ou épinette blanche / Tourbière
+2547,142,118,114,255,Érable rouge / Tourbière
+2548,0,105,0,255,Érable rouge associé à des épinettes noire ou rouge / Tourbière
+2549,0,127,0,255,Érable rouge associé à du mélèze laricin / Tourbière
+2550,0,127,0,255,Érable rouge associé à des pins / Tourbière
+2551,0,127,0,255,Érable rouge associé à de la pruche du Canada / Tourbière
+2552,0,127,0,255,Érable rouge associé à des résineux / Tourbière
+2553,0,127,0,255,Érable rouge associé à des sapin baumier et/ou épinette blanche / Tourbière
+2554,0,127,0,255,Érable rouge associé à du thuyas occidental / Tourbière
+2555,0,127,0,255,Épinettes noire ou rouge / Tourbière
+2556,142,118,114,255,Épinettes noire ou rouge associés à de l'épinette blanche / Tourbière
+2557,0,127,0,255,Épinettes noire ou rouge associés à des feuillus intolérants / Tourbière
+2558,0,127,0,255,Épinettes noire ou rouge associés à des feuillus tolérants / Tourbière
+2559,0,127,0,255,Épinettes noire ou rouge associés à des feuillus indéterminés / Tourbière
+2560,0,127,0,255,Épinettes noire ou rouge associés à du mélèze laricin / Tourbière
+2561,142,118,114,255,Épinettes noire ou rouge associés à des pins / Tourbière
+2562,142,118,114,255,Épinettes noire ou rouge associés à du sapin baumier / Tourbière
+2563,142,118,114,255,Épinettes noire ou rouge associés à des sapin baumier et/ou épinette blanche / Tourbière
+2564,0,105,0,255,Épinettes noire ou rouge associés à du thuyas occidental / Tourbière
+2565,142,118,114,255,Érables / Tourbière
+2566,0,105,0,255,Érables associés à du bouleau jaune / Tourbière
+2567,0,105,0,255,Érables associés à des épinettes noire ou rouge / Tourbière
+2568,0,127,0,255,Érables associés à du mélèze laricin / Tourbière
+2569,0,127,0,255,Érables associés à des pins / Tourbière
+2570,0,127,0,255,Érables associés à de la pruche du Canada / Tourbière
+2571,0,127,0,255,Érables associés à des résineux / Tourbière
+2572,0,127,0,255,Érables associés à des sapin baumier et/ou épinette blanche / Tourbière
+2573,0,127,0,255,Érables associés à du thuyas occidental / Tourbière
+2574,0,127,0,255,Érable à sucre / Tourbière
+2575,0,105,0,255,Érable à sucre associé à du bouleau jaune / Tourbière
+2576,0,105,0,255,Érable à sucre associé à des épinettes noire ou rouge / Tourbière
+2577,0,127,0,255,Érable à sucre associé à du mélèze laricin / Tourbière
+2578,0,127,0,255,Érable à sucre associé à des pins / Tourbière
+2579,0,105,0,255,Érable à sucre associé à de la pruche du Canada / Tourbière
+2580,0,127,0,255,Érable à sucre associé à des résineux / Tourbière
+2581,0,127,0,255,Érable à sucre associé à des sapin baumier et/ou épinette blanche / Tourbière
+2582,0,127,0,255,Érable à sucre associé à du thuyas occidental / Tourbière
+2583,0,127,0,255,Épinette rouge / Tourbière
+2584,0,127,0,255,Épinette rouge associée à du bouleau jaune / Tourbière
+2585,0,127,0,255,Épinette rouge associée à des feuillus intolérants / Tourbière
+2586,0,127,0,255,Épinette rouge associée à des feuillus tolérants / Tourbière
+2587,0,127,0,255,Épinette rouge associée à des feuillus indéterminés / Tourbière
+2588,0,127,0,255,Épinette rouge associée à du mélèze laricin / Tourbière
+2589,0,127,0,255,Épinette rouge associée à des pins / Tourbière
+2590,0,127,0,255,Épinette rouge associée à des sapin baumier et/ou épinette blanche / Tourbière
+2591,142,118,114,255,Frêne d'Amérique / Tourbière
+2592,142,118,114,255,Frêne d'Amérique associé à des pins / Tourbière
+2593,142,118,114,255,Frêne d'Amérique associé à des résineux tolérants / Tourbière
+2594,0,105,0,255,Frêne d'Amérique associé à des résineux / Tourbière
+2595,0,127,0,255,Feuillus intolérants / Tourbière
+2596,0,127,0,255,Feuillus intolérants associés à des épinettes noire ou rouge / Tourbière
+2597,0,127,0,255,Feuillus intolérants associés à du mélèze laricin / Tourbière
+2598,0,105,0,255,Feuillus intolérants associés à des pins / Tourbière
+2599,0,127,0,255,Feuillus intolérants associés à de la pruche du Canada / Tourbière
+2600,0,127,0,255,Feuillus intolérants associés à des résineux / Tourbière
+2601,0,127,0,255,Feuillus intolérants associés à des sapin baumier et/ou épinette blanche / Tourbière
+2602,0,127,0,255,Feuillus intolérants associés à du thuyas occidental / Tourbière
+2603,0,127,0,255,Frêne noir / Tourbière
+2604,0,127,0,255,Frêne noir associé à des pins / Tourbière
+2605,0,127,0,255,Frêne noir associé à des résineux tolérants / Tourbière
+2606,0,105,0,255,Frêne noir associé à des résineux / Tourbière
+2607,0,127,0,255,Frêne de Pennsylvanie / Tourbière
+2608,0,127,0,255,Frêne de Pennsylvanie associé à des pins / Tourbière
+2609,0,127,0,255,Frêne de Pennsylvanie associé à des résineux tolérants / Tourbière
+2610,0,105,0,255,Frêne de Pennsylvanie associé à des résineux / Tourbière
+2611,0,127,0,255,Frênes / Tourbière
+2612,0,127,0,255,Frênes associés à des pins / Tourbière
+2613,0,127,0,255,Frênes associés à des résineux tolérants / Tourbière
+2614,0,105,0,255,Frênes associés à des résineux / Tourbière
+2615,0,127,0,255,Feuillus tolérants / Tourbière
+2616,0,127,0,255,Feuillus tolérants associés à des épinettes noire ou rouge / Tourbière
+2617,0,127,0,255,Feuillus tolérants associés à du mélèze laricin / Tourbière
+2618,0,105,0,255,Feuillus tolérants associés à des pins / Tourbière
+2619,0,127,0,255,Feuillus tolérants associés à de la pruche du Canada / Tourbière
+2620,0,127,0,255,Feuillus tolérants associés à des résineux / Tourbière
+2621,0,127,0,255,Feuillus tolérants associés à des sapin baumier et/ou épinette blanche / Tourbière
+2622,0,127,0,255,Feuillus tolérants associés à du thuyas occidental / Tourbière
+2623,0,127,0,255,Feuillus indéterminés / Tourbière
+2624,0,127,0,255,Feuillus indéterminés associés à des épinettes noire ou rouge / Tourbière
+2625,0,127,0,255,Feuillus indéterminés associés à du mélèze laricin / Tourbière
+2626,0,105,0,255,Feuillus indéterminés associés à des pins / Tourbière
+2627,0,127,0,255,Feuillus indéterminés associés à de la pruche du Canada / Tourbière
+2628,0,127,0,255,Feuillus indéterminés associés à des sapin baumier et/ou épinette blanche / Tourbière
+2629,0,127,0,255,Feuillus indéterminés associés à du thuyas occidental / Tourbière
+2630,0,127,0,255,Hêtre à grandes feuilles / Tourbière
+2631,0,127,0,255,Hêtre à grandes feuilles associé à des pins / Tourbière
+2632,0,127,0,255,Hêtre à grandes feuilles associé à des résineux tolérants / Tourbière
+2633,0,105,0,255,Hêtre à grandes feuilles associé à des résineux / Tourbière
+2634,0,127,0,255,Mélèze laricin / Tourbière
+2635,0,127,0,255,Mélèze laricin associé à des feuillus intolérants / Tourbière
+2636,0,127,0,255,Mélèze laricin associé à des feuillus tolérants / Tourbière
+2637,142,118,114,255,Mélèze laricin associé à des feuillus indéterminés / Tourbière
+2638,0,127,0,255,Forêt mixte / Tourbière
+2639,0,127,0,255,Noyer cendré / Tourbière
+2640,0,127,0,255,Noyer cendré associé à des pins / Tourbière
+2641,0,127,0,255,Noyer cendré associé à des résineux tolérants / Tourbière
+2642,0,127,0,255,Noyer cendré associé à des résineux / Tourbière
+2643,0,105,0,255,Ormes / Tourbière
+2644,0,127,0,255,Ormes associés à des pins / Tourbière
+2645,0,127,0,255,Ormes associés à des résineux tolérants / Tourbière
+2646,0,105,0,255,Ormes associés à des résineux / Tourbière
+2647,0,127,0,255,Ostryer de Virginie / Tourbière
+2648,0,127,0,255,Ostryer de Virginie associé à des pins / Tourbière
+2649,0,127,0,255,Ostryer de Virginie associé à des résineux tolérants / Tourbière
+2650,0,105,0,255,Ostryer de Virginie associé à des résineux / Tourbière
+2651,142,118,114,255,Pin blanc / Tourbière
+2652,0,127,0,255,Pin blanc associé à du bouleau jaune / Tourbière
+2653,0,127,0,255,Pin blanc associé à des érables / Tourbière
+2654,142,118,114,255,Pin blanc associé à des feuillus intolérants / Tourbière
+2655,0,127,0,255,Pin blanc associé à des feuillus tolérants / Tourbière
+2656,0,127,0,255,Pin blanc associé à des feuillus indéterminés / Tourbière
+2657,0,127,0,255,Pin rigide / Tourbière
+2658,0,127,0,255,Peupliers / Tourbière
+2659,0,127,0,255,Peupliers associés à des épinettes noire ou rouge / Tourbière
+2660,142,118,114,255,Peupliers associés à des pins / Tourbière
+2661,0,127,0,255,Peupliers associés à des résineux tolérants / Tourbière
+2662,0,105,0,255,Peupliers associés à des résineux / Tourbière
+2663,0,127,0,255,Peupliers associés à des sapin baumier et/ou épinette blanche / Tourbière
+2664,0,127,0,255,Pin gris / Tourbière
+2665,0,127,0,255,Pin gris associé à des feuillus intolérants / Tourbière
+2666,0,127,0,255,Pin gris associé à des feuillus tolérants / Tourbière
+2667,0,127,0,255,Pin gris associé à des feuillus indéterminés / Tourbière
+2668,142,118,114,255,Pins / Tourbière
+2669,0,127,0,255,Pins associés à des feuillus intolérants / Tourbière
+2670,0,127,0,255,Pins associés à des feuillus tolérants / Tourbière
+2671,0,127,0,255,Pins associés à des feuillus indéterminés / Tourbière
+2672,142,118,114,255,Pin rouge / Tourbière
+2673,0,127,0,255,Pin rouge associé à du bouleau jaune / Tourbière
+2674,0,127,0,255,Pin rouge associé à des chênes / Tourbière
+2675,0,127,0,255,Pin rouge associé à des érables / Tourbière
+2676,142,118,114,255,Pin rouge associé à des feuillus intolérants / Tourbière
+2677,0,127,0,255,Pin rouge associé à des feuillus tolérants / Tourbière
+2678,0,127,0,255,Pin rouge associé à des feuillus indéterminés / Tourbière
+2679,0,127,0,255,Pin rouge associé à du hêtre à grandes feuilles / Tourbière
+2680,0,127,0,255,Pin rouge associé à du noyer cendré / Tourbière
+2681,0,127,0,255,Pin rouge associé à des ormes / Tourbière
+2682,0,127,0,255,Pin rouge associé à de l'ostryer de Virginie / Tourbière
+2683,0,127,0,255,Pin rouge associé à du tilleul d'Amérique / Tourbière
+2684,0,127,0,255,Épinette noire et sapin baumier associés à des feuillus intolérants / Tourbière
+2685,0,127,0,255,Épinette noire et sapin baumier associés à des feuillus tolérants / Tourbière
+2686,0,127,0,255,Épinette noire et sapin baumier associés à des feuillus indéterminés / Tourbière
+2687,142,118,114,255,Pruche du Canada / Tourbière
+2688,0,127,0,255,Pruche du Canada associée à du bouleau jaune / Tourbière
+2689,142,118,114,255,Pruche du Canada associée à des érables / Tourbière
+2690,0,127,0,255,Pruche du Canada associée à des feuillus intolérants / Tourbière
+2691,0,127,0,255,Pruche du Canada associée à des feuillus tolérants / Tourbière
+2692,0,127,0,255,Pruche du Canada associée à des feuillus indéterminés / Tourbière
+2693,0,127,0,255,Résineux / Tourbière
+2694,0,127,0,255,Résineux associés à du bouleau jaune / Tourbière
+2695,142,118,114,255,Résineux associés à des érables / Tourbière
+2696,0,127,0,255,Résineux associés à des feuillus intolérants / Tourbière
+2697,0,127,0,255,Résineux associés à des feuillus tolérants / Tourbière
+2698,0,127,0,255,Résineux associés à des feuillus indéterminés / Tourbière
+2699,0,127,0,255,Sapin baumier / Tourbière
+2700,0,127,0,255,Sapin baumier associé à du bouleau jaune / Tourbière
+2701,142,118,114,255,Sapin baumier associé à des épinettes noire ou rouge / Tourbière
+2702,0,127,0,255,Sapin baumier associé à des érables / Tourbière
+2703,142,118,114,255,Sapin baumier associé à des feuillus intolérants / Tourbière
+2704,0,127,0,255,Sapin baumier associé à des feuillus tolérants / Tourbière
+2705,0,127,0,255,Sapin baumier associé à des feuillus indéterminés / Tourbière
+2706,0,127,0,255,Sapin baumier associé à du thuyas occidental / Tourbière
+2707,0,127,0,255,Sapin baumier et/ou épinette blanche / Tourbière
+2708,142,118,114,255,Sapin baumier et/ou épinette blanche associés à du bouleau jaune / Tourbière
+2709,142,118,114,255,Sapin baumier et/ou épinette blanche associés à de l'épinette noire / Tourbière
+2710,0,127,0,255,Sapin baumier et/ou épinette blanche associés à des épinettes noire ou rouge / Tourbière
+2711,142,118,114,255,Sapin baumier et/ou épinette blanche associés à des érables / Tourbière
+2712,142,118,114,255,Sapin baumier et/ou épinette blanche associés à des feuillus intolérants / Tourbière
+2713,0,127,0,255,Sapin baumier et/ou épinette blanche associés à des feuillus tolérants / Tourbière
+2714,0,127,0,255,Sapin baumier et/ou épinette blanche associés à des feuillus indéterminés / Tourbière
+2715,0,127,0,255,Sapin baumier et épinette noire associés à du bouleau jaune / Tourbière
+2716,0,127,0,255,Sapin baumier et épinette noire associés à des érables / Tourbière
+2717,0,105,0,255,Sapin baumier et épinette noire associés à des feuillus intolérants / Tourbière
+2718,0,127,0,255,Sapin baumier et épinette noire associés à des feuillus tolérants / Tourbière
+2719,0,127,0,255,Sapin baumier et épinette noire associés à des feuillus indéterminés / Tourbière
+2720,0,105,0,255,Tilleul d'Amérique / Tourbière
+2721,142,118,114,255,Tilleul d'Amérique associé à des pins / Tourbière
+2722,0,127,0,255,Tilleul d'Amérique associé à des résineux tolérants / Tourbière
+2723,0,127,0,255,Tilleul d'Amérique associé à des résineux / Tourbière
+2724,0,127,0,255,Thuyas occidental / Tourbière
+2725,0,127,0,255,Thuyas occidental associé à du bouleau jaune / Tourbière
+2726,0,127,0,255,Thuyas occidental associé à des érables / Tourbière
+2727,0,127,0,255,Thuyas occidental associé à des feuillus intolérants / Tourbière
+2728,0,127,0,255,Thuyas occidental associé à des feuillus tolérants / Tourbière
+2729,0,127,0,255,Thuyas occidental associé à des feuillus indéterminés / Tourbière
+2730,0,105,0,255,Peuplement issu d'une plantation de feuillus indigènes / Tourbière
+2731,0,127,0,255,Peuplement issu d'une plantation mélangée indigène / Tourbière
+2732,142,118,114,255,Peuplement issu d'une plantation de résineux indigènes / Tourbière
+2733,0,105,0,255,Peuplement issu d'une plantation de feuillus exotiques / Tourbière
+2734,0,105,0,255,Peuplement issu d'une plantation mélangée exotique / Tourbière
+2735,142,118,114,255,Peuplement issu d'une plantation de résineux exotiques / Tourbière
+3000,14,94,72,255,Tourbière à palse
+3020,5,255,255,255,Eau / Tourbière à palse
+3021,10,255,255,255,Lac / Tourbière à palse
+3022,0,196,255,255,Mare et/ou eau peu profonde / Tourbière à palse
+3023,0,166,255,255,Réservoir / Tourbière à palse
+3024,0,255,255,255,Cours d'eau / Tourbière à palse
+3025,0,175,175,255,Eau salée / Tourbière à palse
+3026,0,215,215,255,Eau saumâtre / Tourbière à palse
+3027,5,215,215,255,Lac de thermokartz / Tourbière à palse
+3029,10,215,215,255,Neige et glace permanentes; combe à neige / Tourbière à palse
+3030,200,200,200,255,Sol nu; roc-sol à nu; sol dénudé ou semi-dénudé sec / Tourbière à palse
+3031,205,200,200,255,Champs de bloc / Tourbière à palse
+3050,140,255,0,255,Forêt ou arbustaie improductive / Tourbière à palse
+3051,158,255,0,255,Aulnaie / Tourbière à palse
+3052,158,155,0,255,Arbustaie basse et mares de thermokarst / Tourbière à palse
+3053,140,217,0,255,Arbustaie arctique basse (0.3 à 1 m) / Tourbière à palse
+3054,140,217,0,255,Forêt arbustive haute (> 2 m) / Tourbière à palse
+3055,49,194,0,255,Friche / Tourbière à palse
+3056,190,208,215,255,Arbustaie arctique haute (> 1 m) / Tourbière à palse
+3057,140,217,0,255,Forêt arbustive haute (> 2 m) \Tourbière à palse
+3060,193,12,218,255,Lande à lichens / Tourbière à palse
+3061,196,15,212,255,Lande à lichens et arbustes / Tourbière à palse
+3062,199,18,215,255,Lande subarctique / Tourbière à palse
+3063,202,22,218,255,Lande subarctique avec 30 à 70 % d’arbustes / Tourbière à palse
+3064,205,25,221,255,Lande rocheuse / Tourbière à palse
+3065,208,28,224,255,Lande à éricacées / Tourbière à palse
+3066,208,28,224,255,Lande herbacée / Tourbière à palse
+3067,208,28,224,255,Lande à mousse / Tourbière à palse
+3068,208,28,224,255,Lande alpine / Tourbière à palse
+3071,211,232,227,255,Toundra à arbustes dressés / Tourbière à palse
+3072,211,232,227,255,Toundra à arbustes dressés avec ostioles / Tourbière à palse
+3073,208,28,224,255,Toundra à arbustes dressés avec 30 à 70 % d’arbustes / Tourbière à palse
+3074,211,232,233,255,Toundra à arbustes dressés avec ostioles et 30 à 70 % d’arbustes / Tourbière à palse
+3075,211,232,233,255,Toundra à arbustes prostrés / Tourbière à palse
+3076,211,232,233,255,Toundra à arbustes prostrés avec ostioles / Tourbière à palse
+3077,211,232,233,255,Toundra herbacée avec arbustes prostrés / Tourbière à palse
+3101,220,236,241,255,Serre / Tourbière à palse
+3120,255,255,191,255,Agriculture indifférenciée / Tourbière à palse
+3122,238,222,173,255,Culture pérenne et pâturage / Tourbière à palse
+3131,236,222,173,255,Jachère / Tourbière à palse
+3132,204,255,0,255,Autre céréale / Tourbière à palse
+3133,255,255,0,255,Orge / Tourbière à palse
+3134,153,204,0,255,Sorgho / Tourbière à palse
+3135,249,255,217,255,Millet / Tourbière à palse
+3136,255,238,112,255,Avoine / Tourbière à palse
+3137,219,227,29,255,Seigle / Tourbière à palse
+3138,235,176,0,255,Épeautre / Tourbière à palse
+3139,158,129,0,255,Triticale / Tourbière à palse
+3140,222,163,102,255,Blé / Tourbière à palse
+3141,255,212,0,255,Panic érigé / Tourbière à palse
+3147,255,211,127,255,Maïs / Tourbière à palse
+3153,255,240,0,255,Canola ou colza / Tourbière à palse
+3154,214,255,112,255,Graine de lin / Tourbière à palse
+3157,217,255,112,255,Tournesol / Tourbière à palse
+3158,173,105,0,255,Soya / Tourbière à palse
+3160,255,102,51,255,Autre légumineuse / Tourbière à palse
+3162,255,125,0,255,Pois / Tourbière à palse
+3167,165,245,122,255,Haricot / Tourbière à palse
+3168,255,102,102,255,Laitue / Tourbière à palse
+3169,204,102,102,255,Ail/Oignon/Poireau / Tourbière à palse
+3170,204,102,153,255,Carotte/Panais / Tourbière à palse
+3171,204,153,153,255,Cucurbitacée / Tourbière à palse
+3172,153,102,153,255,Crucifère (feuilles) / Tourbière à palse
+3173,151,255,138,255,Légume à fruits / Tourbière à palse
+3175,255,221,191,255,Autre légume / Tourbière à palse
+3176,102,51,153,255,Crucifère (racines) / Tourbière à palse
+3177,161,255,158,255,Pomme de terre / Tourbière à palse
+3178,102,102,153,255,Betterave à sucre / Tourbière à palse
+3180,232,125,0,255,Autre fruit / Tourbière à palse
+3181,255,144,97,255,Baie / Tourbière à palse
+3182,255,69,41,255,Canneberge / Tourbière à palse
+3183,255,99,146,255,Bleuet / Tourbière à palse
+3188,252,69,41,255,Verger / Tourbière à palse
+3190,249,69,41,255,Vignoble / Tourbière à palse
+3192,181,251,5,255,Gazonnière / Tourbière à palse
+3193,204,255,5,255,Fines herbes / Tourbière à palse
+3194,233,255,190,255,Pépinière / Tourbière à palse
+3195,163,255,115,255,Sarrasin / Tourbière à palse
+3197,238,176,0,255,Chanvre / Tourbière à palse
+3210,142,118,114,255,Forêt de conifères / Tourbière à palse
+3211,38,115,0,255,Forêt de conifères dense / Tourbière à palse
+3212,142,118,114,255,Forêt de conifères avec arbustes décidus / Tourbière à palse
+3213,41,115,0,255,Forêt de conifères clairsemée / Tourbière à palse
+3214,142,118,114,255,Forêt de conifères sur lichens / Tourbière à palse
+3215,0,160,0,255,Forêt de conifères ouverte / Tourbière à palse
+3216,142,118,114,255,Forêt de conifères sur lichens et mousses / Tourbière à palse
+3218,142,118,114,255,Forêt de conifères sur mousses et éricacées / Tourbière à palse
+3220,0,105,0,255,Forêt de feuillus / Tourbière à palse
+3221,0,184,0,255,Forêt de feuillus dense / Tourbière à palse
+3223,0,204,0,255,Forêt de feuillus clairsemée / Tourbière à palse
+3225,0,157,0,255,Forêt de feuillus ouverte / Tourbière à palse
+3230,0,127,0,255,Forêt mixte / Tourbière à palse
+3231,0,120,0,255,Forêt mixte dense / Tourbière à palse
+3233,54,127,74,255,Forêt mixte clairsemée / Tourbière à palse
+3235,135,153,0,255,Forêt mixte ouverte / Tourbière à palse
+3250,115,153,0,255,Opération forestière / Tourbière à palse
+3253,170,85,0,255,Coupe forestière / Tourbière à palse
+3255,173,85,0,255,Plantation / Tourbière à palse
+3256,173,85,0,255,Plantation de feuillus indigènes / Tourbière à palse
+3257,173,85,0,255,Plantation mélangée indigène / Tourbière à palse
+3258,173,85,0,255,Plantation de résineux indigènes / Tourbière à palse
+3259,173,85,0,255,Plantation de feuillus exotiques / Tourbière à palse
+3260,173,85,0,255,Plantation mélangée exotique / Tourbière à palse
+3261,173,85,0,255,Plantation de résineux exotiques / Tourbière à palse
+3263,176,85,0,255,Brûlis / Tourbière à palse
+3280,152,76,0,255,Perturbation naturelle / Tourbière à palse
+3300,128,64,64,255,Autre terrain / Tourbière à palse
+3301,255,180,180,255,Zone développée / Tourbière à palse
+3312,252,110,122,255,Pistes de ski alpin / Tourbière à palse
+3313,80,175,80,255,Golf / Tourbière à palse
+3320,115,150,100,255,Route ou chemin / Tourbière à palse
+3321,255,0,0,255,Aéroport / Tourbière à palse
+3322,78,78,78,255,Chemin de fer / Tourbière à palse
+3341,3,3,3,255,Carrière ou gravière / Tourbière à palse
+3343,101,0,135,255,Mine et déchet de mine / Tourbière à palse
+3344,21,0,156,255,Bassin de filtration; de décontamination; de déchets liquides; etc. / Tourbière à palse
+3345,25,25,92,255,Dépotoir / Tourbière à palse
+3346,135,0,156,255,Zone industrielle et commerce / Tourbière à palse
+3351,255,120,125,255,Ligne de transmission ou de transport d'énergie / Tourbière à palse
+3360,180,180,180,255,Exploitation de tourbe / Tourbière à palse
+3501,0,105,0,255,Bouleau gris / Tourbière à palse
+3502,0,127,0,255,Bouleau gris associé à des pins / Tourbière à palse
+3503,0,127,0,255,Bouleau gris associé à des résineux tolérants / Tourbière à palse
+3504,0,127,0,255,Bouleau gris associé à des résineux / Tourbière à palse
+3505,0,105,0,255,Bouleau jaune / Tourbière à palse
+3506,0,127,0,255,Bouleau jaune associé à des épinettes noire ou rouge / Tourbière à palse
+3507,0,127,0,255,Bouleau jaune associé à du mélèze laricin / Tourbière à palse
+3508,0,127,0,255,Bouleau jaune associé à des pins / Tourbière à palse
+3509,0,127,0,255,Bouleau jaune associé à de la pruche du Canada / Tourbière à palse
+3510,0,127,0,255,Bouleau jaune associé à des résineux / Tourbière à palse
+3511,0,127,0,255,Bouleau jaune associé à des sapin baumier et/ou épinette blanche / Tourbière à palse
+3512,0,127,0,255,Bouleau jaune associé à des sapin baumier et épinette noire / Tourbière à palse
+3513,0,105,0,255,Bouleau jaune associé à du thuyas occidental / Tourbière à palse
+3514,0,127,0,255,Bouleau blanc / Tourbière à palse
+3515,0,127,0,255,Bouleau blanc associé à des épinettes noire ou rouge / Tourbière à palse
+3516,0,127,0,255,Bouleau blanc associé à des pins / Tourbière à palse
+3517,0,127,0,255,Bouleau blanc associé à des résineux tolérants / Tourbière à palse
+3518,0,127,0,255,Bouleau blanc associé à des résineux / Tourbière à palse
+3519,0,105,0,255,Bouleau blanc associé à des sapin baumier et/ou épinette blanche / Tourbière à palse
+3520,0,127,0,255,Caryer cordiforme / Tourbière à palse
+3521,0,127,0,255,Chênes / Tourbière à palse
+3522,0,105,0,255,Chênes associés à des pins / Tourbière à palse
+3523,0,127,0,255,Chênes associés à des résineux tolérants / Tourbière à palse
+3524,0,127,0,255,Chênes associés à des résineux / Tourbière à palse
+3525,0,127,0,255,Cerisier tardif / Tourbière à palse
+3526,0,105,0,255,Cerisier tardif associé à des pins / Tourbière à palse
+3527,0,127,0,255,Cerisier tardif associé à des résineux tolérants / Tourbière à palse
+3528,0,127,0,255,Cerisier tardif associé à des résineux / Tourbière à palse
+3529,0,105,0,255,Érable argenté / Tourbière à palse
+3530,0,105,0,255,Érable argenté associé à des pins / Tourbière à palse
+3531,0,127,0,255,Érable argenté associé à des résineux tolérants / Tourbière à palse
+3532,0,127,0,255,Érable argenté associé à des résineux / Tourbière à palse
+3533,0,127,0,255,Épinette blanche / Tourbière à palse
+3534,142,118,114,255,Épinette blanche associée à des feuillus intolérants / Tourbière à palse
+3535,0,127,0,255,Épinette blanche associée à des feuillus tolérants / Tourbière à palse
+3536,0,127,0,255,Épinette blanche associée à des feuillus indéterminés / Tourbière à palse
+3537,0,127,0,255,Érable noir / Tourbière à palse
+3538,0,105,0,255,Épinette noire / Tourbière à palse
+3539,142,118,114,255,Épinette noire associée à de l'épinette blanche / Tourbière à palse
+3540,142,118,114,255,Épinette noire associée à des feuillus intolérants / Tourbière à palse
+3541,0,127,0,255,Épinette noire associée à des feuillus tolérants / Tourbière à palse
+3542,0,127,0,255,Épinette noire associée à des feuillus indéterminés / Tourbière à palse
+3543,0,127,0,255,Épinette noire associée à du mélèze laricin / Tourbière à palse
+3544,142,118,114,255,Épinette noire associée à des pins / Tourbière à palse
+3545,142,118,114,255,Épinette noire associée à du sapin baumier / Tourbière à palse
+3546,142,118,114,255,Épinette noire associée à des sapin baumier et/ou épinette blanche / Tourbière à palse
+3547,142,118,114,255,Érable rouge / Tourbière à palse
+3548,0,105,0,255,Érable rouge associé à des épinettes noire ou rouge / Tourbière à palse
+3549,0,127,0,255,Érable rouge associé à du mélèze laricin / Tourbière à palse
+3550,0,127,0,255,Érable rouge associé à des pins / Tourbière à palse
+3551,0,127,0,255,Érable rouge associé à de la pruche du Canada / Tourbière à palse
+3552,0,127,0,255,Érable rouge associé à des résineux / Tourbière à palse
+3553,0,127,0,255,Érable rouge associé à des sapin baumier et/ou épinette blanche / Tourbière à palse
+3554,0,127,0,255,Érable rouge associé à du thuyas occidental / Tourbière à palse
+3555,0,127,0,255,Épinettes noire ou rouge / Tourbière à palse
+3556,142,118,114,255,Épinettes noire ou rouge associés à de l'épinette blanche / Tourbière à palse
+3557,0,127,0,255,Épinettes noire ou rouge associés à des feuillus intolérants / Tourbière à palse
+3558,0,127,0,255,Épinettes noire ou rouge associés à des feuillus tolérants / Tourbière à palse
+3559,0,127,0,255,Épinettes noire ou rouge associés à des feuillus indéterminés / Tourbière à palse
+3560,0,127,0,255,Épinettes noire ou rouge associés à du mélèze laricin / Tourbière à palse
+3561,142,118,114,255,Épinettes noire ou rouge associés à des pins / Tourbière à palse
+3562,142,118,114,255,Épinettes noire ou rouge associés à du sapin baumier / Tourbière à palse
+3563,142,118,114,255,Épinettes noire ou rouge associés à des sapin baumier et/ou épinette blanche / Tourbière à palse
+3564,0,105,0,255,Épinettes noire ou rouge associés à du thuyas occidental / Tourbière à palse
+3565,142,118,114,255,Érables / Tourbière à palse
+3566,0,105,0,255,Érables associés à du bouleau jaune / Tourbière à palse
+3567,0,105,0,255,Érables associés à des épinettes noire ou rouge / Tourbière à palse
+3568,0,127,0,255,Érables associés à du mélèze laricin / Tourbière à palse
+3569,0,127,0,255,Érables associés à des pins / Tourbière à palse
+3570,0,127,0,255,Érables associés à de la pruche du Canada / Tourbière à palse
+3571,0,127,0,255,Érables associés à des résineux / Tourbière à palse
+3572,0,127,0,255,Érables associés à des sapin baumier et/ou épinette blanche / Tourbière à palse
+3573,0,127,0,255,Érables associés à du thuyas occidental / Tourbière à palse
+3574,0,127,0,255,Érable à sucre / Tourbière à palse
+3575,0,105,0,255,Érable à sucre associé à du bouleau jaune / Tourbière à palse
+3576,0,105,0,255,Érable à sucre associé à des épinettes noire ou rouge / Tourbière à palse
+3577,0,127,0,255,Érable à sucre associé à du mélèze laricin / Tourbière à palse
+3578,0,127,0,255,Érable à sucre associé à des pins / Tourbière à palse
+3579,0,105,0,255,Érable à sucre associé à de la pruche du Canada / Tourbière à palse
+3580,0,127,0,255,Érable à sucre associé à des résineux / Tourbière à palse
+3581,0,127,0,255,Érable à sucre associé à des sapin baumier et/ou épinette blanche / Tourbière à palse
+3582,0,127,0,255,Érable à sucre associé à du thuyas occidental / Tourbière à palse
+3583,0,127,0,255,Épinette rouge / Tourbière à palse
+3584,0,127,0,255,Épinette rouge associée à du bouleau jaune / Tourbière à palse
+3585,0,127,0,255,Épinette rouge associée à des feuillus intolérants / Tourbière à palse
+3586,0,127,0,255,Épinette rouge associée à des feuillus tolérants / Tourbière à palse
+3587,0,127,0,255,Épinette rouge associée à des feuillus indéterminés / Tourbière à palse
+3588,0,127,0,255,Épinette rouge associée à du mélèze laricin / Tourbière à palse
+3589,0,127,0,255,Épinette rouge associée à des pins / Tourbière à palse
+3590,0,127,0,255,Épinette rouge associée à des sapin baumier et/ou épinette blanche / Tourbière à palse
+3591,142,118,114,255,Frêne d'Amérique / Tourbière à palse
+3592,142,118,114,255,Frêne d'Amérique associé à des pins / Tourbière à palse
+3593,142,118,114,255,Frêne d'Amérique associé à des résineux tolérants / Tourbière à palse
+3594,0,105,0,255,Frêne d'Amérique associé à des résineux / Tourbière à palse
+3595,0,127,0,255,Feuillus intolérants / Tourbière à palse
+3596,0,127,0,255,Feuillus intolérants associés à des épinettes noire ou rouge / Tourbière à palse
+3597,0,127,0,255,Feuillus intolérants associés à du mélèze laricin / Tourbière à palse
+3598,0,105,0,255,Feuillus intolérants associés à des pins / Tourbière à palse
+3599,0,127,0,255,Feuillus intolérants associés à de la pruche du Canada / Tourbière à palse
+3600,0,127,0,255,Feuillus intolérants associés à des résineux / Tourbière à palse
+3601,0,127,0,255,Feuillus intolérants associés à des sapin baumier et/ou épinette blanche / Tourbière à palse
+3602,0,127,0,255,Feuillus intolérants associés à du thuyas occidental / Tourbière à palse
+3603,0,127,0,255,Frêne noir / Tourbière à palse
+3604,0,127,0,255,Frêne noir associé à des pins / Tourbière à palse
+3605,0,127,0,255,Frêne noir associé à des résineux tolérants / Tourbière à palse
+3606,0,105,0,255,Frêne noir associé à des résineux / Tourbière à palse
+3607,0,127,0,255,Frêne de Pennsylvanie / Tourbière à palse
+3608,0,127,0,255,Frêne de Pennsylvanie associé à des pins / Tourbière à palse
+3609,0,127,0,255,Frêne de Pennsylvanie associé à des résineux tolérants / Tourbière à palse
+3610,0,105,0,255,Frêne de Pennsylvanie associé à des résineux / Tourbière à palse
+3611,0,127,0,255,Frênes / Tourbière à palse
+3612,0,127,0,255,Frênes associés à des pins / Tourbière à palse
+3613,0,127,0,255,Frênes associés à des résineux tolérants / Tourbière à palse
+3614,0,105,0,255,Frênes associés à des résineux / Tourbière à palse
+3615,0,127,0,255,Feuillus tolérants / Tourbière à palse
+3616,0,127,0,255,Feuillus tolérants associés à des épinettes noire ou rouge / Tourbière à palse
+3617,0,127,0,255,Feuillus tolérants associés à du mélèze laricin / Tourbière à palse
+3618,0,105,0,255,Feuillus tolérants associés à des pins / Tourbière à palse
+3619,0,127,0,255,Feuillus tolérants associés à de la pruche du Canada / Tourbière à palse
+3620,0,127,0,255,Feuillus tolérants associés à des résineux / Tourbière à palse
+3621,0,127,0,255,Feuillus tolérants associés à des sapin baumier et/ou épinette blanche / Tourbière à palse
+3622,0,127,0,255,Feuillus tolérants associés à du thuyas occidental / Tourbière à palse
+3623,0,127,0,255,Feuillus indéterminés / Tourbière à palse
+3624,0,127,0,255,Feuillus indéterminés associés à des épinettes noire ou rouge / Tourbière à palse
+3625,0,127,0,255,Feuillus indéterminés associés à du mélèze laricin / Tourbière à palse
+3626,0,105,0,255,Feuillus indéterminés associés à des pins / Tourbière à palse
+3627,0,127,0,255,Feuillus indéterminés associés à de la pruche du Canada / Tourbière à palse
+3628,0,127,0,255,Feuillus indéterminés associés à des sapin baumier et/ou épinette blanche / Tourbière à palse
+3629,0,127,0,255,Feuillus indéterminés associés à du thuyas occidental / Tourbière à palse
+3630,0,127,0,255,Hêtre à grandes feuilles / Tourbière à palse
+3631,0,127,0,255,Hêtre à grandes feuilles associé à des pins / Tourbière à palse
+3632,0,127,0,255,Hêtre à grandes feuilles associé à des résineux tolérants / Tourbière à palse
+3633,0,105,0,255,Hêtre à grandes feuilles associé à des résineux / Tourbière à palse
+3634,0,127,0,255,Mélèze laricin / Tourbière à palse
+3635,0,127,0,255,Mélèze laricin associé à des feuillus intolérants / Tourbière à palse
+3636,0,127,0,255,Mélèze laricin associé à des feuillus tolérants / Tourbière à palse
+3637,142,118,114,255,Mélèze laricin associé à des feuillus indéterminés / Tourbière à palse
+3638,0,127,0,255,Forêt mixte / Tourbière à palse
+3639,0,127,0,255,Noyer cendré / Tourbière à palse
+3640,0,127,0,255,Noyer cendré associé à des pins / Tourbière à palse
+3641,0,127,0,255,Noyer cendré associé à des résineux tolérants / Tourbière à palse
+3642,0,127,0,255,Noyer cendré associé à des résineux / Tourbière à palse
+3643,0,105,0,255,Ormes / Tourbière à palse
+3644,0,127,0,255,Ormes associés à des pins / Tourbière à palse
+3645,0,127,0,255,Ormes associés à des résineux tolérants / Tourbière à palse
+3646,0,105,0,255,Ormes associés à des résineux / Tourbière à palse
+3647,0,127,0,255,Ostryer de Virginie / Tourbière à palse
+3648,0,127,0,255,Ostryer de Virginie associé à des pins / Tourbière à palse
+3649,0,127,0,255,Ostryer de Virginie associé à des résineux tolérants / Tourbière à palse
+3650,0,105,0,255,Ostryer de Virginie associé à des résineux / Tourbière à palse
+3651,142,118,114,255,Pin blanc / Tourbière à palse
+3652,0,127,0,255,Pin blanc associé à du bouleau jaune / Tourbière à palse
+3653,0,127,0,255,Pin blanc associé à des érables / Tourbière à palse
+3654,142,118,114,255,Pin blanc associé à des feuillus intolérants / Tourbière à palse
+3655,0,127,0,255,Pin blanc associé à des feuillus tolérants / Tourbière à palse
+3656,0,127,0,255,Pin blanc associé à des feuillus indéterminés / Tourbière à palse
+3657,0,127,0,255,Pin rigide / Tourbière à palse
+3658,0,127,0,255,Peupliers / Tourbière à palse
+3659,0,127,0,255,Peupliers associés à des épinettes noire ou rouge / Tourbière à palse
+3660,142,118,114,255,Peupliers associés à des pins / Tourbière à palse
+3661,0,127,0,255,Peupliers associés à des résineux tolérants / Tourbière à palse
+3662,0,105,0,255,Peupliers associés à des résineux / Tourbière à palse
+3663,0,127,0,255,Peupliers associés à des sapin baumier et/ou épinette blanche / Tourbière à palse
+3664,0,127,0,255,Pin gris / Tourbière à palse
+3665,0,127,0,255,Pin gris associé à des feuillus intolérants / Tourbière à palse
+3666,0,127,0,255,Pin gris associé à des feuillus tolérants / Tourbière à palse
+3667,0,127,0,255,Pin gris associé à des feuillus indéterminés / Tourbière à palse
+3668,142,118,114,255,Pins / Tourbière à palse
+3669,0,127,0,255,Pins associés à des feuillus intolérants / Tourbière à palse
+3670,0,127,0,255,Pins associés à des feuillus tolérants / Tourbière à palse
+3671,0,127,0,255,Pins associés à des feuillus indéterminés / Tourbière à palse
+3672,142,118,114,255,Pin rouge / Tourbière à palse
+3673,0,127,0,255,Pin rouge associé à du bouleau jaune / Tourbière à palse
+3674,0,127,0,255,Pin rouge associé à des chênes / Tourbière à palse
+3675,0,127,0,255,Pin rouge associé à des érables / Tourbière à palse
+3676,142,118,114,255,Pin rouge associé à des feuillus intolérants / Tourbière à palse
+3677,0,127,0,255,Pin rouge associé à des feuillus tolérants / Tourbière à palse
+3678,0,127,0,255,Pin rouge associé à des feuillus indéterminés / Tourbière à palse
+3679,0,127,0,255,Pin rouge associé à du hêtre à grandes feuilles / Tourbière à palse
+3680,0,127,0,255,Pin rouge associé à du noyer cendré / Tourbière à palse
+3681,0,127,0,255,Pin rouge associé à des ormes / Tourbière à palse
+3682,0,127,0,255,Pin rouge associé à de l'ostryer de Virginie / Tourbière à palse
+3683,0,127,0,255,Pin rouge associé à du tilleul d'Amérique / Tourbière à palse
+3684,0,127,0,255,Épinette noire et sapin baumier associés à des feuillus intolérants / Tourbière à palse
+3685,0,127,0,255,Épinette noire et sapin baumier associés à des feuillus tolérants / Tourbière à palse
+3686,0,127,0,255,Épinette noire et sapin baumier associés à des feuillus indéterminés / Tourbière à palse
+3687,142,118,114,255,Pruche du Canada / Tourbière à palse
+3688,0,127,0,255,Pruche du Canada associée à du bouleau jaune / Tourbière à palse
+3689,142,118,114,255,Pruche du Canada associée à des érables / Tourbière à palse
+3690,0,127,0,255,Pruche du Canada associée à des feuillus intolérants / Tourbière à palse
+3691,0,127,0,255,Pruche du Canada associée à des feuillus tolérants / Tourbière à palse
+3692,0,127,0,255,Pruche du Canada associée à des feuillus indéterminés / Tourbière à palse
+3693,0,127,0,255,Résineux / Tourbière à palse
+3694,0,127,0,255,Résineux associés à du bouleau jaune / Tourbière à palse
+3695,142,118,114,255,Résineux associés à des érables / Tourbière à palse
+3696,0,127,0,255,Résineux associés à des feuillus intolérants / Tourbière à palse
+3697,0,127,0,255,Résineux associés à des feuillus tolérants / Tourbière à palse
+3698,0,127,0,255,Résineux associés à des feuillus indéterminés / Tourbière à palse
+3699,0,127,0,255,Sapin baumier / Tourbière à palse
+3700,0,127,0,255,Sapin baumier associé à du bouleau jaune / Tourbière à palse
+3701,142,118,114,255,Sapin baumier associé à des épinettes noire ou rouge / Tourbière à palse
+3702,0,127,0,255,Sapin baumier associé à des érables / Tourbière à palse
+3703,142,118,114,255,Sapin baumier associé à des feuillus intolérants / Tourbière à palse
+3704,0,127,0,255,Sapin baumier associé à des feuillus tolérants / Tourbière à palse
+3705,0,127,0,255,Sapin baumier associé à des feuillus indéterminés / Tourbière à palse
+3706,0,127,0,255,Sapin baumier associé à du thuyas occidental / Tourbière à palse
+3707,0,127,0,255,Sapin baumier et/ou épinette blanche / Tourbière à palse
+3708,142,118,114,255,Sapin baumier et/ou épinette blanche associés à du bouleau jaune / Tourbière à palse
+3709,142,118,114,255,Sapin baumier et/ou épinette blanche associés à de l'épinette noire / Tourbière à palse
+3710,0,127,0,255,Sapin baumier et/ou épinette blanche associés à des épinettes noire ou rouge / Tourbière à palse
+3711,142,118,114,255,Sapin baumier et/ou épinette blanche associés à des érables / Tourbière à palse
+3712,142,118,114,255,Sapin baumier et/ou épinette blanche associés à des feuillus intolérants / Tourbière à palse
+3713,0,127,0,255,Sapin baumier et/ou épinette blanche associés à des feuillus tolérants / Tourbière à palse
+3714,0,127,0,255,Sapin baumier et/ou épinette blanche associés à des feuillus indéterminés / Tourbière à palse
+3715,0,127,0,255,Sapin baumier et épinette noire associés à du bouleau jaune / Tourbière à palse
+3716,0,127,0,255,Sapin baumier et épinette noire associés à des érables / Tourbière à palse
+3717,0,105,0,255,Sapin baumier et épinette noire associés à des feuillus intolérants / Tourbière à palse
+3718,0,127,0,255,Sapin baumier et épinette noire associés à des feuillus tolérants / Tourbière à palse
+3719,0,127,0,255,Sapin baumier et épinette noire associés à des feuillus indéterminés / Tourbière à palse
+3720,0,105,0,255,Tilleul d'Amérique / Tourbière à palse
+3721,142,118,114,255,Tilleul d'Amérique associé à des pins / Tourbière à palse
+3722,0,127,0,255,Tilleul d'Amérique associé à des résineux tolérants / Tourbière à palse
+3723,0,127,0,255,Tilleul d'Amérique associé à des résineux / Tourbière à palse
+3724,0,127,0,255,Thuyas occidental / Tourbière à palse
+3725,0,127,0,255,Thuyas occidental associé à du bouleau jaune / Tourbière à palse
+3726,0,127,0,255,Thuyas occidental associé à des érables / Tourbière à palse
+3727,0,127,0,255,Thuyas occidental associé à des feuillus intolérants / Tourbière à palse
+3728,0,127,0,255,Thuyas occidental associé à des feuillus tolérants / Tourbière à palse
+3729,0,127,0,255,Thuyas occidental associé à des feuillus indéterminés / Tourbière à palse
+3730,0,105,0,255,Peuplement issu d'une plantation de feuillus indigènes / Tourbière à palse
+3731,0,127,0,255,Peuplement issu d'une plantation mélangée indigène / Tourbière à palse
+3732,142,118,114,255,Peuplement issu d'une plantation de résineux indigènes / Tourbière à palse
+3733,0,105,0,255,Peuplement issu d'une plantation de feuillus exotiques / Tourbière à palse
+3734,0,105,0,255,Peuplement issu d'une plantation mélangée exotique / Tourbière à palse
+3735,142,118,114,255,Peuplement issu d'une plantation de résineux exotiques / Tourbière à palse
+4000,142,95,66,255,Marécage
+4020,5,255,255,255,Eau / Marécage
+4021,10,255,255,255,Lac / Marécage
+4022,0,196,255,255,Mare et/ou eau peu profonde / Marécage
+4023,0,166,255,255,Réservoir / Marécage
+4024,0,255,255,255,Cours d'eau / Marécage
+4025,0,175,175,255,Eau salée / Marécage
+4026,0,215,215,255,Eau saumâtre / Marécage
+4027,5,215,215,255,Lac de thermokartz / Marécage
+4029,10,215,215,255,Neige et glace permanentes; combe à neige / Marécage
+4030,200,200,200,255,Sol nu; roc-sol à nu; sol dénudé ou semi-dénudé sec / Marécage
+4031,205,200,200,255,Champs de bloc / Marécage
+4050,140,255,0,255,Forêt ou arbustaie improductive / Marécage
+4051,158,255,0,255,Aulnaie / Marécage
+4052,158,155,0,255,Arbustaie basse et mares de thermokarst / Marécage
+4053,140,217,0,255,Arbustaie arctique basse (0.3 à 1 m) / Marécage
+4054,140,217,0,255,Forêt arbustive haute (> 2 m) / Marécage
+4055,49,194,0,255,Friche / Marécage
+4056,190,208,215,255,Arbustaie arctique haute (> 1 m) / Marécage
+4057,140,217,0,255,Forêt arbustive basse (< 2 m) Marécage
+4060,193,12,218,255,Lande à lichens / Marécage
+4061,196,15,212,255,Lande à lichens et arbustes / Marécage
+4062,199,18,215,255,Lande subarctique / Marécage
+4063,202,22,218,255,Lande subarctique avec 30 à 70 % d’arbustes / Marécage
+4064,205,25,221,255,Lande rocheuse / Marécage
+4065,208,28,224,255,Lande à éricacées / Marécage
+4066,208,28,224,255,Lande herbacée / Marécage
+4067,208,28,224,255,Lande à mousse / Marécage
+4068,208,28,224,255,Lande alpine / Marécage
+4071,211,232,227,255,Toundra à arbustes dressés / Marécage
+4072,211,232,227,255,Toundra à arbustes dressés avec ostioles / Marécage
+4073,208,28,224,255,Toundra à arbustes dressés avec 30 à 70 % d’arbustes / Marécage
+4074,211,232,233,255,Toundra à arbustes dressés avec ostioles et 30 à 70 % d’arbustes / Marécage
+4075,211,232,233,255,Toundra à arbustes prostrés / Marécage
+4076,211,232,233,255,Toundra à arbustes prostrés avec ostioles / Marécage
+4077,211,232,233,255,Toundra herbacée avec arbustes prostrés / Marécage
+4101,220,236,241,255,Serre / Marécage
+4120,255,255,191,255,Agriculture indifférenciée / Marécage
+4122,238,222,173,255,Culture pérenne et pâturage / Marécage
+4131,236,222,173,255,Jachère / Marécage
+4132,204,255,0,255,Autre céréale / Marécage
+4133,255,255,0,255,Orge / Marécage
+4134,153,204,0,255,Sorgho / Marécage
+4135,249,255,217,255,Millet / Marécage
+4136,255,238,112,255,Avoine / Marécage
+4137,219,227,29,255,Seigle / Marécage
+4138,235,176,0,255,Épeautre / Marécage
+4139,158,129,0,255,Triticale / Marécage
+4140,222,163,102,255,Blé / Marécage
+4141,255,212,0,255,Panic érigé / Marécage
+4147,255,211,127,255,Maïs / Marécage
+4153,255,240,0,255,Canola ou colza / Marécage
+4154,214,255,112,255,Graine de lin / Marécage
+4157,217,255,112,255,Tournesol / Marécage
+4158,173,105,0,255,Soya / Marécage
+4160,255,102,51,255,Autre légumineuse / Marécage
+4162,255,125,0,255,Pois / Marécage
+4167,165,245,122,255,Haricot / Marécage
+4168,255,102,102,255,Laitue / Marécage
+4169,204,102,102,255,Ail/Oignon/Poireau / Marécage
+4170,204,102,153,255,Carotte/Panais / Marécage
+4171,204,153,153,255,Cucurbitacée / Marécage
+4172,153,102,153,255,Crucifère (feuilles) / Marécage
+4173,151,255,138,255,Légume à fruits / Marécage
+4175,255,221,191,255,Autre légume / Marécage
+4176,102,51,153,255,Crucifère (racines) / Marécage
+4177,161,255,158,255,Pomme de terre / Marécage
+4178,102,102,153,255,Betterave à sucre / Marécage
+4180,232,125,0,255,Autre fruit / Marécage
+4181,255,144,97,255,Baie / Marécage
+4182,255,69,41,255,Canneberge / Marécage
+4183,255,99,146,255,Bleuet / Marécage
+4188,252,69,41,255,Verger / Marécage
+4190,249,69,41,255,Vignoble / Marécage
+4192,181,251,5,255,Gazonnière / Marécage
+4193,204,255,5,255,Fines herbes / Marécage
+4194,233,255,190,255,Pépinière / Marécage
+4195,163,255,115,255,Sarrasin / Marécage
+4197,238,176,0,255,Chanvre / Marécage
+4210,142,118,114,255,Forêt de conifères / Marécage
+4211,38,115,0,255,Forêt de conifères dense / Marécage
+4212,142,118,114,255,Forêt de conifères avec arbustes décidus / Marécage
+4213,41,115,0,255,Forêt de conifères clairsemée / Marécage
+4214,142,118,114,255,Forêt de conifères sur lichens / Marécage
+4215,0,160,0,255,Forêt de conifères ouverte / Marécage
+4216,142,118,114,255,Forêt de conifères sur lichens et mousses / Marécage
+4218,142,118,114,255,Forêt de conifères sur mousses et éricacées / Marécage
+4220,0,105,0,255,Forêt de feuillus / Marécage
+4221,0,184,0,255,Forêt de feuillus dense / Marécage
+4223,0,204,0,255,Forêt de feuillus clairsemée / Marécage
+4225,0,157,0,255,Forêt de feuillus ouverte / Marécage
+4230,0,127,0,255,Forêt mixte / Marécage
+4231,0,120,0,255,Forêt mixte dense / Marécage
+4233,54,127,74,255,Forêt mixte clairsemée / Marécage
+4235,135,153,0,255,Forêt mixte ouverte / Marécage
+4250,115,153,0,255,Opération forestière / Marécage
+4253,170,85,0,255,Coupe forestière / Marécage
+4255,173,85,0,255,Plantation / Marécage
+4256,173,85,0,255,Plantation de feuillus indigènes / Marécage
+4257,173,85,0,255,Plantation mélangée indigène / Marécage
+4258,173,85,0,255,Plantation de résineux indigènes / Marécage
+4259,173,85,0,255,Plantation de feuillus exotiques / Marécage
+4260,173,85,0,255,Plantation mélangée exotique / Marécage
+4261,173,85,0,255,Plantation de résineux exotiques / Marécage
+4263,176,85,0,255,Brûlis / Marécage
+4280,152,76,0,255,Perturbation naturelle / Marécage
+4300,128,64,64,255,Autre terrain / Marécage
+4301,255,180,180,255,Zone développée / Marécage
+4312,252,110,122,255,Pistes de ski alpin / Marécage
+4313,80,175,80,255,Golf / Marécage
+4320,115,150,100,255,Route ou chemin / Marécage
+4321,255,0,0,255,Aéroport / Marécage
+4322,78,78,78,255,Chemin de fer / Marécage
+4341,3,3,3,255,Carrière ou gravière / Marécage
+4343,101,0,135,255,Mine et déchet de mine / Marécage
+4344,21,0,156,255,Bassin de filtration; de décontamination; de déchets liquides; etc. / Marécage
+4345,25,25,92,255,Dépotoir / Marécage
+4346,135,0,156,255,Zone industrielle et commerce / Marécage
+4351,255,120,125,255,Ligne de transmission ou de transport d'énergie / Marécage
+4360,180,180,180,255,Exploitation de tourbe / Marécage
+4501,0,105,0,255,Bouleau gris / Marécage
+4502,0,127,0,255,Bouleau gris associé à des pins / Marécage
+4503,0,127,0,255,Bouleau gris associé à des résineux tolérants / Marécage
+4504,0,127,0,255,Bouleau gris associé à des résineux / Marécage
+4505,0,105,0,255,Bouleau jaune / Marécage
+4506,0,127,0,255,Bouleau jaune associé à des épinettes noire ou rouge / Marécage
+4507,0,127,0,255,Bouleau jaune associé à du mélèze laricin / Marécage
+4508,0,127,0,255,Bouleau jaune associé à des pins / Marécage
+4509,0,127,0,255,Bouleau jaune associé à de la pruche du Canada / Marécage
+4510,0,127,0,255,Bouleau jaune associé à des résineux / Marécage
+4511,0,127,0,255,Bouleau jaune associé à des sapin baumier et/ou épinette blanche / Marécage
+4512,0,127,0,255,Bouleau jaune associé à des sapin baumier et épinette noire / Marécage
+4513,0,105,0,255,Bouleau jaune associé à du thuyas occidental / Marécage
+4514,0,127,0,255,Bouleau blanc / Marécage
+4515,0,127,0,255,Bouleau blanc associé à des épinettes noire ou rouge / Marécage
+4516,0,127,0,255,Bouleau blanc associé à des pins / Marécage
+4517,0,127,0,255,Bouleau blanc associé à des résineux tolérants / Marécage
+4518,0,127,0,255,Bouleau blanc associé à des résineux / Marécage
+4519,0,105,0,255,Bouleau blanc associé à des sapin baumier et/ou épinette blanche / Marécage
+4520,0,127,0,255,Caryer cordiforme / Marécage
+4521,0,127,0,255,Chênes / Marécage
+4522,0,105,0,255,Chênes associés à des pins / Marécage
+4523,0,127,0,255,Chênes associés à des résineux tolérants / Marécage
+4524,0,127,0,255,Chênes associés à des résineux / Marécage
+4525,0,127,0,255,Cerisier tardif / Marécage
+4526,0,105,0,255,Cerisier tardif associé à des pins / Marécage
+4527,0,127,0,255,Cerisier tardif associé à des résineux tolérants / Marécage
+4528,0,127,0,255,Cerisier tardif associé à des résineux / Marécage
+4529,0,105,0,255,Érable argenté / Marécage
+4530,0,105,0,255,Érable argenté associé à des pins / Marécage
+4531,0,127,0,255,Érable argenté associé à des résineux tolérants / Marécage
+4532,0,127,0,255,Érable argenté associé à des résineux / Marécage
+4533,0,127,0,255,Épinette blanche / Marécage
+4534,142,118,114,255,Épinette blanche associée à des feuillus intolérants / Marécage
+4535,0,127,0,255,Épinette blanche associée à des feuillus tolérants / Marécage
+4536,0,127,0,255,Épinette blanche associée à des feuillus indéterminés / Marécage
+4537,0,127,0,255,Érable noir / Marécage
+4538,0,105,0,255,Épinette noire / Marécage
+4539,142,118,114,255,Épinette noire associée à de l'épinette blanche / Marécage
+4540,142,118,114,255,Épinette noire associée à des feuillus intolérants / Marécage
+4541,0,127,0,255,Épinette noire associée à des feuillus tolérants / Marécage
+4542,0,127,0,255,Épinette noire associée à des feuillus indéterminés / Marécage
+4543,0,127,0,255,Épinette noire associée à du mélèze laricin / Marécage
+4544,142,118,114,255,Épinette noire associée à des pins / Marécage
+4545,142,118,114,255,Épinette noire associée à du sapin baumier / Marécage
+4546,142,118,114,255,Épinette noire associée à des sapin baumier et/ou épinette blanche / Marécage
+4547,142,118,114,255,Érable rouge / Marécage
+4548,0,105,0,255,Érable rouge associé à des épinettes noire ou rouge / Marécage
+4549,0,127,0,255,Érable rouge associé à du mélèze laricin / Marécage
+4550,0,127,0,255,Érable rouge associé à des pins / Marécage
+4551,0,127,0,255,Érable rouge associé à de la pruche du Canada / Marécage
+4552,0,127,0,255,Érable rouge associé à des résineux / Marécage
+4553,0,127,0,255,Érable rouge associé à des sapin baumier et/ou épinette blanche / Marécage
+4554,0,127,0,255,Érable rouge associé à du thuyas occidental / Marécage
+4555,0,127,0,255,Épinettes noire ou rouge / Marécage
+4556,142,118,114,255,Épinettes noire ou rouge associés à de l'épinette blanche / Marécage
+4557,0,127,0,255,Épinettes noire ou rouge associés à des feuillus intolérants / Marécage
+4558,0,127,0,255,Épinettes noire ou rouge associés à des feuillus tolérants / Marécage
+4559,0,127,0,255,Épinettes noire ou rouge associés à des feuillus indéterminés / Marécage
+4560,0,127,0,255,Épinettes noire ou rouge associés à du mélèze laricin / Marécage
+4561,142,118,114,255,Épinettes noire ou rouge associés à des pins / Marécage
+4562,142,118,114,255,Épinettes noire ou rouge associés à du sapin baumier / Marécage
+4563,142,118,114,255,Épinettes noire ou rouge associés à des sapin baumier et/ou épinette blanche / Marécage
+4564,0,105,0,255,Épinettes noire ou rouge associés à du thuyas occidental / Marécage
+4565,142,118,114,255,Érables / Marécage
+4566,0,105,0,255,Érables associés à du bouleau jaune / Marécage
+4567,0,105,0,255,Érables associés à des épinettes noire ou rouge / Marécage
+4568,0,127,0,255,Érables associés à du mélèze laricin / Marécage
+4569,0,127,0,255,Érables associés à des pins / Marécage
+4570,0,127,0,255,Érables associés à de la pruche du Canada / Marécage
+4571,0,127,0,255,Érables associés à des résineux / Marécage
+4572,0,127,0,255,Érables associés à des sapin baumier et/ou épinette blanche / Marécage
+4573,0,127,0,255,Érables associés à du thuyas occidental / Marécage
+4574,0,127,0,255,Érable à sucre / Marécage
+4575,0,105,0,255,Érable à sucre associé à du bouleau jaune / Marécage
+4576,0,105,0,255,Érable à sucre associé à des épinettes noire ou rouge / Marécage
+4577,0,127,0,255,Érable à sucre associé à du mélèze laricin / Marécage
+4578,0,127,0,255,Érable à sucre associé à des pins / Marécage
+4579,0,105,0,255,Érable à sucre associé à de la pruche du Canada / Marécage
+4580,0,127,0,255,Érable à sucre associé à des résineux / Marécage
+4581,0,127,0,255,Érable à sucre associé à des sapin baumier et/ou épinette blanche / Marécage
+4582,0,127,0,255,Érable à sucre associé à du thuyas occidental / Marécage
+4583,0,127,0,255,Épinette rouge / Marécage
+4584,0,127,0,255,Épinette rouge associée à du bouleau jaune / Marécage
+4585,0,127,0,255,Épinette rouge associée à des feuillus intolérants / Marécage
+4586,0,127,0,255,Épinette rouge associée à des feuillus tolérants / Marécage
+4587,0,127,0,255,Épinette rouge associée à des feuillus indéterminés / Marécage
+4588,0,127,0,255,Épinette rouge associée à du mélèze laricin / Marécage
+4589,0,127,0,255,Épinette rouge associée à des pins / Marécage
+4590,0,127,0,255,Épinette rouge associée à des sapin baumier et/ou épinette blanche / Marécage
+4591,142,118,114,255,Frêne d'Amérique / Marécage
+4592,142,118,114,255,Frêne d'Amérique associé à des pins / Marécage
+4593,142,118,114,255,Frêne d'Amérique associé à des résineux tolérants / Marécage
+4594,0,105,0,255,Frêne d'Amérique associé à des résineux / Marécage
+4595,0,127,0,255,Feuillus intolérants / Marécage
+4596,0,127,0,255,Feuillus intolérants associés à des épinettes noire ou rouge / Marécage
+4597,0,127,0,255,Feuillus intolérants associés à du mélèze laricin / Marécage
+4598,0,105,0,255,Feuillus intolérants associés à des pins / Marécage
+4599,0,127,0,255,Feuillus intolérants associés à de la pruche du Canada / Marécage
+4600,0,127,0,255,Feuillus intolérants associés à des résineux / Marécage
+4601,0,127,0,255,Feuillus intolérants associés à des sapin baumier et/ou épinette blanche / Marécage
+4602,0,127,0,255,Feuillus intolérants associés à du thuyas occidental / Marécage
+4603,0,127,0,255,Frêne noir / Marécage
+4604,0,127,0,255,Frêne noir associé à des pins / Marécage
+4605,0,127,0,255,Frêne noir associé à des résineux tolérants / Marécage
+4606,0,105,0,255,Frêne noir associé à des résineux / Marécage
+4607,0,127,0,255,Frêne de Pennsylvanie / Marécage
+4608,0,127,0,255,Frêne de Pennsylvanie associé à des pins / Marécage
+4609,0,127,0,255,Frêne de Pennsylvanie associé à des résineux tolérants / Marécage
+4610,0,105,0,255,Frêne de Pennsylvanie associé à des résineux / Marécage
+4611,0,127,0,255,Frênes / Marécage
+4612,0,127,0,255,Frênes associés à des pins / Marécage
+4613,0,127,0,255,Frênes associés à des résineux tolérants / Marécage
+4614,0,105,0,255,Frênes associés à des résineux / Marécage
+4615,0,127,0,255,Feuillus tolérants / Marécage
+4616,0,127,0,255,Feuillus tolérants associés à des épinettes noire ou rouge / Marécage
+4617,0,127,0,255,Feuillus tolérants associés à du mélèze laricin / Marécage
+4618,0,105,0,255,Feuillus tolérants associés à des pins / Marécage
+4619,0,127,0,255,Feuillus tolérants associés à de la pruche du Canada / Marécage
+4620,0,127,0,255,Feuillus tolérants associés à des résineux / Marécage
+4621,0,127,0,255,Feuillus tolérants associés à des sapin baumier et/ou épinette blanche / Marécage
+4622,0,127,0,255,Feuillus tolérants associés à du thuyas occidental / Marécage
+4623,0,127,0,255,Feuillus indéterminés / Marécage
+4624,0,127,0,255,Feuillus indéterminés associés à des épinettes noire ou rouge / Marécage
+4625,0,127,0,255,Feuillus indéterminés associés à du mélèze laricin / Marécage
+4626,0,105,0,255,Feuillus indéterminés associés à des pins / Marécage
+4627,0,127,0,255,Feuillus indéterminés associés à de la pruche du Canada / Marécage
+4628,0,127,0,255,Feuillus indéterminés associés à des sapin baumier et/ou épinette blanche / Marécage
+4629,0,127,0,255,Feuillus indéterminés associés à du thuyas occidental / Marécage
+4630,0,127,0,255,Hêtre à grandes feuilles / Marécage
+4631,0,127,0,255,Hêtre à grandes feuilles associé à des pins / Marécage
+4632,0,127,0,255,Hêtre à grandes feuilles associé à des résineux tolérants / Marécage
+4633,0,105,0,255,Hêtre à grandes feuilles associé à des résineux / Marécage
+4634,0,127,0,255,Mélèze laricin / Marécage
+4635,0,127,0,255,Mélèze laricin associé à des feuillus intolérants / Marécage
+4636,0,127,0,255,Mélèze laricin associé à des feuillus tolérants / Marécage
+4637,142,118,114,255,Mélèze laricin associé à des feuillus indéterminés / Marécage
+4638,0,127,0,255,Forêt mixte / Marécage
+4639,0,127,0,255,Noyer cendré / Marécage
+4640,0,127,0,255,Noyer cendré associé à des pins / Marécage
+4641,0,127,0,255,Noyer cendré associé à des résineux tolérants / Marécage
+4642,0,127,0,255,Noyer cendré associé à des résineux / Marécage
+4643,0,105,0,255,Ormes / Marécage
+4644,0,127,0,255,Ormes associés à des pins / Marécage
+4645,0,127,0,255,Ormes associés à des résineux tolérants / Marécage
+4646,0,105,0,255,Ormes associés à des résineux / Marécage
+4647,0,127,0,255,Ostryer de Virginie / Marécage
+4648,0,127,0,255,Ostryer de Virginie associé à des pins / Marécage
+4649,0,127,0,255,Ostryer de Virginie associé à des résineux tolérants / Marécage
+4650,0,105,0,255,Ostryer de Virginie associé à des résineux / Marécage
+4651,142,118,114,255,Pin blanc / Marécage
+4652,0,127,0,255,Pin blanc associé à du bouleau jaune / Marécage
+4653,0,127,0,255,Pin blanc associé à des érables / Marécage
+4654,142,118,114,255,Pin blanc associé à des feuillus intolérants / Marécage
+4655,0,127,0,255,Pin blanc associé à des feuillus tolérants / Marécage
+4656,0,127,0,255,Pin blanc associé à des feuillus indéterminés / Marécage
+4657,0,127,0,255,Pin rigide / Marécage
+4658,0,127,0,255,Peupliers / Marécage
+4659,0,127,0,255,Peupliers associés à des épinettes noire ou rouge / Marécage
+4660,142,118,114,255,Peupliers associés à des pins / Marécage
+4661,0,127,0,255,Peupliers associés à des résineux tolérants / Marécage
+4662,0,105,0,255,Peupliers associés à des résineux / Marécage
+4663,0,127,0,255,Peupliers associés à des sapin baumier et/ou épinette blanche / Marécage
+4664,0,127,0,255,Pin gris / Marécage
+4665,0,127,0,255,Pin gris associé à des feuillus intolérants / Marécage
+4666,0,127,0,255,Pin gris associé à des feuillus tolérants / Marécage
+4667,0,127,0,255,Pin gris associé à des feuillus indéterminés / Marécage
+4668,142,118,114,255,Pins / Marécage
+4669,0,127,0,255,Pins associés à des feuillus intolérants / Marécage
+4670,0,127,0,255,Pins associés à des feuillus tolérants / Marécage
+4671,0,127,0,255,Pins associés à des feuillus indéterminés / Marécage
+4672,142,118,114,255,Pin rouge / Marécage
+4673,0,127,0,255,Pin rouge associé à du bouleau jaune / Marécage
+4674,0,127,0,255,Pin rouge associé à des chênes / Marécage
+4675,0,127,0,255,Pin rouge associé à des érables / Marécage
+4676,142,118,114,255,Pin rouge associé à des feuillus intolérants / Marécage
+4677,0,127,0,255,Pin rouge associé à des feuillus tolérants / Marécage
+4678,0,127,0,255,Pin rouge associé à des feuillus indéterminés / Marécage
+4679,0,127,0,255,Pin rouge associé à du hêtre à grandes feuilles / Marécage
+4680,0,127,0,255,Pin rouge associé à du noyer cendré / Marécage
+4681,0,127,0,255,Pin rouge associé à des ormes / Marécage
+4682,0,127,0,255,Pin rouge associé à de l'ostryer de Virginie / Marécage
+4683,0,127,0,255,Pin rouge associé à du tilleul d'Amérique / Marécage
+4684,0,127,0,255,Épinette noire et sapin baumier associés à des feuillus intolérants / Marécage
+4685,0,127,0,255,Épinette noire et sapin baumier associés à des feuillus tolérants / Marécage
+4686,0,127,0,255,Épinette noire et sapin baumier associés à des feuillus indéterminés / Marécage
+4687,142,118,114,255,Pruche du Canada / Marécage
+4688,0,127,0,255,Pruche du Canada associée à du bouleau jaune / Marécage
+4689,142,118,114,255,Pruche du Canada associée à des érables / Marécage
+4690,0,127,0,255,Pruche du Canada associée à des feuillus intolérants / Marécage
+4691,0,127,0,255,Pruche du Canada associée à des feuillus tolérants / Marécage
+4692,0,127,0,255,Pruche du Canada associée à des feuillus indéterminés / Marécage
+4693,0,127,0,255,Résineux / Marécage
+4694,0,127,0,255,Résineux associés à du bouleau jaune / Marécage
+4695,142,118,114,255,Résineux associés à des érables / Marécage
+4696,0,127,0,255,Résineux associés à des feuillus intolérants / Marécage
+4697,0,127,0,255,Résineux associés à des feuillus tolérants / Marécage
+4698,0,127,0,255,Résineux associés à des feuillus indéterminés / Marécage
+4699,0,127,0,255,Sapin baumier / Marécage
+4700,0,127,0,255,Sapin baumier associé à du bouleau jaune / Marécage
+4701,142,118,114,255,Sapin baumier associé à des épinettes noire ou rouge / Marécage
+4702,0,127,0,255,Sapin baumier associé à des érables / Marécage
+4703,142,118,114,255,Sapin baumier associé à des feuillus intolérants / Marécage
+4704,0,127,0,255,Sapin baumier associé à des feuillus tolérants / Marécage
+4705,0,127,0,255,Sapin baumier associé à des feuillus indéterminés / Marécage
+4706,0,127,0,255,Sapin baumier associé à du thuyas occidental / Marécage
+4707,0,127,0,255,Sapin baumier et/ou épinette blanche / Marécage
+4708,142,118,114,255,Sapin baumier et/ou épinette blanche associés à du bouleau jaune / Marécage
+4709,142,118,114,255,Sapin baumier et/ou épinette blanche associés à de l'épinette noire / Marécage
+4710,0,127,0,255,Sapin baumier et/ou épinette blanche associés à des épinettes noire ou rouge / Marécage
+4711,142,118,114,255,Sapin baumier et/ou épinette blanche associés à des érables / Marécage
+4712,142,118,114,255,Sapin baumier et/ou épinette blanche associés à des feuillus intolérants / Marécage
+4713,0,127,0,255,Sapin baumier et/ou épinette blanche associés à des feuillus tolérants / Marécage
+4714,0,127,0,255,Sapin baumier et/ou épinette blanche associés à des feuillus indéterminés / Marécage
+4715,0,127,0,255,Sapin baumier et épinette noire associés à du bouleau jaune / Marécage
+4716,0,127,0,255,Sapin baumier et épinette noire associés à des érables / Marécage
+4717,0,105,0,255,Sapin baumier et épinette noire associés à des feuillus intolérants / Marécage
+4718,0,127,0,255,Sapin baumier et épinette noire associés à des feuillus tolérants / Marécage
+4719,0,127,0,255,Sapin baumier et épinette noire associés à des feuillus indéterminés / Marécage
+4720,0,105,0,255,Tilleul d'Amérique / Marécage
+4721,142,118,114,255,Tilleul d'Amérique associé à des pins / Marécage
+4722,0,127,0,255,Tilleul d'Amérique associé à des résineux tolérants / Marécage
+4723,0,127,0,255,Tilleul d'Amérique associé à des résineux / Marécage
+4724,0,127,0,255,Thuyas occidental / Marécage
+4725,0,127,0,255,Thuyas occidental associé à du bouleau jaune / Marécage
+4726,0,127,0,255,Thuyas occidental associé à des érables / Marécage
+4727,0,127,0,255,Thuyas occidental associé à des feuillus intolérants / Marécage
+4728,0,127,0,255,Thuyas occidental associé à des feuillus tolérants / Marécage
+4729,0,127,0,255,Thuyas occidental associé à des feuillus indéterminés / Marécage
+4730,0,105,0,255,Peuplement issu d'une plantation de feuillus indigènes / Marécage
+4731,0,127,0,255,Peuplement issu d'une plantation mélangée indigène / Marécage
+4732,142,118,114,255,Peuplement issu d'une plantation de résineux indigènes / Marécage
+4733,0,105,0,255,Peuplement issu d'une plantation de feuillus exotiques / Marécage
+4734,0,105,0,255,Peuplement issu d'une plantation mélangée exotique / Marécage
+4735,142,118,114,255,Peuplement issu d'une plantation de résineux exotiques / Marécage
+5000,148,100,62,255,Marais
+5020,5,255,255,255,Eau / Marais
+5021,10,255,255,255,Lac / Marais
+5022,0,196,255,255,Mare et/ou eau peu profonde / Marais
+5023,0,166,255,255,Réservoir / Marais
+5024,0,255,255,255,Cours d'eau / Marais
+5025,0,175,175,255,Eau salée / Marais
+5026,0,215,215,255,Eau saumâtre / Marais
+5027,5,215,215,255,Lac de thermokartz / Marais
+5029,10,215,215,255,Neige et glace permanentes; combe à neige / Marais
+5030,200,200,200,255,Sol nu; roc-sol à nu; sol dénudé ou semi-dénudé sec / Marais
+5031,205,200,200,255,Champs de bloc / Marais
+5050,140,255,0,255,Forêt ou arbustaie improductive / Marais
+5051,158,255,0,255,Aulnaie / Marais
+5052,158,155,0,255,Arbustaie basse et mares de thermokarst / Marais
+5053,140,217,0,255,Arbustaie arctique basse (0.3 à 1 m) / Marais
+5054,140,217,0,255,Forêt arbustive haute (> 2 m) / Marais
+5055,49,194,0,255,Friche / Marais
+5056,190,208,215,255,Arbustaie arctique haute (> 1 m) / Marais
+5057,140,217,0,255,Forêt arbustive basse (< 2 m) \ Marais
+5060,193,12,218,255,Lande à lichens / Marais
+5061,196,15,212,255,Lande à lichens et arbustes / Marais
+5062,199,18,215,255,Lande subarctique / Marais
+5063,202,22,218,255,Lande subarctique avec 30 à 70 % d’arbustes / Marais
+5064,205,25,221,255,Lande rocheuse / Marais
+5065,208,28,224,255,Lande à éricacées / Marais
+5066,208,28,224,255,Lande herbacée / Marais
+5067,208,28,224,255,Lande à mousse / Marais
+5068,208,28,224,255,Lande alpine / Marais
+5071,211,232,227,255,Toundra à arbustes dressés / Marais
+5072,211,232,227,255,Toundra à arbustes dressés avec ostioles / Marais
+5073,208,28,224,255,Toundra à arbustes dressés avec 30 à 70 % d’arbustes / Marais
+5074,211,232,233,255,Toundra à arbustes dressés avec ostioles et 30 à 70 % d’arbustes / Marais
+5075,211,232,233,255,Toundra à arbustes prostrés / Marais
+5076,211,232,233,255,Toundra à arbustes prostrés avec ostioles / Marais
+5077,211,232,233,255,Toundra herbacée avec arbustes prostrés / Marais
+5101,220,236,241,255,Serre / Marais
+5120,255,255,191,255,Agriculture indifférenciée / Marais
+5122,238,222,173,255,Culture pérenne et pâturage / Marais
+5131,236,222,173,255,Jachère / Marais
+5132,204,255,0,255,Autre céréale / Marais
+5133,255,255,0,255,Orge / Marais
+5134,153,204,0,255,Sorgho / Marais
+5135,249,255,217,255,Millet / Marais
+5136,255,238,112,255,Avoine / Marais
+5137,219,227,29,255,Seigle / Marais
+5138,235,176,0,255,Épeautre / Marais
+5139,158,129,0,255,Triticale / Marais
+5140,222,163,102,255,Blé / Marais
+5141,255,212,0,255,Panic érigé / Marais
+5147,255,211,127,255,Maïs / Marais
+5153,255,240,0,255,Canola ou colza / Marais
+5154,214,255,112,255,Graine de lin / Marais
+5157,217,255,112,255,Tournesol / Marais
+5158,173,105,0,255,Soya / Marais
+5160,255,102,51,255,Autre légumineuse / Marais
+5162,255,125,0,255,Pois / Marais
+5167,165,245,122,255,Haricot / Marais
+5168,255,102,102,255,Laitue / Marais
+5169,204,102,102,255,Ail/Oignon/Poireau / Marais
+5170,204,102,153,255,Carotte/Panais / Marais
+5171,204,153,153,255,Cucurbitacée / Marais
+5172,153,102,153,255,Crucifère (feuilles) / Marais
+5173,151,255,138,255,Légume à fruits / Marais
+5175,255,221,191,255,Autre légume / Marais
+5176,102,51,153,255,Crucifère (racines) / Marais
+5177,161,255,158,255,Pomme de terre / Marais
+5178,102,102,153,255,Betterave à sucre / Marais
+5180,232,125,0,255,Autre fruit / Marais
+5181,255,144,97,255,Baie / Marais
+5182,255,69,41,255,Canneberge / Marais
+5183,255,99,146,255,Bleuet / Marais
+5188,252,69,41,255,Verger / Marais
+5190,249,69,41,255,Vignoble / Marais
+5192,181,251,5,255,Gazonnière / Marais
+5193,204,255,5,255,Fines herbes / Marais
+5194,233,255,190,255,Pépinière / Marais
+5195,163,255,115,255,Sarrasin / Marais
+5197,238,176,0,255,Chanvre / Marais
+5210,142,118,114,255,Forêt de conifères / Marais
+5211,38,115,0,255,Forêt de conifères dense / Marais
+5212,142,118,114,255,Forêt de conifères avec arbustes décidus / Marais
+5213,41,115,0,255,Forêt de conifères clairsemée / Marais
+5214,142,118,114,255,Forêt de conifères sur lichens / Marais
+5215,0,160,0,255,Forêt de conifères ouverte / Marais
+5216,142,118,114,255,Forêt de conifères sur lichens et mousses / Marais
+5218,142,118,114,255,Forêt de conifères sur mousses et éricacées / Marais
+5220,0,105,0,255,Forêt de feuillus / Marais
+5221,0,184,0,255,Forêt de feuillus dense / Marais
+5223,0,204,0,255,Forêt de feuillus clairsemée / Marais
+5225,0,157,0,255,Forêt de feuillus ouverte / Marais
+5230,0,127,0,255,Forêt mixte / Marais
+5231,0,120,0,255,Forêt mixte dense / Marais
+5233,54,127,74,255,Forêt mixte clairsemée / Marais
+5235,135,153,0,255,Forêt mixte ouverte / Marais
+5250,115,153,0,255,Opération forestière / Marais
+5253,170,85,0,255,Coupe forestière / Marais
+5255,173,85,0,255,Plantation / Marais
+5256,173,85,0,255,Plantation de feuillus indigènes / Marais
+5257,173,85,0,255,Plantation mélangée indigène / Marais
+5258,173,85,0,255,Plantation de résineux indigènes / Marais
+5259,173,85,0,255,Plantation de feuillus exotiques / Marais
+5260,173,85,0,255,Plantation mélangée exotique / Marais
+5261,173,85,0,255,Plantation de résineux exotiques / Marais
+5263,176,85,0,255,Brûlis / Marais
+5280,152,76,0,255,Perturbation naturelle / Marais
+5300,128,64,64,255,Autre terrain / Marais
+5301,255,180,180,255,Zone développée / Marais
+5312,252,110,122,255,Pistes de ski alpin / Marais
+5313,80,175,80,255,Golf / Marais
+5320,115,150,100,255,Route ou chemin / Marais
+5321,255,0,0,255,Aéroport / Marais
+5322,78,78,78,255,Chemin de fer / Marais
+5341,3,3,3,255,Carrière ou gravière / Marais
+5343,101,0,135,255,Mine et déchet de mine / Marais
+5344,21,0,156,255,Bassin de filtration; de décontamination; de déchets liquides; etc. / Marais
+5345,25,25,92,255,Dépotoir / Marais
+5346,135,0,156,255,Zone industrielle et commerce / Marais
+5351,255,120,125,255,Ligne de transmission ou de transport d'énergie / Marais
+5360,180,180,180,255,Exploitation de tourbe / Marais
+5501,0,105,0,255,Bouleau gris / Marais
+5502,0,127,0,255,Bouleau gris associé à des pins / Marais
+5503,0,127,0,255,Bouleau gris associé à des résineux tolérants / Marais
+5504,0,127,0,255,Bouleau gris associé à des résineux / Marais
+5505,0,105,0,255,Bouleau jaune / Marais
+5506,0,127,0,255,Bouleau jaune associé à des épinettes noire ou rouge / Marais
+5507,0,127,0,255,Bouleau jaune associé à du mélèze laricin / Marais
+5508,0,127,0,255,Bouleau jaune associé à des pins / Marais
+5509,0,127,0,255,Bouleau jaune associé à de la pruche du Canada / Marais
+5510,0,127,0,255,Bouleau jaune associé à des résineux / Marais
+5511,0,127,0,255,Bouleau jaune associé à des sapin baumier et/ou épinette blanche / Marais
+5512,0,127,0,255,Bouleau jaune associé à des sapin baumier et épinette noire / Marais
+5513,0,105,0,255,Bouleau jaune associé à du thuyas occidental / Marais
+5514,0,127,0,255,Bouleau blanc / Marais
+5515,0,127,0,255,Bouleau blanc associé à des épinettes noire ou rouge / Marais
+5516,0,127,0,255,Bouleau blanc associé à des pins / Marais
+5517,0,127,0,255,Bouleau blanc associé à des résineux tolérants / Marais
+5518,0,127,0,255,Bouleau blanc associé à des résineux / Marais
+5519,0,105,0,255,Bouleau blanc associé à des sapin baumier et/ou épinette blanche / Marais
+5520,0,127,0,255,Caryer cordiforme / Marais
+5521,0,127,0,255,Chênes / Marais
+5522,0,105,0,255,Chênes associés à des pins / Marais
+5523,0,127,0,255,Chênes associés à des résineux tolérants / Marais
+5524,0,127,0,255,Chênes associés à des résineux / Marais
+5525,0,127,0,255,Cerisier tardif / Marais
+5526,0,105,0,255,Cerisier tardif associé à des pins / Marais
+5527,0,127,0,255,Cerisier tardif associé à des résineux tolérants / Marais
+5528,0,127,0,255,Cerisier tardif associé à des résineux / Marais
+5529,0,105,0,255,Érable argenté / Marais
+5530,0,105,0,255,Érable argenté associé à des pins / Marais
+5531,0,127,0,255,Érable argenté associé à des résineux tolérants / Marais
+5532,0,127,0,255,Érable argenté associé à des résineux / Marais
+5533,0,127,0,255,Épinette blanche / Marais
+5534,142,118,114,255,Épinette blanche associée à des feuillus intolérants / Marais
+5535,0,127,0,255,Épinette blanche associée à des feuillus tolérants / Marais
+5536,0,127,0,255,Épinette blanche associée à des feuillus indéterminés / Marais
+5537,0,127,0,255,Érable noir / Marais
+5538,0,105,0,255,Épinette noire / Marais
+5539,142,118,114,255,Épinette noire associée à de l'épinette blanche / Marais
+5540,142,118,114,255,Épinette noire associée à des feuillus intolérants / Marais
+5541,0,127,0,255,Épinette noire associée à des feuillus tolérants / Marais
+5542,0,127,0,255,Épinette noire associée à des feuillus indéterminés / Marais
+5543,0,127,0,255,Épinette noire associée à du mélèze laricin / Marais
+5544,142,118,114,255,Épinette noire associée à des pins / Marais
+5545,142,118,114,255,Épinette noire associée à du sapin baumier / Marais
+5546,142,118,114,255,Épinette noire associée à des sapin baumier et/ou épinette blanche / Marais
+5547,142,118,114,255,Érable rouge / Marais
+5548,0,105,0,255,Érable rouge associé à des épinettes noire ou rouge / Marais
+5549,0,127,0,255,Érable rouge associé à du mélèze laricin / Marais
+5550,0,127,0,255,Érable rouge associé à des pins / Marais
+5551,0,127,0,255,Érable rouge associé à de la pruche du Canada / Marais
+5552,0,127,0,255,Érable rouge associé à des résineux / Marais
+5553,0,127,0,255,Érable rouge associé à des sapin baumier et/ou épinette blanche / Marais
+5554,0,127,0,255,Érable rouge associé à du thuyas occidental / Marais
+5555,0,127,0,255,Épinettes noire ou rouge / Marais
+5556,142,118,114,255,Épinettes noire ou rouge associés à de l'épinette blanche / Marais
+5557,0,127,0,255,Épinettes noire ou rouge associés à des feuillus intolérants / Marais
+5558,0,127,0,255,Épinettes noire ou rouge associés à des feuillus tolérants / Marais
+5559,0,127,0,255,Épinettes noire ou rouge associés à des feuillus indéterminés / Marais
+5560,0,127,0,255,Épinettes noire ou rouge associés à du mélèze laricin / Marais
+5561,142,118,114,255,Épinettes noire ou rouge associés à des pins / Marais
+5562,142,118,114,255,Épinettes noire ou rouge associés à du sapin baumier / Marais
+5563,142,118,114,255,Épinettes noire ou rouge associés à des sapin baumier et/ou épinette blanche / Marais
+5564,0,105,0,255,Épinettes noire ou rouge associés à du thuyas occidental / Marais
+5565,142,118,114,255,Érables / Marais
+5566,0,105,0,255,Érables associés à du bouleau jaune / Marais
+5567,0,105,0,255,Érables associés à des épinettes noire ou rouge / Marais
+5568,0,127,0,255,Érables associés à du mélèze laricin / Marais
+5569,0,127,0,255,Érables associés à des pins / Marais
+5570,0,127,0,255,Érables associés à de la pruche du Canada / Marais
+5571,0,127,0,255,Érables associés à des résineux / Marais
+5572,0,127,0,255,Érables associés à des sapin baumier et/ou épinette blanche / Marais
+5573,0,127,0,255,Érables associés à du thuyas occidental / Marais
+5574,0,127,0,255,Érable à sucre / Marais
+5575,0,105,0,255,Érable à sucre associé à du bouleau jaune / Marais
+5576,0,105,0,255,Érable à sucre associé à des épinettes noire ou rouge / Marais
+5577,0,127,0,255,Érable à sucre associé à du mélèze laricin / Marais
+5578,0,127,0,255,Érable à sucre associé à des pins / Marais
+5579,0,105,0,255,Érable à sucre associé à de la pruche du Canada / Marais
+5580,0,127,0,255,Érable à sucre associé à des résineux / Marais
+5581,0,127,0,255,Érable à sucre associé à des sapin baumier et/ou épinette blanche / Marais
+5582,0,127,0,255,Érable à sucre associé à du thuyas occidental / Marais
+5583,0,127,0,255,Épinette rouge / Marais
+5584,0,127,0,255,Épinette rouge associée à du bouleau jaune / Marais
+5585,0,127,0,255,Épinette rouge associée à des feuillus intolérants / Marais
+5586,0,127,0,255,Épinette rouge associée à des feuillus tolérants / Marais
+5587,0,127,0,255,Épinette rouge associée à des feuillus indéterminés / Marais
+5588,0,127,0,255,Épinette rouge associée à du mélèze laricin / Marais
+5589,0,127,0,255,Épinette rouge associée à des pins / Marais
+5590,0,127,0,255,Épinette rouge associée à des sapin baumier et/ou épinette blanche / Marais
+5591,142,118,114,255,Frêne d'Amérique / Marais
+5592,142,118,114,255,Frêne d'Amérique associé à des pins / Marais
+5593,142,118,114,255,Frêne d'Amérique associé à des résineux tolérants / Marais
+5594,0,105,0,255,Frêne d'Amérique associé à des résineux / Marais
+5595,0,127,0,255,Feuillus intolérants / Marais
+5596,0,127,0,255,Feuillus intolérants associés à des épinettes noire ou rouge / Marais
+5597,0,127,0,255,Feuillus intolérants associés à du mélèze laricin / Marais
+5598,0,105,0,255,Feuillus intolérants associés à des pins / Marais
+5599,0,127,0,255,Feuillus intolérants associés à de la pruche du Canada / Marais
+5600,0,127,0,255,Feuillus intolérants associés à des résineux / Marais
+5601,0,127,0,255,Feuillus intolérants associés à des sapin baumier et/ou épinette blanche / Marais
+5602,0,127,0,255,Feuillus intolérants associés à du thuyas occidental / Marais
+5603,0,127,0,255,Frêne noir / Marais
+5604,0,127,0,255,Frêne noir associé à des pins / Marais
+5605,0,127,0,255,Frêne noir associé à des résineux tolérants / Marais
+5606,0,105,0,255,Frêne noir associé à des résineux / Marais
+5607,0,127,0,255,Frêne de Pennsylvanie / Marais
+5608,0,127,0,255,Frêne de Pennsylvanie associé à des pins / Marais
+5609,0,127,0,255,Frêne de Pennsylvanie associé à des résineux tolérants / Marais
+5610,0,105,0,255,Frêne de Pennsylvanie associé à des résineux / Marais
+5611,0,127,0,255,Frênes / Marais
+5612,0,127,0,255,Frênes associés à des pins / Marais
+5613,0,127,0,255,Frênes associés à des résineux tolérants / Marais
+5614,0,105,0,255,Frênes associés à des résineux / Marais
+5615,0,127,0,255,Feuillus tolérants / Marais
+5616,0,127,0,255,Feuillus tolérants associés à des épinettes noire ou rouge / Marais
+5617,0,127,0,255,Feuillus tolérants associés à du mélèze laricin / Marais
+5618,0,105,0,255,Feuillus tolérants associés à des pins / Marais
+5619,0,127,0,255,Feuillus tolérants associés à de la pruche du Canada / Marais
+5620,0,127,0,255,Feuillus tolérants associés à des résineux / Marais
+5621,0,127,0,255,Feuillus tolérants associés à des sapin baumier et/ou épinette blanche / Marais
+5622,0,127,0,255,Feuillus tolérants associés à du thuyas occidental / Marais
+5623,0,127,0,255,Feuillus indéterminés / Marais
+5624,0,127,0,255,Feuillus indéterminés associés à des épinettes noire ou rouge / Marais
+5625,0,127,0,255,Feuillus indéterminés associés à du mélèze laricin / Marais
+5626,0,105,0,255,Feuillus indéterminés associés à des pins / Marais
+5627,0,127,0,255,Feuillus indéterminés associés à de la pruche du Canada / Marais
+5628,0,127,0,255,Feuillus indéterminés associés à des sapin baumier et/ou épinette blanche / Marais
+5629,0,127,0,255,Feuillus indéterminés associés à du thuyas occidental / Marais
+5630,0,127,0,255,Hêtre à grandes feuilles / Marais
+5631,0,127,0,255,Hêtre à grandes feuilles associé à des pins / Marais
+5632,0,127,0,255,Hêtre à grandes feuilles associé à des résineux tolérants / Marais
+5633,0,105,0,255,Hêtre à grandes feuilles associé à des résineux / Marais
+5634,0,127,0,255,Mélèze laricin / Marais
+5635,0,127,0,255,Mélèze laricin associé à des feuillus intolérants / Marais
+5636,0,127,0,255,Mélèze laricin associé à des feuillus tolérants / Marais
+5637,142,118,114,255,Mélèze laricin associé à des feuillus indéterminés / Marais
+5638,0,127,0,255,Forêt mixte / Marais
+5639,0,127,0,255,Noyer cendré / Marais
+5640,0,127,0,255,Noyer cendré associé à des pins / Marais
+5641,0,127,0,255,Noyer cendré associé à des résineux tolérants / Marais
+5642,0,127,0,255,Noyer cendré associé à des résineux / Marais
+5643,0,105,0,255,Ormes / Marais
+5644,0,127,0,255,Ormes associés à des pins / Marais
+5645,0,127,0,255,Ormes associés à des résineux tolérants / Marais
+5646,0,105,0,255,Ormes associés à des résineux / Marais
+5647,0,127,0,255,Ostryer de Virginie / Marais
+5648,0,127,0,255,Ostryer de Virginie associé à des pins / Marais
+5649,0,127,0,255,Ostryer de Virginie associé à des résineux tolérants / Marais
+5650,0,105,0,255,Ostryer de Virginie associé à des résineux / Marais
+5651,142,118,114,255,Pin blanc / Marais
+5652,0,127,0,255,Pin blanc associé à du bouleau jaune / Marais
+5653,0,127,0,255,Pin blanc associé à des érables / Marais
+5654,142,118,114,255,Pin blanc associé à des feuillus intolérants / Marais
+5655,0,127,0,255,Pin blanc associé à des feuillus tolérants / Marais
+5656,0,127,0,255,Pin blanc associé à des feuillus indéterminés / Marais
+5657,0,127,0,255,Pin rigide / Marais
+5658,0,127,0,255,Peupliers / Marais
+5659,0,127,0,255,Peupliers associés à des épinettes noire ou rouge / Marais
+5660,142,118,114,255,Peupliers associés à des pins / Marais
+5661,0,127,0,255,Peupliers associés à des résineux tolérants / Marais
+5662,0,105,0,255,Peupliers associés à des résineux / Marais
+5663,0,127,0,255,Peupliers associés à des sapin baumier et/ou épinette blanche / Marais
+5664,0,127,0,255,Pin gris / Marais
+5665,0,127,0,255,Pin gris associé à des feuillus intolérants / Marais
+5666,0,127,0,255,Pin gris associé à des feuillus tolérants / Marais
+5667,0,127,0,255,Pin gris associé à des feuillus indéterminés / Marais
+5668,142,118,114,255,Pins / Marais
+5669,0,127,0,255,Pins associés à des feuillus intolérants / Marais
+5670,0,127,0,255,Pins associés à des feuillus tolérants / Marais
+5671,0,127,0,255,Pins associés à des feuillus indéterminés / Marais
+5672,142,118,114,255,Pin rouge / Marais
+5673,0,127,0,255,Pin rouge associé à du bouleau jaune / Marais
+5674,0,127,0,255,Pin rouge associé à des chênes / Marais
+5675,0,127,0,255,Pin rouge associé à des érables / Marais
+5676,142,118,114,255,Pin rouge associé à des feuillus intolérants / Marais
+5677,0,127,0,255,Pin rouge associé à des feuillus tolérants / Marais
+5678,0,127,0,255,Pin rouge associé à des feuillus indéterminés / Marais
+5679,0,127,0,255,Pin rouge associé à du hêtre à grandes feuilles / Marais
+5680,0,127,0,255,Pin rouge associé à du noyer cendré / Marais
+5681,0,127,0,255,Pin rouge associé à des ormes / Marais
+5682,0,127,0,255,Pin rouge associé à de l'ostryer de Virginie / Marais
+5683,0,127,0,255,Pin rouge associé à du tilleul d'Amérique / Marais
+5684,0,127,0,255,Épinette noire et sapin baumier associés à des feuillus intolérants / Marais
+5685,0,127,0,255,Épinette noire et sapin baumier associés à des feuillus tolérants / Marais
+5686,0,127,0,255,Épinette noire et sapin baumier associés à des feuillus indéterminés / Marais
+5687,142,118,114,255,Pruche du Canada / Marais
+5688,0,127,0,255,Pruche du Canada associée à du bouleau jaune / Marais
+5689,142,118,114,255,Pruche du Canada associée à des érables / Marais
+5690,0,127,0,255,Pruche du Canada associée à des feuillus intolérants / Marais
+5691,0,127,0,255,Pruche du Canada associée à des feuillus tolérants / Marais
+5692,0,127,0,255,Pruche du Canada associée à des feuillus indéterminés / Marais
+5693,0,127,0,255,Résineux / Marais
+5694,0,127,0,255,Résineux associés à du bouleau jaune / Marais
+5695,142,118,114,255,Résineux associés à des érables / Marais
+5696,0,127,0,255,Résineux associés à des feuillus intolérants / Marais
+5697,0,127,0,255,Résineux associés à des feuillus tolérants / Marais
+5698,0,127,0,255,Résineux associés à des feuillus indéterminés / Marais
+5699,0,127,0,255,Sapin baumier / Marais
+5700,0,127,0,255,Sapin baumier associé à du bouleau jaune / Marais
+5701,142,118,114,255,Sapin baumier associé à des épinettes noire ou rouge / Marais
+5702,0,127,0,255,Sapin baumier associé à des érables / Marais
+5703,142,118,114,255,Sapin baumier associé à des feuillus intolérants / Marais
+5704,0,127,0,255,Sapin baumier associé à des feuillus tolérants / Marais
+5705,0,127,0,255,Sapin baumier associé à des feuillus indéterminés / Marais
+5706,0,127,0,255,Sapin baumier associé à du thuyas occidental / Marais
+5707,0,127,0,255,Sapin baumier et/ou épinette blanche / Marais
+5708,142,118,114,255,Sapin baumier et/ou épinette blanche associés à du bouleau jaune / Marais
+5709,142,118,114,255,Sapin baumier et/ou épinette blanche associés à de l'épinette noire / Marais
+5710,0,127,0,255,Sapin baumier et/ou épinette blanche associés à des épinettes noire ou rouge / Marais
+5711,142,118,114,255,Sapin baumier et/ou épinette blanche associés à des érables / Marais
+5712,142,118,114,255,Sapin baumier et/ou épinette blanche associés à des feuillus intolérants / Marais
+5713,0,127,0,255,Sapin baumier et/ou épinette blanche associés à des feuillus tolérants / Marais
+5714,0,127,0,255,Sapin baumier et/ou épinette blanche associés à des feuillus indéterminés / Marais
+5715,0,127,0,255,Sapin baumier et épinette noire associés à du bouleau jaune / Marais
+5716,0,127,0,255,Sapin baumier et épinette noire associés à des érables / Marais
+5717,0,105,0,255,Sapin baumier et épinette noire associés à des feuillus intolérants / Marais
+5718,0,127,0,255,Sapin baumier et épinette noire associés à des feuillus tolérants / Marais
+5719,0,127,0,255,Sapin baumier et épinette noire associés à des feuillus indéterminés / Marais
+5720,0,105,0,255,Tilleul d'Amérique / Marais
+5721,142,118,114,255,Tilleul d'Amérique associé à des pins / Marais
+5722,0,127,0,255,Tilleul d'Amérique associé à des résineux tolérants / Marais
+5723,0,127,0,255,Tilleul d'Amérique associé à des résineux / Marais
+5724,0,127,0,255,Thuyas occidental / Marais
+5725,0,127,0,255,Thuyas occidental associé à du bouleau jaune / Marais
+5726,0,127,0,255,Thuyas occidental associé à des érables / Marais
+5727,0,127,0,255,Thuyas occidental associé à des feuillus intolérants / Marais
+5728,0,127,0,255,Thuyas occidental associé à des feuillus tolérants / Marais
+5729,0,127,0,255,Thuyas occidental associé à des feuillus indéterminés / Marais
+5730,0,105,0,255,Peuplement issu d'une plantation de feuillus indigènes / Marais
+5731,0,127,0,255,Peuplement issu d'une plantation mélangée indigène / Marais
+5732,142,118,114,255,Peuplement issu d'une plantation de résineux indigènes / Marais
+5733,0,105,0,255,Peuplement issu d'une plantation de feuillus exotiques / Marais
+5734,0,105,0,255,Peuplement issu d'une plantation mélangée exotique / Marais
+5735,142,118,114,255,Peuplement issu d'une plantation de résineux exotiques / Marais
+6000,152,103,57,255,Tourbière minérotrophe
+6020,5,255,255,255,Eau / Tourbière minérotrophe
+6021,10,255,255,255,Lac / Tourbière minérotrophe
+6022,0,196,255,255,Mare et/ou eau peu profonde / Tourbière minérotrophe
+6023,0,166,255,255,Réservoir / Tourbière minérotrophe
+6024,0,255,255,255,Cours d'eau / Tourbière minérotrophe
+6025,0,175,175,255,Eau salée / Tourbière minérotrophe
+6026,0,215,215,255,Eau saumâtre / Tourbière minérotrophe
+6027,5,215,215,255,Lac de thermokartz / Tourbière minérotrophe
+6029,10,215,215,255,Neige et glace permanentes; combe à neige / Tourbière minérotrophe
+6030,200,200,200,255,Sol nu; roc-sol à nu; sol dénudé ou semi-dénudé sec / Tourbière minérotrophe
+6031,205,200,200,255,Champs de bloc / Tourbière minérotrophe
+6050,140,255,0,255,Forêt ou arbustaie improductive / Tourbière minérotrophe
+6051,158,255,0,255,Aulnaie / Tourbière minérotrophe
+6052,158,155,0,255,Arbustaie basse et mares de thermokarst / Tourbière minérotrophe
+6053,140,217,0,255,Arbustaie arctique basse (0.3 à 1 m) / Tourbière minérotrophe
+6054,140,217,0,255,Forêt arbustive haute (> 2 m) / Tourbière minérotrophe
+6055,49,194,0,255,Friche / Tourbière minérotrophe
+6056,190,208,215,255,Arbustaie arctique haute (> 1 m) / Tourbière minérotrophe
+6057,140,217,0,255,Forêt arbustive basse (< 2 m) \ Tourbière minérotrophe
+6060,193,12,218,255,Lande à lichens / Tourbière minérotrophe
+6061,196,15,212,255,Lande à lichens et arbustes / Tourbière minérotrophe
+6062,199,18,215,255,Lande subarctique / Tourbière minérotrophe
+6063,202,22,218,255,Lande subarctique avec 30 à 70 % d’arbustes / Tourbière minérotrophe
+6064,205,25,221,255,Lande rocheuse / Tourbière minérotrophe
+6065,208,28,224,255,Lande à éricacées / Tourbière minérotrophe
+6066,208,28,224,255,Lande herbacée / Tourbière minérotrophe
+6067,208,28,224,255,Lande à mousse / Tourbière minérotrophe
+6068,208,28,224,255,Lande alpine / Tourbière minérotrophe
+6071,211,232,227,255,Toundra à arbustes dressés / Tourbière minérotrophe
+6072,211,232,227,255,Toundra à arbustes dressés avec ostioles / Tourbière minérotrophe
+6073,208,28,224,255,Toundra à arbustes dressés avec 30 à 70 % d’arbustes / Tourbière minérotrophe
+6074,211,232,233,255,Toundra à arbustes dressés avec ostioles et 30 à 70 % d’arbustes / Tourbière minérotrophe
+6075,211,232,233,255,Toundra à arbustes prostrés / Tourbière minérotrophe
+6076,211,232,233,255,Toundra à arbustes prostrés avec ostioles / Tourbière minérotrophe
+6077,211,232,233,255,Toundra herbacée avec arbustes prostrés / Tourbière minérotrophe
+6101,220,236,241,255,Serre / Tourbière minérotrophe
+6120,255,255,191,255,Agriculture indifférenciée / Tourbière minérotrophe
+6122,238,222,173,255,Culture pérenne et pâturage / Tourbière minérotrophe
+6131,236,222,173,255,Jachère / Tourbière minérotrophe
+6132,204,255,0,255,Autre céréale / Tourbière minérotrophe
+6133,255,255,0,255,Orge / Tourbière minérotrophe
+6134,153,204,0,255,Sorgho / Tourbière minérotrophe
+6135,249,255,217,255,Millet / Tourbière minérotrophe
+6136,255,238,112,255,Avoine / Tourbière minérotrophe
+6137,219,227,29,255,Seigle / Tourbière minérotrophe
+6138,235,176,0,255,Épeautre / Tourbière minérotrophe
+6139,158,129,0,255,Triticale / Tourbière minérotrophe
+6140,222,163,102,255,Blé / Tourbière minérotrophe
+6141,255,212,0,255,Panic érigé / Tourbière minérotrophe
+6147,255,211,127,255,Maïs / Tourbière minérotrophe
+6153,255,240,0,255,Canola ou colza / Tourbière minérotrophe
+6154,214,255,112,255,Graine de lin / Tourbière minérotrophe
+6157,217,255,112,255,Tournesol / Tourbière minérotrophe
+6158,173,105,0,255,Soya / Tourbière minérotrophe
+6160,255,102,51,255,Autre légumineuse / Tourbière minérotrophe
+6162,255,125,0,255,Pois / Tourbière minérotrophe
+6167,165,245,122,255,Haricot / Tourbière minérotrophe
+6168,255,102,102,255,Laitue / Tourbière minérotrophe
+6169,204,102,102,255,Ail/Oignon/Poireau / Tourbière minérotrophe
+6170,204,102,153,255,Carotte/Panais / Tourbière minérotrophe
+6171,204,153,153,255,Cucurbitacée / Tourbière minérotrophe
+6172,153,102,153,255,Crucifère (feuilles) / Tourbière minérotrophe
+6173,151,255,138,255,Légume à fruits / Tourbière minérotrophe
+6175,255,221,191,255,Autre légume / Tourbière minérotrophe
+6176,102,51,153,255,Crucifère (racines) / Tourbière minérotrophe
+6177,161,255,158,255,Pomme de terre / Tourbière minérotrophe
+6178,102,102,153,255,Betterave à sucre / Tourbière minérotrophe
+6180,232,125,0,255,Autre fruit / Tourbière minérotrophe
+6181,255,144,97,255,Baie / Tourbière minérotrophe
+6182,255,69,41,255,Canneberge / Tourbière minérotrophe
+6183,255,99,146,255,Bleuet / Tourbière minérotrophe
+6188,252,69,41,255,Verger / Tourbière minérotrophe
+6190,249,69,41,255,Vignoble / Tourbière minérotrophe
+6192,181,251,5,255,Gazonnière / Tourbière minérotrophe
+6193,204,255,5,255,Fines herbes / Tourbière minérotrophe
+6194,233,255,190,255,Pépinière / Tourbière minérotrophe
+6195,163,255,115,255,Sarrasin / Tourbière minérotrophe
+6197,238,176,0,255,Chanvre / Tourbière minérotrophe
+6210,142,118,114,255,Forêt de conifères / Tourbière minérotrophe
+6211,38,115,0,255,Forêt de conifères dense / Tourbière minérotrophe
+6212,142,118,114,255,Forêt de conifères avec arbustes décidus / Tourbière minérotrophe
+6213,41,115,0,255,Forêt de conifères clairsemée / Tourbière minérotrophe
+6214,142,118,114,255,Forêt de conifères sur lichens / Tourbière minérotrophe
+6215,0,160,0,255,Forêt de conifères ouverte / Tourbière minérotrophe
+6216,142,118,114,255,Forêt de conifères sur lichens et mousses / Tourbière minérotrophe
+6218,142,118,114,255,Forêt de conifères sur mousses et éricacées / Tourbière minérotrophe
+6220,0,105,0,255,Forêt de feuillus / Tourbière minérotrophe
+6221,0,184,0,255,Forêt de feuillus dense / Tourbière minérotrophe
+6223,0,204,0,255,Forêt de feuillus clairsemée / Tourbière minérotrophe
+6225,0,157,0,255,Forêt de feuillus ouverte / Tourbière minérotrophe
+6230,0,127,0,255,Forêt mixte / Tourbière minérotrophe
+6231,0,120,0,255,Forêt mixte dense / Tourbière minérotrophe
+6233,54,127,74,255,Forêt mixte clairsemée / Tourbière minérotrophe
+6235,135,153,0,255,Forêt mixte ouverte / Tourbière minérotrophe
+6250,115,153,0,255,Opération forestière / Tourbière minérotrophe
+6253,170,85,0,255,Coupe forestière / Tourbière minérotrophe
+6255,173,85,0,255,Plantation / Tourbière minérotrophe
+6256,173,85,0,255,Plantation de feuillus indigènes / Tourbière minérotrophe
+6257,173,85,0,255,Plantation mélangée indigène / Tourbière minérotrophe
+6258,173,85,0,255,Plantation de résineux indigènes / Tourbière minérotrophe
+6259,173,85,0,255,Plantation de feuillus exotiques / Tourbière minérotrophe
+6260,173,85,0,255,Plantation mélangée exotique / Tourbière minérotrophe
+6261,173,85,0,255,Plantation de résineux exotiques / Tourbière minérotrophe
+6263,176,85,0,255,Brûlis / Tourbière minérotrophe
+6280,152,76,0,255,Perturbation naturelle / Tourbière minérotrophe
+6300,128,64,64,255,Autre terrain / Tourbière minérotrophe
+6301,255,180,180,255,Zone développée / Tourbière minérotrophe
+6312,252,110,122,255,Pistes de ski alpin / Tourbière minérotrophe
+6313,80,175,80,255,Golf / Tourbière minérotrophe
+6320,115,150,100,255,Route ou chemin / Tourbière minérotrophe
+6321,255,0,0,255,Aéroport / Tourbière minérotrophe
+6322,78,78,78,255,Chemin de fer / Tourbière minérotrophe
+6341,3,3,3,255,Carrière ou gravière / Tourbière minérotrophe
+6343,101,0,135,255,Mine et déchet de mine / Tourbière minérotrophe
+6344,21,0,156,255,Bassin de filtration; de décontamination; de déchets liquides; etc. / Tourbière minérotrophe
+6345,25,25,92,255,Dépotoir / Tourbière minérotrophe
+6346,135,0,156,255,Zone industrielle et commerce / Tourbière minérotrophe
+6351,255,120,125,255,Ligne de transmission ou de transport d'énergie / Tourbière minérotrophe
+6360,180,180,180,255,Exploitation de tourbe / Tourbière minérotrophe
+6501,0,105,0,255,Bouleau gris / Tourbière minérotrophe
+6502,0,127,0,255,Bouleau gris associé à des pins / Tourbière minérotrophe
+6503,0,127,0,255,Bouleau gris associé à des résineux tolérants / Tourbière minérotrophe
+6504,0,127,0,255,Bouleau gris associé à des résineux / Tourbière minérotrophe
+6505,0,105,0,255,Bouleau jaune / Tourbière minérotrophe
+6506,0,127,0,255,Bouleau jaune associé à des épinettes noire ou rouge / Tourbière minérotrophe
+6507,0,127,0,255,Bouleau jaune associé à du mélèze laricin / Tourbière minérotrophe
+6508,0,127,0,255,Bouleau jaune associé à des pins / Tourbière minérotrophe
+6509,0,127,0,255,Bouleau jaune associé à de la pruche du Canada / Tourbière minérotrophe
+6510,0,127,0,255,Bouleau jaune associé à des résineux / Tourbière minérotrophe
+6511,0,127,0,255,Bouleau jaune associé à des sapin baumier et/ou épinette blanche / Tourbière minérotrophe
+6512,0,127,0,255,Bouleau jaune associé à des sapin baumier et épinette noire / Tourbière minérotrophe
+6513,0,105,0,255,Bouleau jaune associé à du thuyas occidental / Tourbière minérotrophe
+6514,0,127,0,255,Bouleau blanc / Tourbière minérotrophe
+6515,0,127,0,255,Bouleau blanc associé à des épinettes noire ou rouge / Tourbière minérotrophe
+6516,0,127,0,255,Bouleau blanc associé à des pins / Tourbière minérotrophe
+6517,0,127,0,255,Bouleau blanc associé à des résineux tolérants / Tourbière minérotrophe
+6518,0,127,0,255,Bouleau blanc associé à des résineux / Tourbière minérotrophe
+6519,0,105,0,255,Bouleau blanc associé à des sapin baumier et/ou épinette blanche / Tourbière minérotrophe
+6520,0,127,0,255,Caryer cordiforme / Tourbière minérotrophe
+6521,0,127,0,255,Chênes / Tourbière minérotrophe
+6522,0,105,0,255,Chênes associés à des pins / Tourbière minérotrophe
+6523,0,127,0,255,Chênes associés à des résineux tolérants / Tourbière minérotrophe
+6524,0,127,0,255,Chênes associés à des résineux / Tourbière minérotrophe
+6525,0,127,0,255,Cerisier tardif / Tourbière minérotrophe
+6526,0,105,0,255,Cerisier tardif associé à des pins / Tourbière minérotrophe
+6527,0,127,0,255,Cerisier tardif associé à des résineux tolérants / Tourbière minérotrophe
+6528,0,127,0,255,Cerisier tardif associé à des résineux / Tourbière minérotrophe
+6529,0,105,0,255,Érable argenté / Tourbière minérotrophe
+6530,0,105,0,255,Érable argenté associé à des pins / Tourbière minérotrophe
+6531,0,127,0,255,Érable argenté associé à des résineux tolérants / Tourbière minérotrophe
+6532,0,127,0,255,Érable argenté associé à des résineux / Tourbière minérotrophe
+6533,0,127,0,255,Épinette blanche / Tourbière minérotrophe
+6534,142,118,114,255,Épinette blanche associée à des feuillus intolérants / Tourbière minérotrophe
+6535,0,127,0,255,Épinette blanche associée à des feuillus tolérants / Tourbière minérotrophe
+6536,0,127,0,255,Épinette blanche associée à des feuillus indéterminés / Tourbière minérotrophe
+6537,0,127,0,255,Érable noir / Tourbière minérotrophe
+6538,0,105,0,255,Épinette noire / Tourbière minérotrophe
+6539,142,118,114,255,Épinette noire associée à de l'épinette blanche / Tourbière minérotrophe
+6540,142,118,114,255,Épinette noire associée à des feuillus intolérants / Tourbière minérotrophe
+6541,0,127,0,255,Épinette noire associée à des feuillus tolérants / Tourbière minérotrophe
+6542,0,127,0,255,Épinette noire associée à des feuillus indéterminés / Tourbière minérotrophe
+6543,0,127,0,255,Épinette noire associée à du mélèze laricin / Tourbière minérotrophe
+6544,142,118,114,255,Épinette noire associée à des pins / Tourbière minérotrophe
+6545,142,118,114,255,Épinette noire associée à du sapin baumier / Tourbière minérotrophe
+6546,142,118,114,255,Épinette noire associée à des sapin baumier et/ou épinette blanche / Tourbière minérotrophe
+6547,142,118,114,255,Érable rouge / Tourbière minérotrophe
+6548,0,105,0,255,Érable rouge associé à des épinettes noire ou rouge / Tourbière minérotrophe
+6549,0,127,0,255,Érable rouge associé à du mélèze laricin / Tourbière minérotrophe
+6550,0,127,0,255,Érable rouge associé à des pins / Tourbière minérotrophe
+6551,0,127,0,255,Érable rouge associé à de la pruche du Canada / Tourbière minérotrophe
+6552,0,127,0,255,Érable rouge associé à des résineux / Tourbière minérotrophe
+6553,0,127,0,255,Érable rouge associé à des sapin baumier et/ou épinette blanche / Tourbière minérotrophe
+6554,0,127,0,255,Érable rouge associé à du thuyas occidental / Tourbière minérotrophe
+6555,0,127,0,255,Épinettes noire ou rouge / Tourbière minérotrophe
+6556,142,118,114,255,Épinettes noire ou rouge associés à de l'épinette blanche / Tourbière minérotrophe
+6557,0,127,0,255,Épinettes noire ou rouge associés à des feuillus intolérants / Tourbière minérotrophe
+6558,0,127,0,255,Épinettes noire ou rouge associés à des feuillus tolérants / Tourbière minérotrophe
+6559,0,127,0,255,Épinettes noire ou rouge associés à des feuillus indéterminés / Tourbière minérotrophe
+6560,0,127,0,255,Épinettes noire ou rouge associés à du mélèze laricin / Tourbière minérotrophe
+6561,142,118,114,255,Épinettes noire ou rouge associés à des pins / Tourbière minérotrophe
+6562,142,118,114,255,Épinettes noire ou rouge associés à du sapin baumier / Tourbière minérotrophe
+6563,142,118,114,255,Épinettes noire ou rouge associés à des sapin baumier et/ou épinette blanche / Tourbière minérotrophe
+6564,0,105,0,255,Épinettes noire ou rouge associés à du thuyas occidental / Tourbière minérotrophe
+6565,142,118,114,255,Érables / Tourbière minérotrophe
+6566,0,105,0,255,Érables associés à du bouleau jaune / Tourbière minérotrophe
+6567,0,105,0,255,Érables associés à des épinettes noire ou rouge / Tourbière minérotrophe
+6568,0,127,0,255,Érables associés à du mélèze laricin / Tourbière minérotrophe
+6569,0,127,0,255,Érables associés à des pins / Tourbière minérotrophe
+6570,0,127,0,255,Érables associés à de la pruche du Canada / Tourbière minérotrophe
+6571,0,127,0,255,Érables associés à des résineux / Tourbière minérotrophe
+6572,0,127,0,255,Érables associés à des sapin baumier et/ou épinette blanche / Tourbière minérotrophe
+6573,0,127,0,255,Érables associés à du thuyas occidental / Tourbière minérotrophe
+6574,0,127,0,255,Érable à sucre / Tourbière minérotrophe
+6575,0,105,0,255,Érable à sucre associé à du bouleau jaune / Tourbière minérotrophe
+6576,0,105,0,255,Érable à sucre associé à des épinettes noire ou rouge / Tourbière minérotrophe
+6577,0,127,0,255,Érable à sucre associé à du mélèze laricin / Tourbière minérotrophe
+6578,0,127,0,255,Érable à sucre associé à des pins / Tourbière minérotrophe
+6579,0,105,0,255,Érable à sucre associé à de la pruche du Canada / Tourbière minérotrophe
+6580,0,127,0,255,Érable à sucre associé à des résineux / Tourbière minérotrophe
+6581,0,127,0,255,Érable à sucre associé à des sapin baumier et/ou épinette blanche / Tourbière minérotrophe
+6582,0,127,0,255,Érable à sucre associé à du thuyas occidental / Tourbière minérotrophe
+6583,0,127,0,255,Épinette rouge / Tourbière minérotrophe
+6584,0,127,0,255,Épinette rouge associée à du bouleau jaune / Tourbière minérotrophe
+6585,0,127,0,255,Épinette rouge associée à des feuillus intolérants / Tourbière minérotrophe
+6586,0,127,0,255,Épinette rouge associée à des feuillus tolérants / Tourbière minérotrophe
+6587,0,127,0,255,Épinette rouge associée à des feuillus indéterminés / Tourbière minérotrophe
+6588,0,127,0,255,Épinette rouge associée à du mélèze laricin / Tourbière minérotrophe
+6589,0,127,0,255,Épinette rouge associée à des pins / Tourbière minérotrophe
+6590,0,127,0,255,Épinette rouge associée à des sapin baumier et/ou épinette blanche / Tourbière minérotrophe
+6591,142,118,114,255,Frêne d'Amérique / Tourbière minérotrophe
+6592,142,118,114,255,Frêne d'Amérique associé à des pins / Tourbière minérotrophe
+6593,142,118,114,255,Frêne d'Amérique associé à des résineux tolérants / Tourbière minérotrophe
+6594,0,105,0,255,Frêne d'Amérique associé à des résineux / Tourbière minérotrophe
+6595,0,127,0,255,Feuillus intolérants / Tourbière minérotrophe
+6596,0,127,0,255,Feuillus intolérants associés à des épinettes noire ou rouge / Tourbière minérotrophe
+6597,0,127,0,255,Feuillus intolérants associés à du mélèze laricin / Tourbière minérotrophe
+6598,0,105,0,255,Feuillus intolérants associés à des pins / Tourbière minérotrophe
+6599,0,127,0,255,Feuillus intolérants associés à de la pruche du Canada / Tourbière minérotrophe
+6600,0,127,0,255,Feuillus intolérants associés à des résineux / Tourbière minérotrophe
+6601,0,127,0,255,Feuillus intolérants associés à des sapin baumier et/ou épinette blanche / Tourbière minérotrophe
+6602,0,127,0,255,Feuillus intolérants associés à du thuyas occidental / Tourbière minérotrophe
+6603,0,127,0,255,Frêne noir / Tourbière minérotrophe
+6604,0,127,0,255,Frêne noir associé à des pins / Tourbière minérotrophe
+6605,0,127,0,255,Frêne noir associé à des résineux tolérants / Tourbière minérotrophe
+6606,0,105,0,255,Frêne noir associé à des résineux / Tourbière minérotrophe
+6607,0,127,0,255,Frêne de Pennsylvanie / Tourbière minérotrophe
+6608,0,127,0,255,Frêne de Pennsylvanie associé à des pins / Tourbière minérotrophe
+6609,0,127,0,255,Frêne de Pennsylvanie associé à des résineux tolérants / Tourbière minérotrophe
+6610,0,105,0,255,Frêne de Pennsylvanie associé à des résineux / Tourbière minérotrophe
+6611,0,127,0,255,Frênes / Tourbière minérotrophe
+6612,0,127,0,255,Frênes associés à des pins / Tourbière minérotrophe
+6613,0,127,0,255,Frênes associés à des résineux tolérants / Tourbière minérotrophe
+6614,0,105,0,255,Frênes associés à des résineux / Tourbière minérotrophe
+6615,0,127,0,255,Feuillus tolérants / Tourbière minérotrophe
+6616,0,127,0,255,Feuillus tolérants associés à des épinettes noire ou rouge / Tourbière minérotrophe
+6617,0,127,0,255,Feuillus tolérants associés à du mélèze laricin / Tourbière minérotrophe
+6618,0,105,0,255,Feuillus tolérants associés à des pins / Tourbière minérotrophe
+6619,0,127,0,255,Feuillus tolérants associés à de la pruche du Canada / Tourbière minérotrophe
+6620,0,127,0,255,Feuillus tolérants associés à des résineux / Tourbière minérotrophe
+6621,0,127,0,255,Feuillus tolérants associés à des sapin baumier et/ou épinette blanche / Tourbière minérotrophe
+6622,0,127,0,255,Feuillus tolérants associés à du thuyas occidental / Tourbière minérotrophe
+6623,0,127,0,255,Feuillus indéterminés / Tourbière minérotrophe
+6624,0,127,0,255,Feuillus indéterminés associés à des épinettes noire ou rouge / Tourbière minérotrophe
+6625,0,127,0,255,Feuillus indéterminés associés à du mélèze laricin / Tourbière minérotrophe
+6626,0,105,0,255,Feuillus indéterminés associés à des pins / Tourbière minérotrophe
+6627,0,127,0,255,Feuillus indéterminés associés à de la pruche du Canada / Tourbière minérotrophe
+6628,0,127,0,255,Feuillus indéterminés associés à des sapin baumier et/ou épinette blanche / Tourbière minérotrophe
+6629,0,127,0,255,Feuillus indéterminés associés à du thuyas occidental / Tourbière minérotrophe
+6630,0,127,0,255,Hêtre à grandes feuilles / Tourbière minérotrophe
+6631,0,127,0,255,Hêtre à grandes feuilles associé à des pins / Tourbière minérotrophe
+6632,0,127,0,255,Hêtre à grandes feuilles associé à des résineux tolérants / Tourbière minérotrophe
+6633,0,105,0,255,Hêtre à grandes feuilles associé à des résineux / Tourbière minérotrophe
+6634,0,127,0,255,Mélèze laricin / Tourbière minérotrophe
+6635,0,127,0,255,Mélèze laricin associé à des feuillus intolérants / Tourbière minérotrophe
+6636,0,127,0,255,Mélèze laricin associé à des feuillus tolérants / Tourbière minérotrophe
+6637,142,118,114,255,Mélèze laricin associé à des feuillus indéterminés / Tourbière minérotrophe
+6638,0,127,0,255,Forêt mixte / Tourbière minérotrophe
+6639,0,127,0,255,Noyer cendré / Tourbière minérotrophe
+6640,0,127,0,255,Noyer cendré associé à des pins / Tourbière minérotrophe
+6641,0,127,0,255,Noyer cendré associé à des résineux tolérants / Tourbière minérotrophe
+6642,0,127,0,255,Noyer cendré associé à des résineux / Tourbière minérotrophe
+6643,0,105,0,255,Ormes / Tourbière minérotrophe
+6644,0,127,0,255,Ormes associés à des pins / Tourbière minérotrophe
+6645,0,127,0,255,Ormes associés à des résineux tolérants / Tourbière minérotrophe
+6646,0,105,0,255,Ormes associés à des résineux / Tourbière minérotrophe
+6647,0,127,0,255,Ostryer de Virginie / Tourbière minérotrophe
+6648,0,127,0,255,Ostryer de Virginie associé à des pins / Tourbière minérotrophe
+6649,0,127,0,255,Ostryer de Virginie associé à des résineux tolérants / Tourbière minérotrophe
+6650,0,105,0,255,Ostryer de Virginie associé à des résineux / Tourbière minérotrophe
+6651,142,118,114,255,Pin blanc / Tourbière minérotrophe
+6652,0,127,0,255,Pin blanc associé à du bouleau jaune / Tourbière minérotrophe
+6653,0,127,0,255,Pin blanc associé à des érables / Tourbière minérotrophe
+6654,142,118,114,255,Pin blanc associé à des feuillus intolérants / Tourbière minérotrophe
+6655,0,127,0,255,Pin blanc associé à des feuillus tolérants / Tourbière minérotrophe
+6656,0,127,0,255,Pin blanc associé à des feuillus indéterminés / Tourbière minérotrophe
+6657,0,127,0,255,Pin rigide / Tourbière minérotrophe
+6658,0,127,0,255,Peupliers / Tourbière minérotrophe
+6659,0,127,0,255,Peupliers associés à des épinettes noire ou rouge / Tourbière minérotrophe
+6660,142,118,114,255,Peupliers associés à des pins / Tourbière minérotrophe
+6661,0,127,0,255,Peupliers associés à des résineux tolérants / Tourbière minérotrophe
+6662,0,105,0,255,Peupliers associés à des résineux / Tourbière minérotrophe
+6663,0,127,0,255,Peupliers associés à des sapin baumier et/ou épinette blanche / Tourbière minérotrophe
+6664,0,127,0,255,Pin gris / Tourbière minérotrophe
+6665,0,127,0,255,Pin gris associé à des feuillus intolérants / Tourbière minérotrophe
+6666,0,127,0,255,Pin gris associé à des feuillus tolérants / Tourbière minérotrophe
+6667,0,127,0,255,Pin gris associé à des feuillus indéterminés / Tourbière minérotrophe
+6668,142,118,114,255,Pins / Tourbière minérotrophe
+6669,0,127,0,255,Pins associés à des feuillus intolérants / Tourbière minérotrophe
+6670,0,127,0,255,Pins associés à des feuillus tolérants / Tourbière minérotrophe
+6671,0,127,0,255,Pins associés à des feuillus indéterminés / Tourbière minérotrophe
+6672,142,118,114,255,Pin rouge / Tourbière minérotrophe
+6673,0,127,0,255,Pin rouge associé à du bouleau jaune / Tourbière minérotrophe
+6674,0,127,0,255,Pin rouge associé à des chênes / Tourbière minérotrophe
+6675,0,127,0,255,Pin rouge associé à des érables / Tourbière minérotrophe
+6676,142,118,114,255,Pin rouge associé à des feuillus intolérants / Tourbière minérotrophe
+6677,0,127,0,255,Pin rouge associé à des feuillus tolérants / Tourbière minérotrophe
+6678,0,127,0,255,Pin rouge associé à des feuillus indéterminés / Tourbière minérotrophe
+6679,0,127,0,255,Pin rouge associé à du hêtre à grandes feuilles / Tourbière minérotrophe
+6680,0,127,0,255,Pin rouge associé à du noyer cendré / Tourbière minérotrophe
+6681,0,127,0,255,Pin rouge associé à des ormes / Tourbière minérotrophe
+6682,0,127,0,255,Pin rouge associé à de l'ostryer de Virginie / Tourbière minérotrophe
+6683,0,127,0,255,Pin rouge associé à du tilleul d'Amérique / Tourbière minérotrophe
+6684,0,127,0,255,Épinette noire et sapin baumier associés à des feuillus intolérants / Tourbière minérotrophe
+6685,0,127,0,255,Épinette noire et sapin baumier associés à des feuillus tolérants / Tourbière minérotrophe
+6686,0,127,0,255,Épinette noire et sapin baumier associés à des feuillus indéterminés / Tourbière minérotrophe
+6687,142,118,114,255,Pruche du Canada / Tourbière minérotrophe
+6688,0,127,0,255,Pruche du Canada associée à du bouleau jaune / Tourbière minérotrophe
+6689,142,118,114,255,Pruche du Canada associée à des érables / Tourbière minérotrophe
+6690,0,127,0,255,Pruche du Canada associée à des feuillus intolérants / Tourbière minérotrophe
+6691,0,127,0,255,Pruche du Canada associée à des feuillus tolérants / Tourbière minérotrophe
+6692,0,127,0,255,Pruche du Canada associée à des feuillus indéterminés / Tourbière minérotrophe
+6693,0,127,0,255,Résineux / Tourbière minérotrophe
+6694,0,127,0,255,Résineux associés à du bouleau jaune / Tourbière minérotrophe
+6695,142,118,114,255,Résineux associés à des érables / Tourbière minérotrophe
+6696,0,127,0,255,Résineux associés à des feuillus intolérants / Tourbière minérotrophe
+6697,0,127,0,255,Résineux associés à des feuillus tolérants / Tourbière minérotrophe
+6698,0,127,0,255,Résineux associés à des feuillus indéterminés / Tourbière minérotrophe
+6699,0,127,0,255,Sapin baumier / Tourbière minérotrophe
+6700,0,127,0,255,Sapin baumier associé à du bouleau jaune / Tourbière minérotrophe
+6701,142,118,114,255,Sapin baumier associé à des épinettes noire ou rouge / Tourbière minérotrophe
+6702,0,127,0,255,Sapin baumier associé à des érables / Tourbière minérotrophe
+6703,142,118,114,255,Sapin baumier associé à des feuillus intolérants / Tourbière minérotrophe
+6704,0,127,0,255,Sapin baumier associé à des feuillus tolérants / Tourbière minérotrophe
+6705,0,127,0,255,Sapin baumier associé à des feuillus indéterminés / Tourbière minérotrophe
+6706,0,127,0,255,Sapin baumier associé à du thuyas occidental / Tourbière minérotrophe
+6707,0,127,0,255,Sapin baumier et/ou épinette blanche / Tourbière minérotrophe
+6708,142,118,114,255,Sapin baumier et/ou épinette blanche associés à du bouleau jaune / Tourbière minérotrophe
+6709,142,118,114,255,Sapin baumier et/ou épinette blanche associés à de l'épinette noire / Tourbière minérotrophe
+6710,0,127,0,255,Sapin baumier et/ou épinette blanche associés à des épinettes noire ou rouge / Tourbière minérotrophe
+6711,142,118,114,255,Sapin baumier et/ou épinette blanche associés à des érables / Tourbière minérotrophe
+6712,142,118,114,255,Sapin baumier et/ou épinette blanche associés à des feuillus intolérants / Tourbière minérotrophe
+6713,0,127,0,255,Sapin baumier et/ou épinette blanche associés à des feuillus tolérants / Tourbière minérotrophe
+6714,0,127,0,255,Sapin baumier et/ou épinette blanche associés à des feuillus indéterminés / Tourbière minérotrophe
+6715,0,127,0,255,Sapin baumier et épinette noire associés à du bouleau jaune / Tourbière minérotrophe
+6716,0,127,0,255,Sapin baumier et épinette noire associés à des érables / Tourbière minérotrophe
+6717,0,105,0,255,Sapin baumier et épinette noire associés à des feuillus intolérants / Tourbière minérotrophe
+6718,0,127,0,255,Sapin baumier et épinette noire associés à des feuillus tolérants / Tourbière minérotrophe
+6719,0,127,0,255,Sapin baumier et épinette noire associés à des feuillus indéterminés / Tourbière minérotrophe
+6720,0,105,0,255,Tilleul d'Amérique / Tourbière minérotrophe
+6721,142,118,114,255,Tilleul d'Amérique associé à des pins / Tourbière minérotrophe
+6722,0,127,0,255,Tilleul d'Amérique associé à des résineux tolérants / Tourbière minérotrophe
+6723,0,127,0,255,Tilleul d'Amérique associé à des résineux / Tourbière minérotrophe
+6724,0,127,0,255,Thuyas occidental / Tourbière minérotrophe
+6725,0,127,0,255,Thuyas occidental associé à du bouleau jaune / Tourbière minérotrophe
+6726,0,127,0,255,Thuyas occidental associé à des érables / Tourbière minérotrophe
+6727,0,127,0,255,Thuyas occidental associé à des feuillus intolérants / Tourbière minérotrophe
+6728,0,127,0,255,Thuyas occidental associé à des feuillus tolérants / Tourbière minérotrophe
+6729,0,127,0,255,Thuyas occidental associé à des feuillus indéterminés / Tourbière minérotrophe
+6730,0,105,0,255,Peuplement issu d'une plantation de feuillus indigènes / Tourbière minérotrophe
+6731,0,127,0,255,Peuplement issu d'une plantation mélangée indigène / Tourbière minérotrophe
+6732,142,118,114,255,Peuplement issu d'une plantation de résineux indigènes / Tourbière minérotrophe
+6733,0,105,0,255,Peuplement issu d'une plantation de feuillus exotiques / Tourbière minérotrophe
+6734,0,105,0,255,Peuplement issu d'une plantation mélangée exotique / Tourbière minérotrophe
+6735,142,118,114,255,Peuplement issu d'une plantation de résineux exotiques / Tourbière minérotrophe
+7000,136,86,32,255,Prairie humide
+7020,5,255,255,255,Eau / Prairie humide
+7021,10,255,255,255,Lac / Prairie humide
+7022,0,196,255,255,Mare et/ou eau peu profonde / Prairie humide
+7023,0,166,255,255,Réservoir / Prairie humide
+7024,0,255,255,255,Cours d'eau / Prairie humide
+7025,0,175,175,255,Eau salée / Prairie humide
+7026,0,215,215,255,Eau saumâtre / Prairie humide
+7027,5,215,215,255,Lac de thermokartz / Prairie humide
+7029,10,215,215,255,Neige et glace permanentes; combe à neige / Prairie humide
+7030,200,200,200,255,Sol nu; roc-sol à nu; sol dénudé ou semi-dénudé sec / Prairie humide
+7031,205,200,200,255,Champs de bloc / Prairie humide
+7050,140,255,0,255,Forêt ou arbustaie improductive / Prairie humide
+7051,158,255,0,255,Aulnaie / Prairie humide
+7052,158,155,0,255,Arbustaie basse et mares de thermokarst / Prairie humide
+7053,140,217,0,255,Arbustaie arctique basse (0.3 à 1 m) / Prairie humide
+7054,140,217,0,255,Forêt arbustive haute (> 2 m) / Prairie humide
+7055,49,194,0,255,Friche / Prairie humide
+7056,190,208,215,255,Arbustaie arctique haute (> 1 m) / Prairie humide
+7057,140,217,0,255,Forêt arbustive basse (< 2 m) \ Prairie humide
+7060,193,12,218,255,Lande à lichens / Prairie humide
+7061,196,15,212,255,Lande à lichens et arbustes / Prairie humide
+7062,199,18,215,255,Lande subarctique / Prairie humide
+7063,202,22,218,255,Lande subarctique avec 30 à 70 % d’arbustes / Prairie humide
+7064,205,25,221,255,Lande rocheuse / Prairie humide
+7065,208,28,224,255,Lande à éricacées / Prairie humide
+7066,208,28,224,255,Lande herbacée / Prairie humide
+7067,208,28,224,255,Lande à mousse / Prairie humide
+7068,208,28,224,255,Lande alpine / Prairie humide
+7071,211,232,227,255,Toundra à arbustes dressés / Prairie humide
+7072,211,232,227,255,Toundra à arbustes dressés avec ostioles / Prairie humide
+7073,208,28,224,255,Toundra à arbustes dressés avec 30 à 70 % d’arbustes / Prairie humide
+7074,211,232,233,255,Toundra à arbustes dressés avec ostioles et 30 à 70 % d’arbustes / Prairie humide
+7075,211,232,233,255,Toundra à arbustes prostrés / Prairie humide
+7076,211,232,233,255,Toundra à arbustes prostrés avec ostioles / Prairie humide
+7077,211,232,233,255,Toundra herbacée avec arbustes prostrés / Prairie humide
+7101,220,236,241,255,Serre / Prairie humide
+7120,255,255,191,255,Agriculture indifférenciée / Prairie humide
+7122,238,222,173,255,Culture pérenne et pâturage / Prairie humide
+7131,236,222,173,255,Jachère / Prairie humide
+7132,204,255,0,255,Autre céréale / Prairie humide
+7133,255,255,0,255,Orge / Prairie humide
+7134,153,204,0,255,Sorgho / Prairie humide
+7135,249,255,217,255,Millet / Prairie humide
+7136,255,238,112,255,Avoine / Prairie humide
+7137,219,227,29,255,Seigle / Prairie humide
+7138,235,176,0,255,Épeautre / Prairie humide
+7139,158,129,0,255,Triticale / Prairie humide
+7140,222,163,102,255,Blé / Prairie humide
+7141,255,212,0,255,Panic érigé / Prairie humide
+7147,255,211,127,255,Maïs / Prairie humide
+7153,255,240,0,255,Canola ou colza / Prairie humide
+7154,214,255,112,255,Graine de lin / Prairie humide
+7157,217,255,112,255,Tournesol / Prairie humide
+7158,173,105,0,255,Soya / Prairie humide
+7160,255,102,51,255,Autre légumineuse / Prairie humide
+7162,255,125,0,255,Pois / Prairie humide
+7167,165,245,122,255,Haricot / Prairie humide
+7168,255,102,102,255,Laitue / Prairie humide
+7169,204,102,102,255,Ail/Oignon/Poireau / Prairie humide
+7170,204,102,153,255,Carotte/Panais / Prairie humide
+7171,204,153,153,255,Cucurbitacée / Prairie humide
+7172,153,102,153,255,Crucifère (feuilles) / Prairie humide
+7173,151,255,138,255,Légume à fruits / Prairie humide
+7175,255,221,191,255,Autre légume / Prairie humide
+7176,102,51,153,255,Crucifère (racines) / Prairie humide
+7177,161,255,158,255,Pomme de terre / Prairie humide
+7178,102,102,153,255,Betterave à sucre / Prairie humide
+7180,232,125,0,255,Autre fruit / Prairie humide
+7181,255,144,97,255,Baie / Prairie humide
+7182,255,69,41,255,Canneberge / Prairie humide
+7183,255,99,146,255,Bleuet / Prairie humide
+7188,252,69,41,255,Verger / Prairie humide
+7190,249,69,41,255,Vignoble / Prairie humide
+7192,181,251,5,255,Gazonnière / Prairie humide
+7193,204,255,5,255,Fines herbes / Prairie humide
+7194,233,255,190,255,Pépinière / Prairie humide
+7195,163,255,115,255,Sarrasin / Prairie humide
+7197,238,176,0,255,Chanvre / Prairie humide
+7210,142,118,114,255,Forêt de conifères / Prairie humide
+7211,38,115,0,255,Forêt de conifères dense / Prairie humide
+7212,142,118,114,255,Forêt de conifères avec arbustes décidus / Prairie humide
+7213,41,115,0,255,Forêt de conifères clairsemée / Prairie humide
+7214,142,118,114,255,Forêt de conifères sur lichens / Prairie humide
+7215,0,160,0,255,Forêt de conifères ouverte / Prairie humide
+7216,142,118,114,255,Forêt de conifères sur lichens et mousses / Prairie humide
+7218,142,118,114,255,Forêt de conifères sur mousses et éricacées / Prairie humide
+7220,0,105,0,255,Forêt de feuillus / Prairie humide
+7221,0,184,0,255,Forêt de feuillus dense / Prairie humide
+7223,0,204,0,255,Forêt de feuillus clairsemée / Prairie humide
+7225,0,157,0,255,Forêt de feuillus ouverte / Prairie humide
+7230,0,127,0,255,Forêt mixte / Prairie humide
+7231,0,120,0,255,Forêt mixte dense / Prairie humide
+7233,54,127,74,255,Forêt mixte clairsemée / Prairie humide
+7235,135,153,0,255,Forêt mixte ouverte / Prairie humide
+7250,115,153,0,255,Opération forestière / Prairie humide
+7253,170,85,0,255,Coupe forestière / Prairie humide
+7255,173,85,0,255,Plantation / Prairie humide
+7256,173,85,0,255,Plantation de feuillus indigènes / Prairie humide
+7257,173,85,0,255,Plantation mélangée indigène / Prairie humide
+7258,173,85,0,255,Plantation de résineux indigènes / Prairie humide
+7259,173,85,0,255,Plantation de feuillus exotiques / Prairie humide
+7260,173,85,0,255,Plantation mélangée exotique / Prairie humide
+7261,173,85,0,255,Plantation de résineux exotiques / Prairie humide
+7263,176,85,0,255,Brûlis / Prairie humide
+7280,152,76,0,255,Perturbation naturelle / Prairie humide
+7300,128,64,64,255,Autre terrain / Prairie humide
+7301,255,180,180,255,Zone développée / Prairie humide
+7312,252,110,122,255,Pistes de ski alpin / Prairie humide
+7313,80,175,80,255,Golf / Prairie humide
+7320,115,150,100,255,Route ou chemin / Prairie humide
+7321,255,0,0,255,Aéroport / Prairie humide
+7322,78,78,78,255,Chemin de fer / Prairie humide
+7341,3,3,3,255,Carrière ou gravière / Prairie humide
+7343,101,0,135,255,Mine et déchet de mine / Prairie humide
+7344,21,0,156,255,Bassin de filtration; de décontamination; de déchets liquides; etc. / Prairie humide
+7345,25,25,92,255,Dépotoir / Prairie humide
+7346,135,0,156,255,Zone industrielle et commerce / Prairie humide
+7351,255,120,125,255,Ligne de transmission ou de transport d'énergie / Prairie humide
+7360,180,180,180,255,Exploitation de tourbe / Prairie humide
+7501,0,105,0,255,Bouleau gris / Prairie humide
+7502,0,127,0,255,Bouleau gris associé à des pins / Prairie humide
+7503,0,127,0,255,Bouleau gris associé à des résineux tolérants / Prairie humide
+7504,0,127,0,255,Bouleau gris associé à des résineux / Prairie humide
+7505,0,105,0,255,Bouleau jaune / Prairie humide
+7506,0,127,0,255,Bouleau jaune associé à des épinettes noire ou rouge / Prairie humide
+7507,0,127,0,255,Bouleau jaune associé à du mélèze laricin / Prairie humide
+7508,0,127,0,255,Bouleau jaune associé à des pins / Prairie humide
+7509,0,127,0,255,Bouleau jaune associé à de la pruche du Canada / Prairie humide
+7510,0,127,0,255,Bouleau jaune associé à des résineux / Prairie humide
+7511,0,127,0,255,Bouleau jaune associé à des sapin baumier et/ou épinette blanche / Prairie humide
+7512,0,127,0,255,Bouleau jaune associé à des sapin baumier et épinette noire / Prairie humide
+7513,0,105,0,255,Bouleau jaune associé à du thuyas occidental / Prairie humide
+7514,0,127,0,255,Bouleau blanc / Prairie humide
+7515,0,127,0,255,Bouleau blanc associé à des épinettes noire ou rouge / Prairie humide
+7516,0,127,0,255,Bouleau blanc associé à des pins / Prairie humide
+7517,0,127,0,255,Bouleau blanc associé à des résineux tolérants / Prairie humide
+7518,0,127,0,255,Bouleau blanc associé à des résineux / Prairie humide
+7519,0,105,0,255,Bouleau blanc associé à des sapin baumier et/ou épinette blanche / Prairie humide
+7520,0,127,0,255,Caryer cordiforme / Prairie humide
+7521,0,127,0,255,Chênes / Prairie humide
+7522,0,105,0,255,Chênes associés à des pins / Prairie humide
+7523,0,127,0,255,Chênes associés à des résineux tolérants / Prairie humide
+7524,0,127,0,255,Chênes associés à des résineux / Prairie humide
+7525,0,127,0,255,Cerisier tardif / Prairie humide
+7526,0,105,0,255,Cerisier tardif associé à des pins / Prairie humide
+7527,0,127,0,255,Cerisier tardif associé à des résineux tolérants / Prairie humide
+7528,0,127,0,255,Cerisier tardif associé à des résineux / Prairie humide
+7529,0,105,0,255,Érable argenté / Prairie humide
+7530,0,105,0,255,Érable argenté associé à des pins / Prairie humide
+7531,0,127,0,255,Érable argenté associé à des résineux tolérants / Prairie humide
+7532,0,127,0,255,Érable argenté associé à des résineux / Prairie humide
+7533,0,127,0,255,Épinette blanche / Prairie humide
+7534,142,118,114,255,Épinette blanche associée à des feuillus intolérants / Prairie humide
+7535,0,127,0,255,Épinette blanche associée à des feuillus tolérants / Prairie humide
+7536,0,127,0,255,Épinette blanche associée à des feuillus indéterminés / Prairie humide
+7537,0,127,0,255,Érable noir / Prairie humide
+7538,0,105,0,255,Épinette noire / Prairie humide
+7539,142,118,114,255,Épinette noire associée à de l'épinette blanche / Prairie humide
+7540,142,118,114,255,Épinette noire associée à des feuillus intolérants / Prairie humide
+7541,0,127,0,255,Épinette noire associée à des feuillus tolérants / Prairie humide
+7542,0,127,0,255,Épinette noire associée à des feuillus indéterminés / Prairie humide
+7543,0,127,0,255,Épinette noire associée à du mélèze laricin / Prairie humide
+7544,142,118,114,255,Épinette noire associée à des pins / Prairie humide
+7545,142,118,114,255,Épinette noire associée à du sapin baumier / Prairie humide
+7546,142,118,114,255,Épinette noire associée à des sapin baumier et/ou épinette blanche / Prairie humide
+7547,142,118,114,255,Érable rouge / Prairie humide
+7548,0,105,0,255,Érable rouge associé à des épinettes noire ou rouge / Prairie humide
+7549,0,127,0,255,Érable rouge associé à du mélèze laricin / Prairie humide
+7550,0,127,0,255,Érable rouge associé à des pins / Prairie humide
+7551,0,127,0,255,Érable rouge associé à de la pruche du Canada / Prairie humide
+7552,0,127,0,255,Érable rouge associé à des résineux / Prairie humide
+7553,0,127,0,255,Érable rouge associé à des sapin baumier et/ou épinette blanche / Prairie humide
+7554,0,127,0,255,Érable rouge associé à du thuyas occidental / Prairie humide
+7555,0,127,0,255,Épinettes noire ou rouge / Prairie humide
+7556,142,118,114,255,Épinettes noire ou rouge associés à de l'épinette blanche / Prairie humide
+7557,0,127,0,255,Épinettes noire ou rouge associés à des feuillus intolérants / Prairie humide
+7558,0,127,0,255,Épinettes noire ou rouge associés à des feuillus tolérants / Prairie humide
+7559,0,127,0,255,Épinettes noire ou rouge associés à des feuillus indéterminés / Prairie humide
+7560,0,127,0,255,Épinettes noire ou rouge associés à du mélèze laricin / Prairie humide
+7561,142,118,114,255,Épinettes noire ou rouge associés à des pins / Prairie humide
+7562,142,118,114,255,Épinettes noire ou rouge associés à du sapin baumier / Prairie humide
+7563,142,118,114,255,Épinettes noire ou rouge associés à des sapin baumier et/ou épinette blanche / Prairie humide
+7564,0,105,0,255,Épinettes noire ou rouge associés à du thuyas occidental / Prairie humide
+7565,142,118,114,255,Érables / Prairie humide
+7566,0,105,0,255,Érables associés à du bouleau jaune / Prairie humide
+7567,0,105,0,255,Érables associés à des épinettes noire ou rouge / Prairie humide
+7568,0,127,0,255,Érables associés à du mélèze laricin / Prairie humide
+7569,0,127,0,255,Érables associés à des pins / Prairie humide
+7570,0,127,0,255,Érables associés à de la pruche du Canada / Prairie humide
+7571,0,127,0,255,Érables associés à des résineux / Prairie humide
+7572,0,127,0,255,Érables associés à des sapin baumier et/ou épinette blanche / Prairie humide
+7573,0,127,0,255,Érables associés à du thuyas occidental / Prairie humide
+7574,0,127,0,255,Érable à sucre / Prairie humide
+7575,0,105,0,255,Érable à sucre associé à du bouleau jaune / Prairie humide
+7576,0,105,0,255,Érable à sucre associé à des épinettes noire ou rouge / Prairie humide
+7577,0,127,0,255,Érable à sucre associé à du mélèze laricin / Prairie humide
+7578,0,127,0,255,Érable à sucre associé à des pins / Prairie humide
+7579,0,105,0,255,Érable à sucre associé à de la pruche du Canada / Prairie humide
+7580,0,127,0,255,Érable à sucre associé à des résineux / Prairie humide
+7581,0,127,0,255,Érable à sucre associé à des sapin baumier et/ou épinette blanche / Prairie humide
+7582,0,127,0,255,Érable à sucre associé à du thuyas occidental / Prairie humide
+7583,0,127,0,255,Épinette rouge / Prairie humide
+7584,0,127,0,255,Épinette rouge associée à du bouleau jaune / Prairie humide
+7585,0,127,0,255,Épinette rouge associée à des feuillus intolérants / Prairie humide
+7586,0,127,0,255,Épinette rouge associée à des feuillus tolérants / Prairie humide
+7587,0,127,0,255,Épinette rouge associée à des feuillus indéterminés / Prairie humide
+7588,0,127,0,255,Épinette rouge associée à du mélèze laricin / Prairie humide
+7589,0,127,0,255,Épinette rouge associée à des pins / Prairie humide
+7590,0,127,0,255,Épinette rouge associée à des sapin baumier et/ou épinette blanche / Prairie humide
+7591,142,118,114,255,Frêne d'Amérique / Prairie humide
+7592,142,118,114,255,Frêne d'Amérique associé à des pins / Prairie humide
+7593,142,118,114,255,Frêne d'Amérique associé à des résineux tolérants / Prairie humide
+7594,0,105,0,255,Frêne d'Amérique associé à des résineux / Prairie humide
+7595,0,127,0,255,Feuillus intolérants / Prairie humide
+7596,0,127,0,255,Feuillus intolérants associés à des épinettes noire ou rouge / Prairie humide
+7597,0,127,0,255,Feuillus intolérants associés à du mélèze laricin / Prairie humide
+7598,0,105,0,255,Feuillus intolérants associés à des pins / Prairie humide
+7599,0,127,0,255,Feuillus intolérants associés à de la pruche du Canada / Prairie humide
+7600,0,127,0,255,Feuillus intolérants associés à des résineux / Prairie humide
+7601,0,127,0,255,Feuillus intolérants associés à des sapin baumier et/ou épinette blanche / Prairie humide
+7602,0,127,0,255,Feuillus intolérants associés à du thuyas occidental / Prairie humide
+7603,0,127,0,255,Frêne noir / Prairie humide
+7604,0,127,0,255,Frêne noir associé à des pins / Prairie humide
+7605,0,127,0,255,Frêne noir associé à des résineux tolérants / Prairie humide
+7606,0,105,0,255,Frêne noir associé à des résineux / Prairie humide
+7607,0,127,0,255,Frêne de Pennsylvanie / Prairie humide
+7608,0,127,0,255,Frêne de Pennsylvanie associé à des pins / Prairie humide
+7609,0,127,0,255,Frêne de Pennsylvanie associé à des résineux tolérants / Prairie humide
+7610,0,105,0,255,Frêne de Pennsylvanie associé à des résineux / Prairie humide
+7611,0,127,0,255,Frênes / Prairie humide
+7612,0,127,0,255,Frênes associés à des pins / Prairie humide
+7613,0,127,0,255,Frênes associés à des résineux tolérants / Prairie humide
+7614,0,105,0,255,Frênes associés à des résineux / Prairie humide
+7615,0,127,0,255,Feuillus tolérants / Prairie humide
+7616,0,127,0,255,Feuillus tolérants associés à des épinettes noire ou rouge / Prairie humide
+7617,0,127,0,255,Feuillus tolérants associés à du mélèze laricin / Prairie humide
+7618,0,105,0,255,Feuillus tolérants associés à des pins / Prairie humide
+7619,0,127,0,255,Feuillus tolérants associés à de la pruche du Canada / Prairie humide
+7620,0,127,0,255,Feuillus tolérants associés à des résineux / Prairie humide
+7621,0,127,0,255,Feuillus tolérants associés à des sapin baumier et/ou épinette blanche / Prairie humide
+7622,0,127,0,255,Feuillus tolérants associés à du thuyas occidental / Prairie humide
+7623,0,127,0,255,Feuillus indéterminés / Prairie humide
+7624,0,127,0,255,Feuillus indéterminés associés à des épinettes noire ou rouge / Prairie humide
+7625,0,127,0,255,Feuillus indéterminés associés à du mélèze laricin / Prairie humide
+7626,0,105,0,255,Feuillus indéterminés associés à des pins / Prairie humide
+7627,0,127,0,255,Feuillus indéterminés associés à de la pruche du Canada / Prairie humide
+7628,0,127,0,255,Feuillus indéterminés associés à des sapin baumier et/ou épinette blanche / Prairie humide
+7629,0,127,0,255,Feuillus indéterminés associés à du thuyas occidental / Prairie humide
+7630,0,127,0,255,Hêtre à grandes feuilles / Prairie humide
+7631,0,127,0,255,Hêtre à grandes feuilles associé à des pins / Prairie humide
+7632,0,127,0,255,Hêtre à grandes feuilles associé à des résineux tolérants / Prairie humide
+7633,0,105,0,255,Hêtre à grandes feuilles associé à des résineux / Prairie humide
+7634,0,127,0,255,Mélèze laricin / Prairie humide
+7635,0,127,0,255,Mélèze laricin associé à des feuillus intolérants / Prairie humide
+7636,0,127,0,255,Mélèze laricin associé à des feuillus tolérants / Prairie humide
+7637,142,118,114,255,Mélèze laricin associé à des feuillus indéterminés / Prairie humide
+7638,0,127,0,255,Forêt mixte / Prairie humide
+7639,0,127,0,255,Noyer cendré / Prairie humide
+7640,0,127,0,255,Noyer cendré associé à des pins / Prairie humide
+7641,0,127,0,255,Noyer cendré associé à des résineux tolérants / Prairie humide
+7642,0,127,0,255,Noyer cendré associé à des résineux / Prairie humide
+7643,0,105,0,255,Ormes / Prairie humide
+7644,0,127,0,255,Ormes associés à des pins / Prairie humide
+7645,0,127,0,255,Ormes associés à des résineux tolérants / Prairie humide
+7646,0,105,0,255,Ormes associés à des résineux / Prairie humide
+7647,0,127,0,255,Ostryer de Virginie / Prairie humide
+7648,0,127,0,255,Ostryer de Virginie associé à des pins / Prairie humide
+7649,0,127,0,255,Ostryer de Virginie associé à des résineux tolérants / Prairie humide
+7650,0,105,0,255,Ostryer de Virginie associé à des résineux / Prairie humide
+7651,142,118,114,255,Pin blanc / Prairie humide
+7652,0,127,0,255,Pin blanc associé à du bouleau jaune / Prairie humide
+7653,0,127,0,255,Pin blanc associé à des érables / Prairie humide
+7654,142,118,114,255,Pin blanc associé à des feuillus intolérants / Prairie humide
+7655,0,127,0,255,Pin blanc associé à des feuillus tolérants / Prairie humide
+7656,0,127,0,255,Pin blanc associé à des feuillus indéterminés / Prairie humide
+7657,0,127,0,255,Pin rigide / Prairie humide
+7658,0,127,0,255,Peupliers / Prairie humide
+7659,0,127,0,255,Peupliers associés à des épinettes noire ou rouge / Prairie humide
+7660,142,118,114,255,Peupliers associés à des pins / Prairie humide
+7661,0,127,0,255,Peupliers associés à des résineux tolérants / Prairie humide
+7662,0,105,0,255,Peupliers associés à des résineux / Prairie humide
+7663,0,127,0,255,Peupliers associés à des sapin baumier et/ou épinette blanche / Prairie humide
+7664,0,127,0,255,Pin gris / Prairie humide
+7665,0,127,0,255,Pin gris associé à des feuillus intolérants / Prairie humide
+7666,0,127,0,255,Pin gris associé à des feuillus tolérants / Prairie humide
+7667,0,127,0,255,Pin gris associé à des feuillus indéterminés / Prairie humide
+7668,142,118,114,255,Pins / Prairie humide
+7669,0,127,0,255,Pins associés à des feuillus intolérants / Prairie humide
+7670,0,127,0,255,Pins associés à des feuillus tolérants / Prairie humide
+7671,0,127,0,255,Pins associés à des feuillus indéterminés / Prairie humide
+7672,142,118,114,255,Pin rouge / Prairie humide
+7673,0,127,0,255,Pin rouge associé à du bouleau jaune / Prairie humide
+7674,0,127,0,255,Pin rouge associé à des chênes / Prairie humide
+7675,0,127,0,255,Pin rouge associé à des érables / Prairie humide
+7676,142,118,114,255,Pin rouge associé à des feuillus intolérants / Prairie humide
+7677,0,127,0,255,Pin rouge associé à des feuillus tolérants / Prairie humide
+7678,0,127,0,255,Pin rouge associé à des feuillus indéterminés / Prairie humide
+7679,0,127,0,255,Pin rouge associé à du hêtre à grandes feuilles / Prairie humide
+7680,0,127,0,255,Pin rouge associé à du noyer cendré / Prairie humide
+7681,0,127,0,255,Pin rouge associé à des ormes / Prairie humide
+7682,0,127,0,255,Pin rouge associé à de l'ostryer de Virginie / Prairie humide
+7683,0,127,0,255,Pin rouge associé à du tilleul d'Amérique / Prairie humide
+7684,0,127,0,255,Épinette noire et sapin baumier associés à des feuillus intolérants / Prairie humide
+7685,0,127,0,255,Épinette noire et sapin baumier associés à des feuillus tolérants / Prairie humide
+7686,0,127,0,255,Épinette noire et sapin baumier associés à des feuillus indéterminés / Prairie humide
+7687,142,118,114,255,Pruche du Canada / Prairie humide
+7688,0,127,0,255,Pruche du Canada associée à du bouleau jaune / Prairie humide
+7689,142,118,114,255,Pruche du Canada associée à des érables / Prairie humide
+7690,0,127,0,255,Pruche du Canada associée à des feuillus intolérants / Prairie humide
+7691,0,127,0,255,Pruche du Canada associée à des feuillus tolérants / Prairie humide
+7692,0,127,0,255,Pruche du Canada associée à des feuillus indéterminés / Prairie humide
+7693,0,127,0,255,Résineux / Prairie humide
+7694,0,127,0,255,Résineux associés à du bouleau jaune / Prairie humide
+7695,142,118,114,255,Résineux associés à des érables / Prairie humide
+7696,0,127,0,255,Résineux associés à des feuillus intolérants / Prairie humide
+7697,0,127,0,255,Résineux associés à des feuillus tolérants / Prairie humide
+7698,0,127,0,255,Résineux associés à des feuillus indéterminés / Prairie humide
+7699,0,127,0,255,Sapin baumier / Prairie humide
+7700,0,127,0,255,Sapin baumier associé à du bouleau jaune / Prairie humide
+7701,142,118,114,255,Sapin baumier associé à des épinettes noire ou rouge / Prairie humide
+7702,0,127,0,255,Sapin baumier associé à des érables / Prairie humide
+7703,142,118,114,255,Sapin baumier associé à des feuillus intolérants / Prairie humide
+7704,0,127,0,255,Sapin baumier associé à des feuillus tolérants / Prairie humide
+7705,0,127,0,255,Sapin baumier associé à des feuillus indéterminés / Prairie humide
+7706,0,127,0,255,Sapin baumier associé à du thuyas occidental / Prairie humide
+7707,0,127,0,255,Sapin baumier et/ou épinette blanche / Prairie humide
+7708,142,118,114,255,Sapin baumier et/ou épinette blanche associés à du bouleau jaune / Prairie humide
+7709,142,118,114,255,Sapin baumier et/ou épinette blanche associés à de l'épinette noire / Prairie humide
+7710,0,127,0,255,Sapin baumier et/ou épinette blanche associés à des épinettes noire ou rouge / Prairie humide
+7711,142,118,114,255,Sapin baumier et/ou épinette blanche associés à des érables / Prairie humide
+7712,142,118,114,255,Sapin baumier et/ou épinette blanche associés à des feuillus intolérants / Prairie humide
+7713,0,127,0,255,Sapin baumier et/ou épinette blanche associés à des feuillus tolérants / Prairie humide
+7714,0,127,0,255,Sapin baumier et/ou épinette blanche associés à des feuillus indéterminés / Prairie humide
+7715,0,127,0,255,Sapin baumier et épinette noire associés à du bouleau jaune / Prairie humide
+7716,0,127,0,255,Sapin baumier et épinette noire associés à des érables / Prairie humide
+7717,0,105,0,255,Sapin baumier et épinette noire associés à des feuillus intolérants / Prairie humide
+7718,0,127,0,255,Sapin baumier et épinette noire associés à des feuillus tolérants / Prairie humide
+7719,0,127,0,255,Sapin baumier et épinette noire associés à des feuillus indéterminés / Prairie humide
+7720,0,105,0,255,Tilleul d'Amérique / Prairie humide
+7721,142,118,114,255,Tilleul d'Amérique associé à des pins / Prairie humide
+7722,0,127,0,255,Tilleul d'Amérique associé à des résineux tolérants / Prairie humide
+7723,0,127,0,255,Tilleul d'Amérique associé à des résineux / Prairie humide
+7724,0,127,0,255,Thuyas occidental / Prairie humide
+7725,0,127,0,255,Thuyas occidental associé à du bouleau jaune / Prairie humide
+7726,0,127,0,255,Thuyas occidental associé à des érables / Prairie humide
+7727,0,127,0,255,Thuyas occidental associé à des feuillus intolérants / Prairie humide
+7728,0,127,0,255,Thuyas occidental associé à des feuillus tolérants / Prairie humide
+7729,0,127,0,255,Thuyas occidental associé à des feuillus indéterminés / Prairie humide
+7730,0,105,0,255,Peuplement issu d'une plantation de feuillus indigènes / Prairie humide
+7731,0,127,0,255,Peuplement issu d'une plantation mélangée indigène / Prairie humide
+7732,142,118,114,255,Peuplement issu d'une plantation de résineux indigènes / Prairie humide
+7733,0,105,0,255,Peuplement issu d'une plantation de feuillus exotiques / Prairie humide
+7734,0,105,0,255,Peuplement issu d'une plantation mélangée exotique / Prairie humide
+7735,142,118,114,255,Peuplement issu d'une plantation de résineux exotiques / Prairie humide
+8000,156,106,52,255,Tourbière ombrotrophe
+8020,5,255,255,255,Eau / Tourbière ombrotrophe
+8021,10,255,255,255,Lac / Tourbière ombrotrophe
+8022,0,196,255,255,Mare et/ou eau peu profonde / Tourbière ombrotrophe
+8023,0,166,255,255,Réservoir / Tourbière ombrotrophe
+8024,0,255,255,255,Cours d'eau / Tourbière ombrotrophe
+8025,0,175,175,255,Eau salée / Tourbière ombrotrophe
+8026,0,215,215,255,Eau saumâtre / Tourbière ombrotrophe
+8027,5,215,215,255,Lac de thermokartz / Tourbière ombrotrophe
+8029,10,215,215,255,Neige et glace permanentes; combe à neige / Tourbière ombrotrophe
+8030,200,200,200,255,Sol nu; roc-sol à nu; sol dénudé ou semi-dénudé sec / Tourbière ombrotrophe
+8031,205,200,200,255,Champs de bloc / Tourbière ombrotrophe
+8050,140,255,0,255,Forêt ou arbustaie improductive / Tourbière ombrotrophe
+8051,158,255,0,255,Aulnaie / Tourbière ombrotrophe
+8052,158,155,0,255,Arbustaie basse et mares de thermokarst / Tourbière ombrotrophe
+8053,140,217,0,255,Arbustaie arctique basse (0.3 à 1 m) / Tourbière ombrotrophe
+8054,140,217,0,255,Forêt arbustive haute (> 2 m) / Tourbière ombrotrophe
+8055,49,194,0,255,Friche / Tourbière ombrotrophe
+8056,190,208,215,255,Arbustaie arctique haute (> 1 m) / Tourbière ombrotrophe
+8057,140,217,0,255,Forêt arbustive basse (< 2 m) \ Tourbière ombrotrophe
+8060,193,12,218,255,Lande à lichens / Tourbière ombrotrophe
+8061,196,15,212,255,Lande à lichens et arbustes / Tourbière ombrotrophe
+8062,199,18,215,255,Lande subarctique / Tourbière ombrotrophe
+8063,202,22,218,255,Lande subarctique avec 30 à 70 % d’arbustes / Tourbière ombrotrophe
+8064,205,25,221,255,Lande rocheuse / Tourbière ombrotrophe
+8065,208,28,224,255,Lande à éricacées / Tourbière ombrotrophe
+8066,208,28,224,255,Lande herbacée / Tourbière ombrotrophe
+8067,208,28,224,255,Lande à mousse / Tourbière ombrotrophe
+8068,208,28,224,255,Lande alpine / Tourbière ombrotrophe
+8071,211,232,227,255,Toundra à arbustes dressés / Tourbière ombrotrophe
+8072,211,232,227,255,Toundra à arbustes dressés avec ostioles / Tourbière ombrotrophe
+8073,208,28,224,255,Toundra à arbustes dressés avec 30 à 70 % d’arbustes / Tourbière ombrotrophe
+8074,211,232,233,255,Toundra à arbustes dressés avec ostioles et 30 à 70 % d’arbustes / Tourbière ombrotrophe
+8075,211,232,233,255,Toundra à arbustes prostrés / Tourbière ombrotrophe
+8076,211,232,233,255,Toundra à arbustes prostrés avec ostioles / Tourbière ombrotrophe
+8077,211,232,233,255,Toundra herbacée avec arbustes prostrés / Tourbière ombrotrophe
+8101,220,236,241,255,Serre / Tourbière ombrotrophe
+8120,255,255,191,255,Agriculture indifférenciée / Tourbière ombrotrophe
+8122,238,222,173,255,Culture pérenne et pâturage / Tourbière ombrotrophe
+8131,236,222,173,255,Jachère / Tourbière ombrotrophe
+8132,204,255,0,255,Autre céréale / Tourbière ombrotrophe
+8133,255,255,0,255,Orge / Tourbière ombrotrophe
+8134,153,204,0,255,Sorgho / Tourbière ombrotrophe
+8135,249,255,217,255,Millet / Tourbière ombrotrophe
+8136,255,238,112,255,Avoine / Tourbière ombrotrophe
+8137,219,227,29,255,Seigle / Tourbière ombrotrophe
+8138,235,176,0,255,Épeautre / Tourbière ombrotrophe
+8139,158,129,0,255,Triticale / Tourbière ombrotrophe
+8140,222,163,102,255,Blé / Tourbière ombrotrophe
+8141,255,212,0,255,Panic érigé / Tourbière ombrotrophe
+8147,255,211,127,255,Maïs / Tourbière ombrotrophe
+8153,255,240,0,255,Canola ou colza / Tourbière ombrotrophe
+8154,214,255,112,255,Graine de lin / Tourbière ombrotrophe
+8157,217,255,112,255,Tournesol / Tourbière ombrotrophe
+8158,173,105,0,255,Soya / Tourbière ombrotrophe
+8160,255,102,51,255,Autre légumineuse / Tourbière ombrotrophe
+8162,255,125,0,255,Pois / Tourbière ombrotrophe
+8167,165,245,122,255,Haricot / Tourbière ombrotrophe
+8168,255,102,102,255,Laitue / Tourbière ombrotrophe
+8169,204,102,102,255,Ail/Oignon/Poireau / Tourbière ombrotrophe
+8170,204,102,153,255,Carotte/Panais / Tourbière ombrotrophe
+8171,204,153,153,255,Cucurbitacée / Tourbière ombrotrophe
+8172,153,102,153,255,Crucifère (feuilles) / Tourbière ombrotrophe
+8173,151,255,138,255,Légume à fruits / Tourbière ombrotrophe
+8175,255,221,191,255,Autre légume / Tourbière ombrotrophe
+8176,102,51,153,255,Crucifère (racines) / Tourbière ombrotrophe
+8177,161,255,158,255,Pomme de terre / Tourbière ombrotrophe
+8178,102,102,153,255,Betterave à sucre / Tourbière ombrotrophe
+8180,232,125,0,255,Autre fruit / Tourbière ombrotrophe
+8181,255,144,97,255,Baie / Tourbière ombrotrophe
+8182,255,69,41,255,Canneberge / Tourbière ombrotrophe
+8183,255,99,146,255,Bleuet / Tourbière ombrotrophe
+8188,252,69,41,255,Verger / Tourbière ombrotrophe
+8190,249,69,41,255,Vignoble / Tourbière ombrotrophe
+8192,181,251,5,255,Gazonnière / Tourbière ombrotrophe
+8193,204,255,5,255,Fines herbes / Tourbière ombrotrophe
+8194,233,255,190,255,Pépinière / Tourbière ombrotrophe
+8195,163,255,115,255,Sarrasin / Tourbière ombrotrophe
+8197,238,176,0,255,Chanvre / Tourbière ombrotrophe
+8210,142,118,114,255,Forêt de conifères / Tourbière ombrotrophe
+8211,38,115,0,255,Forêt de conifères dense / Tourbière ombrotrophe
+8212,142,118,114,255,Forêt de conifères avec arbustes décidus / Tourbière ombrotrophe
+8213,41,115,0,255,Forêt de conifères clairsemée / Tourbière ombrotrophe
+8214,142,118,114,255,Forêt de conifères sur lichens / Tourbière ombrotrophe
+8215,0,160,0,255,Forêt de conifères ouverte / Tourbière ombrotrophe
+8216,142,118,114,255,Forêt de conifères sur lichens et mousses / Tourbière ombrotrophe
+8218,142,118,114,255,Forêt de conifères sur mousses et éricacées / Tourbière ombrotrophe
+8220,0,105,0,255,Forêt de feuillus / Tourbière ombrotrophe
+8221,0,184,0,255,Forêt de feuillus dense / Tourbière ombrotrophe
+8223,0,204,0,255,Forêt de feuillus clairsemée / Tourbière ombrotrophe
+8225,0,157,0,255,Forêt de feuillus ouverte / Tourbière ombrotrophe
+8230,0,127,0,255,Forêt mixte / Tourbière ombrotrophe
+8231,0,120,0,255,Forêt mixte dense / Tourbière ombrotrophe
+8233,54,127,74,255,Forêt mixte clairsemée / Tourbière ombrotrophe
+8235,135,153,0,255,Forêt mixte ouverte / Tourbière ombrotrophe
+8250,115,153,0,255,Opération forestière / Tourbière ombrotrophe
+8253,170,85,0,255,Coupe forestière / Tourbière ombrotrophe
+8255,173,85,0,255,Plantation / Tourbière ombrotrophe
+8256,173,85,0,255,Plantation de feuillus indigènes / Tourbière ombrotrophe
+8257,173,85,0,255,Plantation mélangée indigène / Tourbière ombrotrophe
+8258,173,85,0,255,Plantation de résineux indigènes / Tourbière ombrotrophe
+8259,173,85,0,255,Plantation de feuillus exotiques / Tourbière ombrotrophe
+8260,173,85,0,255,Plantation mélangée exotique / Tourbière ombrotrophe
+8261,173,85,0,255,Plantation de résineux exotiques / Tourbière ombrotrophe
+8263,176,85,0,255,Brûlis / Tourbière ombrotrophe
+8280,152,76,0,255,Perturbation naturelle / Tourbière ombrotrophe
+8300,128,64,64,255,Autre terrain / Tourbière ombrotrophe
+8301,255,180,180,255,Zone développée / Tourbière ombrotrophe
+8312,252,110,122,255,Pistes de ski alpin / Tourbière ombrotrophe
+8313,80,175,80,255,Golf / Tourbière ombrotrophe
+8320,115,150,100,255,Route ou chemin / Tourbière ombrotrophe
+8321,255,0,0,255,Aéroport / Tourbière ombrotrophe
+8322,78,78,78,255,Chemin de fer / Tourbière ombrotrophe
+8341,3,3,3,255,Carrière ou gravière / Tourbière ombrotrophe
+8343,101,0,135,255,Mine et déchet de mine / Tourbière ombrotrophe
+8344,21,0,156,255,Bassin de filtration; de décontamination; de déchets liquides; etc. / Tourbière ombrotrophe
+8345,25,25,92,255,Dépotoir / Tourbière ombrotrophe
+8346,135,0,156,255,Zone industrielle et commerce / Tourbière ombrotrophe
+8351,255,120,125,255,Ligne de transmission ou de transport d'énergie / Tourbière ombrotrophe
+8360,180,180,180,255,Exploitation de tourbe / Tourbière ombrotrophe
+8501,0,105,0,255,Bouleau gris / Tourbière ombrotrophe
+8502,0,127,0,255,Bouleau gris associé à des pins / Tourbière ombrotrophe
+8503,0,127,0,255,Bouleau gris associé à des résineux tolérants / Tourbière ombrotrophe
+8504,0,127,0,255,Bouleau gris associé à des résineux / Tourbière ombrotrophe
+8505,0,105,0,255,Bouleau jaune / Tourbière ombrotrophe
+8506,0,127,0,255,Bouleau jaune associé à des épinettes noire ou rouge / Tourbière ombrotrophe
+8507,0,127,0,255,Bouleau jaune associé à du mélèze laricin / Tourbière ombrotrophe
+8508,0,127,0,255,Bouleau jaune associé à des pins / Tourbière ombrotrophe
+8509,0,127,0,255,Bouleau jaune associé à de la pruche du Canada / Tourbière ombrotrophe
+8510,0,127,0,255,Bouleau jaune associé à des résineux / Tourbière ombrotrophe
+8511,0,127,0,255,Bouleau jaune associé à des sapin baumier et/ou épinette blanche / Tourbière ombrotrophe
+8512,0,127,0,255,Bouleau jaune associé à des sapin baumier et épinette noire / Tourbière ombrotrophe
+8513,0,105,0,255,Bouleau jaune associé à du thuyas occidental / Tourbière ombrotrophe
+8514,0,127,0,255,Bouleau blanc / Tourbière ombrotrophe
+8515,0,127,0,255,Bouleau blanc associé à des épinettes noire ou rouge / Tourbière ombrotrophe
+8516,0,127,0,255,Bouleau blanc associé à des pins / Tourbière ombrotrophe
+8517,0,127,0,255,Bouleau blanc associé à des résineux tolérants / Tourbière ombrotrophe
+8518,0,127,0,255,Bouleau blanc associé à des résineux / Tourbière ombrotrophe
+8519,0,105,0,255,Bouleau blanc associé à des sapin baumier et/ou épinette blanche / Tourbière ombrotrophe
+8520,0,127,0,255,Caryer cordiforme / Tourbière ombrotrophe
+8521,0,127,0,255,Chênes / Tourbière ombrotrophe
+8522,0,105,0,255,Chênes associés à des pins / Tourbière ombrotrophe
+8523,0,127,0,255,Chênes associés à des résineux tolérants / Tourbière ombrotrophe
+8524,0,127,0,255,Chênes associés à des résineux / Tourbière ombrotrophe
+8525,0,127,0,255,Cerisier tardif / Tourbière ombrotrophe
+8526,0,105,0,255,Cerisier tardif associé à des pins / Tourbière ombrotrophe
+8527,0,127,0,255,Cerisier tardif associé à des résineux tolérants / Tourbière ombrotrophe
+8528,0,127,0,255,Cerisier tardif associé à des résineux / Tourbière ombrotrophe
+8529,0,105,0,255,Érable argenté / Tourbière ombrotrophe
+8530,0,105,0,255,Érable argenté associé à des pins / Tourbière ombrotrophe
+8531,0,127,0,255,Érable argenté associé à des résineux tolérants / Tourbière ombrotrophe
+8532,0,127,0,255,Érable argenté associé à des résineux / Tourbière ombrotrophe
+8533,0,127,0,255,Épinette blanche / Tourbière ombrotrophe
+8534,142,118,114,255,Épinette blanche associée à des feuillus intolérants / Tourbière ombrotrophe
+8535,0,127,0,255,Épinette blanche associée à des feuillus tolérants / Tourbière ombrotrophe
+8536,0,127,0,255,Épinette blanche associée à des feuillus indéterminés / Tourbière ombrotrophe
+8537,0,127,0,255,Érable noir / Tourbière ombrotrophe
+8538,0,105,0,255,Épinette noire / Tourbière ombrotrophe
+8539,142,118,114,255,Épinette noire associée à de l'épinette blanche / Tourbière ombrotrophe
+8540,142,118,114,255,Épinette noire associée à des feuillus intolérants / Tourbière ombrotrophe
+8541,0,127,0,255,Épinette noire associée à des feuillus tolérants / Tourbière ombrotrophe
+8542,0,127,0,255,Épinette noire associée à des feuillus indéterminés / Tourbière ombrotrophe
+8543,0,127,0,255,Épinette noire associée à du mélèze laricin / Tourbière ombrotrophe
+8544,142,118,114,255,Épinette noire associée à des pins / Tourbière ombrotrophe
+8545,142,118,114,255,Épinette noire associée à du sapin baumier / Tourbière ombrotrophe
+8546,142,118,114,255,Épinette noire associée à des sapin baumier et/ou épinette blanche / Tourbière ombrotrophe
+8547,142,118,114,255,Érable rouge / Tourbière ombrotrophe
+8548,0,105,0,255,Érable rouge associé à des épinettes noire ou rouge / Tourbière ombrotrophe
+8549,0,127,0,255,Érable rouge associé à du mélèze laricin / Tourbière ombrotrophe
+8550,0,127,0,255,Érable rouge associé à des pins / Tourbière ombrotrophe
+8551,0,127,0,255,Érable rouge associé à de la pruche du Canada / Tourbière ombrotrophe
+8552,0,127,0,255,Érable rouge associé à des résineux / Tourbière ombrotrophe
+8553,0,127,0,255,Érable rouge associé à des sapin baumier et/ou épinette blanche / Tourbière ombrotrophe
+8554,0,127,0,255,Érable rouge associé à du thuyas occidental / Tourbière ombrotrophe
+8555,0,127,0,255,Épinettes noire ou rouge / Tourbière ombrotrophe
+8556,142,118,114,255,Épinettes noire ou rouge associés à de l'épinette blanche / Tourbière ombrotrophe
+8557,0,127,0,255,Épinettes noire ou rouge associés à des feuillus intolérants / Tourbière ombrotrophe
+8558,0,127,0,255,Épinettes noire ou rouge associés à des feuillus tolérants / Tourbière ombrotrophe
+8559,0,127,0,255,Épinettes noire ou rouge associés à des feuillus indéterminés / Tourbière ombrotrophe
+8560,0,127,0,255,Épinettes noire ou rouge associés à du mélèze laricin / Tourbière ombrotrophe
+8561,142,118,114,255,Épinettes noire ou rouge associés à des pins / Tourbière ombrotrophe
+8562,142,118,114,255,Épinettes noire ou rouge associés à du sapin baumier / Tourbière ombrotrophe
+8563,142,118,114,255,Épinettes noire ou rouge associés à des sapin baumier et/ou épinette blanche / Tourbière ombrotrophe
+8564,0,105,0,255,Épinettes noire ou rouge associés à du thuyas occidental / Tourbière ombrotrophe
+8565,142,118,114,255,Érables / Tourbière ombrotrophe
+8566,0,105,0,255,Érables associés à du bouleau jaune / Tourbière ombrotrophe
+8567,0,105,0,255,Érables associés à des épinettes noire ou rouge / Tourbière ombrotrophe
+8568,0,127,0,255,Érables associés à du mélèze laricin / Tourbière ombrotrophe
+8569,0,127,0,255,Érables associés à des pins / Tourbière ombrotrophe
+8570,0,127,0,255,Érables associés à de la pruche du Canada / Tourbière ombrotrophe
+8571,0,127,0,255,Érables associés à des résineux / Tourbière ombrotrophe
+8572,0,127,0,255,Érables associés à des sapin baumier et/ou épinette blanche / Tourbière ombrotrophe
+8573,0,127,0,255,Érables associés à du thuyas occidental / Tourbière ombrotrophe
+8574,0,127,0,255,Érable à sucre / Tourbière ombrotrophe
+8575,0,105,0,255,Érable à sucre associé à du bouleau jaune / Tourbière ombrotrophe
+8576,0,105,0,255,Érable à sucre associé à des épinettes noire ou rouge / Tourbière ombrotrophe
+8577,0,127,0,255,Érable à sucre associé à du mélèze laricin / Tourbière ombrotrophe
+8578,0,127,0,255,Érable à sucre associé à des pins / Tourbière ombrotrophe
+8579,0,105,0,255,Érable à sucre associé à de la pruche du Canada / Tourbière ombrotrophe
+8580,0,127,0,255,Érable à sucre associé à des résineux / Tourbière ombrotrophe
+8581,0,127,0,255,Érable à sucre associé à des sapin baumier et/ou épinette blanche / Tourbière ombrotrophe
+8582,0,127,0,255,Érable à sucre associé à du thuyas occidental / Tourbière ombrotrophe
+8583,0,127,0,255,Épinette rouge / Tourbière ombrotrophe
+8584,0,127,0,255,Épinette rouge associée à du bouleau jaune / Tourbière ombrotrophe
+8585,0,127,0,255,Épinette rouge associée à des feuillus intolérants / Tourbière ombrotrophe
+8586,0,127,0,255,Épinette rouge associée à des feuillus tolérants / Tourbière ombrotrophe
+8587,0,127,0,255,Épinette rouge associée à des feuillus indéterminés / Tourbière ombrotrophe
+8588,0,127,0,255,Épinette rouge associée à du mélèze laricin / Tourbière ombrotrophe
+8589,0,127,0,255,Épinette rouge associée à des pins / Tourbière ombrotrophe
+8590,0,127,0,255,Épinette rouge associée à des sapin baumier et/ou épinette blanche / Tourbière ombrotrophe
+8591,142,118,114,255,Frêne d'Amérique / Tourbière ombrotrophe
+8592,142,118,114,255,Frêne d'Amérique associé à des pins / Tourbière ombrotrophe
+8593,142,118,114,255,Frêne d'Amérique associé à des résineux tolérants / Tourbière ombrotrophe
+8594,0,105,0,255,Frêne d'Amérique associé à des résineux / Tourbière ombrotrophe
+8595,0,127,0,255,Feuillus intolérants / Tourbière ombrotrophe
+8596,0,127,0,255,Feuillus intolérants associés à des épinettes noire ou rouge / Tourbière ombrotrophe
+8597,0,127,0,255,Feuillus intolérants associés à du mélèze laricin / Tourbière ombrotrophe
+8598,0,105,0,255,Feuillus intolérants associés à des pins / Tourbière ombrotrophe
+8599,0,127,0,255,Feuillus intolérants associés à de la pruche du Canada / Tourbière ombrotrophe
+8600,0,127,0,255,Feuillus intolérants associés à des résineux / Tourbière ombrotrophe
+8601,0,127,0,255,Feuillus intolérants associés à des sapin baumier et/ou épinette blanche / Tourbière ombrotrophe
+8602,0,127,0,255,Feuillus intolérants associés à du thuyas occidental / Tourbière ombrotrophe
+8603,0,127,0,255,Frêne noir / Tourbière ombrotrophe
+8604,0,127,0,255,Frêne noir associé à des pins / Tourbière ombrotrophe
+8605,0,127,0,255,Frêne noir associé à des résineux tolérants / Tourbière ombrotrophe
+8606,0,105,0,255,Frêne noir associé à des résineux / Tourbière ombrotrophe
+8607,0,127,0,255,Frêne de Pennsylvanie / Tourbière ombrotrophe
+8608,0,127,0,255,Frêne de Pennsylvanie associé à des pins / Tourbière ombrotrophe
+8609,0,127,0,255,Frêne de Pennsylvanie associé à des résineux tolérants / Tourbière ombrotrophe
+8610,0,105,0,255,Frêne de Pennsylvanie associé à des résineux / Tourbière ombrotrophe
+8611,0,127,0,255,Frênes / Tourbière ombrotrophe
+8612,0,127,0,255,Frênes associés à des pins / Tourbière ombrotrophe
+8613,0,127,0,255,Frênes associés à des résineux tolérants / Tourbière ombrotrophe
+8614,0,105,0,255,Frênes associés à des résineux / Tourbière ombrotrophe
+8615,0,127,0,255,Feuillus tolérants / Tourbière ombrotrophe
+8616,0,127,0,255,Feuillus tolérants associés à des épinettes noire ou rouge / Tourbière ombrotrophe
+8617,0,127,0,255,Feuillus tolérants associés à du mélèze laricin / Tourbière ombrotrophe
+8618,0,105,0,255,Feuillus tolérants associés à des pins / Tourbière ombrotrophe
+8619,0,127,0,255,Feuillus tolérants associés à de la pruche du Canada / Tourbière ombrotrophe
+8620,0,127,0,255,Feuillus tolérants associés à des résineux / Tourbière ombrotrophe
+8621,0,127,0,255,Feuillus tolérants associés à des sapin baumier et/ou épinette blanche / Tourbière ombrotrophe
+8622,0,127,0,255,Feuillus tolérants associés à du thuyas occidental / Tourbière ombrotrophe
+8623,0,127,0,255,Feuillus indéterminés / Tourbière ombrotrophe
+8624,0,127,0,255,Feuillus indéterminés associés à des épinettes noire ou rouge / Tourbière ombrotrophe
+8625,0,127,0,255,Feuillus indéterminés associés à du mélèze laricin / Tourbière ombrotrophe
+8626,0,105,0,255,Feuillus indéterminés associés à des pins / Tourbière ombrotrophe
+8627,0,127,0,255,Feuillus indéterminés associés à de la pruche du Canada / Tourbière ombrotrophe
+8628,0,127,0,255,Feuillus indéterminés associés à des sapin baumier et/ou épinette blanche / Tourbière ombrotrophe
+8629,0,127,0,255,Feuillus indéterminés associés à du thuyas occidental / Tourbière ombrotrophe
+8630,0,127,0,255,Hêtre à grandes feuilles / Tourbière ombrotrophe
+8631,0,127,0,255,Hêtre à grandes feuilles associé à des pins / Tourbière ombrotrophe
+8632,0,127,0,255,Hêtre à grandes feuilles associé à des résineux tolérants / Tourbière ombrotrophe
+8633,0,105,0,255,Hêtre à grandes feuilles associé à des résineux / Tourbière ombrotrophe
+8634,0,127,0,255,Mélèze laricin / Tourbière ombrotrophe
+8635,0,127,0,255,Mélèze laricin associé à des feuillus intolérants / Tourbière ombrotrophe
+8636,0,127,0,255,Mélèze laricin associé à des feuillus tolérants / Tourbière ombrotrophe
+8637,142,118,114,255,Mélèze laricin associé à des feuillus indéterminés / Tourbière ombrotrophe
+8638,0,127,0,255,Forêt mixte / Tourbière ombrotrophe
+8639,0,127,0,255,Noyer cendré / Tourbière ombrotrophe
+8640,0,127,0,255,Noyer cendré associé à des pins / Tourbière ombrotrophe
+8641,0,127,0,255,Noyer cendré associé à des résineux tolérants / Tourbière ombrotrophe
+8642,0,127,0,255,Noyer cendré associé à des résineux / Tourbière ombrotrophe
+8643,0,105,0,255,Ormes / Tourbière ombrotrophe
+8644,0,127,0,255,Ormes associés à des pins / Tourbière ombrotrophe
+8645,0,127,0,255,Ormes associés à des résineux tolérants / Tourbière ombrotrophe
+8646,0,105,0,255,Ormes associés à des résineux / Tourbière ombrotrophe
+8647,0,127,0,255,Ostryer de Virginie / Tourbière ombrotrophe
+8648,0,127,0,255,Ostryer de Virginie associé à des pins / Tourbière ombrotrophe
+8649,0,127,0,255,Ostryer de Virginie associé à des résineux tolérants / Tourbière ombrotrophe
+8650,0,105,0,255,Ostryer de Virginie associé à des résineux / Tourbière ombrotrophe
+8651,142,118,114,255,Pin blanc / Tourbière ombrotrophe
+8652,0,127,0,255,Pin blanc associé à du bouleau jaune / Tourbière ombrotrophe
+8653,0,127,0,255,Pin blanc associé à des érables / Tourbière ombrotrophe
+8654,142,118,114,255,Pin blanc associé à des feuillus intolérants / Tourbière ombrotrophe
+8655,0,127,0,255,Pin blanc associé à des feuillus tolérants / Tourbière ombrotrophe
+8656,0,127,0,255,Pin blanc associé à des feuillus indéterminés / Tourbière ombrotrophe
+8657,0,127,0,255,Pin rigide / Tourbière ombrotrophe
+8658,0,127,0,255,Peupliers / Tourbière ombrotrophe
+8659,0,127,0,255,Peupliers associés à des épinettes noire ou rouge / Tourbière ombrotrophe
+8660,142,118,114,255,Peupliers associés à des pins / Tourbière ombrotrophe
+8661,0,127,0,255,Peupliers associés à des résineux tolérants / Tourbière ombrotrophe
+8662,0,105,0,255,Peupliers associés à des résineux / Tourbière ombrotrophe
+8663,0,127,0,255,Peupliers associés à des sapin baumier et/ou épinette blanche / Tourbière ombrotrophe
+8664,0,127,0,255,Pin gris / Tourbière ombrotrophe
+8665,0,127,0,255,Pin gris associé à des feuillus intolérants / Tourbière ombrotrophe
+8666,0,127,0,255,Pin gris associé à des feuillus tolérants / Tourbière ombrotrophe
+8667,0,127,0,255,Pin gris associé à des feuillus indéterminés / Tourbière ombrotrophe
+8668,142,118,114,255,Pins / Tourbière ombrotrophe
+8669,0,127,0,255,Pins associés à des feuillus intolérants / Tourbière ombrotrophe
+8670,0,127,0,255,Pins associés à des feuillus tolérants / Tourbière ombrotrophe
+8671,0,127,0,255,Pins associés à des feuillus indéterminés / Tourbière ombrotrophe
+8672,142,118,114,255,Pin rouge / Tourbière ombrotrophe
+8673,0,127,0,255,Pin rouge associé à du bouleau jaune / Tourbière ombrotrophe
+8674,0,127,0,255,Pin rouge associé à des chênes / Tourbière ombrotrophe
+8675,0,127,0,255,Pin rouge associé à des érables / Tourbière ombrotrophe
+8676,142,118,114,255,Pin rouge associé à des feuillus intolérants / Tourbière ombrotrophe
+8677,0,127,0,255,Pin rouge associé à des feuillus tolérants / Tourbière ombrotrophe
+8678,0,127,0,255,Pin rouge associé à des feuillus indéterminés / Tourbière ombrotrophe
+8679,0,127,0,255,Pin rouge associé à du hêtre à grandes feuilles / Tourbière ombrotrophe
+8680,0,127,0,255,Pin rouge associé à du noyer cendré / Tourbière ombrotrophe
+8681,0,127,0,255,Pin rouge associé à des ormes / Tourbière ombrotrophe
+8682,0,127,0,255,Pin rouge associé à de l'ostryer de Virginie / Tourbière ombrotrophe
+8683,0,127,0,255,Pin rouge associé à du tilleul d'Amérique / Tourbière ombrotrophe
+8684,0,127,0,255,Épinette noire et sapin baumier associés à des feuillus intolérants / Tourbière ombrotrophe
+8685,0,127,0,255,Épinette noire et sapin baumier associés à des feuillus tolérants / Tourbière ombrotrophe
+8686,0,127,0,255,Épinette noire et sapin baumier associés à des feuillus indéterminés / Tourbière ombrotrophe
+8687,142,118,114,255,Pruche du Canada / Tourbière ombrotrophe
+8688,0,127,0,255,Pruche du Canada associée à du bouleau jaune / Tourbière ombrotrophe
+8689,142,118,114,255,Pruche du Canada associée à des érables / Tourbière ombrotrophe
+8690,0,127,0,255,Pruche du Canada associée à des feuillus intolérants / Tourbière ombrotrophe
+8691,0,127,0,255,Pruche du Canada associée à des feuillus tolérants / Tourbière ombrotrophe
+8692,0,127,0,255,Pruche du Canada associée à des feuillus indéterminés / Tourbière ombrotrophe
+8693,0,127,0,255,Résineux / Tourbière ombrotrophe
+8694,0,127,0,255,Résineux associés à du bouleau jaune / Tourbière ombrotrophe
+8695,142,118,114,255,Résineux associés à des érables / Tourbière ombrotrophe
+8696,0,127,0,255,Résineux associés à des feuillus intolérants / Tourbière ombrotrophe
+8697,0,127,0,255,Résineux associés à des feuillus tolérants / Tourbière ombrotrophe
+8698,0,127,0,255,Résineux associés à des feuillus indéterminés / Tourbière ombrotrophe
+8699,0,127,0,255,Sapin baumier / Tourbière ombrotrophe
+8700,0,127,0,255,Sapin baumier associé à du bouleau jaune / Tourbière ombrotrophe
+8701,142,118,114,255,Sapin baumier associé à des épinettes noire ou rouge / Tourbière ombrotrophe
+8702,0,127,0,255,Sapin baumier associé à des érables / Tourbière ombrotrophe
+8703,142,118,114,255,Sapin baumier associé à des feuillus intolérants / Tourbière ombrotrophe
+8704,0,127,0,255,Sapin baumier associé à des feuillus tolérants / Tourbière ombrotrophe
+8705,0,127,0,255,Sapin baumier associé à des feuillus indéterminés / Tourbière ombrotrophe
+8706,0,127,0,255,Sapin baumier associé à du thuyas occidental / Tourbière ombrotrophe
+8707,0,127,0,255,Sapin baumier et/ou épinette blanche / Tourbière ombrotrophe
+8708,142,118,114,255,Sapin baumier et/ou épinette blanche associés à du bouleau jaune / Tourbière ombrotrophe
+8709,142,118,114,255,Sapin baumier et/ou épinette blanche associés à de l'épinette noire / Tourbière ombrotrophe
+8710,0,127,0,255,Sapin baumier et/ou épinette blanche associés à des épinettes noire ou rouge / Tourbière ombrotrophe
+8711,142,118,114,255,Sapin baumier et/ou épinette blanche associés à des érables / Tourbière ombrotrophe
+8712,142,118,114,255,Sapin baumier et/ou épinette blanche associés à des feuillus intolérants / Tourbière ombrotrophe
+8713,0,127,0,255,Sapin baumier et/ou épinette blanche associés à des feuillus tolérants / Tourbière ombrotrophe
+8714,0,127,0,255,Sapin baumier et/ou épinette blanche associés à des feuillus indéterminés / Tourbière ombrotrophe
+8715,0,127,0,255,Sapin baumier et épinette noire associés à du bouleau jaune / Tourbière ombrotrophe
+8716,0,127,0,255,Sapin baumier et épinette noire associés à des érables / Tourbière ombrotrophe
+8717,0,105,0,255,Sapin baumier et épinette noire associés à des feuillus intolérants / Tourbière ombrotrophe
+8718,0,127,0,255,Sapin baumier et épinette noire associés à des feuillus tolérants / Tourbière ombrotrophe
+8719,0,127,0,255,Sapin baumier et épinette noire associés à des feuillus indéterminés / Tourbière ombrotrophe
+8720,0,105,0,255,Tilleul d'Amérique / Tourbière ombrotrophe
+8721,142,118,114,255,Tilleul d'Amérique associé à des pins / Tourbière ombrotrophe
+8722,0,127,0,255,Tilleul d'Amérique associé à des résineux tolérants / Tourbière ombrotrophe
+8723,0,127,0,255,Tilleul d'Amérique associé à des résineux / Tourbière ombrotrophe
+8724,0,127,0,255,Thuyas occidental / Tourbière ombrotrophe
+8725,0,127,0,255,Thuyas occidental associé à du bouleau jaune / Tourbière ombrotrophe
+8726,0,127,0,255,Thuyas occidental associé à des érables / Tourbière ombrotrophe
+8727,0,127,0,255,Thuyas occidental associé à des feuillus intolérants / Tourbière ombrotrophe
+8728,0,127,0,255,Thuyas occidental associé à des feuillus tolérants / Tourbière ombrotrophe
+8729,0,127,0,255,Thuyas occidental associé à des feuillus indéterminés / Tourbière ombrotrophe
+8730,0,105,0,255,Peuplement issu d'une plantation de feuillus indigènes / Tourbière ombrotrophe
+8731,0,127,0,255,Peuplement issu d'une plantation mélangée indigène / Tourbière ombrotrophe
+8732,142,118,114,255,Peuplement issu d'une plantation de résineux indigènes / Tourbière ombrotrophe
+8733,0,105,0,255,Peuplement issu d'une plantation de feuillus exotiques / Tourbière ombrotrophe
+8734,0,105,0,255,Peuplement issu d'une plantation mélangée exotique / Tourbière ombrotrophe
+8735,142,118,114,255,Peuplement issu d'une plantation de résineux exotiques / Tourbière ombrotrophe
+9999,255,255,255,255,Territoire non photo-interprété
