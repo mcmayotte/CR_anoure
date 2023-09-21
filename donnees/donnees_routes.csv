@@ -1,0 +1,54 @@
+fid,IdRte,Version,NomRte,NoRte,ClsRte,CaractRte,Gestion,Producteur,IdProduct,Enregistre,Latitude,Longitude,Type,Milieu,longueur
+"1",12131c3c3a204272b246ecd1ed8a5f0e,AQ20230801,Route 202,"202",Régionale,,Transports Québec,MTQ,"1679432",C-lisiere,45.06252,-73.28729,lisiere,foret,535.382579323578
+"2",4abe2092e1ab474ba4e0105e76e29a86,AQ20230801,Rang des Côtes,,Locale,,Municipal,MRNF,"3455",E-lisiere,45.07877,-73.22755,lisiere,mixte,520.576764109711
+"3",4abe2092e1ab474ba4e0105e76e29a86,AQ20230801,Rang des Côtes,,Locale,,Municipal,MRNF,"3455",F-lisiere,45.08512,-73.2247,lisiere,mixte,550.366217868964
+"4",d0db5c21fc3aa473e05358f2298e57e0,AQ20230801,Rang du Marécage,,Collectrice municipale,,Municipal,MRNF,"4292",G-lisiere,45.10647,-73.19765,lisiere,mixte,551.76106373822
+"5",d0db5c21fc42a473e05358f2298e57e0,AQ20230801,Rang du Marécage,,Collectrice municipale,,Municipal,MRNF,"4292",G-lisiere,45.10647,-73.19765,lisiere,mixte,11.5900806884089
+"6",456d68893c283947e05358f2298efa93,AQ20230801,16e Avenue Est,,Locale,,Municipal,MRNF,"3674",H-lisiere,45.09315,-73.12991,lisiere,mixte,567.859689109706
+"7",82c7c85f1d5948fca00d22ca49cc93ce,AQ20230801,Boulevard de la Falaise,,Locale,,Municipal,MRNF,,M-lisiere,45.02174,-73.08178,lisiere,mixte,19.4937491252796
+"8",bd9be04d7b7949258288c3069b92242c,AQ20230801,Route 133,"133",Nationale,,Transports Québec,MTQ,"1713129",M-lisiere,45.02174,-73.08178,lisiere,mixte,139.583294081416
+"9",02c75afa2ac9498c9c4b5880bbf6f3a6,AQ20230801,Route 133,"133",Nationale,,Transports Québec,MTQ,"1658294",M-lisiere,45.02174,-73.08178,lisiere,mixte,16.9701604966032
+"10",2e1d78bc701c444aa4a1a7fd9af2b98c,AQ20230801,Route 133,"133",Nationale,,Transports Québec,MTQ,"1713130",M-lisiere,45.02174,-73.08178,lisiere,mixte,349.818809222351
+"11",b94bb8f68622428895d2f45672b629ab,AQ20230801,Route 133,"133",Nationale,,Transports Québec,MTQ,"1713131",M-lisiere,45.02174,-73.08178,lisiere,mixte,1.8126959898369
+"12",1d5e83b06b3c44768d501962dede7a46,AQ20230801,Route 133,"133",Nationale,,Transports Québec,MTQ,"1658293",M-lisiere,45.02174,-73.08178,lisiere,mixte,503.82378435587
+"13",8cd4de4f39ba435a9f7a51aaca760b5f,AQ20230801,Avenue Stanley,,Locale,,Municipal,MRNF,"744",M-lisiere,45.02174,-73.08178,lisiere,mixte,91.9841073853541
+"14",4ef082c0146245eda1114e4c18fa57dd,AQ20230801,Boulevard de la Falaise,,Locale,,Municipal,MRNF,,M-lisiere,45.02174,-73.08178,lisiere,mixte,2.47717583342472
+"15",a8cecee515d74a97b8606122cfa11fe6,AQ20230801,1re Avenue,,Locale,,Municipal,MRNF,,M-lisiere,45.02174,-73.08178,lisiere,mixte,41.3127429037715
+"16",4c3c9d4aa1d145328c912a8698ceff5d,AQ20230801,Chemin du Bois,,Locale,,Municipal,MRNF,,Z-lisiere,45.09025,-73.08427,lisiere,mixte,39.7764643258348
+"17",b9ecc9770e984089857174ad46e72e03,AQ20230801,Chemin Molleur,,Locale,,Municipal,MRNF,,Z-lisiere,45.09025,-73.08427,lisiere,mixte,188.088894472442
+"18",12131c3c3a204272b246ecd1ed8a5f0e,AQ20230801,Route 202,"202",Régionale,,Transports Québec,MTQ,"1679432",,,,,,8.43267334963537e-06
+"19",4abe2092e1ab474ba4e0105e76e29a86,AQ20230801,Rang des Côtes,,Locale,,Municipal,MRNF,"3455",,,,,,1.22242470524604e-05
+"20",d0db5c21fc3aa473e05358f2298e57e0,AQ20230801,Rang du Marécage,,Collectrice municipale,,Municipal,MRNF,"4292",,,,,,3.12835129990046e-06
+"21",456d68893c283947e05358f2298efa93,AQ20230801,16e Avenue Est,,Locale,,Municipal,MRNF,"3674",,,,,,8.19816876989726e-06
+"22",02c75afa2ac9498c9c4b5880bbf6f3a6,AQ20230801,Route 133,"133",Nationale,,Transports Québec,MTQ,"1658294",,,,,,3.40227695202666e-06
+"23",b94bb8f68622428895d2f45672b629ab,AQ20230801,Route 133,"133",Nationale,,Transports Québec,MTQ,"1713131",,,,,,8.93999041016885e-06
+"24",4ef082c0146245eda1114e4c18fa57dd,AQ20230801,Boulevard de la Falaise,,Locale,,Municipal,MRNF,,,,,,,1.26328941640236e-05
+"25",a8cecee515d74a97b8606122cfa11fe6,AQ20230801,1re Avenue,,Locale,,Municipal,MRNF,,,,,,,1.41385772995296e-08
+"26",4c3c9d4aa1d145328c912a8698ceff5d,AQ20230801,Chemin du Bois,,Locale,,Municipal,MRNF,,,,,,,4.62784993854009e-06
+"27",b9ecc9770e984089857174ad46e72e03,AQ20230801,Chemin Molleur,,Locale,,Municipal,MRNF,,,,,,,8.70828679675617e-06
+"28",,,,,,,,,,C-foret,45.05989,-73.28801,foret,foret,
+"29",,,,,,,,,,C-lisiere,45.06252,-73.28729,lisiere,foret,
+"30",,,,,,,,,,E-foret,45.07608,-73.22809,foret,mixte,
+"31",,,,,,,,,,E-lisiere,45.07877,-73.22755,lisiere,mixte,
+"32",,,,,,,,,,F-foret,45.08661,-73.22803,foret,mixte,
+"33",,,,,,,,,,F-lisiere,45.08512,-73.2247,lisiere,mixte,
+"34",,,,,,,,,,Francine-3,45.08375,-73.105,lisiere,mixte,
+"35",,,,,,,,,,G-foret,45.10498,-73.20111,foret,mixte,
+"36",,,,,,,,,,G-lisiere,45.10647,-73.19765,lisiere,mixte,
+"37",,,,,,,,,,H-lisiere,45.09315,-73.12991,lisiere,mixte,
+"38",,,,,,,,,,J-foret,45.08563,-73.08537,foret,mixte,
+"39",,,,,,,,,,J-lisiere,45.08583,-73.08038,lisiere,mixte,
+"40",,,,,,,,,,K-foret,45.07947,-73.08154,foret,mixte,
+"41",,,,,,,,,,K-lisiere,45.08054,-73.07785,lisiere,foret,
+"42",,,,,,,,,,L-foret_O-lisiere,45.07311,-73.07359,lisiere,mixte,
+"43",,,,,,,,,,L-lisiere,45.07499,-73.07366,lisiere,mixte,
+"44",,,,,,,,,,M-foret,45.02111,-73.0777,foret,foret,
+"45",,,,,,,,,,M-lisiere,45.02174,-73.08178,lisiere,mixte,
+"46",,,,,,,,,,N-foret,45.0247,-73.07101,foret,foret,
+"47",,,,,,,,,,N-lisiere,45.02721,-73.07227,lisiere,foret,
+"48",,,,,,,,,,P-lisiere,45.08622,-73.10342,lisiere,mixte,
+"49",,,,,,,,,,Q-lisiere,45.08218,-73.10856,lisiere,mixte,
+"50",,,,,,,,,,W-lisiere,45.08881,-73.09779,lisiere,foret,
+"51",,,,,,,,,,X-foret_X-lisiere,45.08283,-73.08208,foret,mixte,
+"52",,,,,,,,,,Y-lisiere,45.08978,-73.09139,lisiere,foret,
+"53",,,,,,,,,,Z-lisiere,45.09025,-73.08427,lisiere,mixte,

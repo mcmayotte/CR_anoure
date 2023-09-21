@@ -4,6 +4,7 @@ con <- dbConnect(SQLite(), dbname = "db_anoure")
 # Aller chercher les données
 anoure<-read.csv("donnees/anoure_nett.csv", header = T)
 MH<-read.csv("donnees/MH_nett.csv", header = T)
+routes<-read.csv("donnees/routes_nett.csv", header = T)
 uti_terr<-read.csv("donnees/utilisation_territoire_nett.csv", header = T)
 codes_uti_terr<-read.csv("donnees/codes_utilisation_terr_nett.csv", header = T)
 
@@ -41,7 +42,7 @@ CREATE TABLE codes (
 );"
 dbSendQuery(con,tbl_codes)
 
-#######Cle 4 - MH#####
+#######Cle 3 - MH#####
 tbl_MH <-"
 CREATE TABLE MH (
   fid INTEGER,
@@ -52,6 +53,17 @@ CREATE TABLE MH (
   PRIMARY KEY (fid)
 );"
 dbSendQuery(con,tbl_MH)
+
+#######Cle 4 - routes#####
+tbl_routes <-"
+CREATE TABLE routes (
+  fid INTEGER,
+  ClsRte VARCHAR(30),
+  Enregistre VARCHAR(10),
+  longueur REAL,
+  PRIMARY KEY (fid)
+);"
+dbSendQuery(con,tbl_routes)
 
 #######Cle Primaire - utilisation territoire#####
 tbl_utilisation_terr <-"
@@ -71,6 +83,7 @@ dbSendQuery(con,tbl_utilisation_terr)
 dbWriteTable(con, append = TRUE, name= "anoure", value = anoure, row.names = FALSE)
 dbWriteTable(con, append = TRUE, name= "codes", value = codes_uti_terr, row.names = FALSE)
 dbWriteTable(con, append = TRUE, name= "MH", value = MH, row.names = FALSE)
+dbWriteTable(con, append = TRUE, name= "routes", value = routes, row.names = FALSE)
 dbWriteTable(con, append = TRUE, name= "utilisation_terr", value = uti_terr, row.names = FALSE)
 
 # REQUETE 1 - Lier table utilisation territoire et les codes
