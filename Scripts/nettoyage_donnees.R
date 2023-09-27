@@ -69,9 +69,82 @@ codes_uti_terr <- codes_uti_terr[,-(2:5)]
 #Donner des noms aux colones
 colnames(codes_uti_terr)<-c("code", "utilisation")
 
+#------------------------------
+# Création tableaux pour analyse
+#------------------------------
+#Création tableau par année
+anoure_2021 <- subset(anoure, anoure$Year == "2021")
+anoure_2022 <- subset(anoure, anoure$Year == "2022")
+
+#Ajouter les jours julien
+anoure_2021$jour_julien <- julian(as.Date(paste(anoure_2021$Year, anoure_2021$Month, anoure_2021$Day), format = "%Y %m %d"), origin = as.Date("2021-01-01"))
+anoure_2022$jour_julien <- julian(as.Date(paste(anoure_2022$Year, anoure_2022$Month, anoure_2022$Day), format = "%Y %m %d"), origin = as.Date("2022-01-01"))
 
 
+
+### CRÉÉER TABLEAU LICAT 2021 à 15H ###
+#Ajouter le  $LICAT!="0" pour avoir seulement site où présent
+licat_21_15h <- subset(anoure_2021, anoure_2021$Time24H == "1500" | anoure_2021$Time24H == "1400", select = c(Site, jour_julien, LICAT))
+
+#Pivoter le tableau de licat en 2021 à 15h
+library(tidyr)
+licat_21_15h_piv <- spread(licat_21_15h, jour_julien, LICAT)
+licat_21_15h_piv <- replace(licat_21_15h_piv, is.na(licat_21_15h_piv), 0)
+
+
+### CRÉÉER TABLEAU LICAT 2021 à 21H ###
+#Ajouter le  $LICAT!="0" pour avoir seulement site où présent
+licat_21_21h <- subset(anoure_2021, anoure_2021$Time24H == "2100", select = c(Site, jour_julien, LICAT))
+
+#Pivoter le tableau de licat en 2021 à 15h
+library(tidyr)
+licat_21_21h_piv <- spread(licat_21_21h, jour_julien, LICAT)
+licat_21_21h_piv <- replace(licat_21_21h_piv, is.na(licat_21_21h_piv), 0)
+
+
+### CRÉÉER TABLEAU LICAT 2021 à 1H00 et minuit ###
+#Ajouter le  $LICAT!="0" pour avoir seulement site où présent
+licat_21_1h <- subset(anoure_2021, anoure_2021$Time24H == "100" | anoure_2021$Time24H == "0", select = c(Site, jour_julien, LICAT))
+
+#Pivoter le tableau de licat en 2021 à 15h
+library(tidyr)
+licat_21_1h_piv <- spread(licat_21_1h, jour_julien, LICAT)
+licat_21_1h_piv <- replace(licat_21_1h_piv, is.na(licat_21_1h_piv), 0)
+
+
+
+### CRÉÉER TABLEAU LICAT 2022 à 15H ###
+#Ajouter le  $LICAT!="0" pour avoir seulement site où présent
+licat_22_15h <- subset(anoure_2022, anoure_2022$Time24H == "1500" | anoure_2022$Time24H == "1400", select = c(Site, jour_julien, LICAT))
+
+#Pivoter le tableau de licat en 2021 à 15h
+library(tidyr)
+licat_22_15h_piv <- spread(licat_22_15h, jour_julien, LICAT)
+licat_22_15h_piv <- replace(licat_22_15h_piv, is.na(licat_22_15h_piv), 0)
+
+
+### CRÉÉER TABLEAU LICAT 2022 à 21H ###
+#Ajouter le  $LICAT!="0" pour avoir seulement site où présent
+licat_22_21h <- subset(anoure_2022, anoure_2022$Time24H == "2100", select = c(Site, jour_julien, LICAT))
+
+#Pivoter le tableau de licat en 2021 à 15h
+library(tidyr)
+licat_22_21h_piv <- spread(licat_22_21h, jour_julien, LICAT)
+licat_22_21h_piv <- replace(licat_22_21h_piv, is.na(licat_22_21h_piv), 0)
+
+
+### CRÉÉER TABLEAU LICAT 2021 à 1H00 et minuit ###
+#Ajouter le  $LICAT!="0" pour avoir seulement site où présent
+licat_22_1h <- subset(anoure_2022, anoure_2022$Time24H == "100" | anoure_2022$Time24H == "0", select = c(Site, jour_julien, LICAT))
+
+#Pivoter le tableau de licat en 2021 à 15h
+library(tidyr)
+licat_22_1h_piv <- spread(licat_22_1h, jour_julien, LICAT)
+licat_22_1h_piv <- replace(licat_22_1h_piv, is.na(licat_22_1h_piv), 0)
+
+#------------------------------
 # Enregistrement données nettoyées
+#------------------------------
 write.csv(uti_terr, 'donnees/utilisation_territoire_nett.csv', row.names = FALSE)
 write.csv(MH, 'donnees/MH_nett.csv', row.names = FALSE)
 write.csv(codes_uti_terr, 'donnees/codes_utilisation_terr_nett.csv', row.names = FALSE)
