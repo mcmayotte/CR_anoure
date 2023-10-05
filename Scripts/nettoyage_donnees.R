@@ -142,6 +142,16 @@ library(tidyr)
 licat_22_1h_piv <- spread(licat_22_1h, jour_julien, LICAT)
 licat_22_1h_piv <- replace(licat_22_1h_piv, is.na(licat_22_1h_piv), 0)
 
+
+###Créer tableau MH###
+#Garder seulement 3 colonnes
+MH_sites <- subset(MH, select = c(Enregistre, CLASSE, Surface))
+
+#Pivoter le tableau de MH
+MH_piv <- spread(MH_sites, CLASSE, Surface)
+MH_piv <- replace(MH_piv, is.na(MH_piv), 0)
+
+
 #------------------------------
 # Enregistrement données nettoyées
 #------------------------------
@@ -150,5 +160,7 @@ write.csv(MH, 'donnees/MH_nett.csv', row.names = FALSE)
 write.csv(codes_uti_terr, 'donnees/codes_utilisation_terr_nett.csv', row.names = FALSE)
 write.csv(anoure, 'donnees/anoure_nett.csv', row.names = FALSE)
 write.csv(routes, 'donnees/routes_nett.csv', row.names = FALSE)
+
+write.csv(routes, 'donnees/licat_22_1h.csv', row.names = FALSE)
 
 
