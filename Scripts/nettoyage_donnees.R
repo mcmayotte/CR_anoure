@@ -240,6 +240,11 @@ write.csv(MH_piv, 'donnees/MH_nett.csv', row.names = FALSE)
 write.csv(anoure, 'donnees/anoure_nett.csv', row.names = FALSE)
 write.csv(routes_piv, 'donnees/routes_nett.csv', row.names = FALSE)
 
+write.csv(licat_21_15h_piv, 'donnees/licat_21_15h.csv', row.names = FALSE)
+write.csv(licat_21_21h_piv, 'donnees/licat_21_21h.csv', row.names = FALSE)
+write.csv(licat_21_1h_piv, 'donnees/licat_21_1h.csv', row.names = FALSE)
+write.csv(licat_22_15h_piv, 'donnees/licat_22_15h.csv', row.names = FALSE)
+write.csv(licat_22_21h_piv, 'donnees/licat_22_21h.csv', row.names = FALSE)
 write.csv(licat_22_1h_piv, 'donnees/licat_22_1h.csv', row.names = FALSE)
 
 write.csv(qualite_2021_15, 'donnees/qualite_2021_15h.csv', row.names = FALSE)
