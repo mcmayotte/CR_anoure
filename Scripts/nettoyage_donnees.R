@@ -49,7 +49,7 @@ MH <- subset(MH, MH$CLASSE != "")
 MH <- aggregate(surface ~ CLASSE + Enregistre, data = MH, sum)
 
 #Pivoter le tableau de MH
-MH_piv <- spread(MH_sites, CLASSE, surface)
+MH_piv <- spread(MH, CLASSE, surface)
 MH_piv <- replace(MH_piv, is.na(MH_piv), 0)
 
 #------------------------------
@@ -61,14 +61,6 @@ routes <- read.csv("donnees/donnees_routes.csv", header = T)
 routes <- routes[,-c(2,3,4,5,7,8,9,10,12,13,14,15)]
 
 #------------------------------
-# données utilisation du territoire
-#------------------------------
-uti_terr <-read.csv("donnees/donnees_utilisation_territoire.csv", header = T)
-
-#Enlever colones inutiles
-uti_terr <- uti_terr[,-(4:7)]
-
-#------------------------------
 # données Codes pour les différentes utilisations du territoire
 #------------------------------
 codes_uti_terr <- read.csv("donnees/Couleur_utilisation_territoire.txt", header = F, sep = ",")
@@ -78,6 +70,30 @@ codes_uti_terr <- codes_uti_terr[,-(2:5)]
 
 #Donner des noms aux colones
 colnames(codes_uti_terr)<-c("code", "utilisation")
+
+#------------------------------
+# données utilisation du territoire
+#------------------------------
+uti_terr <-read.csv("donnees/donnees_utilisation_territoire.csv", header = T)
+
+#Enlever colones inutiles
+uti_terr <- subset(uti_terr, select = c(DN, Enregistre, surface))
+
+#Enlever les lignes vides
+uti_terr <- subset(uti_terr, uti_terr$DN != "NA")
+
+#Faire la somme des types de MH identiques pour les mêmes sites
+uti_terr <- aggregate(surface ~ DN + Enregistre, data = uti_terr, sum)
+
+#Lier le tableau de code et le tableau utilisation territoire
+uti_terr <- merge(uti_terr, codes_uti_terr, by.x = "DN", by.y = "code")
+
+#Enlever colones inutiles
+uti_terr <- subset(uti_terr, select = c(Enregistre, surface, utilisation))
+
+#Pivoter le tableau de MH
+uti_terr_piv <- spread(uti_terr, utilisation, surface)
+uti_terr_piv <- replace(uti_terr_piv, is.na(uti_terr_piv), 0)
 
 #------------------------------
 # Création tableaux pour analyse
@@ -153,7 +169,7 @@ licat_22_1h_piv <- replace(licat_22_1h_piv, is.na(licat_22_1h_piv), 0)
 #------------------------------
 # Enregistrement données nettoyées
 #------------------------------
-write.csv(uti_terr, 'donnees/utilisation_territoire_nett.csv', row.names = FALSE)
+write.csv(uti_terr_piv, 'donnees/utilisation_territoire_nett.csv', row.names = FALSE)
 write.csv(MH_piv, 'donnees/MH_nett.csv', row.names = FALSE)
 write.csv(codes_uti_terr, 'donnees/codes_utilisation_terr_nett.csv', row.names = FALSE)
 write.csv(anoure, 'donnees/anoure_nett.csv', row.names = FALSE)
