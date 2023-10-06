@@ -59,6 +59,19 @@ routes <- read.csv("donnees/donnees_routes.csv", header = T)
 
 # Enlever colonnes inutiles
 routes <- routes[,-c(2,3,4,5,7,8,9,10,12,13,14,15)]
+# Enlever colonnes inutiles
+routes <- subset(routes, select = c(ClsRte, Enregistre, longueur))
+
+#Enlever les lignes vides
+routes <- subset(routes, routes$Enregistre != "")
+routes <- subset(routes, routes$ClsRte != "")
+
+#Faire la somme des types de routes identiques pour les mêmes sites
+routes <- aggregate(longueur ~ ClsRte + Enregistre, data = routes, sum)
+
+#Pivoter le tableau
+routes_piv <- spread(routes, ClsRte, longueur)
+routes_piv <- replace(routes_piv, is.na(routes_piv), 0)
 
 #------------------------------
 # données Codes pour les différentes utilisations du territoire
@@ -82,7 +95,7 @@ uti_terr <- subset(uti_terr, select = c(DN, Enregistre, surface))
 #Enlever les lignes vides
 uti_terr <- subset(uti_terr, uti_terr$DN != "NA")
 
-#Faire la somme des types de MH identiques pour les mêmes sites
+#Faire la somme des types de .utilisation de territoire identiques pour les mêmes sites
 uti_terr <- aggregate(surface ~ DN + Enregistre, data = uti_terr, sum)
 
 #Lier le tableau de code et le tableau utilisation territoire
@@ -91,7 +104,7 @@ uti_terr <- merge(uti_terr, codes_uti_terr, by.x = "DN", by.y = "code")
 #Enlever colones inutiles
 uti_terr <- subset(uti_terr, select = c(Enregistre, surface, utilisation))
 
-#Pivoter le tableau de MH
+#Pivoter le tableau
 uti_terr_piv <- spread(uti_terr, utilisation, surface)
 uti_terr_piv <- replace(uti_terr_piv, is.na(uti_terr_piv), 0)
 
@@ -173,7 +186,7 @@ write.csv(uti_terr_piv, 'donnees/utilisation_territoire_nett.csv', row.names = F
 write.csv(MH_piv, 'donnees/MH_nett.csv', row.names = FALSE)
 write.csv(codes_uti_terr, 'donnees/codes_utilisation_terr_nett.csv', row.names = FALSE)
 write.csv(anoure, 'donnees/anoure_nett.csv', row.names = FALSE)
-write.csv(routes, 'donnees/routes_nett.csv', row.names = FALSE)
+write.csv(routes_piv, 'donnees/routes_nett.csv', row.names = FALSE)
 
 write.csv(licat_22_1h_piv, 'donnees/licat_22_1h.csv', row.names = FALSE)
 
