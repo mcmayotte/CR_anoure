@@ -40,8 +40,6 @@ MH <-read.csv("donnees/donnees_MH.csv", header = T)
 # Enlever colonnes inutiles
 MH <- subset(MH, select = c(Enregistre, CLASSE, surface))
 
-unique(sort(MH$CLASSE))
-
 #Enlever les lignes vides
 MH <- subset(MH, MH$surface != 0)
 MH <- subset(MH, MH$Enregistre != "")
@@ -156,11 +154,11 @@ licat_22_1h_piv <- replace(licat_22_1h_piv, is.na(licat_22_1h_piv), 0)
 # Enregistrement données nettoyées
 #------------------------------
 write.csv(uti_terr, 'donnees/utilisation_territoire_nett.csv', row.names = FALSE)
-write.csv(MH, 'donnees/MH_nett.csv', row.names = FALSE)
+write.csv(MH_piv, 'donnees/MH_nett.csv', row.names = FALSE)
 write.csv(codes_uti_terr, 'donnees/codes_utilisation_terr_nett.csv', row.names = FALSE)
 write.csv(anoure, 'donnees/anoure_nett.csv', row.names = FALSE)
 write.csv(routes, 'donnees/routes_nett.csv', row.names = FALSE)
 
-write.csv(routes, 'donnees/licat_22_1h.csv', row.names = FALSE)
+write.csv(licat_22_1h_piv, 'donnees/licat_22_1h.csv', row.names = FALSE)
 
 
