@@ -38,9 +38,21 @@ colnames(anoure)[colnames(anoure) == "PSMAC.TRI"] <- "PSMACTRI"
 MH <-read.csv("donnees/donnees_MH.csv", header = T)
 
 # Enlever colonnes inutiles
-MH <- MH[,-c(2,3,4,5,7,8,9,10,12,13,14,15)]
+MH <- subset(MH, select = c(Enregistre, CLASSE, surface))
 
 unique(sort(MH$CLASSE))
+
+#Enlever les lignes vides
+MH <- subset(MH, MH$surface != 0)
+MH <- subset(MH, MH$Enregistre != "")
+MH <- subset(MH, MH$CLASSE != "")
+
+#Faire la somme des types de MH identiques pour les mêmes sites
+MH <- aggregate(surface ~ CLASSE + Enregistre, data = MH, sum)
+
+#Pivoter le tableau de MH
+MH_piv <- spread(MH_sites, CLASSE, surface)
+MH_piv <- replace(MH_piv, is.na(MH_piv), 0)
 
 #------------------------------
 # données routes
@@ -81,7 +93,6 @@ anoure_2021$jour_julien <- julian(as.Date(paste(anoure_2021$Year, anoure_2021$Mo
 anoure_2022$jour_julien <- julian(as.Date(paste(anoure_2022$Year, anoure_2022$Month, anoure_2022$Day), format = "%Y %m %d"), origin = as.Date("2022-01-01"))
 
 
-
 ### CRÉÉER TABLEAU LICAT 2021 à 15H ###
 #Ajouter le  $LICAT!="0" pour avoir seulement site où présent
 licat_21_15h <- subset(anoure_2021, anoure_2021$Time24H == "1500" | anoure_2021$Time24H == "1400", select = c(Site, jour_julien, LICAT))
@@ -112,7 +123,6 @@ licat_21_1h_piv <- spread(licat_21_1h, jour_julien, LICAT)
 licat_21_1h_piv <- replace(licat_21_1h_piv, is.na(licat_21_1h_piv), 0)
 
 
-
 ### CRÉÉER TABLEAU LICAT 2022 à 15H ###
 #Ajouter le  $LICAT!="0" pour avoir seulement site où présent
 licat_22_15h <- subset(anoure_2022, anoure_2022$Time24H == "1500" | anoure_2022$Time24H == "1400", select = c(Site, jour_julien, LICAT))
@@ -141,16 +151,6 @@ licat_22_1h <- subset(anoure_2022, anoure_2022$Time24H == "100" | anoure_2022$Ti
 library(tidyr)
 licat_22_1h_piv <- spread(licat_22_1h, jour_julien, LICAT)
 licat_22_1h_piv <- replace(licat_22_1h_piv, is.na(licat_22_1h_piv), 0)
-
-
-###Créer tableau MH###
-#Garder seulement 3 colonnes
-MH_sites <- subset(MH, select = c(Enregistre, CLASSE, Surface))
-
-#Pivoter le tableau de MH
-MH_piv <- spread(MH_sites, CLASSE, Surface)
-MH_piv <- replace(MH_piv, is.na(MH_piv), 0)
-
 
 #------------------------------
 # Enregistrement données nettoyées
