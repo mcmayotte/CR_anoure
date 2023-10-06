@@ -92,16 +92,6 @@ dbWriteTable(con, append = TRUE, name= "utilisation_terr", value = uti_terr, row
 #3- join util terri a anoure pour faire comme avec MH
 
 
-
-#Requetes nb collaboration par r.a.
-#sql_requete <- "
-#SELECT collaborations.etudiant1, collaborations.etudiant2, collaborations.sigle, collaborations.session, etudiants.region_administrative AS region_administrative_et1
-#FROM collaborations
-#JOIN etudiants ON collaborations.etudiant1 = etudiants.prenom_nom
-#;"
-
-#rae1 <- dbGetQuery(con, sql_requete)
-#head(rae1)
-
-
 dbDisconnect(con)
+
+#JOIN etudiants ON collaborations.etudiant1 = etudiants.prenom_nom

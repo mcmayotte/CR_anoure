@@ -111,6 +111,8 @@ uti_terr_piv <- replace(uti_terr_piv, is.na(uti_terr_piv), 0)
 #------------------------------
 # Création tableaux pour analyse
 #------------------------------
+library(tidyr)
+
 #Création tableau par année
 anoure_2021 <- subset(anoure, anoure$Year == "2021")
 anoure_2022 <- subset(anoure, anoure$Year == "2022")
@@ -124,8 +126,9 @@ anoure_2022$jour_julien <- julian(as.Date(paste(anoure_2022$Year, anoure_2022$Mo
 #Ajouter le  $LICAT!="0" pour avoir seulement site où présent
 licat_21_15h <- subset(anoure_2021, anoure_2021$Time24H == "1500" | anoure_2021$Time24H == "1400", select = c(Site, jour_julien, LICAT))
 
-#Pivoter le tableau de licat en 2021 à 15h
-library(tidyr)
+
+### BUG REVOIR ###
+#Pivoter le tableau de licat en 2021 à 15h 
 licat_21_15h_piv <- spread(licat_21_15h, jour_julien, LICAT)
 licat_21_15h_piv <- replace(licat_21_15h_piv, is.na(licat_21_15h_piv), 0)
 
@@ -134,8 +137,7 @@ licat_21_15h_piv <- replace(licat_21_15h_piv, is.na(licat_21_15h_piv), 0)
 #Ajouter le  $LICAT!="0" pour avoir seulement site où présent
 licat_21_21h <- subset(anoure_2021, anoure_2021$Time24H == "2100", select = c(Site, jour_julien, LICAT))
 
-#Pivoter le tableau de licat en 2021 à 15h
-library(tidyr)
+#Pivoter le tableau de licat en 2021 à 21h
 licat_21_21h_piv <- spread(licat_21_21h, jour_julien, LICAT)
 licat_21_21h_piv <- replace(licat_21_21h_piv, is.na(licat_21_21h_piv), 0)
 
@@ -144,8 +146,7 @@ licat_21_21h_piv <- replace(licat_21_21h_piv, is.na(licat_21_21h_piv), 0)
 #Ajouter le  $LICAT!="0" pour avoir seulement site où présent
 licat_21_1h <- subset(anoure_2021, anoure_2021$Time24H == "100" | anoure_2021$Time24H == "0", select = c(Site, jour_julien, LICAT))
 
-#Pivoter le tableau de licat en 2021 à 15h
-library(tidyr)
+#Pivoter le tableau de licat en 2021 à 1h
 licat_21_1h_piv <- spread(licat_21_1h, jour_julien, LICAT)
 licat_21_1h_piv <- replace(licat_21_1h_piv, is.na(licat_21_1h_piv), 0)
 
@@ -155,7 +156,6 @@ licat_21_1h_piv <- replace(licat_21_1h_piv, is.na(licat_21_1h_piv), 0)
 licat_22_15h <- subset(anoure_2022, anoure_2022$Time24H == "1500" | anoure_2022$Time24H == "1400", select = c(Site, jour_julien, LICAT))
 
 #Pivoter le tableau de licat en 2021 à 15h
-library(tidyr)
 licat_22_15h_piv <- spread(licat_22_15h, jour_julien, LICAT)
 licat_22_15h_piv <- replace(licat_22_15h_piv, is.na(licat_22_15h_piv), 0)
 
@@ -164,8 +164,7 @@ licat_22_15h_piv <- replace(licat_22_15h_piv, is.na(licat_22_15h_piv), 0)
 #Ajouter le  $LICAT!="0" pour avoir seulement site où présent
 licat_22_21h <- subset(anoure_2022, anoure_2022$Time24H == "2100", select = c(Site, jour_julien, LICAT))
 
-#Pivoter le tableau de licat en 2021 à 15h
-library(tidyr)
+#Pivoter le tableau de licat en 2021 à 21h
 licat_22_21h_piv <- spread(licat_22_21h, jour_julien, LICAT)
 licat_22_21h_piv <- replace(licat_22_21h_piv, is.na(licat_22_21h_piv), 0)
 
@@ -174,20 +173,88 @@ licat_22_21h_piv <- replace(licat_22_21h_piv, is.na(licat_22_21h_piv), 0)
 #Ajouter le  $LICAT!="0" pour avoir seulement site où présent
 licat_22_1h <- subset(anoure_2022, anoure_2022$Time24H == "100" | anoure_2022$Time24H == "0", select = c(Site, jour_julien, LICAT))
 
-#Pivoter le tableau de licat en 2021 à 15h
-library(tidyr)
+#Pivoter le tableau de licat en 2021 à 1h
 licat_22_1h_piv <- spread(licat_22_1h, jour_julien, LICAT)
 licat_22_1h_piv <- replace(licat_22_1h_piv, is.na(licat_22_1h_piv), 0)
+
+#------------------------------
+# Tableau Détection
+#------------------------------
+qualite_2021_15 <-  subset(anoure_2021, anoure_2021$Time24H == "1500", select = c(Site, jour_julien, RecordingQuality))
+qualite_2021_15 <- spread(qualite_2021_15, jour_julien, RecordingQuality)
+qualite_2021_15 <- replace(qualite_2021_15, is.na(qualite_2021_15), 0)
+
+qualite_2021_21 <-  subset(anoure_2021, anoure_2021$Time24H == "2100", select = c(Site, jour_julien, RecordingQuality))
+qualite_2021_21 <- spread(qualite_2021_21, jour_julien, RecordingQuality)
+qualite_2021_21 <- replace(qualite_2021_21, is.na(qualite_2021_21), 0)
+
+qualite_2021_1 <-  subset(anoure_2021, anoure_2021$Time24H == "100" | anoure_2021$Time24H == "0", select = c(Site, jour_julien, RecordingQuality))
+qualite_2021_1 <- spread(qualite_2021_1, jour_julien, RecordingQuality)
+qualite_2021_1 <- replace(qualite_2021_1, is.na(qualite_2021_1), 0)
+
+##2022##
+qualite_2022_15 <-  subset(anoure_2022, anoure_2022$Time24H == "1500", select = c(Site, jour_julien, RecordingQuality))
+qualite_2022_15 <- spread(qualite_2022_15, jour_julien, RecordingQuality)
+qualite_2022_15 <- replace(qualite_2022_15, is.na(qualite_2022_15), 0)
+
+qualite_2022_21 <-  subset(anoure_2022, anoure_2022$Time24H == "2100", select = c(Site, jour_julien, RecordingQuality))
+qualite_2022_21 <- spread(qualite_2022_21, jour_julien, RecordingQuality)
+qualite_2022_21 <- replace(qualite_2022_21, is.na(qualite_2022_21), 0)
+
+qualite_2022_1 <-  subset(anoure_2022, anoure_2022$Time24H == "100" | anoure_2022$Time24H == "0", select = c(Site, jour_julien, RecordingQuality))
+qualite_2022_1 <- spread(qualite_2022_1, jour_julien, RecordingQuality)
+qualite_2022_1 <- replace(qualite_2022_1, is.na(qualite_2022_1), 0)
+
+#Type de disturbance
+disturb_2021_15 <-  subset(anoure_2021, anoure_2021$Time24H == "1500", select = c(Site, jour_julien, DisturbanceType))
+disturb_2021_15 <- spread(disturb_2021_15, jour_julien, DisturbanceType)
+disturb_2021_15 <- replace(disturb_2021_15, is.na(disturb_2021_15), 0)
+
+disturb_2021_21 <-  subset(anoure_2021, anoure_2021$Time24H == "2100", select = c(Site, jour_julien, DisturbanceType))
+disturb_2021_21 <- spread(disturb_2021_21, jour_julien, DisturbanceType)
+disturb_2021_21 <- replace(disturb_2021_21, is.na(disturb_2021_21), 0)
+
+disturb_2021_1 <-  subset(anoure_2021, anoure_2021$Time24H == "100" | anoure_2021$Time24H == "0", select = c(Site, jour_julien, DisturbanceType))
+disturb_2021_1 <- spread(disturb_2021_1, jour_julien, DisturbanceType)
+disturb_2021_1 <- replace(disturb_2021_1, is.na(disturb_2021_1), 0)
+
+#2022
+
+disturb_2022_15 <-  subset(anoure_2022, anoure_2022$Time24H == "1500", select = c(Site, jour_julien, DisturbanceType))
+disturb_2022_15 <- spread(disturb_2022_15, jour_julien, DisturbanceType)
+disturb_2022_15 <- replace(disturb_2022_15, is.na(disturb_2022_15), 0)
+
+disturb_2022_21 <-  subset(anoure_2022, anoure_2022$Time24H == "2100", select = c(Site, jour_julien, DisturbanceType))
+disturb_2022_21 <- spread(disturb_2022_21, jour_julien, DisturbanceType)
+disturb_2022_21 <- replace(disturb_2022_21, is.na(disturb_2022_21), 0)
+
+disturb_2022_1 <-  subset(anoure_2022, anoure_2022$Time24H == "100" | anoure_2022$Time24H == "0", select = c(Site, jour_julien, DisturbanceType))
+disturb_2022_1 <- spread(disturb_2022_1, jour_julien, DisturbanceType)
+disturb_2022_1 <- replace(disturb_2022_1, is.na(disturb_2022_1), 0)
 
 #------------------------------
 # Enregistrement données nettoyées
 #------------------------------
 write.csv(uti_terr_piv, 'donnees/utilisation_territoire_nett.csv', row.names = FALSE)
 write.csv(MH_piv, 'donnees/MH_nett.csv', row.names = FALSE)
-write.csv(codes_uti_terr, 'donnees/codes_utilisation_terr_nett.csv', row.names = FALSE)
 write.csv(anoure, 'donnees/anoure_nett.csv', row.names = FALSE)
 write.csv(routes_piv, 'donnees/routes_nett.csv', row.names = FALSE)
 
 write.csv(licat_22_1h_piv, 'donnees/licat_22_1h.csv', row.names = FALSE)
+
+write.csv(qualite_2021_15, 'donnees/qualite_2021_15h.csv', row.names = FALSE)
+write.csv(qualite_2021_21, 'donnees/qualite_2021_21h.csv', row.names = FALSE)
+write.csv(qualite_2021_1, 'donnees/qualite_2021_1h.csv', row.names = FALSE)
+write.csv(qualite_2022_15, 'donnees/qualite_2022_15h.csv', row.names = FALSE)
+write.csv(qualite_2022_21, 'donnees/qualite_2022_21h.csv', row.names = FALSE)
+write.csv(qualite_2022_1, 'donnees/qualite_2022_1h.csv', row.names = FALSE)
+
+write.csv(disturb_2021_15, 'donnees/disturb_2021_15h.csv', row.names = FALSE)
+write.csv(disturb_2021_21, 'donnees/disturb_2021_21h.csv', row.names = FALSE)
+write.csv(disturb_2021_1, 'donnees/disturb_2021_1h.csv', row.names = FALSE)
+write.csv(disturb_2022_15, 'donnees/disturb_2022_15h.csv', row.names = FALSE)
+write.csv(disturb_2022_21, 'donnees/disturb_2022_21h.csv', row.names = FALSE)
+write.csv(disturb_2022_1, 'donnees/disturb_2022_1h.csv', row.names = FALSE)
+
 
 
