@@ -1,4 +1,7 @@
 setwd("~/Desktop/Credits_recherche/CR_anoure")
+
+library(tidyr)
+
 #------------------------------
 # données anoures
 #------------------------------
@@ -148,7 +151,6 @@ jj <-read.csv("donnees/JJ_21_21h.csv", header = T)
 #------------------------------
 # Création tableaux pour analyse
 #------------------------------
-library(tidyr)
 
 #Création tableau par année
 anoure_2021 <- subset(anoure, anoure$Year == "2021")
@@ -160,88 +162,129 @@ anoure_2022$jour_julien <- julian(as.Date(paste(anoure_2022$Year, anoure_2022$Mo
 
 # une seule observation à 15h
 #Seulement 3 pour 21h donc garder le 1h seulement
-### CRÉÉER TABLEAU LICAT 2021 à 21H ###
-#Ajouter le  $LICAT!="0" pour avoir seulement site où présent
-licat_21_21h <- subset(anoure_2021, anoure_2021$Time24H == "2100", select = c(Site, jour_julien, LICAT))
-
-#Pivoter le tableau de licat en 2021 à 21h
-licat_21_21h_piv <- spread(licat_21_21h, jour_julien, LICAT, fill = NA, convert = TRUE)
-
-
-colnames(licat_21_21h_piv)<- c("Site","V144","V145","V150","V151","V153","V154","V158","V160","V165","V172","V179","V180","V186","V192","V193","V1")
-library(dplyr)
-install.packages("hablar")
-library(hablar)
-licat_21_21h_piv %>% rowwise() %>% mutate(V1 = sum_("V144",V145,V150,na.rm=TRUE))
-licat_21_21h_piv$V1<-licat_21_21h_piv$V144+licat_21_21h_piv$V145+licat_21_21h_piv$V150
-licat_21_21h_piv$V2<- licat_21_21h_piv$V150+licat_21_21h_piv$V151+licat_21_21h_piv$V153+licat_21_21h_piv$V154
-licat_21_21h_piv$V3<- licat_21_21h_piv$V158
-licat_21_21h_piv$V4<- licat_21_21h_piv$V160+licat_21_21h_piv$V165
-licat_21_21h_piv$V5<- licat_21_21h_piv$V172
-licat_21_21h_piv$V6<- licat_21_21h_piv$V179+licat_21_21h_piv$V180
-licat_21_21h_piv$V7<- licat_21_21h_piv$V186
-licat_21_21h_piv$V8<- licat_21_21h_piv$V192+licat_21_21h_piv$V193 
-
-
-
-names<-c("V1","V2","V3","V4","V5","V6","V7","V8")
-for (j in 1:length(names)) {
-  for (i in 1:(ncol(licat_21_15h_piv))-1) {
-    if (colnames(licat_21_21h_piv[i]==names[j])){
-      
-    }
-
-    }
-}
-
-
-
-
-for (i in 1:26) {
-  if( licat_21_21h_piv[i,2]=NA
-  )
-  ifelse( licat_21_21h_piv[i,3]=NA
-  )
-  ifelse( licat_21_21h_piv[i,4]=NA
-  )
-  else( licat_21_21h_piv[i,18]<-NA
-  )
-}
-
-licat_21_21h_piv$V1<- licat_21_21h_piv$V144 +licat_21_21h_piv$V145+licat_21_21h_piv$V147
-
-##Joindre visites
-
-
 ### CRÉÉER TABLEAU LICAT 2021 à 1H00 et minuit ###
 #Ajouter le  $LICAT!="0" pour avoir seulement site où présent
 licat_21_1h <- subset(anoure_2021, anoure_2021$Time24H == "100" | anoure_2021$Time24H == "0", select = c(Site, jour_julien, LICAT))
-
-#Pivoter le tableau de licat en 2021 à 1h
 licat_21_1h <- spread(licat_21_1h, jour_julien, LICAT)
 
+##Joindre visites
+colnames(licat_21_1h)<- c("Site","V145","V146","V148","V151","V152","V154","V155","V159","V161","V4","V5","V6","V7","V193","V194")
+for (i in 1:26) {
+  if( !is.na(licat_21_1h$V145[i])
+  ) {licat_21_1h$V1[i]<-licat_21_1h$V145[i]}
+  else if( !is.na(licat_21_1h$V146[i])
+  ) {licat_21_1h$V1[i]<-licat_21_1h$V146[i]}
+  else if(!is.na(licat_21_1h$V148[i])
+  ) {licat_21_1h$V1[i]<-licat_21_1h$V148[i]}
+  else {licat_21_1h$V1[i]<-NA}
+}
+#V2
+for (i in 1:26) {
+  if( !is.na(licat_21_1h$V151[i])
+  ) {licat_21_1h$V2[i]<-licat_21_1h$V151[i]}
+  else if( !is.na(licat_21_1h$V152[i])
+  ) {licat_21_1h$V2[i]<-licat_21_1h$V152[i]}
+  else if(!is.na(licat_21_1h$V154[i])
+  ) {licat_21_1h$V2[i]<-licat_21_1h$V154[i]}
+  else if(!is.na(licat_21_1h$V155[i])
+  ) {licat_21_1h$V2[i]<-licat_21_1h$V155[i]}
+  else {licat_21_1h$V2[i]<-NA}
+}
+#V3
+for (i in 1:26) {
+  if( !is.na(licat_21_1h$V159[i])
+  ) {licat_21_1h$V3[i]<-licat_21_1h$V159[i]}
+  else if( !is.na(licat_21_1h$V161[i])
+  ) {licat_21_1h$V3[i]<-licat_21_1h$V161[i]}
+  else {licat_21_1h$V3[i]<-NA}
+}
+#V8
+for (i in 1:26) {
+  if( !is.na(licat_21_1h$V193[i])
+  ) {licat_21_1h$V8[i]<-licat_21_1h$V193[i]}
+  else if( !is.na(licat_21_1h$V194[i])
+  ) {licat_21_1h$V8[i]<-licat_21_1h$V194[i]}
+  else {licat_21_1h$V8[i]<-NA}
+}
+
+licat_21_1h <- subset(licat_21_1h, select = c(Site, V1, V2, V3, V4, V5, V6, V7, V8))
 
 #une seule observation à 15h en 2022
 #Seulement 4 obervations en 2022 à 21h
-### CRÉÉER TABLEAU LICAT 2022 à 21H ###
-#Ajouter le  $LICAT!="0" pour avoir seulement site où présent
-#licat_22_21h <- subset(anoure_2022, anoure_2022$Time24H == "2100", select = c(Site, jour_julien, LICAT))
-
-#Pivoter le tableau de licat en 2022 à 21h
-#licat_22_21h <- spread(licat_22_21h, jour_julien, LICAT)
-
 ### CRÉÉER TABLEAU LICAT 2022 à 1H00 et minuit ###
 #Ajouter le  $LICAT!="0" pour avoir seulement site où présent
 licat_22_1h <- subset(anoure_2022, anoure_2022$Time24H == "100" | anoure_2022$Time24H == "0", select = c(Site, jour_julien, LICAT))
-
-#Pivoter le tableau de licat en 2021 à 1h
 licat_22_1h <- spread(licat_22_1h, jour_julien, LICAT)
+
+##Joindre visites
+colnames(licat_22_1h)<- c("Site","V109","V110","V112","V113","V116","V117","V3","V4","V5","V6","V7","V157","V158","V9","V10","V11","V12","V13","V14","V15","V16")
+#V1
+for (i in 1:26) {
+  if( !is.na(licat_22_1h$V109[i])
+  ) {licat_22_1h$V1[i]<-licat_22_1h$V109[i]}
+  else if( !is.na(licat_22_1h$V110[i])
+  ) {licat_22_1h$V1[i]<-licat_22_1h$V110[i]}
+  else if(!is.na(licat_22_1h$V112[i])
+  ) {licat_22_1h$V1[i]<-licat_22_1h$V112[i]}
+  else if(!is.na(licat_22_1h$V113[i])
+  ) {licat_22_1h$V1[i]<-licat_22_1h$V113[i]}
+  else {licat_22_1h$V1[i]<-NA}
+}
+#V2
+for (i in 1:26) {
+  if( !is.na(licat_22_1h$V116[i])
+  ) {licat_22_1h$V2[i]<-licat_22_1h$V116[i]}
+  else if( !is.na(licat_22_1h$V117[i])
+  ) {licat_22_1h$V2[i]<-licat_22_1h$V117[i]}
+  else {licat_22_1h$V2[i]<-NA}
+}
+#V8
+for (i in 1:26) {
+  if( !is.na(licat_22_1h$V157[i])
+  ) {licat_22_1h$V8[i]<-licat_22_1h$V157[i]}
+  else if( !is.na(licat_22_1h$V158[i])
+  ) {licat_22_1h$V8[i]<-licat_22_1h$V158[i]}
+  else {licat_22_1h$V8[i]<-NA}
+}
+licat_22_1h <- subset(licat_22_1h, select = c(Site, V1, V2, V3, V4, V5, V6, V7, V8, V9, V10, V11, V12, V13, V14, V15, V16))
+
 
 ### CRÉÉER TABLEAU LSYL 2022 à 21H00 ###
 #Il y en a quelques unes aussi à 1h mais vraiment plus à 21h
 lisyl_22_21h <- subset(anoure_2022, anoure_2022$Time24H == "2100", select = c(Site, jour_julien, LISYL))
 lisyl_22_21h <- spread(lisyl_22_21h, jour_julien, LISYL)
 
+##Joindre visites
+colnames(lisyl_22_21h)<- c("Site","V108","V109","V111","V112","V115","V116","V3","V4","V5","V6","V7","V156","V157","V9","V10","V11","V12","V13","V14","V15","V16")
+#V1
+for (i in 1:26) {
+  if( !is.na(lisyl_22_21h$V108[i])
+  ) {lisyl_22_21h$V1[i]<-lisyl_22_21h$V108[i]}
+  else if( !is.na(lisyl_22_21h$V109[i])
+  ) {lisyl_22_21h$V1[i]<-lisyl_22_21h$V109[i]}
+  else if(!is.na(lisyl_22_21h$V111[i])
+  ) {lisyl_22_21h$V1[i]<-lisyl_22_21h$V111[i]}
+  else if(!is.na(lisyl_22_21h$V112[i])
+  ) {lisyl_22_21h$V1[i]<-lisyl_22_21h$V112[i]}
+  else {lisyl_22_21h$V1[i]<-NA}
+}
+#V2
+for (i in 1:26) {
+  if( !is.na(lisyl_22_21h$V115[i])
+  ) {lisyl_22_21h$V2[i]<-lisyl_22_21h$V115[i]}
+  else if( !is.na(lisyl_22_21h$V116[i])
+  ) {lisyl_22_21h$V2[i]<-lisyl_22_21h$V116[i]}
+  else {lisyl_22_21h$V2[i]<-NA}
+}
+#V8
+for (i in 1:26) {
+  if( !is.na(lisyl_22_21h$V156[i])
+  ) {lisyl_22_21h$V8[i]<-lisyl_22_21h$V156[i]}
+  else if( !is.na(lisyl_22_21h$V157[i])
+  ) {lisyl_22_21h$V8[i]<-lisyl_22_21h$V157[i]}
+  else {lisyl_22_21h$V8[i]<-NA}
+}
+lisyl_22_21h <- subset(lisyl_22_21h, select = c(Site, V1, V2, V3, V4, V5, V6, V7, V8, V9, V10, V11, V12, V13, V14, V15, V16))
 #------------------------------
 # Tableau Détection
 #------------------------------
@@ -300,17 +343,14 @@ disturb_2022_1 <- replace(disturb_2022_1, is.na(disturb_2022_1), 0)
 #------------------------------
 # Enregistrement données nettoyées
 #------------------------------
-write.csv(uti_terr_piv, 'donnees/utilisation_territoire_nett.csv', row.names = FALSE)
-write.csv(MH_piv, 'donnees/MH_nett.csv', row.names = FALSE)
+write.csv(uti_terr, 'donnees/utilisation_territoire_nett.csv', row.names = FALSE)
+write.csv(MH, 'donnees/MH_nett.csv', row.names = FALSE)
 write.csv(anoure, 'donnees/anoure_nett.csv', row.names = FALSE)
-write.csv(routes_piv, 'donnees/routes_nett.csv', row.names = FALSE)
+write.csv(routes, 'donnees/routes_nett.csv', row.names = FALSE)
 
-write.csv(licat_21_15h_piv, 'donnees/licat_21_15h.csv', row.names = FALSE)
-write.csv(licat_21_21h_piv, 'donnees/licat_21_21h.csv', row.names = FALSE)
-write.csv(licat_21_1h_piv, 'donnees/licat_21_1h.csv', row.names = FALSE)
-write.csv(licat_22_15h_piv, 'donnees/licat_22_15h.csv', row.names = FALSE)
-write.csv(licat_22_21h_piv, 'donnees/licat_22_21h.csv', row.names = FALSE)
-write.csv(licat_22_1h_piv, 'donnees/licat_22_1h.csv', row.names = FALSE)
+write.csv(licat_21_1h, 'donnees/licat_21_1h.csv', row.names = FALSE)
+write.csv(licat_22_1h, 'donnees/licat_22_1h.csv', row.names = FALSE)
+write.csv(lisyl_22_21h, 'donnees/lisyl_22_21h.csv', row.names = FALSE)
 
 write.csv(qualite_2021_15, 'donnees/qualite_2021_15h.csv', row.names = FALSE)
 write.csv(qualite_2021_21, 'donnees/qualite_2021_21h.csv', row.names = FALSE)

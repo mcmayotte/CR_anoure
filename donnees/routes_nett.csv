@@ -1,8 +1,27 @@
-"Enregistre","Collectrice municipale","Locale","Nationale","Régionale"
-"C-lisiere",0,0,0,543.216214565063
-"E-lisiere",0,524.450619321298,0,0
-"F-lisiere",0,556.242416069294,0,0
-"G-lisiere",567.872630708236,0,0,0
-"H-lisiere",0,574.450601593857,0,0
-"M-lisiere",0,162.187685197512,1025.08587127319,0
-"Z-lisiere",0,234.129162524731,0,0
+"Enregistre","Collectrice municipale","Locale","Nationale","Régionale","Total"
+"C-foret",0,0,0,0,0
+"C-lisiere",0,0,0,543.216214565063,543.216214565063
+"E-foret",0,0,0,0,0
+"E-lisiere",0,524.450619321298,0,0,524.450619321298
+"F-foret",0,0,0,0,0
+"F-lisiere",0,556.242416069294,0,0,556.242416069294
+"Francine-3",0,0,0,0,0
+"G-foret",0,0,0,0,0
+"G-lisiere",567.872630708236,0,0,0,567.872630708236
+"H-lisiere",0,574.450601593857,0,0,574.450601593857
+"J-foret",0,0,0,0,0
+"J-lisiere",0,0,0,0,0
+"K-foret",0,0,0,0,0
+"K-lisiere",0,0,0,0,0
+"L-foret_O-lisiere",0,0,0,0,0
+"L-lisiere",0,0,0,0,0
+"M-foret",0,0,0,0,0
+"M-lisiere",0,162.187685197512,1025.08587127319,0,1187.2735564707
+"N-foret",0,0,0,0,0
+"N-lisiere",0,0,0,0,0
+"P-lisiere",0,0,0,0,0
+"Q-lisiere",0,0,0,0,0
+"W-lisiere",0,0,0,0,0
+"X-foret_X-lisiere",0,0,0,0,0
+"Y-lisiere",0,0,0,0,0
+"Z-lisiere",0,234.129162524731,0,0,234.129162524731
