@@ -1,27 +1,27 @@
 "Site","144","145","147","150","151","153","154","158","160","165","172","179","186","192","193"
-"C-foret","3",NA,NA,NA,"3",NA,NA,"3",NA,"3","3 et 1","1","1",NA,"3 et 1"
-"C-lisiere","1",NA,NA,NA,"1",NA,NA,"3 et 1",NA,"1","1","1","1",NA,"3"
-"E-foret","3 et 1",NA,NA,NA,"3",NA,NA,"3",NA,"1","1","3 et 1","3 et 1",NA,"1"
-"E-lisiere","3 et 1",NA,NA,NA,"3",NA,NA,"3",NA,"3","3","3","3",NA,"3"
+"C-foret","3",NA,NA,NA,"3",NA,NA,"3",NA,"3","3","1","1",NA,"3"
+"C-lisiere","1",NA,NA,NA,"1",NA,NA,"3",NA,"1","1","1","1",NA,"3"
+"E-foret","3",NA,NA,NA,"3",NA,NA,"3",NA,"1","1","3","3",NA,"1"
+"E-lisiere","3",NA,NA,NA,"3",NA,NA,"3",NA,"3","3","3","3",NA,"3"
 "F-foret","3",NA,NA,NA,"3",NA,NA,"3",NA,"3","1","1","3",NA,"3"
-"F-lisiere","3",NA,NA,NA,"3",NA,NA,"3",NA,"1","none","3","3",NA,"none"
+"F-lisiere","3",NA,NA,NA,"3",NA,NA,"3",NA,"1","0","3","3",NA,"0"
 "Francine-3",NA,NA,NA,NA,"3",NA,NA,"3",NA,"3","1","1","3",NA,"3"
 "G-foret","3",NA,NA,NA,"3",NA,NA,"3",NA,"3","1","3","3",NA,"3"
-"G-lisiere","3",NA,NA,NA,"3 et 1",NA,NA,"3",NA,"3","1","1","1",NA,"3 et 1"
-"H-lisiere",NA,NA,NA,NA,"3 et 1",NA,NA,"3 et 1",NA,"3 et 1","1","1","3 et 1",NA,"3 et 1"
+"G-lisiere","3",NA,NA,NA,"3",NA,NA,"3",NA,"3","1","1","1",NA,"3"
+"H-lisiere",NA,NA,NA,NA,"3",NA,NA,"3",NA,"3","1","1","3",NA,"3"
 "J-foret",NA,"3",NA,NA,"3",NA,NA,"3",NA,"3","1","1","1","1",NA
 "J-lisiere",NA,"3",NA,NA,"3",NA,NA,"1","1",NA,"1","1","1","1",NA
-"K-foret",NA,"3",NA,"1",NA,NA,NA,"3",NA,"3","1","3","1","3 et 1",NA
+"K-foret",NA,"3",NA,"1",NA,NA,NA,"3",NA,"3","1","3","1","3",NA
 "K-lisiere",NA,"1",NA,NA,"3",NA,NA,"3",NA,"1","1","3","3","1",NA
-"L-foret_O-lisiere",NA,"3 et 1",NA,NA,"1",NA,NA,"3 et 1",NA,"3 et 1","3 et 1","3","none","1",NA
-"L-lisiere",NA,"1",NA,NA,"3 et 1",NA,NA,"3",NA,"1","3","3","1","1",NA
+"L-foret_O-lisiere",NA,"3",NA,NA,"1",NA,NA,"3",NA,"3","3","3","0","1",NA
+"L-lisiere",NA,"1",NA,NA,"3",NA,NA,"3",NA,"1","3","3","1","1",NA
 "M-foret",NA,NA,"1",NA,"3",NA,NA,"1",NA,"1","3","1","1","3",NA
 "M-lisiere",NA,NA,"1",NA,"1",NA,NA,"1",NA,"1","1","1","1","1",NA
 "N-foret",NA,NA,"1",NA,"1",NA,NA,"1",NA,"1","1","1","1","1",NA
-"N-lisiere",NA,NA,"1",NA,"1",NA,NA,"1",NA,"1","3 et 1","1","1","1",NA
-"P-lisiere","3",NA,NA,NA,"3",NA,NA,"3",NA,"3 et 1","1","1","3",NA,"3"
-"Q-lisiere","3",NA,NA,NA,"3 et 1",NA,NA,"3",NA,"3","1","1","3",NA,"3"
+"N-lisiere",NA,NA,"1",NA,"1",NA,NA,"1",NA,"1","3","1","1","1",NA
+"P-lisiere","3",NA,NA,NA,"3",NA,NA,"3",NA,"3","1","1","3",NA,"3"
+"Q-lisiere","3",NA,NA,NA,"3",NA,NA,"3",NA,"3","1","1","3",NA,"3"
 "W-lisiere",NA,NA,NA,NA,"1",NA,NA,"1",NA,"1","1","1","1","1",NA
 "X-foret_X-lisiere",NA,NA,NA,NA,NA,NA,"3","3",NA,"3","3","3","1","3",NA
-"Y-lisiere",NA,NA,NA,NA,NA,"3",NA,"3",NA,"3","3 et 1","1","1","1",NA
-"Z-lisiere",NA,NA,NA,NA,NA,"none",NA,"1",NA,"3","1","1","3","1",NA
+"Y-lisiere",NA,NA,NA,NA,NA,"3",NA,"3",NA,"3","3","1","1","1",NA
+"Z-lisiere",NA,NA,NA,NA,NA,"0",NA,"1",NA,"3","1","1","3","1",NA

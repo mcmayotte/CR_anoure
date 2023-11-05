@@ -9,23 +9,23 @@ anoure<-read.csv("donnees/donnees_anoures.csv", header = T)
 
 # Corriger erreurs dans DisturbanceType
 anoure <- data.frame(lapply(anoure, function(x){
-  gsub("human et rain", "1", x) }))
+  gsub("human et rain", "human", x) }))
 anoure <- data.frame(lapply(anoure, function(x){
-  gsub("human et wind", "1", x) }))
+  gsub("human et wind", "human", x) }))
 anoure <- data.frame(lapply(anoure, function(x){
   gsub("human", "1", x) }))
 
 anoure <- data.frame(lapply(anoure, function(x){
-  gsub("rain et human", "2", x) }))
+  gsub("rain et human", "rain", x) }))
 anoure <- data.frame(lapply(anoure, function(x){
-  gsub("rain et wind", "2", x) }))
+  gsub("rain et wind", "rain", x) }))
 anoure <- data.frame(lapply(anoure, function(x){
   gsub("rain", "2", x) }))
   
 anoure <- data.frame(lapply(anoure, function(x){
-  gsub("wind et human", "3", x) }))
+  gsub("wind et human", "wind", x) }))
 anoure <- data.frame(lapply(anoure, function(x){
-  gsub("wind et rain", "3", x) }))
+  gsub("wind et rain", "wind", x) }))
 anoure <- data.frame(lapply(anoure, function(x){
   gsub("wind", "3", x) }))
 
