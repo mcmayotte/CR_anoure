@@ -7,30 +7,37 @@ library(tidyr)
 #------------------------------
 anoure<-read.csv("donnees/donnees_anoures.csv", header = T)
 
-# Voir erreurs dans Recording quality
-unique(sort(anoure$RecordingQuality))
-# all good
-
 # Corriger erreurs dans DisturbanceType
-unique(sort(anoure$DisturbanceType))
+anoure <- data.frame(lapply(anoure, function(x){
+  gsub("human et rain", "1", x) }))
+anoure <- data.frame(lapply(anoure, function(x){
+  gsub("human et wind", "1", x) }))
+anoure <- data.frame(lapply(anoure, function(x){
+  gsub("human", "1", x) }))
 
 anoure <- data.frame(lapply(anoure, function(x){
-  gsub("human et rain", "human", x) }))
-
+  gsub("rain et human", "2", x) }))
 anoure <- data.frame(lapply(anoure, function(x){
-  gsub("human et wind", "human", x) }))
-
+  gsub("rain et wind", "2", x) }))
 anoure <- data.frame(lapply(anoure, function(x){
-  gsub("rain et human", "rain", x) }))
-
-anoure <- data.frame(lapply(anoure, function(x){
-  gsub("rain et wind", "rain", x) }))
+  gsub("rain", "2", x) }))
   
 anoure <- data.frame(lapply(anoure, function(x){
-  gsub("wind et human", "wind", x) }))
-  
+  gsub("wind et human", "3", x) }))
 anoure <- data.frame(lapply(anoure, function(x){
-  gsub("wind et rain", "wind", x) }))
+  gsub("wind et rain", "3", x) }))
+anoure <- data.frame(lapply(anoure, function(x){
+  gsub("wind", "3", x) }))
+
+###CODE POUR RECORDING QUALITY###
+anoure <- data.frame(lapply(anoure, function(x){
+  gsub("good", "1", x) }))
+
+anoure<- data.frame(lapply(anoure, function(x){
+  gsub("moderate", "2", x) }))
+
+anoure <- data.frame(lapply(anoure, function(x){
+  gsub("bad", "3", x) }))
 
 #Changer le nom de colone (enlever le point)
 colnames(anoure)[colnames(anoure) == "PSMAC.TRI"] <- "PSMACTRI"

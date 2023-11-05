@@ -1,27 +1,27 @@
 "Site","144","145","147","150","151","153","154","158","160","165","172","179","180","186","192","193"
-"C-foret","wind",NA,NA,NA,"wind",NA,NA,"wind",NA,"rain","human","rain",NA,"human",NA,"wind"
-"C-lisiere","wind",NA,NA,NA,"rain",NA,NA,"human",NA,"human","human","human",NA,"human",NA,"wind"
-"E-foret","wind",NA,NA,NA,"human",NA,NA,"none",NA,"rain","wind","none",NA,"rain",NA,"wind"
-"E-lisiere","wind",NA,NA,NA,"human",NA,NA,"wind",NA,"human","wind","none",NA,"rain",NA,"wind"
-"F-foret","wind",NA,NA,NA,"rain",NA,NA,"human",NA,"rain","human","wind",NA,"rain",NA,"wind"
-"F-lisiere","wind",NA,NA,NA,"human",NA,NA,"human",NA,"rain","wind","none",NA,"none",NA,"wind"
-"Francine-3",NA,NA,NA,NA,"human",NA,NA,"wind",NA,"rain","human","none",NA,"none",NA,"wind"
-"G-foret","wind",NA,NA,NA,"none",NA,NA,"none",NA,"rain","human","human",NA,"rain",NA,"wind"
-"G-lisiere","wind",NA,NA,NA,"human",NA,NA,"human",NA,"rain","human","human",NA,"human",NA,"wind"
-"H-lisiere","wind",NA,NA,NA,"human",NA,NA,"human",NA,"human","wind","human",NA,"human",NA,"wind"
-"J-foret",NA,"wind",NA,NA,"human",NA,NA,"wind",NA,"human","human","human",NA,"rain","wind",NA
-"J-lisiere",NA,"wind",NA,NA,"human",NA,NA,"none","human",NA,"wind","human",NA,"rain","wind",NA
-"K-foret",NA,"wind",NA,"human",NA,NA,NA,"human",NA,"human","wind","human",NA,"human","human",NA
-"K-lisiere",NA,"wind",NA,NA,"human",NA,NA,"wind",NA,"rain","wind","human",NA,"rain","human",NA
-"L-foret_O-lisiere",NA,"wind",NA,NA,"human",NA,NA,"wind",NA,"human","wind",NA,"human","human","human",NA
-"L-lisiere",NA,"wind",NA,NA,"human",NA,NA,"wind",NA,"human","human","human",NA,"human","human",NA
-"M-foret",NA,NA,"human",NA,"human",NA,NA,"human",NA,"human","human","human",NA,"human","human",NA
-"M-lisiere",NA,NA,"human",NA,"human",NA,NA,"human",NA,"human","human","human",NA,"rain","human",NA
-"N-foret",NA,NA,"human",NA,"human",NA,NA,"wind",NA,"rain","human","human",NA,"rain","human",NA
-"N-lisiere",NA,NA,"human",NA,"human",NA,NA,"human",NA,"rain","wind","human",NA,"human","human",NA
-"P-lisiere","wind",NA,NA,NA,"human",NA,NA,"wind",NA,"rain","human","human",NA,"human",NA,"wind"
-"Q-lisiere","wind",NA,NA,NA,"human",NA,NA,"wind",NA,"rain","human","human",NA,"human",NA,"wind"
-"W-lisiere",NA,NA,NA,NA,"human",NA,NA,"human",NA,"rain","human","none",NA,"none","wind",NA
-"X-foret_X-lisiere",NA,NA,NA,NA,NA,NA,"human","wind",NA,"human","human","human",NA,"human","human",NA
-"Y-lisiere",NA,NA,NA,NA,NA,"wind",NA,"wind",NA,"rain","wind","human",NA,"human","human",NA
-"Z-lisiere",NA,NA,NA,NA,NA,"rain",NA,"wind",NA,"human","human","none",NA,"human","none",NA
+"C-foret","3",NA,NA,NA,"3",NA,NA,"3",NA,"2 et 1","1","2",NA,"1",NA,"3"
+"C-lisiere","3",NA,NA,NA,"2",NA,NA,"1",NA,"1","1","1",NA,"1",NA,"3"
+"E-foret","3",NA,NA,NA,"1",NA,NA,"none",NA,"2","3 et 1","none",NA,"2",NA,"3"
+"E-lisiere","3 et 1",NA,NA,NA,"1",NA,NA,"3",NA,"1","3","none",NA,"2",NA,"3"
+"F-foret","3",NA,NA,NA,"2",NA,NA,"1",NA,"2","1","3",NA,"2",NA,"3"
+"F-lisiere","3",NA,NA,NA,"1",NA,NA,"1",NA,"2","3","none",NA,"none",NA,"3"
+"Francine-3",NA,NA,NA,NA,"1",NA,NA,"3",NA,"2","1","none",NA,"none",NA,"3"
+"G-foret","3",NA,NA,NA,"none",NA,NA,"none",NA,"2","1","1",NA,"2",NA,"3"
+"G-lisiere","3",NA,NA,NA,"1",NA,NA,"1",NA,"2","1","1",NA,"1",NA,"3"
+"H-lisiere","3",NA,NA,NA,"1",NA,NA,"1",NA,"1","3","1",NA,"1",NA,"3"
+"J-foret",NA,"3",NA,NA,"1",NA,NA,"3",NA,"1","1","1",NA,"2 et 1","3",NA
+"J-lisiere",NA,"3",NA,NA,"1",NA,NA,"none","1",NA,"3","1",NA,"2 et 1","3",NA
+"K-foret",NA,"3",NA,"1",NA,NA,NA,"1",NA,"1","3","1",NA,"1","1",NA
+"K-lisiere",NA,"3",NA,NA,"1",NA,NA,"3",NA,"2 et 1","3","1",NA,"2","1",NA
+"L-foret_O-lisiere",NA,"3",NA,NA,"1",NA,NA,"3",NA,"1","3",NA,"1","1","1",NA
+"L-lisiere",NA,"3",NA,NA,"1",NA,NA,"3 et 1",NA,"1","1","1",NA,"1","1",NA
+"M-foret",NA,NA,"1",NA,"1",NA,NA,"1",NA,"1","1","1",NA,"1","1",NA
+"M-lisiere",NA,NA,"1",NA,"1",NA,NA,"1",NA,"1","1","1",NA,"2","1",NA
+"N-foret",NA,NA,"1",NA,"1",NA,NA,"3",NA,"2","1","1",NA,"2","1",NA
+"N-lisiere",NA,NA,"1",NA,"1",NA,NA,"1",NA,"2","3 et 1","1",NA,"1","1",NA
+"P-lisiere","3",NA,NA,NA,"1",NA,NA,"3",NA,"2","1","1",NA,"1",NA,"3"
+"Q-lisiere","3",NA,NA,NA,"1",NA,NA,"3",NA,"2","1","1",NA,"1",NA,"3"
+"W-lisiere",NA,NA,NA,NA,"1",NA,NA,"1",NA,"2","1","none",NA,"none","3 et 1",NA
+"X-foret_X-lisiere",NA,NA,NA,NA,NA,NA,"1","3",NA,"1","1","1",NA,"1","1",NA
+"Y-lisiere",NA,NA,NA,NA,NA,"3",NA,"3",NA,"2","3","1",NA,"1","1",NA
+"Z-lisiere",NA,NA,NA,NA,NA,"2",NA,"3",NA,"1","1","none",NA,"1","none",NA
