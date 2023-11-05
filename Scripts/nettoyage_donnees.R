@@ -87,6 +87,8 @@ MH <- subset(MH, select = -V1)
 
 #Mettre les tourbières ensemble
 MH$Tourbiere <- MH$`Tourbière boisée indifférenciée`+MH$`Tourbière boisée minérotrophe`+MH$`Tourbière ouverte minérotrophe`
+MH$Marecage <- MH$`Marécage`+MH$`Marécage arborescent`
+MH <- subset(MH, select = c(Enregistre, `Eau peu profonde`, Marais, Marecage, `Milieu humide`, Tourbiere))
 
 #------------------------------
 # données routes
@@ -145,12 +147,28 @@ uti_terr <- merge(uti_terr, codes_uti_terr, by.x = "DN", by.y = "code")
 uti_terr <- subset(uti_terr, select = c(Enregistre, surface, utilisation))
 
 #Pivoter le tableau
-uti_terr<- spread(uti_terr, utilisation, surface)
+uti_terr <- spread(uti_terr, utilisation, surface)
 uti_terr <- replace(uti_terr, is.na(uti_terr), 0)
+
+#Joindre colonnes
+uti_terr$Agriculture <- uti_terr$`Agriculture indifférenciée`+uti_terr$`Agriculture indifférenciée / Marais`+uti_terr$`Agriculture indifférenciée / Marais`+uti_terr$`Agriculture indifférenciée / Marécage`+uti_terr$`Agriculture indifférenciée / Prairie humide`+uti_terr$Blé+uti_terr$`Blé / Marécage`+uti_terr$`Blé / Tourbière`+uti_terr$`Blé / Tourbière minérotrophe`+uti_terr$Maïs+uti_terr$`Maïs / Marais`+uti_terr$`Maïs / Marécage`+uti_terr$`Maïs / Prairie humide`+uti_terr$`Maïs / Tourbière`+uti_terr$`Maïs / Tourbière minérotrophe`+uti_terr$Soya+uti_terr$`Soya / Marécage`+uti_terr$`Soya / Tourbière minérotrophe`+uti_terr$`Culture pérenne et pâturage`+uti_terr$`Culture pérenne et pâturage / Marais`+uti_terr$`Culture pérenne et pâturage / Marécage`+uti_terr$`Culture pérenne et pâturage / Prairie humide`+uti_terr$`Culture pérenne et pâturage / Tourbière minérotrophe`
+
+uti_terr$Coupe <- uti_terr$`Coupe forestière / Marais`+uti_terr$`Coupe forestière / Marécage`+uti_terr$`Coupe forestière / Prairie humide`+uti_terr$`Coupe forestière / Tourbière minérotrophe`
+
+uti_terr$Friche <- uti_terr$Friche+uti_terr$`Friche / Marécage`
+
+uti_terr$Conifere <- uti_terr$`Thuyas occidental associé à des feuillus tolérants`+uti_terr$`Peuplement issu d'une plantation de résineux indigènes`+uti_terr$`Peuplement issu d'une plantation de résineux indigènes / Marécage`+uti_terr$`Pruche du Canada`+uti_terr$`Pruche du Canada / Marais`+uti_terr$`Pruche du Canada associée à des érables`
+
+uti_terr$Feuillu <- uti_terr$`Chênes / Marécage`+uti_terr$`Chênes / Tourbière`+uti_terr$`Feuillus indéterminés / Marécage`+uti_terr$`Feuillus indéterminés / Tourbière`+uti_terr$`Feuillus indéterminés / Tourbière minérotrophe`+uti_terr$`Feuillus tolérants`+uti_terr$`Feuillus tolérants / Marais`+uti_terr$`Feuillus tolérants / Tourbière`+uti_terr$`Érable à sucre`+uti_terr$`Érable argenté / Marais`+uti_terr$`Érable argenté / Marécage`+uti_terr$`Érable argenté / Prairie humide`+uti_terr$`Érable argenté / Tourbière`+uti_terr$`Érable argenté / Tourbière minérotrophe`+uti_terr$`Érable rouge`+uti_terr$`Érable rouge / Marécage`+uti_terr$`Érable rouge / Tourbière minérotrophe`+uti_terr$Érables+uti_terr$`Érables / Marais`+uti_terr$`Érables / Marécage`+uti_terr$`Érables / Tourbière`+uti_terr$`Érables associés à de la pruche du Canada`
+
+uti_terr$Riviere <- uti_terr$Lac+uti_terr$`Lac / Marais`+uti_terr$`Lac / Marécage`+uti_terr$`Lac / Tourbière`+uti_terr$`Lac / Tourbière minérotrophe`+uti_terr$Eau+uti_terr$`Eau / Marais`+uti_terr$`Eau / Tourbière`+uti_terr$`Eau / Tourbière minérotrophe`
+
+#(pas garder de routes! ni rien de tourbiere et tous les autres MH parce que MH s'en occupe déjà)
+#enlever zone dev pcq seulement à une place
+uti_terr <- subset(uti_terr, select = c(Enregistre, Agriculture, Coupe, Friche, Conifere, Feuillu, Riviere))
 
 #Enlever codes territoire parce que pus besoin
 rm(codes_uti_terr)
-
 #------------------------------
 # Création tableaux pour analyse
 #------------------------------
