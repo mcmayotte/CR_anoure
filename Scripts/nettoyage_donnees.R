@@ -590,6 +590,18 @@ colnames(disturb_lisyl_1) <- c("Site", "V2", "V4")
 disturb_lisyl <- merge(disturb_lisyl_21, disturb_lisyl_1, by = "Site")
 disturb_lisyl <- subset(disturb_lisyl, select = c(V1, V2, V3, V4))
 
+##Jours juliens lisyl
+jj_22_21h<-read.csv("donnees/JJ_22_21h.csv", header = T)
+jj_22_1h<-read.csv("donnees/JJ_22_1h.csv", header = T)
+
+jj_22_21h <- subset(jj_22_21h, select = c(Site, V1, V2))
+jj_22_1h <- subset(jj_22_1h, select = c(Site, V1, V2))
+
+colnames(jj_22_21h) <- c("Site", "V1", "V3")
+colnames(jj_22_1h) <- c("Site", "V2", "V4")
+
+jj_lisyl <- merge(jj_22_21h, jj_22_1h, by = "Site")
+jj_lisyl <- subset(jj_lisyl, select = c(V1, V2, V3, V4))
 #------------------------------
 # Enregistrement données nettoyées
 #------------------------------
@@ -618,3 +630,5 @@ write.csv(qualite_lisyl, 'donnees/qualite_lisyl.csv', row.names = FALSE)
 #write.csv(disturb_2022_21, 'donnees/disturb_2022_21h.csv', row.names = FALSE)
 #write.csv(disturb_2022_1, 'donnees/disturb_2022_1h.csv', row.names = FALSE)
 write.csv(disturb_lisyl, 'donnees/disturb_lisyl.csv', row.names = FALSE)
+
+write.csv(jj_lisyl, 'donnees/jj_lisyl.csv', row.names = F)

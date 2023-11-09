@@ -424,7 +424,7 @@ la pause des enregistreurs)</li>
 <div id="création-des-modèles" class="section level2">
 <h2>Création des modèles</h2>
 <p>Création du tableau de données pour le package unmarked</p>
-<pre class="r"><code>lisyl.data &lt;- unmarkedFrameOccu(y = lisyl, siteCovs = occupation, obsCovs = list(disturbance = perturb_lisyl, qualite = qualite_lisyl, heure = heure_lisyl))</code></pre>
+<pre class="r"><code>lisyl.data &lt;- unmarkedFrameOccu(y = lisyl, siteCovs = occupation, obsCovs = list(disturbance = perturb_lisyl, qualite = qualite_lisyl, heure = heure_lisyl, date = jj_lisyl))</code></pre>
 <pre><code>## Warning: siteCovs contains characters. Converting them to factors.</code></pre>
 <pre><code>## Warning: obsCovs contains characters. Converting them to factors.</code></pre>
 <pre class="r"><code>summary(lisyl.data)</code></pre>
@@ -458,13 +458,14 @@ la pause des enregistreurs)</li>
 ##                               
 ## 
 ## Observation-level covariates:
-##  disturbance     qualite       heure   
-##  human:29    bad     : 4   Min.   : 1  
-##  meteo:21    good    :66   1st Qu.: 1  
-##  none :52    moderate:32   Median :11  
-##  NA&#39;s : 2    NA&#39;s    : 2   Mean   :11  
-##                            3rd Qu.:21  
-##                            Max.   :21</code></pre>
+##  disturbance     qualite       heure         date      
+##  human:29    bad     : 4   Min.   : 1   Min.   :108.0  
+##  meteo:21    good    :66   1st Qu.: 1   1st Qu.:111.0  
+##  none :52    moderate:32   Median :11   Median :115.0  
+##  NA&#39;s : 2    NA&#39;s    : 2   Mean   :11   Mean   :113.1  
+##                            3rd Qu.:21   3rd Qu.:116.0  
+##                            Max.   :21   Max.   :117.0  
+##                                         NA&#39;s   :2</code></pre>
 <p>Modèles</p>
 <pre class="r"><code>#Détectabilité et occupation constante
 m0 &lt;- occu(~ 1 ~ 1, data = lisyl.data)
@@ -485,18 +486,26 @@ mPR &lt;- occu(~ disturbance ~ Route, data = lisyl.data)
 mPA &lt;- occu(~ disturbance ~ Agriculture, data = lisyl.data)
 mPS &lt;- occu(~ disturbance ~ Site, data = lisyl.data)
 
-##Détectabilité varie selon l&#39;e type de perturbation&#39;heure et occupation varie selon ...
+##Détectabilité varie selon l&#39;heure et occupation varie selon ...
 mH &lt;- occu(~ heure ~ 1, data = lisyl.data)
 mHH &lt;- occu(~ heure ~ Humide, data = lisyl.data)
 mHE &lt;- occu(~ heure ~ Eau, data = lisyl.data)
 mHR &lt;- occu(~ heure ~ Route, data = lisyl.data)
 mHA &lt;- occu(~ heure ~ Agriculture, data = lisyl.data)
-mHS &lt;- occu(~ heure ~ Site, data = lisyl.data)</code></pre>
+mHS &lt;- occu(~ heure ~ Site, data = lisyl.data)
+
+##Détectabilité varie selon les jours juliens et occupation varie selon ...
+mD &lt;- occu(~ date ~ 1, data = lisyl.data)
+mDH &lt;- occu(~ date ~ Humide, data = lisyl.data)
+mDE &lt;- occu(~ date ~ Eau, data = lisyl.data)
+mDR &lt;- occu(~ date ~ Route, data = lisyl.data)
+mDA &lt;- occu(~ date ~ Agriculture, data = lisyl.data)
+mDS &lt;- occu(~ date ~ Site, data = lisyl.data)</code></pre>
 <p>Tableau de tous les modèles avec le poid AIC</p>
-<pre class="r"><code>Cands &lt;- list(m0, mQH, mQE, mQR, mQA, mQS, mPH, mPE, mPR, mPA, mPS, mHH, mHE, mHR, mHA, mHS)
+<pre class="r"><code>Cands &lt;- list(m0, mQH, mQE, mQR, mQA, mQS, mPH, mPE, mPR, mPA, mPS, mHH, mHE, mHR, mHA, mHS, mDH, mDE, mDR, mDA, mDS)
 
 ##Donner les noms significaifs aux modèles
-Model.names &lt;- c(&quot;nul&quot;,&quot;psi(Milieux humides)p(Qualité)&quot;, &quot;psi(Eau libre)p(Qualité)&quot;, &quot;psi(Route)p(Qualité)&quot;, &quot;psi(Agriculture)p(Qualité)&quot;, &quot;psi(Site)p(Qualité)&quot;, &quot;psi(Milieux humides)p(Perturb)&quot;, &quot;psi(Eau libre)p(Perturb)&quot;, &quot;psi(Route)p(Perturb)&quot;, &quot;psi(Agriculture)p(Perturb)&quot;, &quot;psi(Site)p(Perturb)&quot;, &quot;psi(Milieux humides)p(heure)&quot;, &quot;psi(Eau libre)p(heure)&quot;, &quot;psi(Route)p(heure)&quot;, &quot;psi(Agriculture)p(heure)&quot;, &quot;psi(Site)p(heure)&quot;) 
+Model.names &lt;- c(&quot;nul&quot;,&quot;psi(Milieux humides)p(Qualité)&quot;, &quot;psi(Eau libre)p(Qualité)&quot;, &quot;psi(Route)p(Qualité)&quot;, &quot;psi(Agriculture)p(Qualité)&quot;, &quot;psi(Site)p(Qualité)&quot;, &quot;psi(Milieux humides)p(Perturb)&quot;, &quot;psi(Eau libre)p(Perturb)&quot;, &quot;psi(Route)p(Perturb)&quot;, &quot;psi(Agriculture)p(Perturb)&quot;, &quot;psi(Site)p(Perturb)&quot;, &quot;psi(Milieux humides)p(Heure)&quot;, &quot;psi(Eau libre)p(Heure)&quot;, &quot;psi(Route)p(Heure)&quot;, &quot;psi(Agriculture)p(Heure)&quot;, &quot;psi(Site)p(Heure)&quot;, &quot;psi(Milieux humides)p(Date)&quot;, &quot;psi(Eau libre)p(Date)&quot;, &quot;psi(Route)p(Date)&quot;, &quot;psi(Agriculture)p(Date)&quot;, &quot;psi(Site)p(Date)&quot;) 
 
 ##do model selection based on AICc 
 aictab(cand.set = Cands,  modnames = Model.names)</code></pre>
@@ -506,22 +515,27 @@ aictab(cand.set = Cands,  modnames = Model.names)</code></pre>
 ## Model selection based on AICc:
 ## 
 ##                                K   AICc Delta_AICc AICcWt Cum.Wt     LL
-## nul                            2  98.69       0.00   0.25   0.25 -47.09
-## psi(Route)p(heure)             4  98.73       0.03   0.25   0.50 -44.41
-## psi(Route)p(Qualité)           5  98.75       0.06   0.24   0.74 -42.88
-## psi(Route)p(Perturb)           5 101.39       2.70   0.07   0.81 -44.20
-## psi(Site)p(Qualité)            5 101.43       2.74   0.06   0.87 -44.22
-## psi(Site)p(heure)              4 101.92       3.22   0.05   0.92 -46.01
-## psi(Site)p(Perturb)            5 104.34       5.65   0.01   0.94 -45.67
-## psi(Agriculture)p(heure)       4 104.42       5.73   0.01   0.95 -47.26
-## psi(Milieux humides)p(heure)   4 104.44       5.74   0.01   0.97 -47.27
-## psi(Eau libre)p(heure)         4 104.44       5.74   0.01   0.98 -47.27
-## psi(Agriculture)p(Perturb)     5 107.52       8.82   0.00   0.98 -47.26
-## psi(Agriculture)p(Qualité)     5 107.52       8.82   0.00   0.99 -47.26
-## psi(Milieux humides)p(Qualité) 5 107.53       8.84   0.00   0.99 -47.27
-## psi(Milieux humides)p(Perturb) 5 107.53       8.84   0.00   0.99 -47.27
-## psi(Eau libre)p(Qualité)       5 107.53       8.84   0.00   1.00 -47.27
-## psi(Eau libre)p(Perturb)       5 107.53       8.84   0.00   1.00 -47.27</code></pre>
+## psi(Route)p(Date)              4  96.42       0.00   0.39   0.39 -43.26
+## nul                            2  98.69       2.27   0.13   0.52 -47.09
+## psi(Route)p(Heure)             4  98.73       2.31   0.12   0.64 -44.41
+## psi(Route)p(Qualité)           5  98.75       2.33   0.12   0.77 -42.88
+## psi(Site)p(Date)               4  99.52       3.10   0.08   0.85 -44.81
+## psi(Route)p(Perturb)           5 101.39       4.97   0.03   0.88 -44.20
+## psi(Site)p(Qualité)            5 101.43       5.01   0.03   0.92 -44.22
+## psi(Site)p(Heure)              4 101.92       5.50   0.03   0.94 -46.01
+## psi(Site)p(Perturb)            5 104.34       7.92   0.01   0.95 -45.67
+## psi(Agriculture)p(Heure)       4 104.42       8.00   0.01   0.96 -47.26
+## psi(Agriculture)p(Date)        4 104.43       8.00   0.01   0.96 -47.26
+## psi(Milieux humides)p(Date)    4 104.44       8.01   0.01   0.97 -47.27
+## psi(Milieux humides)p(Heure)   4 104.44       8.01   0.01   0.98 -47.27
+## psi(Eau libre)p(Heure)         4 104.44       8.02   0.01   0.98 -47.27
+## psi(Eau libre)p(Date)          4 104.44       8.02   0.01   0.99 -47.27
+## psi(Agriculture)p(Perturb)     5 107.52      11.10   0.00   0.99 -47.26
+## psi(Agriculture)p(Qualité)     5 107.52      11.10   0.00   0.99 -47.26
+## psi(Milieux humides)p(Qualité) 5 107.53      11.11   0.00   1.00 -47.27
+## psi(Milieux humides)p(Perturb) 5 107.53      11.11   0.00   1.00 -47.27
+## psi(Eau libre)p(Qualité)       5 107.53      11.11   0.00   1.00 -47.27
+## psi(Eau libre)p(Perturb)       5 107.53      11.11   0.00   1.00 -47.27</code></pre>
 </div>
 </div>
 

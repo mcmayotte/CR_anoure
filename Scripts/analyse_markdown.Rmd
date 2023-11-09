@@ -11,8 +11,8 @@ library(unmarked)
 library(AICcmodavg)
 
 #Données réponse
-licat_21_1h <- read.csv('donnees/licat_21_1h.csv', header = T)
-licat_22_1h <- read.csv('donnees/licat_21_1h.csv', header = T)
+#licat_21_1h <- read.csv('donnees/licat_21_1h.csv', header = T)
+#licat_22_1h <- read.csv('donnees/licat_21_1h.csv', header = T)
 lisyl <- read.csv('donnees/lisyl.csv', header = T)
 
 #Données occupation
@@ -22,10 +22,7 @@ occupation <- read.csv("donnees/donnees_occupation.csv", header = T)
 qualite_lisyl <- read.csv('donnees/qualite_lisyl.csv', header = T)
 perturb_lisyl <- read.csv('donnees/disturb_lisyl.csv', header = T)
 heure_lisyl <- read.csv('donnees/heure_lisyl.csv', header = T)
-
-jj_21_1h <- read.csv('donnees/JJ_21_1h.csv', header =T)
-jj_22_1h <- read.csv('donnees/JJ_22_1h.csv', header =T)
-jj_22_21h <- read.csv('donnees/JJ_22_21h.csv', header =T)
+jj_lisyl <- read.csv('donnees/jj_lisyl.csv', header =T)
 ```
 
 # Grenouille des bois
@@ -41,8 +38,10 @@ str(lisyl)
 ```
 
 ## Variables de détection
-* Types de Perturbation : Human, wind, rain ou none
+* Types de Perturbation : Human, meteo ou none
 * Qualité de l'enregistrement : Good, moderate ou bad
+* Heure de l'enregistrement: 21h ou 1h
+* Date de l'enregistrement: en jour julien
 
 Difficile de joindre ensemble deux classes de données pour qualité de l'enregistrement. J'ai de loin beaucoup plus de moderate que de bad ou good
 ```{r table qualité}
@@ -75,7 +74,7 @@ plot(occupation)
 ## Création des modèles
 Création du tableau de données pour le package unmarked
 ```{r}
-lisyl.data <- unmarkedFrameOccu(y = lisyl, siteCovs = occupation, obsCovs = list(disturbance = perturb_lisyl, qualite = qualite_lisyl, heure = heure_lisyl))
+lisyl.data <- unmarkedFrameOccu(y = lisyl, siteCovs = occupation, obsCovs = list(disturbance = perturb_lisyl, qualite = qualite_lisyl, heure = heure_lisyl, date = jj_lisyl))
 summary(lisyl.data)
 ```
 
@@ -100,21 +99,29 @@ mPR <- occu(~ disturbance ~ Route, data = lisyl.data)
 mPA <- occu(~ disturbance ~ Agriculture, data = lisyl.data)
 mPS <- occu(~ disturbance ~ Site, data = lisyl.data)
 
-##Détectabilité varie selon l'e type de perturbation'heure et occupation varie selon ...
+##Détectabilité varie selon l'heure et occupation varie selon ...
 mH <- occu(~ heure ~ 1, data = lisyl.data)
 mHH <- occu(~ heure ~ Humide, data = lisyl.data)
 mHE <- occu(~ heure ~ Eau, data = lisyl.data)
 mHR <- occu(~ heure ~ Route, data = lisyl.data)
 mHA <- occu(~ heure ~ Agriculture, data = lisyl.data)
 mHS <- occu(~ heure ~ Site, data = lisyl.data)
+
+##Détectabilité varie selon les jours juliens et occupation varie selon ...
+mD <- occu(~ date ~ 1, data = lisyl.data)
+mDH <- occu(~ date ~ Humide, data = lisyl.data)
+mDE <- occu(~ date ~ Eau, data = lisyl.data)
+mDR <- occu(~ date ~ Route, data = lisyl.data)
+mDA <- occu(~ date ~ Agriculture, data = lisyl.data)
+mDS <- occu(~ date ~ Site, data = lisyl.data)
 ```
 
 Tableau de tous les modèles avec le poid AIC
 ```{r, modèles candidats}
-Cands <- list(m0, mQH, mQE, mQR, mQA, mQS, mPH, mPE, mPR, mPA, mPS, mHH, mHE, mHR, mHA, mHS)
+Cands <- list(m0, mQH, mQE, mQR, mQA, mQS, mPH, mPE, mPR, mPA, mPS, mHH, mHE, mHR, mHA, mHS, mDH, mDE, mDR, mDA, mDS)
 
 ##Donner les noms significaifs aux modèles
-Model.names <- c("nul","psi(Milieux humides)p(Qualité)", "psi(Eau libre)p(Qualité)", "psi(Route)p(Qualité)", "psi(Agriculture)p(Qualité)", "psi(Site)p(Qualité)", "psi(Milieux humides)p(Perturb)", "psi(Eau libre)p(Perturb)", "psi(Route)p(Perturb)", "psi(Agriculture)p(Perturb)", "psi(Site)p(Perturb)", "psi(Milieux humides)p(heure)", "psi(Eau libre)p(heure)", "psi(Route)p(heure)", "psi(Agriculture)p(heure)", "psi(Site)p(heure)") 
+Model.names <- c("nul","psi(Milieux humides)p(Qualité)", "psi(Eau libre)p(Qualité)", "psi(Route)p(Qualité)", "psi(Agriculture)p(Qualité)", "psi(Site)p(Qualité)", "psi(Milieux humides)p(Perturb)", "psi(Eau libre)p(Perturb)", "psi(Route)p(Perturb)", "psi(Agriculture)p(Perturb)", "psi(Site)p(Perturb)", "psi(Milieux humides)p(Heure)", "psi(Eau libre)p(Heure)", "psi(Route)p(Heure)", "psi(Agriculture)p(Heure)", "psi(Site)p(Heure)", "psi(Milieux humides)p(Date)", "psi(Eau libre)p(Date)", "psi(Route)p(Date)", "psi(Agriculture)p(Date)", "psi(Site)p(Date)") 
 
 ##do model selection based on AICc 
 aictab(cand.set = Cands,  modnames = Model.names)
