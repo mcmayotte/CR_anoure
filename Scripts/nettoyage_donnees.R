@@ -272,11 +272,8 @@ licat_22_1h <- subset(licat_22_1h, select = c(Site, V1, V2, V3, V4, V5, V6, V7, 
 ### CRÉÉER TABLEAU LSYL 2022 à 21H00 ###
 #Il y en a quelques unes aussi à 1h mais vraiment plus à 21h
 lisyl_22_21h <- subset(anoure_2022, anoure_2022$Time24H == "2100", select = c(Site, jour_julien, LISYL))
-lisyl_22_21h <- subset(lisyl_22_21h, lisyl_22_21h$LISYL != "0")
 lisyl_22_21h <- spread(lisyl_22_21h, jour_julien, LISYL)
 
-lisyl_22_1h <- subset(anoure_2022, anoure_2022$Time24H == "100" | anoure_2022$Time24H == "0", select = c(Site, jour_julien, LISYL))
-lisyl_22_1h <- subset(lisyl_22_1h, lisyl_22_1h$LISYL != "0")
 ##Joindre visites
 colnames(lisyl_22_21h)<- c("Site","V108","V109","V111","V112","V115","V116","V3","V4","V5","V6","V7","V156","V157","V9","V10","V11","V12","V13","V14","V15","V16")
 #V1
@@ -307,133 +304,33 @@ for (i in 1:26) {
   ) {lisyl_22_21h$V8[i]<-lisyl_22_21h$V157[i]}
   else {lisyl_22_21h$V8[i]<-NA}
 }
-lisyl_22_21h <- subset(lisyl_22_21h, select = c(Site, V1, V2, V3, V4, V5, V6, V7, V8, V9, V10, V11, V12, V13, V14, V15, V16))
+lisyl_22_21h <- subset(lisyl_22_21h, select = c(Site, V1, V2))
+colnames(lisyl_22_21h) <- c("Site", "V1", "V3")
 
-### TABLEAU HYVER ###
-#Hyver 2021 21h
-hyver_21_21h <- subset(anoure_2021, anoure_2021$Time24H == "2100", select = c(Site, jour_julien, HYVER))
-hyver_21_21h <- spread(hyver_21_21h, jour_julien, HYVER)
-##Joindre visites
-colnames(hyver_21_21h)<- c("Site","V144","V145","V147","V150","V151","V153","V154","V3","V160","V165","V5","V179","V180","V7","V192", "V193")
-for (i in 1:26) {
-  if( !is.na(hyver_21_21h$V144[i])
-  ) {hyver_21_21h$V1[i]<-hyver_21_21h$V144[i]}
-  else if( !is.na(hyver_21_21h$V145[i])
-  ) {hyver_21_21h$V1[i]<-hyver_21_21h$V145[i]}
-  else if(!is.na(hyver_21_21h$V147[i])
-  ) {hyver_21_21h$V1[i]<-hyver_21_21h$V147[i]}
-  else {hyver_21_21h$V1[i]<-NA}
-}
-#V2
-for (i in 1:26) {
-  if( !is.na(hyver_21_21h$V150[i])
-  ) {hyver_21_21h$V2[i]<-hyver_21_21h$V150[i]}
-  else if( !is.na(hyver_21_21h$V151[i])
-  ) {hyver_21_21h$V2[i]<-hyver_21_21h$V151[i]}
-  else if(!is.na(hyver_21_21h$V153[i])
-  ) {hyver_21_21h$V2[i]<-hyver_21_21h$V153[i]}
-  else if(!is.na(hyver_21_21h$V154[i])
-  ) {hyver_21_21h$V2[i]<-hyver_21_21h$V154[i]}
-  else {hyver_21_21h$V2[i]<-NA}
-}
-#V4
-for (i in 1:26) {
-  if( !is.na(hyver_21_21h$V160[i])
-  ) {hyver_21_21h$V4[i]<-hyver_21_21h$V160[i]}
-  else if( !is.na(hyver_21_21h$V165[i])
-  ) {hyver_21_21h$V4[i]<-hyver_21_21h$V165[i]}
-  else {hyver_21_21h$V4[i]<-NA}
-}
-#V6
-for (i in 1:26) {
-  if( !is.na(hyver_21_21h$V179[i])
-  ) {hyver_21_21h$V6[i]<-hyver_21_21h$V179[i]}
-  else if( !is.na(hyver_21_21h$V180[i])
-  ) {hyver_21_21h$V6[i]<-hyver_21_21h$V180[i]}
-  else {hyver_21_21h$V6[i]<-NA}
-}
-#V8
-for (i in 1:26) {
-  if( !is.na(hyver_21_21h$V192[i])
-  ) {hyver_21_21h$V8[i]<-hyver_21_21h$V192[i]}
-  else if( !is.na(hyver_21_21h$V193[i])
-  ) {hyver_21_21h$V8[i]<-hyver_21_21h$V193[i]}
-  else {hyver_21_21h$V8[i]<-NA}
-}
-hyver_21_21h <- subset(hyver_21_21h, select = c(Site, V1, V2, V3, V4, V5, V6, V7, V8))
 
-#Hyver 2022 21h
-hyver_22_21h <- subset(anoure_2022, anoure_2022$Time24H == "2100", select = c(Site, jour_julien, HYVER))
-hyver_22_21h <- spread(hyver_22_21h, jour_julien, HYVER)
-#Joindre visites
-colnames(hyver_22_21h)<- c("Site","V108","V109","V111","V112","V115","V116","V3","V4","V5","V6","V7","V156","V157","V9","V10","V11","V12","V13","V14","V15","V16")
+#Tableau à 1h
+
+lisyl_22_1h <- subset(anoure_2022, anoure_2022$Time24H == "100" | anoure_2022$Time24H == "0", select = c(Site, jour_julien, LISYL))
+lisyl_22_1h <- spread(lisyl_22_1h, jour_julien, LISYL)
+colnames(lisyl_22_1h)<- c("Site","V109","V110","V112","V113","V2","V117","V3","V4","V5","V6","V7","V157","V158","V9","V10","V11","V12","V13","V14","V15","V16")
 #V1
 for (i in 1:26) {
-  if( !is.na(hyver_22_21h$V108[i])
-  ) {hyver_22_21h$V1[i]<-hyver_22_21h$V108[i]}
-  else if( !is.na(hyver_22_21h$V109[i])
-  ) {hyver_22_21h$V1[i]<-hyver_22_21h$V109[i]}
-  else if(!is.na(hyver_22_21h$V111[i])
-  ) {hyver_22_21h$V1[i]<-hyver_22_21h$V111[i]}
-  else if(!is.na(hyver_22_21h$V112[i])
-  ) {hyver_22_21h$V1[i]<-hyver_22_21h$V112[i]}
-  else {hyver_22_21h$V1[i]<-NA}
+  if( !is.na(lisyl_22_1h$V109[i])
+  ) {lisyl_22_1h$V1[i]<-lisyl_22_1h$V109[i]}
+  else if( !is.na(lisyl_22_1h$V110[i])
+  ) {lisyl_22_1h$V1[i]<-lisyl_22_1h$V110[i]}
+  else if(!is.na(lisyl_22_1h$V112[i])
+  ) {lisyl_22_1h$V1[i]<-lisyl_22_1h$V112[i]}
+  else if(!is.na(lisyl_22_1h$V113[i])
+  ) {lisyl_22_1h$V1[i]<-lisyl_22_1h$V113[i]}
+  else {lisyl_22_1h$V1[i]<-NA}
 }
-#V2
-for (i in 1:26) {
-  if( !is.na(hyver_22_21h$V115[i])
-  ) {hyver_22_21h$V2[i]<-hyver_22_21h$V115[i]}
-  else if( !is.na(hyver_22_21h$V116[i])
-  ) {hyver_22_21h$V2[i]<-hyver_22_21h$V116[i]}
-  else {hyver_22_21h$V2[i]<-NA}
-}
-#V8
-for (i in 1:26) {
-  if( !is.na(hyver_22_21h$V156[i])
-  ) {hyver_22_21h$V8[i]<-hyver_22_21h$V156[i]}
-  else if( !is.na(hyver_22_21h$V157[i])
-  ) {hyver_22_21h$V8[i]<-hyver_22_21h$V157[i]}
-  else {hyver_22_21h$V8[i]<-NA}
-}
-hyver_22_21h <- subset(hyver_22_21h, select = c(Site, V1, V2, V3, V4, V5, V6, V7, V8, V9, V10, V11, V12, V13, V14, V15, V16))
+lisyl_22_1h <- subset(lisyl_22_1h, select = c(Site, V1, V2))
+colnames(lisyl_22_1h) <- c("Site", "V2", "V4")
 
-hyver_22_21h <- data.frame(lapply(hyver_22_21h, function(x){
-  gsub("1", "0", x) }))
-hyver_22_21h <- data.frame(lapply(hyver_22_21h, function(x){
-  gsub("2", "1", x) }))
-hyver_22_21h <- data.frame(lapply(hyver_22_21h, function(x){
-  gsub("3", "1", x) }))
-
-hyver_21_21h <- data.frame(lapply(hyver_21_21h, function(x){
-  gsub("1", "0", x) }))
-hyver_21_21h <- data.frame(lapply(hyver_21_21h, function(x){
-  gsub("2", "1", x) }))
-hyver_21_21h <- data.frame(lapply(hyver_21_21h, function(x){
-  gsub("3", "1", x) }))
-
-hyver_21_21h <- subset(hyver_21_21h, hyver_21_21h$HYVER != "0")
-
-### TABLEAU PSCRU
-pscru_21_21h <- subset(anoure_2021, anoure_2021$Time24H == "2100", select = c(Site, jour_julien, PSCRU))
-pscru_21_1h <- subset(anoure_2021, anoure_2021$Time24H == "100" | anoure_2021$Time24H == "0", select = c(Site, jour_julien, PSCRU))
-pscru_21_21h <- subset(pscru_21_21h, pscru_21_21h$PSCRU != "0")
-pscru_21_1h <- subset(pscru_21_1h, pscru_21_1h$PSCRU != "0")
-pscru_21_15h <- subset(anoure_2021, anoure_2021$Time24H == "1500", select = c(Site, jour_julien, PSCRU))
-pscru_21_15h <- subset(pscru_21_15h, pscru_21_15h$PSCRU != "0")
-
-pscru_22_21h <- subset(anoure_2022, anoure_2022$Time24H == "2100", select = c(Site, jour_julien, PSCRU))
-pscru_22_1h <- subset(anoure_2022, anoure_2022$Time24H == "100" | anoure_2022$Time24H == "0", select = c(Site, jour_julien, PSCRU))
-pscru_22_21h <- subset(pscru_22_21h, pscru_22_21h$PSCRU != "0")
-pscru_22_1h <- subset(pscru_22_1h, pscru_22_1h$PSCRU != "0")
-pscru_22_15h <- subset(anoure_2022, anoure_2022$Time24H == "1500", select = c(Site, jour_julien, PSCRU))
-pscru_22_15h <- subset(pscru_22_15h, pscru_22_15h$PSCRU != "0")
-
-pscru_22_1h <- data.frame(lapply(pscru_22_1h, function(x){
-  gsub("1", "0", x) }))
-pscru_22_1h <- data.frame(lapply(pscru_22_1h, function(x){
-  gsub("2", "1", x) }))
-pscru_22_1h <- data.frame(lapply(pscru_22_1h, function(x){
-  gsub("3", "1", x) }))
+#Merge les deux
+lisyl <- merge(lisyl_22_1h, lisyl_22_21h, by = "Site")
+lisyl <- subset(lisyl, select = c(V1, V2, V3, V4))
 
 #------------------------------
 # Tableau Détection
@@ -691,7 +588,7 @@ write.csv(occupation_anoure, 'donnees/donnees_occupation.csv', row.names = FALSE
 
 write.csv(licat_21_1h, 'donnees/licat_21_1h.csv', row.names = FALSE)
 write.csv(licat_22_1h, 'donnees/licat_22_1h.csv', row.names = FALSE)
-write.csv(lisyl_22_21h, 'donnees/lisyl_22_21h.csv', row.names = FALSE)
+write.csv(lisyl, 'donnees/lisyl.csv', row.names = FALSE)
 
 write.csv(qualite_2021_15, 'donnees/qualite_2021_15h.csv', row.names = FALSE)
 write.csv(qualite_2021_21, 'donnees/qualite_2021_21h.csv', row.names = FALSE)

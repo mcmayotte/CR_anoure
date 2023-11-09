@@ -18,7 +18,7 @@ library(AICcmodavg)
 #Données réponse
 licat_21_1h <- read.csv('donnees/licat_21_1h.csv', header = T)
 licat_22_1h <- read.csv('donnees/licat_21_1h.csv', header = T)
-lisyl_22_21h <- read.csv('donnees/lisyl_22_21h.csv', header = T)
+lisyl <- read.csv('donnees/lisyl.csv', header = T)
 
 #Données occupation
 #MH <- read.csv("donnees/MH_nett.csv", header = T)
