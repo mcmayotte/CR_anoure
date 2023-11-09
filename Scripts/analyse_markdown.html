@@ -364,24 +364,12 @@ observation en 2021 (les enregistrements ont commencés trop tard). Les
 observations de l’espèces ont eu lieu à 21h et à 1h.</p>
 <p>Nombre d’observations: Nombre de sites où l’espèce est observée :
 Dates de visites (où l’espèce est active):</p>
-<pre class="r"><code>str(lisyl_22_21h)</code></pre>
-<pre><code>## &#39;data.frame&#39;:    26 obs. of  16 variables:
-##  $ V1 : int  0 0 1 0 0 0 0 NA 0 0 ...
-##  $ V2 : int  0 0 1 0 0 0 0 0 1 0 ...
-##  $ V3 : int  0 0 0 0 0 0 0 0 0 0 ...
-##  $ V4 : int  0 0 0 0 0 0 0 0 0 0 ...
-##  $ V5 : int  0 0 0 0 0 0 0 0 0 0 ...
-##  $ V6 : int  0 0 0 0 0 0 0 0 0 0 ...
-##  $ V7 : int  0 0 0 0 0 0 0 0 0 0 ...
-##  $ V8 : int  0 0 0 0 0 0 0 0 0 0 ...
-##  $ V9 : int  0 0 0 0 0 0 0 0 0 0 ...
-##  $ V10: int  0 0 0 0 0 0 0 0 0 0 ...
-##  $ V11: int  0 0 0 0 0 0 0 0 0 0 ...
-##  $ V12: int  0 0 0 0 0 0 0 0 0 0 ...
-##  $ V13: int  0 0 0 0 0 0 0 0 0 0 ...
-##  $ V14: int  0 0 0 0 0 0 0 0 0 0 ...
-##  $ V15: int  0 0 0 0 0 0 0 0 0 0 ...
-##  $ V16: int  NA NA 0 0 0 0 NA 0 0 NA ...</code></pre>
+<pre class="r"><code>str(lisyl)</code></pre>
+<pre><code>## &#39;data.frame&#39;:    26 obs. of  4 variables:
+##  $ V1: int  0 0 1 0 0 0 0 NA 0 0 ...
+##  $ V2: int  0 0 0 0 0 0 0 NA 0 0 ...
+##  $ V3: int  0 0 1 0 0 0 0 0 1 0 ...
+##  $ V4: int  0 0 1 0 0 0 0 NA 1 0 ...</code></pre>
 </div>
 <div id="variables-de-détection" class="section level3">
 <h3>Variables de détection</h3>
@@ -422,20 +410,19 @@ la pause des enregistreurs)</li>
 <div id="création-des-modèles" class="section level3">
 <h3>Création des modèles</h3>
 <p>Création du tableau de données pour le package unmarked</p>
-<pre class="r"><code>lisyl_22_21h.data &lt;- unmarkedFrameOccu(y = lisyl_22_21h, siteCovs = occupation, obsCovs = list(disturbance = disturb_2022_21h, qualite = qualite_2022_21h))</code></pre>
+<pre class="r"><code>lisyl.data &lt;- unmarkedFrameOccu(y = lisyl, siteCovs = occupation, obsCovs = list(disturbance = perturb_lisyl, qualite = qualite_lisyl))</code></pre>
 <pre><code>## Warning: siteCovs contains characters. Converting them to factors.</code></pre>
-<pre><code>## Warning: obsCovs contains characters. Converting them to factors.</code></pre>
-<pre class="r"><code>summary(lisyl_22_21h.data)</code></pre>
+<pre class="r"><code>summary(lisyl.data)</code></pre>
 <pre><code>## unmarkedFrame Object
 ## 
 ## 26 sites
-## Maximum number of observations per site: 16 
-## Mean number of observations per site: 15.15 
+## Maximum number of observations per site: 4 
+## Mean number of observations per site: 3.88 
 ## Sites with at least one detection: 11 
 ## 
 ## Tabulation of y observations:
 ##    0    1 &lt;NA&gt; 
-##  379   15   22 
+##   76   25    3 
 ## 
 ## Site-level covariates:
 ##      Enregistre     Route         Agriculture             Eau        
@@ -456,54 +443,65 @@ la pause des enregistreurs)</li>
 ##                               
 ## 
 ## Observation-level covariates:
-##  disturbance     qualite   
-##  human:177   bad     : 67  
-##  none : 60   good    :113  
-##  rain : 67   moderate:214  
-##  wind : 90   NA&#39;s    : 22  
-##  NA&#39;s : 22</code></pre>
+##   disturbance        qualite      
+##  Min.   :0.0000   Min.   :0.0000  
+##  1st Qu.:0.0000   1st Qu.:0.0000  
+##  Median :0.0000   Median :0.0000  
+##  Mean   :0.2475   Mean   :0.2475  
+##  3rd Qu.:0.0000   3rd Qu.:0.0000  
+##  Max.   :1.0000   Max.   :1.0000  
+##  NA&#39;s   :3        NA&#39;s   :3</code></pre>
 <p>Modèles</p>
 <pre class="r"><code>#Détectabilité et occupation constante
-m0 &lt;- occu(~ 1 ~ 1, data = lisyl_22_21h.data)
+m0 &lt;- occu(~ 1 ~ 1, data = lisyl.data)
 
 ##Détectabilité varie selon la qualité de l&#39;enregistrement et l&#39;occupation varie selon...
-mQ &lt;- occu(~ qualite ~ 1, data = lisyl_22_21h.data)
-mQH &lt;- occu(~ qualite ~ Humide, data = lisyl_22_21h.data)
-mQE &lt;- occu(~ qualite ~ Eau, data = lisyl_22_21h.data)
-mQR &lt;- occu(~ qualite ~ Route, data = lisyl_22_21h.data)
-mQA &lt;- occu(~ qualite ~ Agriculture, data = lisyl_22_21h.data)
-mQS &lt;- occu(~ qualite ~ Site, data = lisyl_22_21h.data)
-
-##Détectabilité varie selon le type de perturbation et occupation varie selon ...
-mP &lt;- occu(~ disturbance ~ 1, data = lisyl_22_21h.data)
-mPH &lt;- occu(~ disturbance ~ Humide, data = lisyl_22_21h.data)
-mPE &lt;- occu(~ disturbance ~ Eau, data = lisyl_22_21h.data)
-mPR &lt;- occu(~ disturbance ~ Route, data = lisyl_22_21h.data)
-mPA &lt;- occu(~ disturbance ~ Agriculture, data = lisyl_22_21h.data)
-mPS &lt;- occu(~ disturbance ~ Site, data = lisyl_22_21h.data)</code></pre>
+mQ &lt;- occu(~ qualite ~ 1, data = lisyl.data)
+mQH &lt;- occu(~ qualite ~ Humide, data = lisyl.data)
+mQE &lt;- occu(~ qualite ~ Eau, data = lisyl.data)
+mQR &lt;- occu(~ qualite ~ Route, data = lisyl.data)</code></pre>
+<pre><code>## Warning: Hessian is singular. Try providing starting values or using fewer
+## covariates.</code></pre>
+<pre class="r"><code>mQA &lt;- occu(~ qualite ~ Agriculture, data = lisyl.data)
+mQS &lt;- occu(~ qualite ~ Site, data = lisyl.data)</code></pre>
+<pre><code>## Warning: Hessian is singular. Try providing starting values or using fewer
+## covariates.</code></pre>
+<pre class="r"><code>##Détectabilité varie selon le type de perturbation et occupation varie selon ...
+mP &lt;- occu(~ disturbance ~ 1, data = lisyl.data)
+mPH &lt;- occu(~ disturbance ~ Humide, data = lisyl.data)
+mPE &lt;- occu(~ disturbance ~ Eau, data = lisyl.data)
+mPR &lt;- occu(~ disturbance ~ Route, data = lisyl.data)</code></pre>
+<pre><code>## Warning: Hessian is singular. Try providing starting values or using fewer
+## covariates.</code></pre>
+<pre class="r"><code>mPA &lt;- occu(~ disturbance ~ Agriculture, data = lisyl.data)
+mPS &lt;- occu(~ disturbance ~ Site, data = lisyl.data)</code></pre>
+<pre><code>## Warning: Hessian is singular. Try providing starting values or using fewer
+## covariates.</code></pre>
 <p>Tableau de tous les modèles avec le poid AIC</p>
 <pre class="r"><code>Cands &lt;- list(m0, mQH, mQE, mQR, mQA, mQS, mPH, mPE, mPR, mPA, mPS)
 
 ##Donner les noms significaifs aux modèles
-Model.names &lt;- c(&quot;nulle&quot;,&quot;psi(Milieux humides)p(Qualité)&quot;, &quot;psi(Eau libre)p(Qualité)&quot;, &quot;psi(Route)p(Qualité)&quot;, &quot;psi(Agriculture)p(Qualité)&quot;, &quot;psi(Site)p(Qualité)&quot;, &quot;psi(Milieux humides)p(Perturb)&quot;, &quot;psi(Eau libre)p(Perturb)&quot;, &quot;psi(Route)p(Perturb)&quot;, &quot;psi(Agriculture)p(Perturb)&quot;, &quot;psi(Site)p(Perturb)&quot;) 
+Model.names &lt;- c(&quot;nul&quot;,&quot;psi(Milieux humides)p(Qualité)&quot;, &quot;psi(Eau libre)p(Qualité)&quot;, &quot;psi(Route)p(Qualité)&quot;, &quot;psi(Agriculture)p(Qualité)&quot;, &quot;psi(Site)p(Qualité)&quot;, &quot;psi(Milieux humides)p(Perturb)&quot;, &quot;psi(Eau libre)p(Perturb)&quot;, &quot;psi(Route)p(Perturb)&quot;, &quot;psi(Agriculture)p(Perturb)&quot;, &quot;psi(Site)p(Perturb)&quot;) 
 
 ##do model selection based on AICc 
 aictab(cand.set = Cands,  modnames = Model.names)</code></pre>
+<pre><code>## Warning in aictab.AICunmarkedFitOccu(cand.set = Cands, modnames = Model.names): 
+## Check model structure carefully as some models may be redundant</code></pre>
 <pre><code>## 
 ## Model selection based on AICc:
 ## 
-##                                K   AICc Delta_AICc AICcWt Cum.Wt      LL
-## psi(Route)p(Qualité)           5 113.72       0.00   0.76   0.76  -50.36
-## psi(Site)p(Qualité)            5 116.32       2.60   0.21   0.97  -51.66
-## psi(Route)p(Perturb)           6 120.62       6.90   0.02   0.99  -52.10
-## psi(Site)p(Perturb)            6 123.30       9.58   0.01   1.00  -53.44
-## nulle                          2 131.81      18.09   0.00   1.00  -63.64
-## psi(Agriculture)p(Qualité)     5 280.55     166.83   0.00   1.00 -133.78
-## psi(Milieux humides)p(Qualité) 5 280.55     166.83   0.00   1.00 -133.78
-## psi(Eau libre)p(Qualité)       5 280.55     166.83   0.00   1.00 -133.78
-## psi(Agriculture)p(Perturb)     6 283.97     170.26   0.00   1.00 -133.78
-## psi(Milieux humides)p(Perturb) 6 283.97     170.26   0.00   1.00 -133.78
-## psi(Eau libre)p(Perturb)       6 283.97     170.26   0.00   1.00 -133.78</code></pre>
+##                                K   AICc Delta_AICc AICcWt Cum.Wt     LL
+## psi(Site)p(Qualité)            4   9.90       0.00   0.25   0.25   0.00
+## psi(Site)p(Perturb)            4   9.90       0.00   0.25   0.50   0.00
+## psi(Route)p(Qualité)           4   9.90       0.00   0.25   0.75   0.00
+## psi(Route)p(Perturb)           4   9.90       0.00   0.25   1.00   0.00
+## nul                            2  98.69      88.79   0.00   1.00 -47.09
+## psi(Agriculture)p(Qualité)     4 104.42      94.52   0.00   1.00 -47.26
+## psi(Agriculture)p(Perturb)     4 104.42      94.52   0.00   1.00 -47.26
+## psi(Milieux humides)p(Qualité) 4 104.44      94.53   0.00   1.00 -47.27
+## psi(Milieux humides)p(Perturb) 4 104.44      94.53   0.00   1.00 -47.27
+## psi(Eau libre)p(Qualité)       4 104.44      94.53   0.00   1.00 -47.27
+## psi(Eau libre)p(Perturb)       4 104.44      94.53   0.00   1.00 -47.27</code></pre>
 </div>
 </div>
 </div>

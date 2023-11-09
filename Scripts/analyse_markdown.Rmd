@@ -5,10 +5,6 @@ output:
 ---
 # Analyse
 
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
-```
-
 ```{r lecture données, echo = FALSE}
 setwd("~/Desktop/Credits_recherche/CR_anoure")
 anoure <- read.csv('donnees/anoure_nett.csv', header = T)
@@ -21,25 +17,12 @@ licat_22_1h <- read.csv('donnees/licat_21_1h.csv', header = T)
 lisyl <- read.csv('donnees/lisyl.csv', header = T)
 
 #Données occupation
-#MH <- read.csv("donnees/MH_nett.csv", header = T)
-#route <- read.csv("donnees/routes_nett.csv", header = T)
-#territoire <- read.csv("donnees/utilisation_territoire_nett.csv", header = T)
 occupation <- read.csv("donnees/donnees_occupation.csv", header = T)
 
 #Données détection
-#qualite_2021_15h <- read.csv('donnees/qualite_2021_15h.csv', header = T)
-#qualite_2021_21h <- read.csv('donnees/qualite_2021_21h.csv', header = T)
-#qualite_2021_1h <- read.csv('donnees/qualite_2021_1h.csv', header = T)
-#qualite_2022_15h <- read.csv('donnees/qualite_2022_15h.csv', header = T)
-qualite_2022_21h <- read.csv('donnees/qualite_2022_21h.csv', header = T)
-qualite_2022_1h <- read.csv('donnees/qualite_2022_1h.csv', header = T)
+qualite_lisyl <- read.csv('donnees/qualite_lisyl.csv', header = T)
 
-#disturb_2021_15h <- read.csv('donnees/disturb_2021_15h.csv', header = T)
-#disturb_2021_21h <- read.csv('donnees/disturb_2021_21h.csv', header = T)
-#disturb_2021_1h <- read.csv('donnees/disturb_2021_1h.csv', header = T)
-#disturb_2022_15h <- read.csv('donnees/disturb_2022_15h.csv', header = T)
-disturb_2022_21h <- read.csv('donnees/disturb_2022_21h.csv', header = T)
-disturb_2022_1h <- read.csv('donnees/disturb_2022_1h.csv', header = T)
+perturb_lisyl <- read.csv('donnees/disturb_lisyl.csv', header = T)
 
 jj_21_1h <- read.csv('donnees/JJ_21_1h.csv', header =T)
 jj_22_1h <- read.csv('donnees/JJ_22_1h.csv', header =T)
@@ -47,11 +30,7 @@ jj_22_21h <- read.csv('donnees/JJ_22_21h.csv', header =T)
 ```
 
 ## Grenouille des bois
-```{r ajustement donnees, echo = FALSE}
-lisyl_22_21h <- subset(lisyl_22_21h, select = -c(Site))
-disturb_2022_21h <- subset(disturb_2022_21h, select = -c(Site))
-qualite_2022_21h <- subset(qualite_2022_21h, select = -c(Site))
-```
+
 ### Variable réponse (Présence ou absence de la grenouille des bois)
 Les données sont celles de 2022 seulement puisqu'il n'y a aucune observation en 2021 (les enregistrements ont commencés trop tard). Les observations de l'espèces ont eu lieu à 21h et à 1h. 
 
@@ -59,7 +38,7 @@ Nombre d'observations:
 Nombre de sites où l'espèce est observée :
 Dates de visites (où l'espèce est active):
 ```{r structure tableau}
-str(lisyl_22_21h)
+str(lisyl)
 ```
 
 ### Variables de détection
@@ -87,30 +66,30 @@ plot(occupation)
 ### Création des modèles
 Création du tableau de données pour le package unmarked
 ```{r}
-lisyl_22_21h.data <- unmarkedFrameOccu(y = lisyl_22_21h, siteCovs = occupation, obsCovs = list(disturbance = disturb_2022_21h, qualite = qualite_2022_21h))
-summary(lisyl_22_21h.data)
+lisyl.data <- unmarkedFrameOccu(y = lisyl, siteCovs = occupation, obsCovs = list(disturbance = perturb_lisyl, qualite = qualite_lisyl))
+summary(lisyl.data)
 ```
 
 Modèles
 ```{r modèles}
 #Détectabilité et occupation constante
-m0 <- occu(~ 1 ~ 1, data = lisyl_22_21h.data)
+m0 <- occu(~ 1 ~ 1, data = lisyl.data)
 
 ##Détectabilité varie selon la qualité de l'enregistrement et l'occupation varie selon...
-mQ <- occu(~ qualite ~ 1, data = lisyl_22_21h.data)
-mQH <- occu(~ qualite ~ Humide, data = lisyl_22_21h.data)
-mQE <- occu(~ qualite ~ Eau, data = lisyl_22_21h.data)
-mQR <- occu(~ qualite ~ Route, data = lisyl_22_21h.data)
-mQA <- occu(~ qualite ~ Agriculture, data = lisyl_22_21h.data)
-mQS <- occu(~ qualite ~ Site, data = lisyl_22_21h.data)
+mQ <- occu(~ qualite ~ 1, data = lisyl.data)
+mQH <- occu(~ qualite ~ Humide, data = lisyl.data)
+mQE <- occu(~ qualite ~ Eau, data = lisyl.data)
+mQR <- occu(~ qualite ~ Route, data = lisyl.data)
+mQA <- occu(~ qualite ~ Agriculture, data = lisyl.data)
+mQS <- occu(~ qualite ~ Site, data = lisyl.data)
 
 ##Détectabilité varie selon le type de perturbation et occupation varie selon ...
-mP <- occu(~ disturbance ~ 1, data = lisyl_22_21h.data)
-mPH <- occu(~ disturbance ~ Humide, data = lisyl_22_21h.data)
-mPE <- occu(~ disturbance ~ Eau, data = lisyl_22_21h.data)
-mPR <- occu(~ disturbance ~ Route, data = lisyl_22_21h.data)
-mPA <- occu(~ disturbance ~ Agriculture, data = lisyl_22_21h.data)
-mPS <- occu(~ disturbance ~ Site, data = lisyl_22_21h.data)
+mP <- occu(~ disturbance ~ 1, data = lisyl.data)
+mPH <- occu(~ disturbance ~ Humide, data = lisyl.data)
+mPE <- occu(~ disturbance ~ Eau, data = lisyl.data)
+mPR <- occu(~ disturbance ~ Route, data = lisyl.data)
+mPA <- occu(~ disturbance ~ Agriculture, data = lisyl.data)
+mPS <- occu(~ disturbance ~ Site, data = lisyl.data)
 ```
 
 Tableau de tous les modèles avec le poid AIC
