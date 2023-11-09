@@ -1,10 +1,9 @@
 ---
+title: Analyse
 output:
   html_document: default
   pdf_document: default
 ---
-# Analyse
-
 ```{r lecture données, echo = FALSE}
 setwd("~/Desktop/Credits_recherche/CR_anoure")
 anoure <- read.csv('donnees/anoure_nett.csv', header = T)
@@ -21,52 +20,62 @@ occupation <- read.csv("donnees/donnees_occupation.csv", header = T)
 
 #Données détection
 qualite_lisyl <- read.csv('donnees/qualite_lisyl.csv', header = T)
-
 perturb_lisyl <- read.csv('donnees/disturb_lisyl.csv', header = T)
+heure_lisyl <- read.csv('donnees/heure_lisyl.csv', header = T)
 
 jj_21_1h <- read.csv('donnees/JJ_21_1h.csv', header =T)
 jj_22_1h <- read.csv('donnees/JJ_22_1h.csv', header =T)
 jj_22_21h <- read.csv('donnees/JJ_22_21h.csv', header =T)
 ```
 
-## Grenouille des bois
+# Grenouille des bois
 
-### Variable réponse (Présence ou absence de la grenouille des bois)
+## Variable réponse (Présence ou absence de la grenouille des bois)
 Les données sont celles de 2022 seulement puisqu'il n'y a aucune observation en 2021 (les enregistrements ont commencés trop tard). Les observations de l'espèces ont eu lieu à 21h et à 1h. 
 
 Nombre d'observations:
 Nombre de sites où l'espèce est observée :
 Dates de visites (où l'espèce est active):
-```{r structure tableau}
+```{r structure tableau lisyl}
 str(lisyl)
 ```
 
-### Variables de détection
+## Variables de détection
 * Types de Perturbation : Human, wind, rain ou none
 * Qualité de l'enregistrement : Good, moderate ou bad
 
-#### Corrélation des variables
+Difficile de joindre ensemble deux classes de données pour qualité de l'enregistrement. J'ai de loin beaucoup plus de moderate que de bad ou good
+```{r table qualité}
+table(anoure$RecordingQuality)
+```
+
+
+### Corrélation des variables
 ```{r correlation}
 #cor(anoure$RecordingQuality, anoure$DisturbanceType)
 table(anoure$RecordingQuality, anoure$DisturbanceType)
 ```
 
-### Variables d'occupation
+## Variables d'occupation
 * Milieux humide : Regroupement de Milieu humide, Tourbières et Marécage (à partir de la couche de milieu humide)
 * Eau libre : Regroupement de Marais, Lac, Eau peu profonde et Eau (à partir de la couche de milieu humide et la couche d'utilisation du territoire)
 * Route : Nombre de km de route total
 * Agriculture : Regroupement de tous les types d'agriculture
 * Site : Si le site est en lisière ou en forêt (donnée prise lors de la pause des enregistreurs) 
 
-#### Corrélation des variables
+```{r structure tableau occ}
+str(occupation)
+```
+
+### Corrélation des variables
 ```{r corrélation occupation}
 plot(occupation)
 ```
 
-### Création des modèles
+## Création des modèles
 Création du tableau de données pour le package unmarked
 ```{r}
-lisyl.data <- unmarkedFrameOccu(y = lisyl, siteCovs = occupation, obsCovs = list(disturbance = perturb_lisyl, qualite = qualite_lisyl))
+lisyl.data <- unmarkedFrameOccu(y = lisyl, siteCovs = occupation, obsCovs = list(disturbance = perturb_lisyl, qualite = qualite_lisyl, heure = heure_lisyl))
 summary(lisyl.data)
 ```
 
@@ -90,14 +99,22 @@ mPE <- occu(~ disturbance ~ Eau, data = lisyl.data)
 mPR <- occu(~ disturbance ~ Route, data = lisyl.data)
 mPA <- occu(~ disturbance ~ Agriculture, data = lisyl.data)
 mPS <- occu(~ disturbance ~ Site, data = lisyl.data)
+
+##Détectabilité varie selon l'e type de perturbation'heure et occupation varie selon ...
+mH <- occu(~ heure ~ 1, data = lisyl.data)
+mHH <- occu(~ heure ~ Humide, data = lisyl.data)
+mHE <- occu(~ heure ~ Eau, data = lisyl.data)
+mHR <- occu(~ heure ~ Route, data = lisyl.data)
+mHA <- occu(~ heure ~ Agriculture, data = lisyl.data)
+mHS <- occu(~ heure ~ Site, data = lisyl.data)
 ```
 
 Tableau de tous les modèles avec le poid AIC
 ```{r, modèles candidats}
-Cands <- list(m0, mQH, mQE, mQR, mQA, mQS, mPH, mPE, mPR, mPA, mPS)
+Cands <- list(m0, mQH, mQE, mQR, mQA, mQS, mPH, mPE, mPR, mPA, mPS, mHH, mHE, mHR, mHA, mHS)
 
 ##Donner les noms significaifs aux modèles
-Model.names <- c("nul","psi(Milieux humides)p(Qualité)", "psi(Eau libre)p(Qualité)", "psi(Route)p(Qualité)", "psi(Agriculture)p(Qualité)", "psi(Site)p(Qualité)", "psi(Milieux humides)p(Perturb)", "psi(Eau libre)p(Perturb)", "psi(Route)p(Perturb)", "psi(Agriculture)p(Perturb)", "psi(Site)p(Perturb)") 
+Model.names <- c("nul","psi(Milieux humides)p(Qualité)", "psi(Eau libre)p(Qualité)", "psi(Route)p(Qualité)", "psi(Agriculture)p(Qualité)", "psi(Site)p(Qualité)", "psi(Milieux humides)p(Perturb)", "psi(Eau libre)p(Perturb)", "psi(Route)p(Perturb)", "psi(Agriculture)p(Perturb)", "psi(Site)p(Perturb)", "psi(Milieux humides)p(heure)", "psi(Eau libre)p(heure)", "psi(Route)p(heure)", "psi(Agriculture)p(heure)", "psi(Site)p(heure)") 
 
 ##do model selection based on AICc 
 aictab(cand.set = Cands,  modnames = Model.names)

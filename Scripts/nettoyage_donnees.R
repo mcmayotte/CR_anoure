@@ -21,7 +21,10 @@ anoure <- data.frame(lapply(anoure, function(x){
 anoure <- data.frame(lapply(anoure, function(x){
   gsub("wind et rain", "wind", x) }))
 
-
+anoure <- data.frame(lapply(anoure, function(x){
+  gsub("rain", "meteo", x) }))
+anoure <- data.frame(lapply(anoure, function(x){
+  gsub("wind", "meteo", x) }))
 
 #Changer le nom de colone (enlever le point)
 colnames(anoure)[colnames(anoure) == "PSMAC.TRI"] <- "PSMACTRI"
@@ -45,7 +48,6 @@ anoure <- data.frame(lapply(anoure, function(x){
 anoure <- data.frame(lapply(anoure, function(x){
   gsub("L-foret_O-lisiere_O-lisiere", "L-foret_O-lisiere", x) }))
 
-
 #Création tableau par année
 anoure_2021 <- subset(anoure, anoure$Year == "2021")
 anoure_2022 <- subset(anoure, anoure$Year == "2022")
@@ -53,7 +55,6 @@ anoure_2022 <- subset(anoure, anoure$Year == "2022")
 #Ajouter les jours julien
 anoure_2021$jour_julien <- julian(as.Date(paste(anoure_2021$Year, anoure_2021$Month, anoure_2021$Day), format = "%Y %m %d"), origin = as.Date("2021-01-01"))
 anoure_2022$jour_julien <- julian(as.Date(paste(anoure_2022$Year, anoure_2022$Month, anoure_2022$Day), format = "%Y %m %d"), origin = as.Date("2022-01-01"))
-
 
 #------------------------------
 # données MH
@@ -92,7 +93,6 @@ routes <- subset(routes, select = c(ClsRte, Enregistre, longueur))
 
 #Enlever les lignes vides
 routes <- subset(routes, routes$Enregistre != "")
-#routes <- subset(routes, routes$ClsRte != "")
 
 #Faire la somme des types de routes identiques pour les mêmes sites
 routes <- aggregate(longueur ~ ClsRte + Enregistre, data = routes, sum)
@@ -126,9 +126,6 @@ uti_terr <-read.csv("donnees/donnees_utilisation_territoire.csv", header = T)
 #Enlever colones inutiles
 uti_terr <- subset(uti_terr, select = c(DN, Enregistre, surface))
 
-#Enlever les lignes vides
-#uti_terr <- subset(uti_terr, uti_terr$DN != "NA")
-
 #Faire la somme des types de .utilisation de territoire identiques pour les mêmes sites
 uti_terr <- aggregate(surface ~ DN + Enregistre, data = uti_terr, sum)
 
@@ -155,7 +152,6 @@ uti_terr$Feuillu <- uti_terr$`Chênes / Marécage`+uti_terr$`Chênes / Tourbièr
 
 uti_terr$Riviere <- uti_terr$Lac+uti_terr$`Lac / Marais`+uti_terr$`Lac / Marécage`+uti_terr$`Lac / Tourbière`+uti_terr$`Lac / Tourbière minérotrophe`+uti_terr$Eau+uti_terr$`Eau / Marais`+uti_terr$`Eau / Tourbière`+uti_terr$`Eau / Tourbière minérotrophe`
 
-#(pas garder de routes! ni rien de tourbiere et tous les autres MH parce que MH s'en occupe déjà)
 #enlever zone dev pcq seulement à une place
 uti_terr <- subset(uti_terr, select = c(Enregistre, Agriculture, Coupe, Friche, Conifere, Feuillu, Riviere))
 
@@ -269,8 +265,7 @@ for (i in 1:26) {
 licat_22_1h <- subset(licat_22_1h, select = c(Site, V1, V2, V3, V4, V5, V6, V7, V8, V9, V10, V11, V12, V13, V14, V15, V16))
 
 
-### CRÉÉER TABLEAU LSYL 2022 à 21H00 ###
-#Il y en a quelques unes aussi à 1h mais vraiment plus à 21h
+### CRÉÉER TABLEAU LSYL 2022 ###
 lisyl_22_21h <- subset(anoure_2022, anoure_2022$Time24H == "2100", select = c(Site, jour_julien, LISYL))
 lisyl_22_21h <- spread(lisyl_22_21h, jour_julien, LISYL)
 
@@ -307,9 +302,7 @@ for (i in 1:26) {
 lisyl_22_21h <- subset(lisyl_22_21h, select = c(Site, V1, V2))
 colnames(lisyl_22_21h) <- c("Site", "V1", "V3")
 
-
 #Tableau à 1h
-
 lisyl_22_1h <- subset(anoure_2022, anoure_2022$Time24H == "100" | anoure_2022$Time24H == "0", select = c(Site, jour_julien, LISYL))
 lisyl_22_1h <- spread(lisyl_22_1h, jour_julien, LISYL)
 colnames(lisyl_22_1h)<- c("Site","V109","V110","V112","V113","V2","V117","V3","V4","V5","V6","V7","V157","V158","V9","V10","V11","V12","V13","V14","V15","V16")
@@ -454,6 +447,16 @@ for (i in 1:26) {
 }
 qualite_2022_1 <- subset(qualite_2022_1, select = c(Site, V1, V2, V3, V4, V5, V6, V7, V8, V9, V10, V11, V12, V13, V14, V15, V16))
 
+#Tableau qualité pour lisyl
+qualite_lisyl_21 <- subset(qualite_2022_21, select = c(Site, V1, V2))
+qualite_lisyl_1 <- subset(qualite_2022_1, select = c(Site, V1, V2))
+
+colnames(qualite_lisyl_21) <- c("Site", "V1", "V3")
+colnames(qualite_lisyl_1) <- c("Site", "V2", "V4")
+#Merge les deux
+qualite_lisyl <- merge(qualite_lisyl_21, qualite_lisyl_1, by = "Site")
+qualite_lisyl <- subset(qualite_lisyl, select = c(V1, V2, V3, V4))
+
 
 #Type de disturbance
 disturb_2021_15 <- subset(anoure_2021, anoure_2021$Time24H == "1500", select = c(Site, jour_julien, DisturbanceType))
@@ -577,6 +580,16 @@ for (i in 1:26) {
 }
 disturb_2022_1 <- subset(disturb_2022_1, select = c(Site, V1, V2, V3, V4, V5, V6, V7, V8, V9, V10, V11, V12, V13, V14, V15, V16))
 
+#Tableau perturbation pour lisyl
+disturb_lisyl_21 <- subset(disturb_2022_21, select = c(Site, V1, V2))
+disturb_lisyl_1 <- subset(disturb_2022_1, select = c(Site, V1, V2))
+
+colnames(disturb_lisyl_21) <- c("Site", "V1", "V3")
+colnames(disturb_lisyl_1) <- c("Site", "V2", "V4")
+#Merge les deux
+disturb_lisyl <- merge(disturb_lisyl_21, disturb_lisyl_1, by = "Site")
+disturb_lisyl <- subset(disturb_lisyl, select = c(V1, V2, V3, V4))
+
 #------------------------------
 # Enregistrement données nettoyées
 #------------------------------
@@ -590,17 +603,18 @@ write.csv(licat_21_1h, 'donnees/licat_21_1h.csv', row.names = FALSE)
 write.csv(licat_22_1h, 'donnees/licat_22_1h.csv', row.names = FALSE)
 write.csv(lisyl, 'donnees/lisyl.csv', row.names = FALSE)
 
-write.csv(qualite_2021_15, 'donnees/qualite_2021_15h.csv', row.names = FALSE)
-write.csv(qualite_2021_21, 'donnees/qualite_2021_21h.csv', row.names = FALSE)
-write.csv(qualite_2021_1, 'donnees/qualite_2021_1h.csv', row.names = FALSE)
-write.csv(qualite_2022_15, 'donnees/qualite_2022_15h.csv', row.names = FALSE)
-write.csv(qualite_2022_21, 'donnees/qualite_2022_21h.csv', row.names = FALSE)
-write.csv(qualite_2022_1, 'donnees/qualite_2022_1h.csv', row.names = FALSE)
+#write.csv(qualite_2021_15, 'donnees/qualite_2021_15h.csv', row.names = FALSE)
+#write.csv(qualite_2021_21, 'donnees/qualite_2021_21h.csv', row.names = FALSE)
+#write.csv(qualite_2021_1, 'donnees/qualite_2021_1h.csv', row.names = FALSE)
+#write.csv(qualite_2022_15, 'donnees/qualite_2022_15h.csv', row.names = FALSE)
+#write.csv(qualite_2022_21, 'donnees/qualite_2022_21h.csv', row.names = FALSE)
+#write.csv(qualite_2022_1, 'donnees/qualite_2022_1h.csv', row.names = FALSE)
+write.csv(qualite_lisyl, 'donnees/qualite_lisyl.csv', row.names = FALSE)
 
-write.csv(disturb_2021_15, 'donnees/disturb_2021_15h.csv', row.names = FALSE)
-write.csv(disturb_2021_21, 'donnees/disturb_2021_21h.csv', row.names = FALSE)
-write.csv(disturb_2021_1, 'donnees/disturb_2021_1h.csv', row.names = FALSE)
-write.csv(disturb_2022_15, 'donnees/disturb_2022_15h.csv', row.names = FALSE)
-write.csv(disturb_2022_21, 'donnees/disturb_2022_21h.csv', row.names = FALSE)
-write.csv(disturb_2022_1, 'donnees/disturb_2022_1h.csv', row.names = FALSE)
-
+#write.csv(disturb_2021_15, 'donnees/disturb_2021_15h.csv', row.names = FALSE)
+#write.csv(disturb_2021_21, 'donnees/disturb_2021_21h.csv', row.names = FALSE)
+#write.csv(disturb_2021_1, 'donnees/disturb_2021_1h.csv', row.names = FALSE)
+#write.csv(disturb_2022_15, 'donnees/disturb_2022_15h.csv', row.names = FALSE)
+#write.csv(disturb_2022_21, 'donnees/disturb_2022_21h.csv', row.names = FALSE)
+#write.csv(disturb_2022_1, 'donnees/disturb_2022_1h.csv', row.names = FALSE)
+write.csv(disturb_lisyl, 'donnees/disturb_lisyl.csv', row.names = FALSE)
