@@ -1,7 +1,7 @@
 ---
 output:
-  pdf_document: default
   html_document: default
+  pdf_document: default
 ---
 # Analyse
 
@@ -9,10 +9,7 @@ output:
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-```{r, echo = FALSE}
-#------------------------------
-# Ouvrir données
-#------------------------------
+```{r lecture données, echo = FALSE}
 setwd("~/Desktop/Credits_recherche/CR_anoure")
 anoure <- read.csv('donnees/anoure_nett.csv', header = T)
 library(unmarked)
@@ -24,21 +21,22 @@ licat_22_1h <- read.csv('donnees/licat_21_1h.csv', header = T)
 lisyl_22_21h <- read.csv('donnees/lisyl_22_21h.csv', header = T)
 
 #Données occupation
-MH <- read.csv("donnees/MH_nett.csv", header = T)
-route <- read.csv("donnees/routes_nett.csv", header = T)
-territoire <- read.csv("donnees/utilisation_territoire_nett.csv", header = T)
+#MH <- read.csv("donnees/MH_nett.csv", header = T)
+#route <- read.csv("donnees/routes_nett.csv", header = T)
+#territoire <- read.csv("donnees/utilisation_territoire_nett.csv", header = T)
+occupation <- read.csv("donnees/donnees_occupation.csv", header = T)
 
 #Données détection
 #qualite_2021_15h <- read.csv('donnees/qualite_2021_15h.csv', header = T)
 #qualite_2021_21h <- read.csv('donnees/qualite_2021_21h.csv', header = T)
-qualite_2021_1h <- read.csv('donnees/qualite_2021_1h.csv', header = T)
+#qualite_2021_1h <- read.csv('donnees/qualite_2021_1h.csv', header = T)
 #qualite_2022_15h <- read.csv('donnees/qualite_2022_15h.csv', header = T)
 qualite_2022_21h <- read.csv('donnees/qualite_2022_21h.csv', header = T)
 qualite_2022_1h <- read.csv('donnees/qualite_2022_1h.csv', header = T)
 
 #disturb_2021_15h <- read.csv('donnees/disturb_2021_15h.csv', header = T)
 #disturb_2021_21h <- read.csv('donnees/disturb_2021_21h.csv', header = T)
-disturb_2021_1h <- read.csv('donnees/disturb_2021_1h.csv', header = T)
+#disturb_2021_1h <- read.csv('donnees/disturb_2021_1h.csv', header = T)
 #disturb_2022_15h <- read.csv('donnees/disturb_2022_15h.csv', header = T)
 disturb_2022_21h <- read.csv('donnees/disturb_2022_21h.csv', header = T)
 disturb_2022_1h <- read.csv('donnees/disturb_2022_1h.csv', header = T)
@@ -46,150 +44,82 @@ disturb_2022_1h <- read.csv('donnees/disturb_2022_1h.csv', header = T)
 jj_21_1h <- read.csv('donnees/JJ_21_1h.csv', header =T)
 jj_22_1h <- read.csv('donnees/JJ_22_1h.csv', header =T)
 jj_22_21h <- read.csv('donnees/JJ_22_21h.csv', header =T)
-
-```
- 
-## Corrélation des variables
-
-### Variable de détection
-```{r, }
-cor(anoure$RecordingQuality, anoure$DisturbanceType)
-detection_anoure <- subset(anoure, select = c(RecordingQuality, DisturbanceType))
-plot(detection_anoure)
 ```
 
-### Variable d'occupation
-
-```{r}
-occupation_anoure <- merge(MH, route, by ="Enregistre")
-occ_anoure <- merge(occupation_anoure, territoire, by = "Enregistre")
-occ_anoure$Eau <- occ_anoure$Eau.peu.profonde + occ_anoure$Marais + occ_anoure$Riviere
-occ_anoure$Humide <- occ_anoure$Marecage + occ_anoure$Milieu.humide + occ_anoure$Tourbiere
-occ_anoure <- subset(occ_anoure, select = c(Enregistre, Total, Agriculture, Eau, Humide)) 
-
-plot(occ_anoure)
-```
-
-# Analyse
-
-### LISYL 2022 1h
-```{r}
+## Grenouille des bois
+```{r ajustement donnees, echo = FALSE}
 lisyl_22_21h <- subset(lisyl_22_21h, select = -c(Site))
 disturb_2022_21h <- subset(disturb_2022_21h, select = -c(Site))
 qualite_2022_21h <- subset(qualite_2022_21h, select = -c(Site))
 ```
+### Variable réponse (Présence ou absence de la grenouille des bois)
+Les données sont celles de 2022 seulement puisqu'il n'y a aucune observation en 2021 (les enregistrements ont commencés trop tard). Les observations de l'espèces ont eu lieu à 21h et à 1h. 
 
-Création données unmarked
+Nombre d'observations:
+Nombre de sites où l'espèce est observée :
+Dates de visites (où l'espèce est active):
+```{r structure tableau}
+str(lisyl_22_21h)
+```
+
+### Variables de détection
+* Types de Perturbation : Human, wind, rain ou none
+* Qualité de l'enregistrement : Good, moderate ou bad
+
+#### Corrélation des variables
+```{r correlation}
+#cor(anoure$RecordingQuality, anoure$DisturbanceType)
+table(anoure$RecordingQuality, anoure$DisturbanceType)
+```
+
+### Variables d'occupation
+* Milieux humide : Regroupement de Milieu humide, Tourbières et Marécage (à partir de la couche de milieu humide)
+* Eau libre : Regroupement de Marais, Lac, Eau peu profonde et Eau (à partir de la couche de milieu humide et la couche d'utilisation du territoire)
+* Route : Nombre de km de route total
+* Agriculture : Regroupement de tous les types d'agriculture
+* Site : Si le site est en lisière ou en forêt (donnée prise lors de la pause des enregistreurs) 
+
+#### Corrélation des variables
+```{r corrélation occupation}
+plot(occupation)
+```
+
+### Création des modèles
+Création du tableau de données pour le package unmarked
 ```{r}
-lisyl_22_21h.data <- unmarkedFrameOccu(y = lisyl_22_21h, siteCovs = occ_anoure, obsCovs = list(disturbance = disturb_2022_21h, qualite = qualite_2022_21h))
+lisyl_22_21h.data <- unmarkedFrameOccu(y = lisyl_22_21h, siteCovs = occupation, obsCovs = list(disturbance = disturb_2022_21h, qualite = qualite_2022_21h))
 summary(lisyl_22_21h.data)
 ```
 
 Modèles
-```{r}
+```{r modèles}
 #Détectabilité et occupation constante
-m00 <- occu(~ 1 ~ 1, data = lisyl_22_21h.data)
+m0 <- occu(~ 1 ~ 1, data = lisyl_22_21h.data)
 
-##Détectabilité varie, mais occupation est constante
-mDetection2 <- occu(~ disturbance + qualite ~ 1, data = lisyl_22_21h.data)
-mDetection2
+##Détectabilité varie selon la qualité de l'enregistrement et l'occupation varie selon...
+mQ <- occu(~ qualite ~ 1, data = lisyl_22_21h.data)
+mQH <- occu(~ qualite ~ Humide, data = lisyl_22_21h.data)
+mQE <- occu(~ qualite ~ Eau, data = lisyl_22_21h.data)
+mQR <- occu(~ qualite ~ Route, data = lisyl_22_21h.data)
+mQA <- occu(~ qualite ~ Agriculture, data = lisyl_22_21h.data)
+mQS <- occu(~ qualite ~ Site, data = lisyl_22_21h.data)
 
-##Détectabilité varie et l'occupation varie
-mHumide2 <- occu(~ disturbance + qualite ~ Humide, data = lisyl_22_21h.data)
-##Détectabilité constante et l'occupation varie
-mHumide3 <- occu(~ 1 ~ Humide, data = lisyl_22_21h.data)
-
-##Détectabilité varie et l'occupation varie
-mEaulibre2 <- occu(~ disturbance + qualite ~ Eau, data = lisyl_22_21h.data)
-##Détectabilité constante et l'occupation varie
-mEaulibre3 <- occu(~ 1 ~ Eau, data = lisyl_22_21h.data)
-
-##Détectabilité varie et l'occupation varie
-mAgriculture2 <- occu(~ disturbance + qualite ~ Agriculture, data = lisyl_22_21h.data)
-##Détectabilité constante et l'occupation varie
-mAgriculture3 <- occu(~ 1 ~ Agriculture, data = lisyl_22_21h.data)
-
-##Détectabilité varie et l'occupation varie !!!
-mRoute2 <- occu(~ disturbance + qualite ~ Total, data = lisyl_22_21h.data)
-mRoute2
-##Détectabilité constante et l'occupation varie
-mRoute3 <- occu(~ 1 ~ Total, data = lisyl_22_21h.data)
-
-##Détectabilité varie et l'occupation varie
-mAgri_Route2 <- occu(~ disturbance + qualite ~ Agriculture + Total, data = lisyl_22_21h.data)
-##Détectabilité constante et l'occupation varie
-mAgri_Route3 <- occu(~ 1 ~ Agriculture + Total, data = lisyl_22_21h.data)
-
+##Détectabilité varie selon le type de perturbation et occupation varie selon ...
+mP <- occu(~ disturbance ~ 1, data = lisyl_22_21h.data)
+mPH <- occu(~ disturbance ~ Humide, data = lisyl_22_21h.data)
+mPE <- occu(~ disturbance ~ Eau, data = lisyl_22_21h.data)
+mPR <- occu(~ disturbance ~ Route, data = lisyl_22_21h.data)
+mPA <- occu(~ disturbance ~ Agriculture, data = lisyl_22_21h.data)
+mPS <- occu(~ disturbance ~ Site, data = lisyl_22_21h.data)
 ```
 
-```{r}
-Cands <- list(m00, mDetection2, mHumide2, mEaulibre2, mRoute2, mAgriculture2)
-##assign meaningful names to each model 
-Model.names <- c("nulle", "psi(.)p(Qualité + Perturbation)","psi(Milieux humides)p(Qualité + Perturbation)", "psi(Eau libre)p(Qualité + Perturbation)", "psi(Route)p(Qualité + Perturbation)", "psi(Agriculture)p(Qualité + Perturbation)") 
-##do model selection based on AICc 
-aictab(cand.set = Cands,  modnames = Model.names)
-```
+Tableau de tous les modèles avec le poid AIC
+```{r, modèles candidats}
+Cands <- list(m0, mQH, mQE, mQR, mQA, mQS, mPH, mPE, mPR, mPA, mPS)
 
-### LICAT 2021 1h
+##Donner les noms significaifs aux modèles
+Model.names <- c("nul","psi(Milieux humides)p(Qualité)", "psi(Eau libre)p(Qualité)", "psi(Route)p(Qualité)", "psi(Agriculture)p(Qualité)", "psi(Site)p(Qualité)", "psi(Milieux humides)p(Perturb)", "psi(Eau libre)p(Perturb)", "psi(Route)p(Perturb)", "psi(Agriculture)p(Perturb)", "psi(Site)p(Perturb)") 
 
-
-```{r}
-licat_21_1h <- subset(licat_21_1h, select = -c(Site))
-disturb_2021_1h <- subset(disturb_2021_1h, select = -c(Site))
-qualite_2021_1h <- subset(qualite_2021_1h, select = -c(Site))
-```
-
-Création données unmarked
-```{r}
-licat_21_1h.data <- unmarkedFrameOccu(y = licat_21_1h, siteCovs = occ_anoure, obsCovs = list(disturbance = disturb_2021_1h, qualite = qualite_2021_1h))
-summary(licat_21_1h.data)
-```
-
-Modèles
-```{r, include=FALSE}
-#Détectabilité et occupation constante
-m0 <- occu(~ 1 ~ 1, data = licat_21_1h.data)
-
-##Détectabilité varie, mais occupation est constante
-mDetection <- occu(~ disturbance + qualite ~ 1, data = licat_21_1h.data)
-
-##Détectabilité varie et l'occupation varie
-mHumide <- occu(~ disturbance + qualite ~ Humide, data = licat_21_1h.data)
-##Détectabilité constante et l'occupation varie
-mHumide1 <- occu(~ 1 ~ Humide, data = licat_21_1h.data)
-
-
-##Détectabilité varie et l'occupation varie
-mEaulibre <- occu(~ disturbance + qualite ~ Eau, data = licat_21_1h.data)
-##Détectabilité constante et l'occupation varie
-mEaulibre1 <- occu(~ 1 ~ Eau, data = licat_21_1h.data)
-
-##Détectabilité varie et l'occupation varie
-mAgriculture <- occu(~ disturbance + qualite ~ Agriculture, data = licat_21_1h.data)
-##Détectabilité constante et l'occupation varie
-mAgriculture1 <- occu(~ 1 ~ Agriculture, data = licat_21_1h.data)
-
-##Détectabilité varie et l'occupation varie
-mRoute <- occu(~ disturbance + qualite ~ Total, data = licat_21_1h.data)
-
-##Détectabilité constante et l'occupation varie
-mRoute1 <- occu(~ 1 ~ Total, data = licat_21_1h.data)
-
-##Détectabilité varie et l'occupation varie
-mAgri_Route <- occu(~ disturbance + qualite ~ Agriculture + Total, data = licat_21_1h.data)
-##Détectabilité constante et l'occupation varie
-mAgri_Route1 <- occu(~ 1 ~ Agriculture + Total, data = licat_21_1h.data)
-```
-
-```{r}
-mDetection
-mRoute
-```
-
-```{r}
-Cands <- list(m0, mDetection, mHumide, mEaulibre, mRoute, mAgriculture)
-##assign meaningful names to each model 
-Model.names <- c("nulle", "psi(.)p(Qualité + Perturbation)","psi(Milieux humides)p(Qualité + Perturbation)", "psi(Eau libre)p(Qualité + Perturbation)", "psi(Route)p(Qualité + Perturbation)", "psi(Agriculture)p(Qualité + Perturbation)") 
 ##do model selection based on AICc 
 aictab(cand.set = Cands,  modnames = Model.names)
 ```

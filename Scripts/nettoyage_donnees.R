@@ -21,24 +21,7 @@ anoure <- data.frame(lapply(anoure, function(x){
 anoure <- data.frame(lapply(anoure, function(x){
   gsub("wind et rain", "wind", x) }))
 
-anoure <-  data.frame(lapply(anoure, function(x){
-  gsub("none", "0", x) }))
-anoure <- data.frame(lapply(anoure, function(x){
-  gsub("human", "1", x) }))
-anoure <- data.frame(lapply(anoure, function(x){
-  gsub("rain", "2", x) }))
-anoure <- data.frame(lapply(anoure, function(x){
-  gsub("wind", "3", x) }))
 
-###CODE POUR RECORDING QUALITY###
-anoure <- data.frame(lapply(anoure, function(x){
-  gsub("good", "1", x) }))
-
-anoure<- data.frame(lapply(anoure, function(x){
-  gsub("moderate", "2", x) }))
-
-anoure <- data.frame(lapply(anoure, function(x){
-  gsub("bad", "3", x) }))
 
 #Changer le nom de colone (enlever le point)
 colnames(anoure)[colnames(anoure) == "PSMAC.TRI"] <- "PSMACTRI"
@@ -62,6 +45,16 @@ anoure <- data.frame(lapply(anoure, function(x){
 anoure <- data.frame(lapply(anoure, function(x){
   gsub("L-foret_O-lisiere_O-lisiere", "L-foret_O-lisiere", x) }))
 
+
+#Création tableau par année
+anoure_2021 <- subset(anoure, anoure$Year == "2021")
+anoure_2022 <- subset(anoure, anoure$Year == "2022")
+
+#Ajouter les jours julien
+anoure_2021$jour_julien <- julian(as.Date(paste(anoure_2021$Year, anoure_2021$Month, anoure_2021$Day), format = "%Y %m %d"), origin = as.Date("2021-01-01"))
+anoure_2022$jour_julien <- julian(as.Date(paste(anoure_2022$Year, anoure_2022$Month, anoure_2022$Day), format = "%Y %m %d"), origin = as.Date("2022-01-01"))
+
+
 #------------------------------
 # données MH
 #------------------------------
@@ -73,7 +66,6 @@ MH <- subset(MH, select = c(Enregistre, CLASSE, surface))
 #Enlever les lignes vides
 MH <- subset(MH, MH$surface != 0)
 MH <- subset(MH, MH$Enregistre != "")
-#MH <- subset(MH, MH$CLASSE != "")
 
 #Faire la somme des types de MH identiques pour les mêmes sites
 MH <- aggregate(surface ~ CLASSE + Enregistre, data = MH, sum)
@@ -173,14 +165,21 @@ rm(codes_uti_terr)
 # Création tableaux pour analyse
 #------------------------------
 
-#Création tableau par année
-anoure_2021 <- subset(anoure, anoure$Year == "2021")
-anoure_2022 <- subset(anoure, anoure$Year == "2022")
+#------------------------------
+# Tableaux occupation
+#------------------------------
+type_site <-read.csv("donnees/type_site.csv", header = T)
 
-#Ajouter les jours julien
-anoure_2021$jour_julien <- julian(as.Date(paste(anoure_2021$Year, anoure_2021$Month, anoure_2021$Day), format = "%Y %m %d"), origin = as.Date("2021-01-01"))
-anoure_2022$jour_julien <- julian(as.Date(paste(anoure_2022$Year, anoure_2022$Month, anoure_2022$Day), format = "%Y %m %d"), origin = as.Date("2022-01-01"))
-
+occupation_anoure <- merge(MH, routes, by ="Enregistre")
+occupation_anoure <- merge(occupation_anoure, uti_terr, by = "Enregistre")
+occupation_anoure <- merge(occupation_anoure, type_site, by = "Enregistre")
+occupation_anoure$Eau <- occupation_anoure$`Eau peu profonde` + occupation_anoure$Marais + occupation_anoure$Riviere
+occupation_anoure$Humide <- occupation_anoure$Marecage + occupation_anoure$`Milieu humide` + occupation_anoure$Tourbiere
+occupation_anoure <- subset(occupation_anoure, select = c(Enregistre, Total, Agriculture, Eau, Humide, Type)) 
+colnames(occupation_anoure) <- c("Enregistre", "Route", "Agriculture", "Eau", "Humide", "Site")
+#------------------------------
+# tableaux variables réponses
+#------------------------------
 # une seule observation à 15h
 #Seulement 3 pour 21h donc garder le 1h seulement
 ### CRÉÉER TABLEAU LICAT 2021 à 1H00 et minuit ###
@@ -273,8 +272,11 @@ licat_22_1h <- subset(licat_22_1h, select = c(Site, V1, V2, V3, V4, V5, V6, V7, 
 ### CRÉÉER TABLEAU LSYL 2022 à 21H00 ###
 #Il y en a quelques unes aussi à 1h mais vraiment plus à 21h
 lisyl_22_21h <- subset(anoure_2022, anoure_2022$Time24H == "2100", select = c(Site, jour_julien, LISYL))
+lisyl_22_21h <- subset(lisyl_22_21h, lisyl_22_21h$LISYL != "0")
 lisyl_22_21h <- spread(lisyl_22_21h, jour_julien, LISYL)
 
+lisyl_22_1h <- subset(anoure_2022, anoure_2022$Time24H == "100" | anoure_2022$Time24H == "0", select = c(Site, jour_julien, LISYL))
+lisyl_22_1h <- subset(lisyl_22_1h, lisyl_22_1h$LISYL != "0")
 ##Joindre visites
 colnames(lisyl_22_21h)<- c("Site","V108","V109","V111","V112","V115","V116","V3","V4","V5","V6","V7","V156","V157","V9","V10","V11","V12","V13","V14","V15","V16")
 #V1
@@ -681,10 +683,11 @@ disturb_2022_1 <- subset(disturb_2022_1, select = c(Site, V1, V2, V3, V4, V5, V6
 #------------------------------
 # Enregistrement données nettoyées
 #------------------------------
-write.csv(uti_terr, 'donnees/utilisation_territoire_nett.csv', row.names = FALSE)
-write.csv(MH, 'donnees/MH_nett.csv', row.names = FALSE)
+#write.csv(uti_terr, 'donnees/utilisation_territoire_nett.csv', row.names = FALSE)
+#write.csv(MH, 'donnees/MH_nett.csv', row.names = FALSE)
 write.csv(anoure, 'donnees/anoure_nett.csv', row.names = FALSE)
-write.csv(routes, 'donnees/routes_nett.csv', row.names = FALSE)
+#write.csv(routes, 'donnees/routes_nett.csv', row.names = FALSE)
+write.csv(occupation_anoure, 'donnees/donnees_occupation.csv', row.names = FALSE)
 
 write.csv(licat_21_1h, 'donnees/licat_21_1h.csv', row.names = FALSE)
 write.csv(licat_22_1h, 'donnees/licat_22_1h.csv', row.names = FALSE)

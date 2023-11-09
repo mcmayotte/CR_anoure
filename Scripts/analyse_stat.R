@@ -175,3 +175,5 @@ Cands <- list(m0, mDetection, mHumide, mEaulibre, mRoute, mAgriculture)
 Model.names <- c("nulle", "psi(.)p(Qualité + Perturbation)","psi(Milieux humides)p(Qualité + Perturbation)", "psi(Eau libre)p(Qualité + Perturbation)", "psi(Route)p(Qualité + Perturbation)", "psi(Agriculture)p(Qualité + Perturbation)") 
 ##do model selection based on AICc 
 aictab(cand.set = Cands,  modnames = Model.names)
+
+table(qualite_2021_1h, disturb_2021_1h)
