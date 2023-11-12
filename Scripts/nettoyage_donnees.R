@@ -305,7 +305,7 @@ colnames(lisyl_22_21h) <- c("Site", "V1", "V3")
 #Tableau à 1h
 lisyl_22_1h <- subset(anoure_2022, anoure_2022$Time24H == "100" | anoure_2022$Time24H == "0", select = c(Site, jour_julien, LISYL))
 lisyl_22_1h <- spread(lisyl_22_1h, jour_julien, LISYL)
-colnames(lisyl_22_1h)<- c("Site","V109","V110","V112","V113","V2","V117","V3","V4","V5","V6","V7","V157","V158","V9","V10","V11","V12","V13","V14","V15","V16")
+colnames(lisyl_22_1h)<- c("Site","V109","V110","V112","V113","V116","V117","V3","V4","V5","V6","V7","V157","V158","V9","V10","V11","V12","V13","V14","V15","V16")
 #V1
 for (i in 1:26) {
   if( !is.na(lisyl_22_1h$V109[i])
@@ -317,6 +317,14 @@ for (i in 1:26) {
   else if(!is.na(lisyl_22_1h$V113[i])
   ) {lisyl_22_1h$V1[i]<-lisyl_22_1h$V113[i]}
   else {lisyl_22_1h$V1[i]<-NA}
+}
+#V2
+for (i in 1:26) {
+  if( !is.na(lisyl_22_1h$V116[i])
+  ) {lisyl_22_1h$V2[i]<-lisyl_22_1h$V116[i]}
+  else if( !is.na(lisyl_22_1h$V117[i])
+  ) {lisyl_22_1h$V2[i]<-lisyl_22_1h$V117[i]}
+  else {lisyl_22_1h$V2[i]<-NA}
 }
 lisyl_22_1h <- subset(lisyl_22_1h, select = c(Site, V1, V2))
 colnames(lisyl_22_1h) <- c("Site", "V2", "V4")
