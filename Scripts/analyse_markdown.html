@@ -359,22 +359,27 @@ display: none;
 <h2>Variable réponse (Présence ou absence de la grenouille des
 bois)</h2>
 <p>Les données sont celles de 2022 seulement puisqu’il n’y a aucune
-observation en 2021 (les enregistrements ont commencés trop tard). Les
+observation en 2021 (les enregistrements ont commencé trop tard). Les
 observations de l’espèces ont eu lieu à 21h et à 1h.</p>
-<p>Nombre d’observations: Nombre de sites où l’espèce est observée :
-Dates de visites (où l’espèce est active):</p>
+<p>Nombre d’observations: 25</p>
+<p>Nombre de sites où l’espèce est observée : 11</p>
+<p>Dates de visites (quand l’espèce est active): 20 avril au 27
+avril</p>
 <pre class="r"><code>str(lisyl)</code></pre>
 <pre><code>## &#39;data.frame&#39;:    26 obs. of  4 variables:
 ##  $ V1: int  0 0 1 0 0 0 0 NA 0 0 ...
 ##  $ V2: int  0 0 0 0 0 0 0 NA 0 0 ...
 ##  $ V3: int  0 0 1 0 0 0 0 0 1 0 ...
-##  $ V4: int  0 0 1 0 0 0 0 NA 1 0 ...</code></pre>
+##  $ V4: int  0 0 1 0 0 0 0 0 1 0 ...</code></pre>
 </div>
 <div id="variables-de-détection" class="section level2">
 <h2>Variables de détection</h2>
 <ul>
-<li>Types de Perturbation : Human, wind, rain ou none</li>
-<li>Qualité de l’enregistrement : Good, moderate ou bad</li>
+<li><strong>Types de Perturbation</strong> : Human, meteo ou none</li>
+<li><strong>Qualité de l’enregistrement</strong> : Good, moderate ou
+bad</li>
+<li><strong>Heure de l’enregistrement</strong>: 21h ou 1h</li>
+<li><strong>Date de l’enregistrement</strong>: en jour julien</li>
 </ul>
 <p>Difficile de joindre ensemble deux classes de données pour qualité de
 l’enregistrement. J’ai de loin beaucoup plus de moderate que de bad ou
@@ -385,27 +390,43 @@ good</p>
 ##      231      449     1125</code></pre>
 <div id="corrélation-des-variables" class="section level3">
 <h3>Corrélation des variables</h3>
-<pre class="r"><code>#cor(anoure$RecordingQuality, anoure$DisturbanceType)
-table(anoure$RecordingQuality, anoure$DisturbanceType)</code></pre>
+<pre class="r"><code>table(anoure$RecordingQuality, anoure$DisturbanceType)</code></pre>
 <pre><code>##           
 ##            human meteo none
 ##   bad          6   225    0
 ##   good       128    47  274
 ##   moderate   557   568    0</code></pre>
+<pre class="r"><code>str(jj_lisyl)</code></pre>
+<pre><code>## &#39;data.frame&#39;:    26 obs. of  4 variables:
+##  $ V1: int  108 108 109 109 109 109 111 NA 109 109 ...
+##  $ V2: int  109 109 110 110 110 110 112 NA 110 110 ...
+##  $ V3: int  115 115 115 115 115 115 115 116 115 115 ...
+##  $ V4: int  116 116 116 116 116 116 116 117 116 116 ...</code></pre>
+<pre class="r"><code>str(heure_lisyl)</code></pre>
+<pre><code>## &#39;data.frame&#39;:    26 obs. of  4 variables:
+##  $ V1: int  21 21 21 21 21 21 21 NA 21 21 ...
+##  $ V2: int  1 1 1 1 1 1 1 NA 1 1 ...
+##  $ V3: int  21 21 21 21 21 21 21 21 21 21 ...
+##  $ V4: int  1 1 1 1 1 1 1 1 1 1 ...</code></pre>
+<p>C’est certain que heure et date sont très corrélés. Est-ce que c’est
+juste de garder les deux dans les modèles? Selon moi c’est pour ça qu’on
+voit ce warning quand je roule les poids AIC des modèles : <em>Warning:
+Check model structure carefully as some models may be redundant</em></p>
 </div>
 </div>
 <div id="variables-doccupation" class="section level2">
 <h2>Variables d’occupation</h2>
 <ul>
-<li>Milieux humide : Regroupement de Milieu humide, Tourbières et
-Marécage (à partir de la couche de milieu humide)</li>
-<li>Eau libre : Regroupement de Marais, Lac, Eau peu profonde et Eau (à
-partir de la couche de milieu humide et la couche d’utilisation du
-territoire)</li>
-<li>Route : Nombre de km de route total</li>
-<li>Agriculture : Regroupement de tous les types d’agriculture</li>
-<li>Site : Si le site est en lisière ou en forêt (donnée prise lors de
-la pause des enregistreurs)</li>
+<li><strong>Milieux humide</strong> : Regroupement de Milieu humide,
+Tourbières et Marécage (à partir de la couche de milieu humide)</li>
+<li><strong>Eau libre</strong> : Regroupement de Marais, Lac, Eau peu
+profonde et Eau (à partir de la couche de milieu humide et la couche
+d’utilisation du territoire)</li>
+<li><strong>Route</strong> : Nombre de km de route total</li>
+<li><strong>Agriculture</strong> : Regroupement de tous les types
+d’agriculture</li>
+<li><strong>Site</strong> : Si le site est en lisière ou en forêt
+(donnée prise lors de la pause des enregistreurs)</li>
 </ul>
 <pre class="r"><code>str(occupation)</code></pre>
 <pre><code>## &#39;data.frame&#39;:    26 obs. of  6 variables:
@@ -432,12 +453,12 @@ la pause des enregistreurs)</li>
 ## 
 ## 26 sites
 ## Maximum number of observations per site: 4 
-## Mean number of observations per site: 3.88 
+## Mean number of observations per site: 3.92 
 ## Sites with at least one detection: 11 
 ## 
 ## Tabulation of y observations:
 ##    0    1 &lt;NA&gt; 
-##   76   25    3 
+##   77   25    2 
 ## 
 ## Site-level covariates:
 ##      Enregistre     Route         Agriculture             Eau        
@@ -465,13 +486,12 @@ la pause des enregistreurs)</li>
 ##  NA&#39;s : 2    NA&#39;s    : 2   Mean   :11   Mean   :113.1  
 ##                            3rd Qu.:21   3rd Qu.:116.0  
 ##                            Max.   :21   Max.   :117.0  
-##                                         NA&#39;s   :2</code></pre>
+##                            NA&#39;s   :2    NA&#39;s   :2</code></pre>
 <p>Modèles</p>
 <pre class="r"><code>#Détectabilité et occupation constante
 m0 &lt;- occu(~ 1 ~ 1, data = lisyl.data)
 
 ##Détectabilité varie selon la qualité de l&#39;enregistrement et l&#39;occupation varie selon...
-mQ &lt;- occu(~ qualite ~ 1, data = lisyl.data)
 mQH &lt;- occu(~ qualite ~ Humide, data = lisyl.data)
 mQE &lt;- occu(~ qualite ~ Eau, data = lisyl.data)
 mQR &lt;- occu(~ qualite ~ Route, data = lisyl.data)
@@ -479,7 +499,6 @@ mQA &lt;- occu(~ qualite ~ Agriculture, data = lisyl.data)
 mQS &lt;- occu(~ qualite ~ Site, data = lisyl.data)
 
 ##Détectabilité varie selon le type de perturbation et occupation varie selon ...
-mP &lt;- occu(~ disturbance ~ 1, data = lisyl.data)
 mPH &lt;- occu(~ disturbance ~ Humide, data = lisyl.data)
 mPE &lt;- occu(~ disturbance ~ Eau, data = lisyl.data)
 mPR &lt;- occu(~ disturbance ~ Route, data = lisyl.data)
@@ -487,7 +506,6 @@ mPA &lt;- occu(~ disturbance ~ Agriculture, data = lisyl.data)
 mPS &lt;- occu(~ disturbance ~ Site, data = lisyl.data)
 
 ##Détectabilité varie selon l&#39;heure et occupation varie selon ...
-mH &lt;- occu(~ heure ~ 1, data = lisyl.data)
 mHH &lt;- occu(~ heure ~ Humide, data = lisyl.data)
 mHE &lt;- occu(~ heure ~ Eau, data = lisyl.data)
 mHR &lt;- occu(~ heure ~ Route, data = lisyl.data)
@@ -495,7 +513,6 @@ mHA &lt;- occu(~ heure ~ Agriculture, data = lisyl.data)
 mHS &lt;- occu(~ heure ~ Site, data = lisyl.data)
 
 ##Détectabilité varie selon les jours juliens et occupation varie selon ...
-mD &lt;- occu(~ date ~ 1, data = lisyl.data)
 mDH &lt;- occu(~ date ~ Humide, data = lisyl.data)
 mDE &lt;- occu(~ date ~ Eau, data = lisyl.data)
 mDR &lt;- occu(~ date ~ Route, data = lisyl.data)
@@ -515,27 +532,90 @@ aictab(cand.set = Cands,  modnames = Model.names)</code></pre>
 ## Model selection based on AICc:
 ## 
 ##                                K   AICc Delta_AICc AICcWt Cum.Wt     LL
-## psi(Route)p(Date)              4  96.42       0.00   0.39   0.39 -43.26
-## nul                            2  98.69       2.27   0.13   0.52 -47.09
-## psi(Route)p(Heure)             4  98.73       2.31   0.12   0.64 -44.41
-## psi(Route)p(Qualité)           5  98.75       2.33   0.12   0.77 -42.88
-## psi(Site)p(Date)               4  99.52       3.10   0.08   0.85 -44.81
-## psi(Route)p(Perturb)           5 101.39       4.97   0.03   0.88 -44.20
-## psi(Site)p(Qualité)            5 101.43       5.01   0.03   0.92 -44.22
-## psi(Site)p(Heure)              4 101.92       5.50   0.03   0.94 -46.01
-## psi(Site)p(Perturb)            5 104.34       7.92   0.01   0.95 -45.67
-## psi(Agriculture)p(Heure)       4 104.42       8.00   0.01   0.96 -47.26
-## psi(Agriculture)p(Date)        4 104.43       8.00   0.01   0.96 -47.26
-## psi(Milieux humides)p(Date)    4 104.44       8.01   0.01   0.97 -47.27
-## psi(Milieux humides)p(Heure)   4 104.44       8.01   0.01   0.98 -47.27
-## psi(Eau libre)p(Heure)         4 104.44       8.02   0.01   0.98 -47.27
-## psi(Eau libre)p(Date)          4 104.44       8.02   0.01   0.99 -47.27
-## psi(Agriculture)p(Perturb)     5 107.52      11.10   0.00   0.99 -47.26
-## psi(Agriculture)p(Qualité)     5 107.52      11.10   0.00   0.99 -47.26
-## psi(Milieux humides)p(Qualité) 5 107.53      11.11   0.00   1.00 -47.27
-## psi(Milieux humides)p(Perturb) 5 107.53      11.11   0.00   1.00 -47.27
-## psi(Eau libre)p(Qualité)       5 107.53      11.11   0.00   1.00 -47.27
-## psi(Eau libre)p(Perturb)       5 107.53      11.11   0.00   1.00 -47.27</code></pre>
+## psi(Route)p(Date)              4  96.86       0.00   0.38   0.38 -43.48
+## psi(Route)p(Heure)             4  99.01       2.15   0.13   0.51 -44.55
+## nul                            2  99.01       2.16   0.13   0.64 -47.25
+## psi(Route)p(Qualité)           5  99.10       2.25   0.12   0.76 -43.05
+## psi(Site)p(Date)               4  99.87       3.01   0.08   0.85 -44.98
+## psi(Route)p(Perturb)           5 101.65       4.80   0.03   0.88 -44.33
+## psi(Site)p(Qualité)            5 101.74       4.88   0.03   0.91 -44.37
+## psi(Site)p(Heure)              4 102.14       5.29   0.03   0.94 -46.12
+## psi(Site)p(Perturb)            5 104.57       7.71   0.01   0.95 -45.78
+## psi(Agriculture)p(Date)        4 104.80       7.94   0.01   0.96 -47.45
+## psi(Agriculture)p(Heure)       4 104.80       7.94   0.01   0.96 -47.45
+## psi(Milieux humides)p(Heure)   4 104.80       7.95   0.01   0.97 -47.45
+## psi(Milieux humides)p(Date)    4 104.80       7.95   0.01   0.98 -47.45
+## psi(Eau libre)p(Heure)         4 104.80       7.95   0.01   0.98 -47.45
+## psi(Eau libre)p(Date)          4 104.80       7.95   0.01   0.99 -47.45
+## psi(Agriculture)p(Perturb)     5 107.89      11.04   0.00   0.99 -47.45
+## psi(Agriculture)p(Qualité)     5 107.89      11.04   0.00   0.99 -47.45
+## psi(Milieux humides)p(Qualité) 5 107.90      11.04   0.00   1.00 -47.45
+## psi(Milieux humides)p(Perturb) 5 107.90      11.04   0.00   1.00 -47.45
+## psi(Eau libre)p(Qualité)       5 107.90      11.04   0.00   1.00 -47.45
+## psi(Eau libre)p(Perturb)       5 107.90      11.04   0.00   1.00 -47.45</code></pre>
+<div id="vérification-ajustement-du-modèle" class="section level3">
+<h3>Vérification ajustement du modèle</h3>
+<p>Modèle avec le plus de poid est celui avec <strong>Route</strong> et
+<strong>Date</strong></p>
+<pre class="r"><code>mDR</code></pre>
+<pre><code>## 
+## Call:
+## occu(formula = ~date ~ Route, data = lisyl.data)
+## 
+## Occupancy:
+##             Estimate     SE      z P(&gt;|z|)
+## (Intercept)  0.16825 0.4817  0.349   0.727
+## Route       -0.00316 0.0021 -1.503   0.133
+## 
+## Detection:
+##             Estimate     SE     z P(&gt;|z|)
+## (Intercept)  -28.523 15.019 -1.90  0.0576
+## date           0.253  0.133  1.91  0.0564
+## 
+## AIC: 94.95086</code></pre>
+<p>Code ajustement du modèle</p>
+<pre class="r"><code>ajust &lt;- mb.gof.test(mDR, nsim = 5000, plot.hist=T)
+save(ajust, file = &quot;lisyl_ajust_gof.Rdata&quot;)</code></pre>
+<p>Le mb.gof.test produit vraiment beaucoup de ces warning:
+producedWarning: NAs. Est-ce que c’est grave?</p>
+<pre class="r"><code>load(&quot;lisyl_ajust_gof.Rdata&quot;)
+ajust</code></pre>
+<pre><code>## 
+## MacKenzie and Bailey goodness-of-fit for single-season occupancy model
+## 
+## Pearson chi-square table:
+## 
+##      Cohort Observed Expected Chi-square
+## 0000      0       14    14.42       0.01
+## 0010      0        2     0.79       1.87
+## 0011      0        2     1.89       0.01
+## 0111      0        1     1.32       0.08
+## 1000      0        1     0.23       2.60
+## 1001      0        1     0.55       0.37
+## 1011      0        2     1.02       0.93
+## 1110      0        1     0.34       1.27
+## 1111      0        1     0.82       0.04
+## ..00      1        1     0.50       0.51
+## 
+## Chi-square statistic = 11.7998 
+## Number of bootstrap samples = 5000
+## P-value = 0.7106
+## 
+## Quantiles of bootstrapped statistics:
+##   0%  25%  50%  75% 100% 
+##  2.3 11.3 14.5 18.4 69.7 
+## 
+## Estimate of c-hat = 0.77</code></pre>
+<div id="refaire-la-sélection-de-modèles-avec-ajustement" class="section level5">
+<h5>Refaire la sélection de modèles avec ajustement</h5>
+<p>Le warning de R dit que je dois garder 1 si le c.hat est inférieur à
+1:</p>
+<p><em>Error in AICc.unmarkedFit(X[[i]], …) : You should set ‘c.hat’ to
+1 if &lt; 1, but values &lt;&lt; 1 might also indicate lack of
+fit</em></p>
+<p>Ce qui revient aux même aictab qu’avant</p>
+</div>
+</div>
 </div>
 </div>
 

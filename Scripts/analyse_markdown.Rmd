@@ -28,20 +28,22 @@ jj_lisyl <- read.csv('donnees/jj_lisyl.csv', header =T)
 # Grenouille des bois
 
 ## Variable réponse (Présence ou absence de la grenouille des bois)
-Les données sont celles de 2022 seulement puisqu'il n'y a aucune observation en 2021 (les enregistrements ont commencés trop tard). Les observations de l'espèces ont eu lieu à 21h et à 1h. 
+Les données sont celles de 2022 seulement puisqu'il n'y a aucune observation en 2021 (les enregistrements ont commencé trop tard). Les observations de l'espèces ont eu lieu à 21h et à 1h. 
 
-Nombre d'observations:
-Nombre de sites où l'espèce est observée :
-Dates de visites (où l'espèce est active):
+Nombre d'observations: 25
+
+Nombre de sites où l'espèce est observée : 11
+
+Dates de visites (quand l'espèce est active): 20 avril au 27 avril
 ```{r structure tableau lisyl}
 str(lisyl)
 ```
 
 ## Variables de détection
-* Types de Perturbation : Human, meteo ou none
-* Qualité de l'enregistrement : Good, moderate ou bad
-* Heure de l'enregistrement: 21h ou 1h
-* Date de l'enregistrement: en jour julien
+* **Types de Perturbation** : Human, meteo ou none
+* **Qualité de l'enregistrement** : Good, moderate ou bad
+* **Heure de l'enregistrement**: 21h ou 1h
+* **Date de l'enregistrement**: en jour julien
 
 Difficile de joindre ensemble deux classes de données pour qualité de l'enregistrement. J'ai de loin beaucoup plus de moderate que de bad ou good
 ```{r table qualité}
@@ -51,16 +53,24 @@ table(anoure$RecordingQuality)
 
 ### Corrélation des variables
 ```{r correlation}
-#cor(anoure$RecordingQuality, anoure$DisturbanceType)
 table(anoure$RecordingQuality, anoure$DisturbanceType)
 ```
 
+```{r correlation heure date}
+str(jj_lisyl)
+str(heure_lisyl)
+```
+C'est certain que heure et date sont très corrélés. Est-ce que c'est juste de garder les deux dans les modèles?
+Selon moi c'est pour ça qu'on voit ce warning quand je roule les poids AIC des modèles :
+*Warning: 
+Check model structure carefully as some models may be redundant*
+
 ## Variables d'occupation
-* Milieux humide : Regroupement de Milieu humide, Tourbières et Marécage (à partir de la couche de milieu humide)
-* Eau libre : Regroupement de Marais, Lac, Eau peu profonde et Eau (à partir de la couche de milieu humide et la couche d'utilisation du territoire)
-* Route : Nombre de km de route total
-* Agriculture : Regroupement de tous les types d'agriculture
-* Site : Si le site est en lisière ou en forêt (donnée prise lors de la pause des enregistreurs) 
+* **Milieux humide** : Regroupement de Milieu humide, Tourbières et Marécage (à partir de la couche de milieu humide)
+* **Eau libre** : Regroupement de Marais, Lac, Eau peu profonde et Eau (à partir de la couche de milieu humide et la couche d'utilisation du territoire)
+* **Route** : Nombre de km de route total
+* **Agriculture** : Regroupement de tous les types d'agriculture
+* **Site** : Si le site est en lisière ou en forêt (donnée prise lors de la pause des enregistreurs) 
 
 ```{r structure tableau occ}
 str(occupation)
@@ -84,7 +94,6 @@ Modèles
 m0 <- occu(~ 1 ~ 1, data = lisyl.data)
 
 ##Détectabilité varie selon la qualité de l'enregistrement et l'occupation varie selon...
-mQ <- occu(~ qualite ~ 1, data = lisyl.data)
 mQH <- occu(~ qualite ~ Humide, data = lisyl.data)
 mQE <- occu(~ qualite ~ Eau, data = lisyl.data)
 mQR <- occu(~ qualite ~ Route, data = lisyl.data)
@@ -92,7 +101,6 @@ mQA <- occu(~ qualite ~ Agriculture, data = lisyl.data)
 mQS <- occu(~ qualite ~ Site, data = lisyl.data)
 
 ##Détectabilité varie selon le type de perturbation et occupation varie selon ...
-mP <- occu(~ disturbance ~ 1, data = lisyl.data)
 mPH <- occu(~ disturbance ~ Humide, data = lisyl.data)
 mPE <- occu(~ disturbance ~ Eau, data = lisyl.data)
 mPR <- occu(~ disturbance ~ Route, data = lisyl.data)
@@ -100,7 +108,6 @@ mPA <- occu(~ disturbance ~ Agriculture, data = lisyl.data)
 mPS <- occu(~ disturbance ~ Site, data = lisyl.data)
 
 ##Détectabilité varie selon l'heure et occupation varie selon ...
-mH <- occu(~ heure ~ 1, data = lisyl.data)
 mHH <- occu(~ heure ~ Humide, data = lisyl.data)
 mHE <- occu(~ heure ~ Eau, data = lisyl.data)
 mHR <- occu(~ heure ~ Route, data = lisyl.data)
@@ -108,7 +115,6 @@ mHA <- occu(~ heure ~ Agriculture, data = lisyl.data)
 mHS <- occu(~ heure ~ Site, data = lisyl.data)
 
 ##Détectabilité varie selon les jours juliens et occupation varie selon ...
-mD <- occu(~ date ~ 1, data = lisyl.data)
 mDH <- occu(~ date ~ Humide, data = lisyl.data)
 mDE <- occu(~ date ~ Eau, data = lisyl.data)
 mDR <- occu(~ date ~ Route, data = lisyl.data)
@@ -126,3 +132,28 @@ Model.names <- c("nul","psi(Milieux humides)p(Qualité)", "psi(Eau libre)p(Quali
 ##do model selection based on AICc 
 aictab(cand.set = Cands,  modnames = Model.names)
 ```
+
+### Vérification ajustement du modèle
+Modèle avec le plus de poid est celui avec **Route** et **Date**
+```{r, modèle avec plus de poid}
+mDR
+```
+Code ajustement du modèle
+```{r, ajustement du modèle, eval = FALSE}
+ajust <- mb.gof.test(mDR, nsim = 5000, plot.hist=T)
+save(ajust, file = "lisyl_ajust_gof.Rdata")
+```
+Le mb.gof.test produit vraiment beaucoup de ces warning: producedWarning: NAs. Est-ce que c'est grave?
+
+```{r, résultat ajustement}
+load("lisyl_ajust_gof.Rdata")
+ajust
+```
+##### Refaire la sélection de modèles avec ajustement
+
+Le warning de R dit que je dois garder 1 si le c.hat est inférieur à 1:
+
+*Error in AICc.unmarkedFit(X[[i]], ...) : 
+You should set 'c.hat' to 1 if < 1, but values << 1 might also indicate lack of fit*
+
+Ce qui revient aux même aictab qu'avant
