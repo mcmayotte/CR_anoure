@@ -223,12 +223,16 @@ for (i in 1:26) {
   else {licat_21_1h$V8[i]<-NA}
 }
 
-licat_21_1h <- subset(licat_21_1h, select = c(Site, V1, V2, V3, V4, V5, V6, V7, V8))
+licat_21_1h <- subset(licat_21_1h, select = c(V1, V2, V3, V4, V5, V6, V7))
+
+# Ajout de deux colonnes de NA (v8 et V9)
+visite <- data.frame(V8 = rep(NA, nrow(licat_21_1h)), V9 = rep(NA, nrow(licat_21_1h)))
+licat_21_1h <- cbind(licat_21_1h, visite)
+
 
 #une seule observation à 15h en 2022
 #Seulement 4 obervations en 2022 à 21h
 ### CRÉÉER TABLEAU LICAT 2022 à 1H00 et minuit ###
-#Ajouter le  $LICAT!="0" pour avoir seulement site où présent
 licat_22_1h <- subset(anoure_2022, anoure_2022$Time24H == "100" | anoure_2022$Time24H == "0", select = c(Site, jour_julien, LICAT))
 licat_22_1h <- spread(licat_22_1h, jour_julien, LICAT)
 
@@ -262,8 +266,10 @@ for (i in 1:26) {
   ) {licat_22_1h$V8[i]<-licat_22_1h$V158[i]}
   else {licat_22_1h$V8[i]<-NA}
 }
-licat_22_1h <- subset(licat_22_1h, select = c(Site, V1, V2, V3, V4, V5, V6, V7, V8, V9, V10, V11, V12, V13, V14, V15, V16))
+licat_22_1h <- subset(licat_22_1h, select = c(V6, V7, V8, V9, V10, V11, V12, V13, V14))
+colnames(licat_22_1h) <- c("V1", "V2", "V3", "V4", "V5", "V6", "V7", "V8", "V9")
 
+licat <- rbind(licat_21_1h, licat_22_1h)
 
 ### CRÉÉER TABLEAU LSYL 2022 ###
 lisyl_22_21h <- subset(anoure_2022, anoure_2022$Time24H == "2100", select = c(Site, jour_julien, LISYL))
@@ -465,6 +471,15 @@ colnames(qualite_lisyl_1) <- c("Site", "V2", "V4")
 qualite_lisyl <- merge(qualite_lisyl_21, qualite_lisyl_1, by = "Site")
 qualite_lisyl <- subset(qualite_lisyl, select = c(V1, V2, V3, V4))
 
+###Tableau qualité pour licat###
+qualite_licat_21 <- subset(qualite_2021_1, select = c(V1, V2, V3, V4, V5, V6, V7))
+qualite_licat_21 <- cbind(qualite_licat_21, visite)
+qualite_licat_22 <- subset(qualite_2022_1, select = c(V6, V7, V8, V9, V10, V11, V12, V13, V14))
+colnames(qualite_licat_22) <- c("V1", "V2", "V3", "V4", "V5", "V6", "V7", "V8", "V9")
+
+#Merge les deux
+qualite_licat <- rbind(qualite_licat_21, qualite_licat_22)
+
 
 #Type de disturbance
 disturb_2021_15 <- subset(anoure_2021, anoure_2021$Time24H == "1500", select = c(Site, jour_julien, DisturbanceType))
@@ -598,6 +613,16 @@ colnames(disturb_lisyl_1) <- c("Site", "V2", "V4")
 disturb_lisyl <- merge(disturb_lisyl_21, disturb_lisyl_1, by = "Site")
 disturb_lisyl <- subset(disturb_lisyl, select = c(V1, V2, V3, V4))
 
+###Tableau perturbation pour licat###
+disturb_licat_21 <- subset(disturb_2021_1, select = c(V1, V2, V3, V4, V5, V6, V7))
+disturb_licat_21 <- cbind(disturb_licat_21, visite)
+disturb_licat_22 <- subset(disturb_2022_1, select = c(V6, V7, V8, V9, V10, V11, V12, V13, V14))
+colnames(disturb_licat_22) <- c("V1", "V2", "V3", "V4", "V5", "V6", "V7", "V8", "V9")
+
+#Merge les deux
+disturb_licat <- rbind(disturb_licat_21, disturb_licat_22)
+
+
 ##Jours juliens lisyl
 jj_22_21h<-read.csv("donnees/JJ_22_21h.csv", header = T)
 jj_22_1h<-read.csv("donnees/JJ_22_1h.csv", header = T)
@@ -619,24 +644,13 @@ write.csv(anoure, 'donnees/anoure_nett.csv', row.names = FALSE)
 #write.csv(routes, 'donnees/routes_nett.csv', row.names = FALSE)
 write.csv(occupation_anoure, 'donnees/donnees_occupation.csv', row.names = FALSE)
 
-write.csv(licat_21_1h, 'donnees/licat_21_1h.csv', row.names = FALSE)
-write.csv(licat_22_1h, 'donnees/licat_22_1h.csv', row.names = FALSE)
+write.csv(licat, 'donnees/licat.csv', row.names = FALSE)
 write.csv(lisyl, 'donnees/lisyl.csv', row.names = FALSE)
 
-#write.csv(qualite_2021_15, 'donnees/qualite_2021_15h.csv', row.names = FALSE)
-#write.csv(qualite_2021_21, 'donnees/qualite_2021_21h.csv', row.names = FALSE)
-#write.csv(qualite_2021_1, 'donnees/qualite_2021_1h.csv', row.names = FALSE)
-#write.csv(qualite_2022_15, 'donnees/qualite_2022_15h.csv', row.names = FALSE)
-#write.csv(qualite_2022_21, 'donnees/qualite_2022_21h.csv', row.names = FALSE)
-#write.csv(qualite_2022_1, 'donnees/qualite_2022_1h.csv', row.names = FALSE)
+write.csv(qualite_licat, 'donnees/qualite_licat.csv', row.names = FALSE)
 write.csv(qualite_lisyl, 'donnees/qualite_lisyl.csv', row.names = FALSE)
 
-#write.csv(disturb_2021_15, 'donnees/disturb_2021_15h.csv', row.names = FALSE)
-#write.csv(disturb_2021_21, 'donnees/disturb_2021_21h.csv', row.names = FALSE)
-#write.csv(disturb_2021_1, 'donnees/disturb_2021_1h.csv', row.names = FALSE)
-#write.csv(disturb_2022_15, 'donnees/disturb_2022_15h.csv', row.names = FALSE)
-#write.csv(disturb_2022_21, 'donnees/disturb_2022_21h.csv', row.names = FALSE)
-#write.csv(disturb_2022_1, 'donnees/disturb_2022_1h.csv', row.names = FALSE)
+write.csv(disturb_licat, 'donnees/disturb_licat.csv', row.names = FALSE)
 write.csv(disturb_lisyl, 'donnees/disturb_lisyl.csv', row.names = FALSE)
 
 write.csv(jj_lisyl, 'donnees/jj_lisyl.csv', row.names = F)
