@@ -1,5 +1,5 @@
 ---
-title: Analyse
+title: Analyse ouaouarons
 output:
   html_document: default
   pdf_document: default
@@ -14,7 +14,7 @@ library(AICcmodavg)
 licat <- read.csv('donnees/licat.csv', header = T)
 
 #Données occupation
-occupation <- read.csv("donnees/donnees_occupation.csv", header = T)
+occupation <- read.csv("donnees/donnees_occupation_licat.csv", header = T)
 
 #Données détection
 qualite_licat <- read.csv('donnees/qualite_licat.csv', header = T)
@@ -23,10 +23,10 @@ annee_licat <- read.csv('donnees/annee_licat.csv', header = T)
 jj_licat <- read.csv('donnees/jj_licat.csv', header =T)
 ```
 
-# Grenouille des bois
+# Ouaouaron
 
 ## Variable réponse (Présence ou absence de la grenouille des bois)
-Les données sont celles de 2022 seulement puisqu'il n'y a aucune observation en 2021 (les enregistrements ont commencé trop tard). Les observations de l'espèces ont eu lieu à 21h et à 1h. 
+Les observations sont à 1 h en 2021 et 2022. Les visites à 15 h et 21 h n'ont pas été utilisé puisqu'il n'y avait qu'une à trois observations
 
 Nombre d'observations 2021: 43
 Nombre d'observations 2022: 32
@@ -36,118 +36,89 @@ Nombre de sites où l'espèce est observée 2022: 15
 
 Dates de visites (quand l'espèce est active) 2021: 27 mai au 7 juillet
 Dates de visites (quand l'espèce est active) 2021: 25 mai au 20 juillet
-```{r structure tableau lisyl}
-str(lisyl)
+```{r structure tableau licat}
+str(licat)
 ```
 
 ## Variables de détection
-* **Types de Perturbation** : Human, meteo ou none
-* **Qualité de l'enregistrement** : Good, moderate ou bad
-* **Heure de l'enregistrement**: 21h ou 1h
-* **Date de l'enregistrement**: en jour julien
-
-Difficile de joindre ensemble deux classes de données pour qualité de l'enregistrement. J'ai de loin beaucoup plus de moderate que de bad ou good
-```{r table qualité}
-table(anoure$RecordingQuality)
-```
-
+* **Année**: 2021 ou 2022 au lieu de **Heure**
 
 ### Corrélation des variables
-```{r correlation}
-table(anoure$RecordingQuality, anoure$DisturbanceType)
-```
 
-```{r correlation heure date}
-str(jj_lisyl)
-str(heure_lisyl)
+```{r correlation annee date}
+str(jj_licat)
+str(annee_licat)
 ```
-C'est certain que heure et date sont très corrélés. Est-ce que c'est juste de garder les deux dans les modèles?
-Selon moi c'est pour ça qu'on voit ce warning quand je roule les poids AIC des modèles :
-*Warning: 
-Check model structure carefully as some models may be redundant*
 
 ## Variables d'occupation
-* **Milieux humide** : Regroupement de Milieu humide, Tourbières et Marécage (à partir de la couche de milieu humide)
-* **Eau libre** : Regroupement de Marais, Lac, Eau peu profonde et Eau (à partir de la couche de milieu humide et la couche d'utilisation du territoire)
-* **Route** : Nombre de km de route total
-* **Agriculture** : Regroupement de tous les types d'agriculture
-* **Site** : Si le site est en lisière ou en forêt (donnée prise lors de la pause des enregistreurs) 
-
-```{r structure tableau occ}
-str(occupation)
-```
-
-### Corrélation des variables
-```{r corrélation occupation}
-plot(occupation)
-```
+Mêmes variables que pour la grenouille des bois
 
 ## Création des modèles
 Création du tableau de données pour le package unmarked
 ```{r}
-lisyl.data <- unmarkedFrameOccu(y = lisyl, siteCovs = occupation, obsCovs = list(disturbance = perturb_lisyl, qualite = qualite_lisyl, heure = heure_lisyl, date = jj_lisyl))
-summary(lisyl.data)
+licat.data <- unmarkedFrameOccu(y = licat, siteCovs = occupation, obsCovs = list(disturbance = perturb_licat, qualite = qualite_licat, annee = annee_licat, date = jj_licat))
+summary(licat.data)
 ```
 
 Modèles
 ```{r modèles}
 #Détectabilité et occupation constante
-m0 <- occu(~ 1 ~ 1, data = lisyl.data)
+m0 <- occu(~ 1 ~ 1, data = licat.data)
 
 ##Détectabilité varie selon la qualité de l'enregistrement et l'occupation varie selon...
-mQH <- occu(~ qualite ~ Humide, data = lisyl.data)
-mQE <- occu(~ qualite ~ Eau, data = lisyl.data)
-mQR <- occu(~ qualite ~ Route, data = lisyl.data)
-mQA <- occu(~ qualite ~ Agriculture, data = lisyl.data)
-mQS <- occu(~ qualite ~ Site, data = lisyl.data)
+mQH <- occu(~ qualite ~ Humide, data = licat.data)
+mQE <- occu(~ qualite ~ Eau, data = licat.data)
+mQR <- occu(~ qualite ~ Route, data = licat.data)
+mQA <- occu(~ qualite ~ Agriculture, data = licat.data)
+mQS <- occu(~ qualite ~ Site, data = licat.data)
 
 ##Détectabilité varie selon le type de perturbation et occupation varie selon ...
-mPH <- occu(~ disturbance ~ Humide, data = lisyl.data)
-mPE <- occu(~ disturbance ~ Eau, data = lisyl.data)
-mPR <- occu(~ disturbance ~ Route, data = lisyl.data)
-mPA <- occu(~ disturbance ~ Agriculture, data = lisyl.data)
-mPS <- occu(~ disturbance ~ Site, data = lisyl.data)
+mPH <- occu(~ disturbance ~ Humide, data = licat.data)
+mPE <- occu(~ disturbance ~ Eau, data = licat.data)
+mPR <- occu(~ disturbance ~ Route, data = licat.data)
+mPA <- occu(~ disturbance ~ Agriculture, data = licat.data)
+mPS <- occu(~ disturbance ~ Site, data = licat.data)
 
-##Détectabilité varie selon l'heure et occupation varie selon ...
-mHH <- occu(~ heure ~ Humide, data = lisyl.data)
-mHE <- occu(~ heure ~ Eau, data = lisyl.data)
-mHR <- occu(~ heure ~ Route, data = lisyl.data)
-mHA <- occu(~ heure ~ Agriculture, data = lisyl.data)
-mHS <- occu(~ heure ~ Site, data = lisyl.data)
+##Détectabilité varie selon l'année et occupation varie selon ...
+mAH <- occu(~ annee ~ Humide, data = licat.data)
+mAE <- occu(~ annee ~ Eau, data = licat.data)
+mAR <- occu(~ annee ~ Route, data = licat.data)
+mAA <- occu(~ annee ~ Agriculture, data = licat.data)
+mAS <- occu(~ annee ~ Site, data = licat.data)
 
 ##Détectabilité varie selon les jours juliens et occupation varie selon ...
-mDH <- occu(~ date ~ Humide, data = lisyl.data)
-mDE <- occu(~ date ~ Eau, data = lisyl.data)
-mDR <- occu(~ date ~ Route, data = lisyl.data)
-mDA <- occu(~ date ~ Agriculture, data = lisyl.data)
-mDS <- occu(~ date ~ Site, data = lisyl.data)
+mDH <- occu(~ date ~ Humide, data = licat.data)
+mDE <- occu(~ date ~ Eau, data = licat.data)
+mDR <- occu(~ date ~ Route, data = licat.data)
+mDA <- occu(~ date ~ Agriculture, data = licat.data)
+mDS <- occu(~ date ~ Site, data = licat.data)
 ```
 
 Tableau de tous les modèles avec le poid AIC
 ```{r, modèles candidats}
-Cands <- list(m0, mQH, mQE, mQR, mQA, mQS, mPH, mPE, mPR, mPA, mPS, mHH, mHE, mHR, mHA, mHS, mDH, mDE, mDR, mDA, mDS)
+Cands <- list(m0, mQH, mQE, mQR, mQA, mQS, mPH, mPE, mPR, mPA, mPS, mAH, mAE, mAR, mAA, mAS, mDH, mDE, mDR, mDA, mDS)
 
 ##Donner les noms significaifs aux modèles
-Model.names <- c("nul","psi(Milieux humides)p(Qualité)", "psi(Eau libre)p(Qualité)", "psi(Route)p(Qualité)", "psi(Agriculture)p(Qualité)", "psi(Site)p(Qualité)", "psi(Milieux humides)p(Perturb)", "psi(Eau libre)p(Perturb)", "psi(Route)p(Perturb)", "psi(Agriculture)p(Perturb)", "psi(Site)p(Perturb)", "psi(Milieux humides)p(Heure)", "psi(Eau libre)p(Heure)", "psi(Route)p(Heure)", "psi(Agriculture)p(Heure)", "psi(Site)p(Heure)", "psi(Milieux humides)p(Date)", "psi(Eau libre)p(Date)", "psi(Route)p(Date)", "psi(Agriculture)p(Date)", "psi(Site)p(Date)") 
+Model.names <- c("nul","psi(Milieux humides)p(Qualité)", "psi(Eau libre)p(Qualité)", "psi(Route)p(Qualité)", "psi(Agriculture)p(Qualité)", "psi(Site)p(Qualité)", "psi(Milieux humides)p(Perturb)", "psi(Eau libre)p(Perturb)", "psi(Route)p(Perturb)", "psi(Agriculture)p(Perturb)", "psi(Site)p(Perturb)", "psi(Milieux humides)p(Année)", "psi(Eau libre)p(Année)", "psi(Route)p(Année)", "psi(Agriculture)p(Année)", "psi(Site)p(Année)", "psi(Milieux humides)p(Date)", "psi(Eau libre)p(Date)", "psi(Route)p(Date)", "psi(Agriculture)p(Date)", "psi(Site)p(Date)") 
 
 ##do model selection based on AICc 
 aictab(cand.set = Cands,  modnames = Model.names)
 ```
 
 ### Vérification ajustement du modèle
-Modèle avec le plus de poid est celui avec **Route** et **Date**
+Modèle avec le plus de poid est celui avec **Route** et **Qualité**
 ```{r, modèle avec plus de poid}
-mDR
+mQR
 ```
 Code ajustement du modèle
 ```{r, ajustement du modèle, eval = FALSE}
-ajust <- mb.gof.test(mDR, nsim = 5000, plot.hist=T)
-save(ajust, file = "lisyl_ajust_gof.Rdata")
+ajust <- mb.gof.test(mQR, nsim = 5000, plot.hist=T)
+save(ajust, file = "licat_ajust_gof.Rdata")
 ```
 Le mb.gof.test produit vraiment beaucoup de ces warning: producedWarning: NAs. Est-ce que c'est grave?
 
 ```{r, résultat ajustement}
-load("lisyl_ajust_gof.Rdata")
+load("licat_ajust_gof.Rdata")
 ajust
 ```
 ##### Refaire la sélection de modèles avec ajustement

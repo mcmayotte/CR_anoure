@@ -173,6 +173,9 @@ occupation_anoure$Eau <- occupation_anoure$`Eau peu profonde` + occupation_anour
 occupation_anoure$Humide <- occupation_anoure$Marecage + occupation_anoure$`Milieu humide` + occupation_anoure$Tourbiere
 occupation_anoure <- subset(occupation_anoure, select = c(Enregistre, Total, Agriculture, Eau, Humide, Type)) 
 colnames(occupation_anoure) <- c("Enregistre", "Route", "Agriculture", "Eau", "Humide", "Site")
+
+occupation_licat <- rbind(occupation_anoure, occupation_anoure)
+
 #------------------------------
 # tableaux variables réponses
 #------------------------------
@@ -643,6 +646,7 @@ jj_lisyl <- subset(jj_lisyl, select = c(V1, V2, V3, V4))
 write.csv(anoure, 'donnees/anoure_nett.csv', row.names = FALSE)
 #write.csv(routes, 'donnees/routes_nett.csv', row.names = FALSE)
 write.csv(occupation_anoure, 'donnees/donnees_occupation.csv', row.names = FALSE)
+write.csv(occupation_licat, 'donnees/donnees_occupation_licat.csv', row.names = FALSE)
 
 write.csv(licat, 'donnees/licat.csv', row.names = FALSE)
 write.csv(lisyl, 'donnees/lisyl.csv', row.names = FALSE)
