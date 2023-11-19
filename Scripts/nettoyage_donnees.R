@@ -274,6 +274,18 @@ colnames(licat_22_1h) <- c("V1", "V2", "V3", "V4", "V5", "V6", "V7", "V8", "V9")
 
 licat <- rbind(licat_21_1h, licat_22_1h)
 
+#Présence
+licat$V1 <- ifelse(licat$V1 > 0.5, 1, 0)
+licat$V2 <- ifelse(licat$V2 > 0.5, 1, 0)
+licat$V3 <- ifelse(licat$V3 > 0.5, 1, 0)
+licat$V4 <- ifelse(licat$V4 > 0.5, 1, 0)
+licat$V5 <- ifelse(licat$V5 > 0.5, 1, 0)
+licat$V6 <- ifelse(licat$V6 > 0.5, 1, 0)
+licat$V7 <- ifelse(licat$V7 > 0.5, 1, 0)
+licat$V8 <- ifelse(licat$V8 > 0.5, 1, 0)
+licat$V9 <- ifelse(licat$V9 > 0.5, 1, 0)
+
+
 ### CRÉÉER TABLEAU LSYL 2022 ###
 lisyl_22_21h <- subset(anoure_2022, anoure_2022$Time24H == "2100", select = c(Site, jour_julien, LISYL))
 lisyl_22_21h <- spread(lisyl_22_21h, jour_julien, LISYL)

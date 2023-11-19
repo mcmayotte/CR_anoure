@@ -29,18 +29,22 @@ jj_licat <- read.csv('donnees/jj_licat.csv', header =T)
 Les observations sont à 1 h en 2021 et 2022. Les visites à 15 h et 21 h n'ont pas été utilisé puisqu'il n'y avait qu'une à trois observations
 
 Nombre d'observations 2021: 43
+
 Nombre d'observations 2022: 32
 
 Nombre de sites où l'espèce est observée 2021: 14
+
 Nombre de sites où l'espèce est observée 2022: 15
 
 Dates de visites (quand l'espèce est active) 2021: 27 mai au 7 juillet
+
 Dates de visites (quand l'espèce est active) 2021: 25 mai au 20 juillet
 ```{r structure tableau licat}
 str(licat)
 ```
 
 ## Variables de détection
+Mêmes variables que pour la grenouille des bois, mais
 * **Année**: 2021 ou 2022 au lieu de **Heure**
 
 ### Corrélation des variables
@@ -115,17 +119,9 @@ Code ajustement du modèle
 ajust <- mb.gof.test(mQR, nsim = 5000, plot.hist=T)
 save(ajust, file = "licat_ajust_gof.Rdata")
 ```
-Le mb.gof.test produit vraiment beaucoup de ces warning: producedWarning: NAs. Est-ce que c'est grave?
 
 ```{r, résultat ajustement}
 load("licat_ajust_gof.Rdata")
 ajust
 ```
-##### Refaire la sélection de modèles avec ajustement
-
-Le warning de R dit que je dois garder 1 si le c.hat est inférieur à 1:
-
-*Error in AICc.unmarkedFit(X[[i]], ...) : 
-You should set 'c.hat' to 1 if < 1, but values << 1 might also indicate lack of fit*
-
-Ce qui revient aux même aictab qu'avant
+Pas besoin de réajuster le modèle puisque le c-hat (0.63) est < à 1
