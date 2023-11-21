@@ -446,7 +446,7 @@ d’agriculture</li>
 occupation$Agriculture &lt;- scale(occupation$Agriculture)
 occupation$Eau &lt;- scale(occupation$Eau)
 occupation$Humide &lt;- scale(occupation$Humide)
-colnames(occupation) &lt;- c(&#39;Enregistre&#39;, &#39;Route&#39;, &#39;Agriculture&#39;, &#39;Eau&#39;, &#39;Humide&#39;, &#39;Site&#39;, &#39;annee&#39;)
+occupation$Site &lt;- as.factor(occupation$Site)
 str(occupation)</code></pre>
 <pre><code>## &#39;data.frame&#39;:    52 obs. of  7 variables:
 ##  $ Enregistre : chr  &quot;C-foret&quot; &quot;C-lisiere&quot; &quot;E-foret&quot; &quot;E-lisiere&quot; ...
@@ -462,7 +462,7 @@ str(occupation)</code></pre>
 ##  $ Humide     : num [1:52, 1] 0.806 0.324 1.044 0.682 0.631 ...
 ##   ..- attr(*, &quot;scaled:center&quot;)= num 193579
 ##   ..- attr(*, &quot;scaled:scale&quot;)= num 85114
-##  $ Site       : chr  &quot;foret&quot; &quot;lisiere&quot; &quot;foret&quot; &quot;lisiere&quot; ...
+##  $ Site       : Factor w/ 2 levels &quot;foret&quot;,&quot;lisiere&quot;: 1 2 1 2 1 2 2 1 2 2 ...
 ##  $ annee      : int  2021 2021 2021 2021 2021 2021 2021 2021 2021 2021 ...</code></pre>
 </div>
 <div id="création-des-modèles" class="section level2">
@@ -665,6 +665,407 @@ ajust</code></pre>
 ## Estimate of c-hat = 0.63</code></pre>
 <p>Pas besoin de réajuster le modèle puisque le c-hat (0.63) est &lt; à
 1</p>
+</div>
+<div id="inférence-multimodèles" class="section level3">
+<h3>Inférence multimodèles</h3>
+<pre class="r"><code>evidence(aic.table = aictab(cand.set = Cands, modnames = Model.names))</code></pre>
+<pre><code>## 
+## Evidence ratio between models &#39;psi(Eau libre)p(Qualité)&#39; and &#39;psi(Route)p(Qualité)&#39;:
+## 1</code></pre>
+<pre class="r"><code>modavg(cand.set = Cands, modnames = Model.names, parm = &quot;Eau&quot;, parm.type = &quot;psi&quot;)</code></pre>
+<pre><code>## Warning in sqrt(diag(vcov(i))): NaNs produced
+
+## Warning in sqrt(diag(vcov(i))): NaNs produced
+
+## Warning in sqrt(diag(vcov(i))): NaNs produced
+
+## Warning in sqrt(diag(vcov(i))): NaNs produced</code></pre>
+<pre><code>## 
+## Multimodel inference on &quot;psi(Eau)&quot; based on AICc
+## 
+## AICc table used to obtain model-averaged estimate:
+## 
+##                          K   AICc Delta_AICc AICcWt Estimate   SE
+## psi(Eau libre)p(Qualité) 7 336.21       0.00      1    -0.47 0.32
+## psi(Eau libre)p(Perturb) 7 364.73      28.52      0    -0.14 0.32
+## psi(Eau libre)p(Année)   5 367.20      30.98      0    -0.14 0.31
+## psi(Eau libre)p(Date)    6 370.53      34.32      0    -0.02 0.32
+## 
+## Model-averaged estimate: -0.47 
+## Unconditional SE: 0.32 
+## 95% Unconditional confidence interval: -1.11, 0.17</code></pre>
+<pre class="r"><code>modavg(cand.set = Cands, modnames = Model.names, parm = &quot;Route&quot;, parm.type = &quot;psi&quot;)</code></pre>
+<pre><code>## Warning in sqrt(diag(vcov(i))): NaNs produced
+
+## Warning in sqrt(diag(vcov(i))): NaNs produced
+
+## Warning in sqrt(diag(vcov(i))): NaNs produced
+
+## Warning in sqrt(diag(vcov(i))): NaNs produced</code></pre>
+<pre><code>## 
+## Multimodel inference on &quot;psi(Route)&quot; based on AICc
+## 
+## AICc table used to obtain model-averaged estimate:
+## 
+##                      K   AICc Delta_AICc AICcWt Estimate   SE
+## psi(Route)p(Qualité) 7 336.22       0.00      1    -0.79 0.37
+## psi(Route)p(Perturb) 7 364.39      28.17      0    -0.17 0.32
+## psi(Route)p(Année)   5 366.89      30.67      0    -0.17 0.31
+## psi(Route)p(Date)    6 370.67      34.46      0    -0.13 0.32
+## 
+## Model-averaged estimate: -0.79 
+## Unconditional SE: 0.37 
+## 95% Unconditional confidence interval: -1.52, -0.05</code></pre>
+<pre class="r"><code>coef(mQE)</code></pre>
+<pre><code>##           psi(Int)           psi(Eau)         psi(annee)             p(Int) 
+##      -11.807227260       -0.470007745        0.006041349        1.845655811 
+##     p(qualitegood) p(qualitemoderate)           p(annee) 
+##        4.298057955        3.445293391       -0.003117992</code></pre>
+<pre class="r"><code>modavg(cand.set = Cands, modnames = Model.names, parm = &quot;qualitegood&quot;, parm.type = &quot;detect&quot;)</code></pre>
+<pre><code>## Warning in sqrt(diag(vcov(i))): NaNs produced
+
+## Warning in sqrt(diag(vcov(i))): NaNs produced
+
+## Warning in sqrt(diag(vcov(i))): NaNs produced
+
+## Warning in sqrt(diag(vcov(i))): NaNs produced
+
+## Warning in sqrt(diag(vcov(i))): NaNs produced</code></pre>
+<pre><code>## 
+## Multimodel inference on &quot;p(qualitegood)&quot; based on AICc
+## 
+## AICc table used to obtain model-averaged estimate:
+## 
+##                                K   AICc Delta_AICc AICcWt Estimate    SE
+## psi(Milieux humides)p(Qualité) 7 348.57      12.36   0.00     7.74 11.28
+## psi(Eau libre)p(Qualité)       7 336.21       0.00   0.43     4.30  1.52
+## psi(Route)p(Qualité)           7 336.22       0.01   0.43     8.28 11.66
+## psi(Agriculture)p(Qualité)     7 340.86       4.65   0.04     4.04  1.48
+## psi(Site)p(Qualité)            7 339.12       2.90   0.10     4.29  1.56
+## 
+## Model-averaged estimate: 5.99 
+## Unconditional SE: 7.97 
+## 95% Unconditional confidence interval: -9.62, 21.61</code></pre>
+<p>Si je comprend bien, le Model-average estimate (-0.47) représente la
+pente la plus probable considérant tous les modèles où les paramètre
+“eau” est présent? Donc la pente de la relation entre l’Eau libre et
+l’occupation de ouaouarons serait de -0,47?</p>
+<p>Pour la détection en fonction de la qualité de type good, la pente
+serait de 5.99? Ou est ce que c’est plutôt qu’on peut conclure que la
+détection est plus grande avec une qualité good que une qualité bad?</p>
+<p>Est-ce que j’ignore les warnings?</p>
+<div id="inférence-avec-shrinkage" class="section level4">
+<h4>Inférence avec shrinkage</h4>
+<pre class="r"><code>modavgShrink(cand.set = Cands, modnames = Model.names, parm = &quot;Eau&quot;, parm.type = &quot;psi&quot;)</code></pre>
+<pre><code>## Warning in modavgShrink.AICunmarkedFitOccu(cand.set = Cands, modnames = Model.names, : 
+## Variables do not appear with same frequency across models, proceed with caution</code></pre>
+<pre><code>## Warning in sqrt(diag(vcov(i))): NaNs produced
+
+## Warning in sqrt(diag(vcov(i))): NaNs produced
+
+## Warning in sqrt(diag(vcov(i))): NaNs produced
+
+## Warning in sqrt(diag(vcov(i))): NaNs produced
+
+## Warning in sqrt(diag(vcov(i))): NaNs produced
+
+## Warning in sqrt(diag(vcov(i))): NaNs produced
+
+## Warning in sqrt(diag(vcov(i))): NaNs produced
+
+## Warning in sqrt(diag(vcov(i))): NaNs produced
+
+## Warning in sqrt(diag(vcov(i))): NaNs produced
+
+## Warning in sqrt(diag(vcov(i))): NaNs produced
+
+## Warning in sqrt(diag(vcov(i))): NaNs produced
+
+## Warning in sqrt(diag(vcov(i))): NaNs produced
+
+## Warning in sqrt(diag(vcov(i))): NaNs produced
+
+## Warning in sqrt(diag(vcov(i))): NaNs produced
+
+## Warning in sqrt(diag(vcov(i))): NaNs produced
+
+## Warning in sqrt(diag(vcov(i))): NaNs produced
+
+## Warning in sqrt(diag(vcov(i))): NaNs produced
+
+## Warning in sqrt(diag(vcov(i))): NaNs produced
+
+## Warning in sqrt(diag(vcov(i))): NaNs produced
+
+## Warning in sqrt(diag(vcov(i))): NaNs produced
+
+## Warning in sqrt(diag(vcov(i))): NaNs produced</code></pre>
+<pre><code>## 
+## Multimodel inference on &quot;psi(Eau)&quot; based on AICc
+## 
+## AICc table used to obtain model-averaged estimate with shrinkage:
+## 
+##                                K   AICc Delta_AICc AICcWt Estimate   SE
+## nul                            4 365.58      29.37   0.00     0.00 0.00
+## psi(Milieux humides)p(Qualité) 7 348.57      12.36   0.00     0.00 0.00
+## psi(Eau libre)p(Qualité)       7 336.21       0.00   0.43    -0.47 0.32
+## psi(Route)p(Qualité)           7 336.22       0.01   0.43     0.00 0.00
+## psi(Agriculture)p(Qualité)     7 340.86       4.65   0.04     0.00 0.00
+## psi(Site)p(Qualité)            7 339.12       2.90   0.10     0.00 0.00
+## psi(Milieux humides)p(Perturb) 7 361.19      24.98   0.00     0.00 0.00
+## psi(Eau libre)p(Perturb)       7 364.73      28.52   0.00    -0.14 0.32
+## psi(Route)p(Perturb)           7 364.39      28.17   0.00     0.00 0.00
+## psi(Agriculture)p(Perturb)     7 361.82      25.60   0.00     0.00 0.00
+## psi(Site)p(Perturb)            7 365.53      29.32   0.00     0.00 0.00
+## psi(Milieux humides)p(Année)   5 363.45      27.24   0.00     0.00 0.00
+## psi(Eau libre)p(Année)         5 367.20      30.98   0.00    -0.14 0.31
+## psi(Route)p(Année)             5 366.89      30.67   0.00     0.00 0.00
+## psi(Agriculture)p(Année)       5 364.33      28.11   0.00     0.00 0.00
+## psi(Site)p(Année)              5 368.07      31.85   0.00     0.00 0.00
+## psi(Milieux humides)p(Date)    6 367.64      31.43   0.00     0.00 0.00
+## psi(Eau libre)p(Date)          6 370.53      34.32   0.00    -0.02 0.32
+## psi(Route)p(Date)              6 370.67      34.46   0.00     0.00 0.00
+## psi(Agriculture)p(Date)        6 368.54      32.33   0.00     0.00 0.00
+## psi(Site)p(Date)               6 370.50      34.28   0.00     0.00 0.00
+## 
+## Model-averaged estimate with shrinkage: -0.2 
+## Unconditional SE: 0.31 
+## 95% Unconditional confidence interval: -0.82, 0.42</code></pre>
+<pre class="r"><code>modavgShrink(cand.set = Cands, modnames = Model.names, parm = &quot;Route&quot;, parm.type = &quot;psi&quot;)</code></pre>
+<pre><code>## Warning in modavgShrink.AICunmarkedFitOccu(cand.set = Cands, modnames = Model.names, : 
+## Variables do not appear with same frequency across models, proceed with caution
+
+## Warning in modavgShrink.AICunmarkedFitOccu(cand.set = Cands, modnames = Model.names, : NaNs produced
+
+## Warning in modavgShrink.AICunmarkedFitOccu(cand.set = Cands, modnames = Model.names, : NaNs produced
+
+## Warning in modavgShrink.AICunmarkedFitOccu(cand.set = Cands, modnames = Model.names, : NaNs produced
+
+## Warning in modavgShrink.AICunmarkedFitOccu(cand.set = Cands, modnames = Model.names, : NaNs produced
+
+## Warning in modavgShrink.AICunmarkedFitOccu(cand.set = Cands, modnames = Model.names, : NaNs produced
+
+## Warning in modavgShrink.AICunmarkedFitOccu(cand.set = Cands, modnames = Model.names, : NaNs produced
+
+## Warning in modavgShrink.AICunmarkedFitOccu(cand.set = Cands, modnames = Model.names, : NaNs produced
+
+## Warning in modavgShrink.AICunmarkedFitOccu(cand.set = Cands, modnames = Model.names, : NaNs produced
+
+## Warning in modavgShrink.AICunmarkedFitOccu(cand.set = Cands, modnames = Model.names, : NaNs produced
+
+## Warning in modavgShrink.AICunmarkedFitOccu(cand.set = Cands, modnames = Model.names, : NaNs produced
+
+## Warning in modavgShrink.AICunmarkedFitOccu(cand.set = Cands, modnames = Model.names, : NaNs produced
+
+## Warning in modavgShrink.AICunmarkedFitOccu(cand.set = Cands, modnames = Model.names, : NaNs produced
+
+## Warning in modavgShrink.AICunmarkedFitOccu(cand.set = Cands, modnames = Model.names, : NaNs produced
+
+## Warning in modavgShrink.AICunmarkedFitOccu(cand.set = Cands, modnames = Model.names, : NaNs produced
+
+## Warning in modavgShrink.AICunmarkedFitOccu(cand.set = Cands, modnames = Model.names, : NaNs produced
+
+## Warning in modavgShrink.AICunmarkedFitOccu(cand.set = Cands, modnames = Model.names, : NaNs produced
+
+## Warning in modavgShrink.AICunmarkedFitOccu(cand.set = Cands, modnames = Model.names, : NaNs produced
+
+## Warning in modavgShrink.AICunmarkedFitOccu(cand.set = Cands, modnames = Model.names, : NaNs produced
+
+## Warning in modavgShrink.AICunmarkedFitOccu(cand.set = Cands, modnames = Model.names, : NaNs produced
+
+## Warning in modavgShrink.AICunmarkedFitOccu(cand.set = Cands, modnames = Model.names, : NaNs produced
+
+## Warning in modavgShrink.AICunmarkedFitOccu(cand.set = Cands, modnames = Model.names, : NaNs produced</code></pre>
+<pre><code>## 
+## Multimodel inference on &quot;psi(Route)&quot; based on AICc
+## 
+## AICc table used to obtain model-averaged estimate with shrinkage:
+## 
+##                                K   AICc Delta_AICc AICcWt Estimate   SE
+## nul                            4 365.58      29.37   0.00     0.00 0.00
+## psi(Milieux humides)p(Qualité) 7 348.57      12.36   0.00     0.00 0.00
+## psi(Eau libre)p(Qualité)       7 336.21       0.00   0.43     0.00 0.00
+## psi(Route)p(Qualité)           7 336.22       0.01   0.43    -0.79 0.37
+## psi(Agriculture)p(Qualité)     7 340.86       4.65   0.04     0.00 0.00
+## psi(Site)p(Qualité)            7 339.12       2.90   0.10     0.00 0.00
+## psi(Milieux humides)p(Perturb) 7 361.19      24.98   0.00     0.00 0.00
+## psi(Eau libre)p(Perturb)       7 364.73      28.52   0.00     0.00 0.00
+## psi(Route)p(Perturb)           7 364.39      28.17   0.00    -0.17 0.32
+## psi(Agriculture)p(Perturb)     7 361.82      25.60   0.00     0.00 0.00
+## psi(Site)p(Perturb)            7 365.53      29.32   0.00     0.00 0.00
+## psi(Milieux humides)p(Année)   5 363.45      27.24   0.00     0.00 0.00
+## psi(Eau libre)p(Année)         5 367.20      30.98   0.00     0.00 0.00
+## psi(Route)p(Année)             5 366.89      30.67   0.00    -0.17 0.31
+## psi(Agriculture)p(Année)       5 364.33      28.11   0.00     0.00 0.00
+## psi(Site)p(Année)              5 368.07      31.85   0.00     0.00 0.00
+## psi(Milieux humides)p(Date)    6 367.64      31.43   0.00     0.00 0.00
+## psi(Eau libre)p(Date)          6 370.53      34.32   0.00     0.00 0.00
+## psi(Route)p(Date)              6 370.67      34.46   0.00    -0.13 0.32
+## psi(Agriculture)p(Date)        6 368.54      32.33   0.00     0.00 0.00
+## psi(Site)p(Date)               6 370.50      34.28   0.00     0.00 0.00
+## 
+## Model-averaged estimate with shrinkage: -0.34 
+## Unconditional SE: 0.46 
+## 95% Unconditional confidence interval: -1.24, 0.57</code></pre>
+<pre class="r"><code>modavgShrink(cand.set = Cands, modnames = Model.names, parm = &quot;qualitegood&quot;, parm.type = &quot;detect&quot;)</code></pre>
+<pre><code>## Warning in modavgShrink.AICunmarkedFitOccu(cand.set = Cands, modnames = Model.names, : 
+## Variables do not appear with same frequency across models, proceed with caution
+
+## Warning in modavgShrink.AICunmarkedFitOccu(cand.set = Cands, modnames = Model.names, : NaNs produced
+
+## Warning in modavgShrink.AICunmarkedFitOccu(cand.set = Cands, modnames = Model.names, : NaNs produced
+
+## Warning in modavgShrink.AICunmarkedFitOccu(cand.set = Cands, modnames = Model.names, : NaNs produced
+
+## Warning in modavgShrink.AICunmarkedFitOccu(cand.set = Cands, modnames = Model.names, : NaNs produced
+
+## Warning in modavgShrink.AICunmarkedFitOccu(cand.set = Cands, modnames = Model.names, : NaNs produced
+
+## Warning in modavgShrink.AICunmarkedFitOccu(cand.set = Cands, modnames = Model.names, : NaNs produced
+
+## Warning in modavgShrink.AICunmarkedFitOccu(cand.set = Cands, modnames = Model.names, : NaNs produced
+
+## Warning in modavgShrink.AICunmarkedFitOccu(cand.set = Cands, modnames = Model.names, : NaNs produced
+
+## Warning in modavgShrink.AICunmarkedFitOccu(cand.set = Cands, modnames = Model.names, : NaNs produced
+
+## Warning in modavgShrink.AICunmarkedFitOccu(cand.set = Cands, modnames = Model.names, : NaNs produced
+
+## Warning in modavgShrink.AICunmarkedFitOccu(cand.set = Cands, modnames = Model.names, : NaNs produced
+
+## Warning in modavgShrink.AICunmarkedFitOccu(cand.set = Cands, modnames = Model.names, : NaNs produced
+
+## Warning in modavgShrink.AICunmarkedFitOccu(cand.set = Cands, modnames = Model.names, : NaNs produced
+
+## Warning in modavgShrink.AICunmarkedFitOccu(cand.set = Cands, modnames = Model.names, : NaNs produced
+
+## Warning in modavgShrink.AICunmarkedFitOccu(cand.set = Cands, modnames = Model.names, : NaNs produced
+
+## Warning in modavgShrink.AICunmarkedFitOccu(cand.set = Cands, modnames = Model.names, : NaNs produced
+
+## Warning in modavgShrink.AICunmarkedFitOccu(cand.set = Cands, modnames = Model.names, : NaNs produced
+
+## Warning in modavgShrink.AICunmarkedFitOccu(cand.set = Cands, modnames = Model.names, : NaNs produced
+
+## Warning in modavgShrink.AICunmarkedFitOccu(cand.set = Cands, modnames = Model.names, : NaNs produced
+
+## Warning in modavgShrink.AICunmarkedFitOccu(cand.set = Cands, modnames = Model.names, : NaNs produced
+
+## Warning in modavgShrink.AICunmarkedFitOccu(cand.set = Cands, modnames = Model.names, : NaNs produced</code></pre>
+<pre><code>## 
+## Multimodel inference on &quot;p(qualitegood)&quot; based on AICc
+## 
+## AICc table used to obtain model-averaged estimate with shrinkage:
+## 
+##                                K   AICc Delta_AICc AICcWt Estimate    SE
+## nul                            4 365.58      29.37   0.00     0.00  0.00
+## psi(Milieux humides)p(Qualité) 7 348.57      12.36   0.00     7.74 11.28
+## psi(Eau libre)p(Qualité)       7 336.21       0.00   0.43     4.30  1.52
+## psi(Route)p(Qualité)           7 336.22       0.01   0.43     8.28 11.66
+## psi(Agriculture)p(Qualité)     7 340.86       4.65   0.04     4.04  1.48
+## psi(Site)p(Qualité)            7 339.12       2.90   0.10     4.29  1.56
+## psi(Milieux humides)p(Perturb) 7 361.19      24.98   0.00     0.00  0.00
+## psi(Eau libre)p(Perturb)       7 364.73      28.52   0.00     0.00  0.00
+## psi(Route)p(Perturb)           7 364.39      28.17   0.00     0.00  0.00
+## psi(Agriculture)p(Perturb)     7 361.82      25.60   0.00     0.00  0.00
+## psi(Site)p(Perturb)            7 365.53      29.32   0.00     0.00  0.00
+## psi(Milieux humides)p(Année)   5 363.45      27.24   0.00     0.00  0.00
+## psi(Eau libre)p(Année)         5 367.20      30.98   0.00     0.00  0.00
+## psi(Route)p(Année)             5 366.89      30.67   0.00     0.00  0.00
+## psi(Agriculture)p(Année)       5 364.33      28.11   0.00     0.00  0.00
+## psi(Site)p(Année)              5 368.07      31.85   0.00     0.00  0.00
+## psi(Milieux humides)p(Date)    6 367.64      31.43   0.00     0.00  0.00
+## psi(Eau libre)p(Date)          6 370.53      34.32   0.00     0.00  0.00
+## psi(Route)p(Date)              6 370.67      34.46   0.00     0.00  0.00
+## psi(Agriculture)p(Date)        6 368.54      32.33   0.00     0.00  0.00
+## psi(Site)p(Date)               6 370.50      34.28   0.00     0.00  0.00
+## 
+## Model-averaged estimate with shrinkage: 5.99 
+## Unconditional SE: 7.97 
+## 95% Unconditional confidence interval: -9.62, 21.61</code></pre>
+<p>Le estimate est de -0.2 ici, donc c’est plus faible qu’en utilisant
+modavg seulement, mais le résultat pour Qualité ne change pas. Je suis
+mieux de grder shrink au lieu de modavg seulement étant donnée que mes
+modèles n’ont pas la majorité du poids?</p>
+<pre class="r"><code>##data frame to make predictions
+##all variables are held constant, except Shade
+extractX(cand.set = Cands, modnames = Model.names, parm.type = &quot;psi&quot;)</code></pre>
+<pre><code>## 
+## Predictors appearing in candidate models:
+## annee    Humide    Eau    Route    Agriculture    Site
+## 
+## Structure of predictors in obsCovs:
+##  $ annee: int  2021 2021 2021 2021 2021 2021 2021 NA NA 2021 ...
+## 
+## Structure of predictors in siteCovs:
+##  $ annee      : int  2021 2021 2021 2021 2021 2021 2021 2021 2021 2021 ...
+##  $ Humide     : num [1:52, 1] 0.806 0.324 1.044 0.682 0.631 ...
+##   ..- attr(*, &quot;scaled:center&quot;)= num 193579
+##   ..- attr(*, &quot;scaled:scale&quot;)= num 85114
+##  $ Eau        : num [1:52, 1] -0.507 -0.507 -0.507 -0.507 1.477 ...
+##   ..- attr(*, &quot;scaled:center&quot;)= num 15236
+##   ..- attr(*, &quot;scaled:scale&quot;)= num 30074
+##  $ Route      : num [1:52, 1] -0.534 1.266 -0.534 1.204 -0.534 ...
+##   ..- attr(*, &quot;scaled:center&quot;)= num 161
+##   ..- attr(*, &quot;scaled:scale&quot;)= num 302
+##  $ Agriculture: num [1:52, 1] -0.904 0.488 -1.358 -1.225 -1.382 ...
+##   ..- attr(*, &quot;scaled:center&quot;)= num 46507
+##   ..- attr(*, &quot;scaled:scale&quot;)= num 33643
+##  $ Site       : Factor w/ 2 levels &quot;foret&quot;,&quot;lisiere&quot;: 1 2 1 2 1 2 2 1 2 2 ...</code></pre>
+<pre class="r"><code>predData &lt;- data.frame(annee = c(0,0),
+Eau = c(0, 1),
+Humide = c(0, 0),
+Route = c(0, 0),
+Agriculture = c(0, 0),
+Site = factor(&quot;lisiere&quot;,
+              levels = levels(occupation$Site))
+)
+##predictions from global model
+#predict(mQE, newdata = predData, se.fit = TRUE, type = &quot;link&quot;)
+
+modavgPred(cand.set = Cands, modnames = Model.names, newdata = predData, parm.type = &quot;psi&quot;)</code></pre>
+<pre><code>## Warning in sqrt(diag(v)): NaNs produced
+
+## Warning in sqrt(diag(v)): NaNs produced
+
+## Warning in sqrt(diag(v)): NaNs produced
+
+## Warning in sqrt(diag(v)): NaNs produced
+
+## Warning in sqrt(diag(v)): NaNs produced
+
+## Warning in sqrt(diag(v)): NaNs produced
+
+## Warning in sqrt(diag(v)): NaNs produced
+
+## Warning in sqrt(diag(v)): NaNs produced
+
+## Warning in sqrt(diag(v)): NaNs produced
+
+## Warning in sqrt(diag(v)): NaNs produced
+
+## Warning in sqrt(diag(v)): NaNs produced
+
+## Warning in sqrt(diag(v)): NaNs produced
+
+## Warning in sqrt(diag(v)): NaNs produced
+
+## Warning in sqrt(diag(v)): NaNs produced
+
+## Warning in sqrt(diag(v)): NaNs produced
+
+## Warning in sqrt(diag(v)): NaNs produced</code></pre>
+<pre><code>## 
+## Model-averaged predictions on the response scale
+## based on entire model set and 95% confidence interval:
+## 
+##   mod.avg.pred uncond.se lower.CL upper.CL
+## 1            0       NaN      NaN      NaN
+## 2            0       NaN      NaN      NaN</code></pre>
+<p>Je ne comprend pas comment utiliser les prédictions. Je ne sais pas
+si je fais mal mon tableau predData??Je pense aussi que je vais avoir
+besoin de ça pour créer des figures?</p>
+</div>
 </div>
 </div>
 </div>

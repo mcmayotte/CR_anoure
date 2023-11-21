@@ -49,6 +49,7 @@ str(licat)
 * **Date de l'enregistrement**: en jour julien
 * **Année**: 2021 ou 2022
 
+
 ```{r correlation annee date}
 str(jj_licat)
 str(annee_licat)
@@ -73,7 +74,7 @@ occupation$Route <- scale(occupation$Route)
 occupation$Agriculture <- scale(occupation$Agriculture)
 occupation$Eau <- scale(occupation$Eau)
 occupation$Humide <- scale(occupation$Humide)
-colnames(occupation) <- c('Enregistre', 'Route', 'Agriculture', 'Eau', 'Humide', 'Site', 'annee')
+occupation$Site <- as.factor(occupation$Site)
 str(occupation)
 ```
 
@@ -146,3 +147,46 @@ load("licat_ajust_gof.Rdata")
 ajust
 ```
 Pas besoin de réajuster le modèle puisque le c-hat (0.63) est < à 1
+
+### Inférence multimodèles
+
+```{r inférence multimodèle}
+evidence(aic.table = aictab(cand.set = Cands, modnames = Model.names))
+modavg(cand.set = Cands, modnames = Model.names, parm = "Eau", parm.type = "psi")
+modavg(cand.set = Cands, modnames = Model.names, parm = "Route", parm.type = "psi")
+coef(mQE)
+modavg(cand.set = Cands, modnames = Model.names, parm = "qualitegood", parm.type = "detect")
+```
+Si je comprend bien, le Model-average estimate (-0.47) représente la pente la plus probable considérant tous les modèles où les paramètre "eau" est présent? Donc la pente de la relation entre l'Eau libre et l'occupation de ouaouarons serait de -0,47?
+
+Pour la détection en fonction de la qualité de type good, la pente serait de 5.99? Ou est ce que c'est plutôt qu'on peut conclure que la détection est plus grande avec une qualité good que une qualité bad?
+
+Est-ce que j'ignore les warnings?
+
+#### Inférence avec shrinkage
+```{r inférence multimodèle avec SHRINK}
+modavgShrink(cand.set = Cands, modnames = Model.names, parm = "Eau", parm.type = "psi")
+modavgShrink(cand.set = Cands, modnames = Model.names, parm = "Route", parm.type = "psi")
+modavgShrink(cand.set = Cands, modnames = Model.names, parm = "qualitegood", parm.type = "detect")
+```
+
+Le estimate est de -0.2 ici, donc c'est plus faible qu'en utilisant modavg seulement, mais le résultat pour Qualité ne change pas. Je suis mieux de grder shrink au lieu de modavg seulement étant donnée que mes modèles n'ont pas la majorité du poids?
+
+```{r predictions}
+##data frame to make predictions
+##all variables are held constant, except Shade
+extractX(cand.set = Cands, modnames = Model.names, parm.type = "psi")
+predData <- data.frame(annee = c(0,0),
+Eau = c(0, 1),
+Humide = c(0, 0),
+Route = c(0, 0),
+Agriculture = c(0, 0),
+Site = factor("lisiere",
+              levels = levels(occupation$Site))
+)
+##predictions from global model
+#predict(mQE, newdata = predData, se.fit = TRUE, type = "link")
+
+modavgPred(cand.set = Cands, modnames = Model.names, newdata = predData, parm.type = "psi")
+```
+Je ne comprend pas comment utiliser les prédictions. Je ne sais pas si je fais mal mon tableau predData??Je pense aussi que je vais avoir besoin de ça pour créer des figures?
