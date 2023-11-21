@@ -25,7 +25,7 @@ jj_licat <- read.csv('donnees/jj_licat.csv', header =T)
 
 # Ouaouaron
 
-## Variable réponse (Présence ou absence de la grenouille des bois)
+## Variable réponse (Présence ou absence du ouaouaron)
 Les observations sont à 1 h en 2021 et 2022. Les visites à 15 h et 21 h n'ont pas été utilisé puisqu'il n'y avait qu'une à trois observations
 
 Nombre d'observations 2021: 43
@@ -44,10 +44,10 @@ str(licat)
 ```
 
 ## Variables de détection
-Mêmes variables que pour la grenouille des bois, mais
-* **Année**: 2021 ou 2022 au lieu de **Heure**
-
-### Corrélation des variables
+* **Types de Perturbation** : Human, meteo ou none
+* **Qualité de l'enregistrement** : Good, moderate ou bad
+* **Date de l'enregistrement**: en jour julien
+* **Année**: 2021 ou 2022
 
 ```{r correlation annee date}
 str(jj_licat)
@@ -55,7 +55,11 @@ str(annee_licat)
 ```
 
 ## Variables d'occupation
-Mêmes variables que pour la grenouille des bois
+* **Milieux humide** : Regroupement de Milieu humide, Tourbières et Marécage (à partir de la couche de milieu humide)
+* **Eau libre** : Regroupement de Marais, Lac, Eau peu profonde et Eau (à partir de la couche de milieu humide et la couche d'utilisation du territoire)
+* **Route** : Nombre de km de route total
+* **Agriculture** : Regroupement de tous les types d'agriculture
+* **Site** : Si le site est en lisière ou en forêt (donnée prise lors de la pause des enregistreurs) 
 
 ## Création des modèles
 Création du tableau de données pour le package unmarked
@@ -110,9 +114,10 @@ aictab(cand.set = Cands,  modnames = Model.names)
 ```
 
 ### Vérification ajustement du modèle
-Modèle avec le plus de poid est celui avec **Route** et **Qualité**
+Modèles avec tout le poid sont celui avec **Route** et **Qualité** et celui avec **Site** et **Qualité**
 ```{r, modèle avec plus de poid}
 mQR
+mQS
 ```
 Code ajustement du modèle
 ```{r, ajustement du modèle, eval = FALSE}

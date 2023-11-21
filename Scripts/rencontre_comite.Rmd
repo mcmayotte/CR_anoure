@@ -1,0 +1,281 @@
+---
+title: Analyse crédits de recherche
+output:
+  html_document: default
+  pdf_document: default
+---
+```{r lecture données, echo = FALSE}
+setwd("~/Desktop/Credits_recherche/CR_anoure")
+anoure <- read.csv('donnees/anoure_nett.csv', header = T)
+library(unmarked)
+library(AICcmodavg)
+
+#Données réponse
+licat <- read.csv('donnees/licat.csv', header = T)
+lisyl <- read.csv('donnees/lisyl.csv', header = T)
+
+#Données occupation
+occupation_lisyl <- read.csv("donnees/donnees_occupation.csv", header = T)
+occupation_licat <- read.csv("donnees/donnees_occupation_licat.csv", header = T)
+
+#Données détection lisyl
+qualite_lisyl <- read.csv('donnees/qualite_lisyl.csv', header = T)
+perturb_lisyl <- read.csv('donnees/disturb_lisyl.csv', header = T)
+heure_lisyl <- read.csv('donnees/heure_lisyl.csv', header = T)
+jj_lisyl <- read.csv('donnees/jj_lisyl.csv', header =T)
+
+#Données détection licat
+qualite_licat <- read.csv('donnees/qualite_licat.csv', header = T)
+perturb_licat <- read.csv('donnees/disturb_licat.csv', header = T)
+annee_licat <- read.csv('donnees/annee_licat.csv', header = T)
+jj_licat <- read.csv('donnees/jj_licat.csv', header =T)
+```
+
+# Rappel du projet
+
+## Méthode
+Des enregistreurs ont été placés sur 26 étangs de reproductions d'anoures et ils ont été opérationnels du 5 mai 2021 au 13 juillet 2021 et du 19 avril 2022 au 27 juillet 2022. Des enregistrements de 3 minutes ont eu lieux à 15h, à 21h et à 1h à chaque semaine. Chaque enregistrement a été écouté et pour chacun j'ai noté le site, la date, l’heure, la qualité de l'enregistrement, la principale perturbation sonore ainsi que la présence ou absence de chaque espèce.
+
+Autour de chaque site, une zone tampon d'un rayon de 300 m a été délimité puisque c'est la moyenne de distance parcourue par les anoures. Sur QGIS, j'ai utilisé les couches gouvernementales d'utilisation du territoire, de réseu routier et de milieux humides potentiels pour obtenir les superficies de recouvrement des différents types de milieux.
+
+## Objectifs
+* Évaluer les relations entre les variables environnementales et la probabilité d'occupation des espèces d’anoures dans différents étangs de reproduction. 
+
+* Déterminer quelle variable ou quel ensemble de variables environnementales influence le plus la probabilité d'occupation de chaque espèce d’anoure
+
+## Hypothèses
+Je n'ai pas pus aller sur le terrain finalement et peu de variables pouvaient être utilisées pour les différents modèles alors j'ai du changer mes hypothèses. De plus, j'ai du utiliser la présence au lieu de l'abondance dans les modèles statistiques. Voici mes hypothèses modifiées compte tenu des restrictions :
+
+* 1.1 La présence de milieux humides en périphérie des étangs de reproduction augmente la présence d'anoures
+
+* 1.2 Les milieux humides avec de l'eau permanente favorisent la présence d’anoures avec un long stade larvaire puisque les larves de certaines espèces doivent rester jusqu’à deux saisons dans l’eau avant la métamorphose. 
+
+* 1.3 La présence de site agricoles en périphérie des étangs de reproduction réduit la présence d'anoures
+
+* 1.4 la présence de routes en périphérie des étangs réduit l’abondance d’anoures puisqu’elles sont une cause de mortalité importante 
+
+Hypothèses de détection???
+
+# Analyse statistique 
+L'analyse statistique est faite à partir du package `unmarked`
+
+Les modèles prennent en compte la *probabilité de détection* qui varie selon les conditions de l'échantillonnage, et la *probabilité d'occupation* qui varie selon les caractéristiques du site et du paysage.
+
+## Variable réponse (présence ou absence)
+Les deux seules espèces ayant un nombre d'observation suffisant et n'étaient pas présentes dans tous les sites sont la *grenouille des bois* et le *ouaouaron*. Ce sont donc les deux espèces utilisées dans l'analyse
+
+### Grenouille des bois 
+Les données sont celles de 2022 seulement puisqu'il n'y a aucune observation en 2021 (les enregistrements ont commencé trop tard). Les observations de l'espèce ont eu lieu à 21h et à 1h. 
+
+Nombre d'observations: 25
+
+Nombre de sites où l'espèce est observée : 11
+
+Dates de visites (quand l'espèce est active): 20 avril au 27 avril
+```{r structure tableau lisyl}
+str(lisyl)
+```
+
+### Ouaouaron 
+Les observations sont à 1 h en 2021 et 2022. Les visites à 15 h et 21 h n'ont pas été utilisé puisqu'il n'y avait qu'une à trois observations
+
+Nombre d'observations 2021: 43
+
+Nombre d'observations 2022: 32
+
+Nombre de sites où l'espèce est observée 2021: 14
+
+Nombre de sites où l'espèce est observée 2022: 15
+
+Dates de visites (quand l'espèce est active) 2021: 27 mai au 7 juillet
+
+Dates de visites (quand l'espèce est active) 2021: 25 mai au 20 juillet
+```{r structure tableau licat}
+str(licat)
+```
+
+## Variables de détection
+* **Types de Perturbation** : Human, meteo ou none
+* **Qualité de l'enregistrement** : Good, moderate ou bad
+* **Heure de l'enregistrement** (pour la grenouilles des bois seulement): 21h ou 1h
+* **Année de l'enregistrement** (pour le ouaouaron seulement) : 2021 ou 2022
+* **Date de l'enregistrement**: en jour julien
+
+```{r correlation heure date, lisyl}
+str(jj_lisyl)
+str(heure_lisyl)
+```
+
+```{r correlation année date, licat}
+str(jj_licat)
+str(annee_licat)
+```
+
+### Corrélation des variables
+```{r correlation}
+table(anoure$RecordingQuality, anoure$DisturbanceType)
+```
+
+## Variables d'occupation
+Obtenues à artir de couches qgis
+
+* **Milieux humide** : Regroupement de Milieu humide, Tourbières et Marécage (à partir de la couche de milieu humide)
+* **Eau libre** : Regroupement de Marais, Lac, Eau peu profonde et Eau (à partir de la couche de milieu humide et la couche d'utilisation du territoire)
+* **Route** : Nombre de km de route total
+* **Agriculture** : Regroupement de tous les types d'agriculture
+* **Site** : Si le site est en lisière ou en forêt (donnée prise lors de la pause des enregistreurs) 
+
+```{r structure tableau occ}
+str(occupation_lisyl)
+```
+
+### Corrélation des variables
+```{r corrélation occupation}
+plot(occupation_lisyl)
+```
+
+## Création des modèles pour la grenouille des bois
+Création du tableau de données pour le package unmarked
+```{r, data lisyl}
+lisyl.data <- unmarkedFrameOccu(y = lisyl, siteCovs = occupation_lisyl, obsCovs = list(disturbance = perturb_lisyl, qualite = qualite_lisyl, heure = heure_lisyl, date = jj_lisyl))
+summary(lisyl.data)
+```
+
+Modèles
+```{r modèles lisyl}
+#Détectabilité et occupation constante
+mb0 <- occu(~ 1 ~ 1, data = lisyl.data)
+
+##Détectabilité varie selon la qualité de l'enregistrement et l'occupation varie selon...
+mbQH <- occu(~ qualite ~ Humide, data = lisyl.data)
+mbQE <- occu(~ qualite ~ Eau, data = lisyl.data)
+mbQR <- occu(~ qualite ~ Route, data = lisyl.data)
+mbQA <- occu(~ qualite ~ Agriculture, data = lisyl.data)
+mbQS <- occu(~ qualite ~ Site, data = lisyl.data)
+
+##Détectabilité varie selon le type de perturbation et occupation varie selon ...
+mbPH <- occu(~ disturbance ~ Humide, data = lisyl.data)
+mbPE <- occu(~ disturbance ~ Eau, data = lisyl.data)
+mbPR <- occu(~ disturbance ~ Route, data = lisyl.data)
+mbPA <- occu(~ disturbance ~ Agriculture, data = lisyl.data)
+mbPS <- occu(~ disturbance ~ Site, data = lisyl.data)
+
+##Détectabilité varie selon l'heure et occupation varie selon ...
+mbHH <- occu(~ heure ~ Humide, data = lisyl.data)
+mbHE <- occu(~ heure ~ Eau, data = lisyl.data)
+mbHR <- occu(~ heure ~ Route, data = lisyl.data)
+mbHA <- occu(~ heure ~ Agriculture, data = lisyl.data)
+mbHS <- occu(~ heure ~ Site, data = lisyl.data)
+
+##Détectabilité varie selon les jours juliens et occupation varie selon ...
+mbDH <- occu(~ date ~ Humide, data = lisyl.data)
+mbDE <- occu(~ date ~ Eau, data = lisyl.data)
+mbDR <- occu(~ date ~ Route, data = lisyl.data)
+mbDA <- occu(~ date ~ Agriculture, data = lisyl.data)
+mbDS <- occu(~ date ~ Site, data = lisyl.data)
+```
+
+Tableau de tous les modèles avec le poid AIC
+```{r, modèles candidats lisyl}
+Cands <- list(mb0, mbQH, mbQE, mbQR, mbQA, mbQS, mbPH, mbPE, mbPR, mbPA, mbPS, mbHH, mbHE, mbHR, mbHA, mbHS, mbDH, mbDE, mbDR, mbDA, mbDS)
+
+##Donner les noms significaifs aux modèles
+Model.names <- c("nul","psi(Milieux humides)p(Qualité)", "psi(Eau libre)p(Qualité)", "psi(Route)p(Qualité)", "psi(Agriculture)p(Qualité)", "psi(Site)p(Qualité)", "psi(Milieux humides)p(Perturb)", "psi(Eau libre)p(Perturb)", "psi(Route)p(Perturb)", "psi(Agriculture)p(Perturb)", "psi(Site)p(Perturb)", "psi(Milieux humides)p(Heure)", "psi(Eau libre)p(Heure)", "psi(Route)p(Heure)", "psi(Agriculture)p(Heure)", "psi(Site)p(Heure)", "psi(Milieux humides)p(Date)", "psi(Eau libre)p(Date)", "psi(Route)p(Date)", "psi(Agriculture)p(Date)", "psi(Site)p(Date)") 
+
+##do model selection based on AICc 
+aictab(cand.set = Cands,  modnames = Model.names)
+```
+INTERPRETER
+### Vérification ajustement du modèle
+Modèle avec le plus de poid est celui avec **Route** et **Date**
+```{r, modèle avec plus de poid lisyl}
+mbDR
+```
+Code ajustement du modèle
+```{r, ajustement du modèle lisyl, eval = FALSE}
+ajust <- mb.gof.test(mbDR, nsim = 5000, plot.hist=T)
+save(ajust, file = "lisyl_ajust_gof.Rdata")
+```
+Le mb.gof.test produit vraiment beaucoup de ces warning: producedWarning: NAs. Est-ce que c'est grave?
+
+```{r, résultat ajustement lisyl}
+load("lisyl_ajust_gof.Rdata")
+ajust
+```
+Pas besoin de réajuster le modèle puisque le c-hat (0.77) est < à 1
+
+## Création des modèles pour le ouaouaron
+Création du tableau de données pour le package unmarked
+```{r data licat}
+licat.data <- unmarkedFrameOccu(y = licat, siteCovs = occupation_licat, obsCovs = list(disturbance = perturb_licat, qualite = qualite_licat, annee = annee_licat, date = jj_licat))
+summary(licat.data)
+```
+
+Modèles
+```{r modèles licat}
+#Détectabilité et occupation constante
+mo0 <- occu(~ 1 ~ 1, data = licat.data)
+
+##Détectabilité varie selon la qualité de l'enregistrement et l'occupation varie selon...
+moQH <- occu(~ qualite ~ Humide, data = licat.data)
+moQE <- occu(~ qualite ~ Eau, data = licat.data)
+moQR <- occu(~ qualite ~ Route, data = licat.data)
+moQA <- occu(~ qualite ~ Agriculture, data = licat.data)
+moQS <- occu(~ qualite ~ Site, data = licat.data)
+
+##Détectabilité varie selon le type de perturbation et occupation varie selon ...
+moPH <- occu(~ disturbance ~ Humide, data = licat.data)
+moPE <- occu(~ disturbance ~ Eau, data = licat.data)
+moPR <- occu(~ disturbance ~ Route, data = licat.data)
+moPA <- occu(~ disturbance ~ Agriculture, data = licat.data)
+moPS <- occu(~ disturbance ~ Site, data = licat.data)
+
+##Détectabilité varie selon l'année et occupation varie selon ...
+moAH <- occu(~ annee ~ Humide, data = licat.data)
+moAE <- occu(~ annee ~ Eau, data = licat.data)
+moAR <- occu(~ annee ~ Route, data = licat.data)
+moAA <- occu(~ annee ~ Agriculture, data = licat.data)
+moAS <- occu(~ annee ~ Site, data = licat.data)
+
+##Détectabilité varie selon les jours juliens et occupation varie selon ...
+moDH <- occu(~ date ~ Humide, data = licat.data)
+moDE <- occu(~ date ~ Eau, data = licat.data)
+moDR <- occu(~ date ~ Route, data = licat.data)
+moDA <- occu(~ date ~ Agriculture, data = licat.data)
+moDS <- occu(~ date ~ Site, data = licat.data)
+```
+
+Tableau de tous les modèles avec le poid AIC
+```{r, modèles candidats licat}
+Cands <- list(mo0, moQH, moQE, moQR, moQA, moQS, moPH, moPE, moPR, moPA, moPS, moAH, moAE, moAR, moAA, moAS, moDH, moDE, moDR, moDA, moDS)
+
+##Donner les noms significaifs aux modèles
+Model.names <- c("nul","psi(Milieux humides)p(Qualité)", "psi(Eau libre)p(Qualité)", "psi(Route)p(Qualité)", "psi(Agriculture)p(Qualité)", "psi(Site)p(Qualité)", "psi(Milieux humides)p(Perturb)", "psi(Eau libre)p(Perturb)", "psi(Route)p(Perturb)", "psi(Agriculture)p(Perturb)", "psi(Site)p(Perturb)", "psi(Milieux humides)p(Année)", "psi(Eau libre)p(Année)", "psi(Route)p(Année)", "psi(Agriculture)p(Année)", "psi(Site)p(Année)", "psi(Milieux humides)p(Date)", "psi(Eau libre)p(Date)", "psi(Route)p(Date)", "psi(Agriculture)p(Date)", "psi(Site)p(Date)") 
+
+##do model selection based on AICc 
+aictab(cand.set = Cands,  modnames = Model.names)
+```
+
+### Vérification ajustement du modèle
+Modèles avec tout le poid sont celui avec **Route** et **Qualité** et celui avec **Site** et **Qualité**
+```{r, modèle avec plus de poid licat}
+moQR
+moQS
+```
+
+Code ajustement du modèle
+```{r, ajustement du modèle licat, eval = FALSE}
+ajust <- mb.gof.test(moQR, nsim = 5000, plot.hist=T)
+save(ajust, file = "licat_ajust_gof.Rdata")
+```
+
+```{r, résultat ajustement licat}
+load("licat_ajust_gof.Rdata")
+ajust
+```
+Pas besoin de réajuster le modèle puisque le c-hat (0.63) est < à 1
+
+
+# Question
+Comment aborder le fait qu'aucun de mes résultats sont significatifs?
+Ajouter des hypothèses de détection?
