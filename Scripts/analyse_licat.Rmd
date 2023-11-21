@@ -52,6 +52,15 @@ str(licat)
 
 ```{r correlation annee date}
 str(jj_licat)
+annee_licat$V1<-as.factor(annee_licat$V1)
+annee_licat$V2<-as.factor(annee_licat$V2)
+annee_licat$V3<-as.factor(annee_licat$V3)
+annee_licat$V4<-as.factor(annee_licat$V4)
+annee_licat$V5<-as.factor(annee_licat$V5)
+annee_licat$V6<-as.factor(annee_licat$V6)
+annee_licat$V7<-as.factor(annee_licat$V7)
+annee_licat$V8<-as.factor(annee_licat$V8)
+annee_licat$V9<-as.factor(annee_licat$V9)
 str(annee_licat)
 
 boxplot(anoure_licat$jour_julien ~ anoure_licat$Year)
@@ -75,6 +84,7 @@ occupation$Agriculture <- scale(occupation$Agriculture)
 occupation$Eau <- scale(occupation$Eau)
 occupation$Humide <- scale(occupation$Humide)
 occupation$Site <- as.factor(occupation$Site)
+occupation$annee <- as.factor(occupation$annee)
 str(occupation)
 ```
 
@@ -91,18 +101,18 @@ Modèles
 m0 <- occu(~ annee ~ annee, data = licat.data)
 
 ##Détectabilité varie selon la qualité de l'enregistrement et l'occupation varie selon...
-mQH <- occu(~ qualite ~ Humide + annee, data = licat.data)
-mQE <- occu(~ qualite ~ Eau + annee, data = licat.data)
-mQR <- occu(~ qualite ~ Route + annee, data = licat.data)
-mQA <- occu(~ qualite ~ Agriculture + annee, data = licat.data)
-mQS <- occu(~ qualite ~ Site + annee, data = licat.data)
+mQH <- occu(~ qualite + annee ~ Humide + annee, data = licat.data)
+mQE <- occu(~ qualite + annee ~ Eau + annee, data = licat.data)
+mQR <- occu(~ qualite + annee ~ Route + annee, data = licat.data)
+mQA <- occu(~ qualite + annee ~ Agriculture + annee, data = licat.data)
+mQS <- occu(~ qualite + annee ~ Site + annee, data = licat.data)
 
 ##Détectabilité varie selon le type de perturbation et occupation varie selon ...
-mPH <- occu(~ disturbance ~ Humide + annee, data = licat.data)
-mPE <- occu(~ disturbance ~ Eau + annee, data = licat.data)
-mPR <- occu(~ disturbance ~ Route + annee, data = licat.data)
-mPA <- occu(~ disturbance ~ Agriculture + annee, data = licat.data)
-mPS <- occu(~ disturbance ~ Site + annee, data = licat.data)
+mPH <- occu(~ disturbance + annee ~ Humide + annee, data = licat.data)
+mPE <- occu(~ disturbance + annee ~ Eau + annee, data = licat.data)
+mPR <- occu(~ disturbance + annee ~ Route + annee, data = licat.data)
+mPA <- occu(~ disturbance + annee ~ Agriculture + annee, data = licat.data)
+mPS <- occu(~ disturbance + annee ~ Site + annee, data = licat.data)
 
 ##Détectabilité varie selon l'année et occupation varie selon ...
 mAH <- occu(~ annee ~ Humide + annee, data = licat.data)
@@ -169,30 +179,19 @@ Le estimate est de -0.2 ici, donc c'est plus faible qu'en utilisant modavg seule
 ##data frame to make predictions
 ##all variables are held constant, except Shade
 extractX(cand.set = Cands, modnames = Model.names, parm.type = "psi")
-predData <- data.frame(annee = c(0,0),
-Eau = c(0, 1),
+predData <- data.frame(annee = factor("2021",
+                                      levels = levels(occupation$annee)),
+Eau = seq(-0.5, 3.25, length.out = 40),
 Humide = c(0, 0),
 Route = c(0, 0),
 Agriculture = c(0, 0),
 Site = factor("lisiere",
               levels = levels(occupation$Site))
 )
+
 ##predictions from global model
 predict(mQE, newdata = predData, se.fit = TRUE, type = "state")
 
 modavgPred(cand.set = Cands, modnames = Model.names, newdata = predData, parm.type = "psi", type = "response")
 ```
-Je ne comprend pas comment utiliser les prédictions. Je ne sais pas si je fais mal mon tableau predData??Je pense aussi que je vais avoir besoin de ça pour créer des figures?
 
-```{r pred detect}
-extractX(cand.set = Cands, modnames = Model.names, parm.type = "detect")
-predData <- data.frame(annee = c(0,0),
-qualite = factor("qualitegood", 
-                 levels = levels()),
-Humide = c(0, 0),
-Route = c(0, 0),
-Agriculture = c(0, 0),
-Site = factor("lisiere",
-              levels = levels(occupation$Site))
-)
-```
