@@ -210,6 +210,13 @@ occupation_anoure$Humide <- occupation_anoure$Marecage + occupation_anoure$`Mili
 occupation_anoure <- subset(occupation_anoure, select = c(Enregistre, Total, Agriculture, Eau, Humide, Type)) 
 colnames(occupation_anoure) <- c("Enregistre", "Route", "Agriculture", "Eau", "Humide", "Site")
 
+superficie <- pi*(300^2)
+
+occupation_anoure$Route <- occupation_anoure$Route/superficie
+occupation_anoure$Agriculture <- occupation_anoure$Agriculture/superficie
+occupation_anoure$Eau <- occupation_anoure$Eau/superficie
+occupation_anoure$Humide <- occupation_anoure$Humide/superficie
+
 occupation_anoure_2021 <- occupation_anoure
 occupation_anoure_2021$annee<-"2021"
 
@@ -536,7 +543,6 @@ colnames(qualite_licat_22) <- c("V1", "V2", "V3", "V4", "V5", "V6", "V7", "V8", 
 #Merge les deux
 qualite_licat <- rbind(qualite_licat_21, qualite_licat_22)
 
-
 #Type de disturbance
 disturb_2021_15 <- subset(anoure_2021, anoure_2021$Time24H == "1500", select = c(Site, jour_julien, DisturbanceType))
 disturb_2021_15 <- spread(disturb_2021_15, jour_julien, DisturbanceType)
@@ -677,7 +683,6 @@ colnames(disturb_licat_22) <- c("V1", "V2", "V3", "V4", "V5", "V6", "V7", "V8", 
 
 #Merge les deux
 disturb_licat <- rbind(disturb_licat_21, disturb_licat_22)
-
 
 ##Jours juliens lisyl
 jj_22_21h<-read.csv("donnees/JJ_22_21h.csv", header = T)

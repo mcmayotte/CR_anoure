@@ -156,3 +156,46 @@ load("lisyl_ajust_gof.Rdata")
 ajust
 ```
 c-hat de 0.77 alors pas de changement à faire
+
+#### Inférence avec shrinkage
+```{r inférence multimodèle avec SHRINK}
+modavgShrink(cand.set = Cands, modnames = Model.names, parm = "Route", parm.type = "psi")
+modavgShrink(cand.set = Cands, modnames = Model.names, parm = "Eau", parm.type = "psi")
+modavgShrink(cand.set = Cands, modnames = Model.names, parm = "date", parm.type = "detect")
+```
+
+```{r predictions}
+##data frame to make predictions
+##all variables are held constant, except Shade
+extractX(cand.set = Cands, modnames = Model.names, parm.type = "psi")
+predData <- data.frame(
+Humide = c(0, 0),
+Eau = c(0, 0),
+Route = c(0, 1),
+Agriculture = c(0, 0),
+Site = factor("lisiere",
+              levels = levels(occupation$Site))
+)
+##predictions from model
+predict(m0, newdata = predData, se.fit = TRUE, type = "state")
+
+modavgPred(cand.set = Cands, modnames = Model.names, newdata = predData, parm.type = "psi", type = "response")
+```
+
+```{r predictions détection}
+##data frame to make predictions
+##all variables are held constant, except Shade
+extractX(cand.set = Cands, modnames = Model.names, parm.type = "detect")
+predData <- data.frame(
+qualite = factor("good", 
+                 levels = levels(anoure$RecordingQuality)),
+disturbance = factor("human", 
+                 levels = levels(anoure$DisturbanceType)),
+heure = c(0, 0),
+date = c(0, 1)
+)
+##predictions from model
+predict(mDR, newdata = predData, se.fit = TRUE, type = "det")
+
+modavgPred(cand.set = Cands, modnames = Model.names, newdata = predData, parm.type = "detect", type = "response")
+```

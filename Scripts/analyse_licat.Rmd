@@ -80,7 +80,7 @@ str(occupation)
 
 ## Création des modèles
 Création du tableau de données pour le package unmarked
-```{r}
+```{r creation dataframe unmarked}
 licat.data <- unmarkedFrameOccu(y = licat, siteCovs = occupation, obsCovs = list(disturbance = perturb_licat, qualite = qualite_licat, annee = annee_licat, date = jj_licat))
 summary(licat.data)
 ```
@@ -91,18 +91,18 @@ Modèles
 m0 <- occu(~ annee ~ annee, data = licat.data)
 
 ##Détectabilité varie selon la qualité de l'enregistrement et l'occupation varie selon...
-mQH <- occu(~ qualite + annee ~ Humide + annee, data = licat.data)
-mQE <- occu(~ qualite + annee ~ Eau + annee, data = licat.data)
-mQR <- occu(~ qualite + annee ~ Route + annee, data = licat.data)
-mQA <- occu(~ qualite + annee ~ Agriculture + annee, data = licat.data)
-mQS <- occu(~ qualite + annee ~ Site + annee, data = licat.data)
+mQH <- occu(~ qualite ~ Humide + annee, data = licat.data)
+mQE <- occu(~ qualite ~ Eau + annee, data = licat.data)
+mQR <- occu(~ qualite ~ Route + annee, data = licat.data)
+mQA <- occu(~ qualite ~ Agriculture + annee, data = licat.data)
+mQS <- occu(~ qualite ~ Site + annee, data = licat.data)
 
 ##Détectabilité varie selon le type de perturbation et occupation varie selon ...
-mPH <- occu(~ disturbance + annee ~ Humide + annee, data = licat.data)
-mPE <- occu(~ disturbance + annee ~ Eau + annee, data = licat.data)
-mPR <- occu(~ disturbance + annee ~ Route + annee, data = licat.data)
-mPA <- occu(~ disturbance + annee ~ Agriculture + annee, data = licat.data)
-mPS <- occu(~ disturbance + annee ~ Site + annee, data = licat.data)
+mPH <- occu(~ disturbance ~ Humide + annee, data = licat.data)
+mPE <- occu(~ disturbance ~ Eau + annee, data = licat.data)
+mPR <- occu(~ disturbance ~ Route + annee, data = licat.data)
+mPA <- occu(~ disturbance ~ Agriculture + annee, data = licat.data)
+mPS <- occu(~ disturbance ~ Site + annee, data = licat.data)
 
 ##Détectabilité varie selon l'année et occupation varie selon ...
 mAH <- occu(~ annee ~ Humide + annee, data = licat.data)
@@ -112,11 +112,11 @@ mAA <- occu(~ annee ~ Agriculture + annee, data = licat.data)
 mAS <- occu(~ annee ~ Site + annee, data = licat.data)
 
 ##Détectabilité varie selon les jours juliens et occupation varie selon ...
-mDH <- occu(~ date + annee ~ Humide + annee, data = licat.data)
-mDE <- occu(~ date + annee ~ Eau + annee, data = licat.data)
-mDR <- occu(~ date + annee ~ Route + annee, data = licat.data)
-mDA <- occu(~ date + annee ~ Agriculture + annee, data = licat.data)
-mDS <- occu(~ date + annee ~ Site + annee, data = licat.data)
+mDH <- occu(~ date ~ Humide + annee, data = licat.data)
+mDE <- occu(~ date ~ Eau + annee, data = licat.data)
+mDR <- occu(~ date ~ Route + annee, data = licat.data)
+mDA <- occu(~ date ~ Agriculture + annee, data = licat.data)
+mDS <- occu(~ date ~ Site + annee, data = licat.data)
 ```
 
 Tableau de tous les modèles avec le poid AIC
@@ -150,13 +150,6 @@ Pas besoin de réajuster le modèle puisque le c-hat (0.63) est < à 1
 
 ### Inférence multimodèles
 
-```{r inférence multimodèle}
-evidence(aic.table = aictab(cand.set = Cands, modnames = Model.names))
-modavg(cand.set = Cands, modnames = Model.names, parm = "Eau", parm.type = "psi")
-modavg(cand.set = Cands, modnames = Model.names, parm = "Route", parm.type = "psi")
-coef(mQE)
-modavg(cand.set = Cands, modnames = Model.names, parm = "qualitegood", parm.type = "detect")
-```
 Si je comprend bien, le Model-average estimate (-0.47) représente la pente la plus probable considérant tous les modèles où les paramètre "eau" est présent? Donc la pente de la relation entre l'Eau libre et l'occupation de ouaouarons serait de -0,47?
 
 Pour la détection en fonction de la qualité de type good, la pente serait de 5.99? Ou est ce que c'est plutôt qu'on peut conclure que la détection est plus grande avec une qualité good que une qualité bad?
@@ -185,8 +178,21 @@ Site = factor("lisiere",
               levels = levels(occupation$Site))
 )
 ##predictions from global model
-#predict(mQE, newdata = predData, se.fit = TRUE, type = "link")
+predict(mQE, newdata = predData, se.fit = TRUE, type = "state")
 
-modavgPred(cand.set = Cands, modnames = Model.names, newdata = predData, parm.type = "psi")
+modavgPred(cand.set = Cands, modnames = Model.names, newdata = predData, parm.type = "psi", type = "response")
 ```
 Je ne comprend pas comment utiliser les prédictions. Je ne sais pas si je fais mal mon tableau predData??Je pense aussi que je vais avoir besoin de ça pour créer des figures?
+
+```{r pred detect}
+extractX(cand.set = Cands, modnames = Model.names, parm.type = "detect")
+predData <- data.frame(annee = c(0,0),
+qualite = factor("qualitegood", 
+                 levels = levels()),
+Humide = c(0, 0),
+Route = c(0, 0),
+Agriculture = c(0, 0),
+Site = factor("lisiere",
+              levels = levels(occupation$Site))
+)
+```

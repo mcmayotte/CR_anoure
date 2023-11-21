@@ -436,6 +436,7 @@ d’agriculture</li>
 ##  $ Eau        : num  0 0 0 0 59648 ...
 ##  $ Humide     : num  262143 221146 282415 251632 247288 ...
 ##  $ Site       : chr  &quot;foret&quot; &quot;lisiere&quot; &quot;foret&quot; &quot;lisiere&quot; ...</code></pre>
+<p>Standardiser les données d’occupation</p>
 <pre class="r"><code>occupation$Route &lt;- scale(occupation$Route)
 occupation$Agriculture &lt;- scale(occupation$Agriculture)
 occupation$Eau &lt;- scale(occupation$Eau)
@@ -609,6 +610,180 @@ ajust</code></pre>
 ## 
 ## Estimate of c-hat = 0.79</code></pre>
 <p>c-hat de 0.77 alors pas de changement à faire</p>
+<div id="inférence-avec-shrinkage" class="section level4">
+<h4>Inférence avec shrinkage</h4>
+<pre class="r"><code>modavgShrink(cand.set = Cands, modnames = Model.names, parm = &quot;Route&quot;, parm.type = &quot;psi&quot;)</code></pre>
+<pre><code>## 
+## Multimodel inference on &quot;psi(Route)&quot; based on AICc
+## 
+## AICc table used to obtain model-averaged estimate with shrinkage:
+## 
+##                                K   AICc Delta_AICc AICcWt Estimate   SE
+## nul                            2  99.01       2.17   0.08     0.00 0.00
+## psi(Milieux humides)p(Qualité) 5 101.64       4.79   0.02     0.00 0.00
+## psi(Eau libre)p(Qualité)       5 100.61       3.77   0.04     0.00 0.00
+## psi(Route)p(Qualité)           5  99.07       2.23   0.08    -1.05 0.70
+## psi(Agriculture)p(Qualité)     5 101.72       4.88   0.02     0.00 0.00
+## psi(Site)p(Qualité)            5 101.74       4.90   0.02     0.00 0.00
+## psi(Milieux humides)p(Perturb) 5 104.41       7.57   0.01     0.00 0.00
+## psi(Eau libre)p(Perturb)       5 103.36       6.52   0.01     0.00 0.00
+## psi(Route)p(Perturb)           5 101.65       4.81   0.02    -1.03 0.68
+## psi(Agriculture)p(Perturb)     5 104.40       7.56   0.01     0.00 0.00
+## psi(Site)p(Perturb)            5 104.57       7.73   0.00     0.00 0.00
+## psi(Milieux humides)p(Heure)   4 101.46       4.62   0.02     0.00 0.00
+## psi(Eau libre)p(Heure)         4 100.76       3.92   0.03     0.00 0.00
+## psi(Route)p(Heure)             4  99.00       2.16   0.08    -0.97 0.66
+## psi(Agriculture)p(Heure)       4 101.69       4.85   0.02     0.00 0.00
+## psi(Site)p(Heure)              4 102.14       5.30   0.02     0.00 0.00
+## psi(Milieux humides)p(Date)    4  99.24       2.40   0.07     0.00 0.00
+## psi(Eau libre)p(Date)          4  98.53       1.69   0.10     0.00 0.00
+## psi(Route)p(Date)              4  96.84       0.00   0.24    -0.94 0.66
+## psi(Agriculture)p(Date)        4  99.41       2.57   0.07     0.00 0.00
+## psi(Site)p(Date)               4  99.87       3.02   0.05     0.00 0.00
+## 
+## Model-averaged estimate with shrinkage: -0.4 
+## Unconditional SE: 0.64 
+## 95% Unconditional confidence interval: -1.67, 0.86</code></pre>
+<pre class="r"><code>modavgShrink(cand.set = Cands, modnames = Model.names, parm = &quot;Eau&quot;, parm.type = &quot;psi&quot;)</code></pre>
+<pre><code>## 
+## Multimodel inference on &quot;psi(Eau)&quot; based on AICc
+## 
+## AICc table used to obtain model-averaged estimate with shrinkage:
+## 
+##                                K   AICc Delta_AICc AICcWt Estimate   SE
+## nul                            2  99.01       2.17   0.08     0.00 0.00
+## psi(Milieux humides)p(Qualité) 5 101.64       4.79   0.02     0.00 0.00
+## psi(Eau libre)p(Qualité)       5 100.61       3.77   0.04    -0.60 0.55
+## psi(Route)p(Qualité)           5  99.07       2.23   0.08     0.00 0.00
+## psi(Agriculture)p(Qualité)     5 101.72       4.88   0.02     0.00 0.00
+## psi(Site)p(Qualité)            5 101.74       4.90   0.02     0.00 0.00
+## psi(Milieux humides)p(Perturb) 5 104.41       7.57   0.01     0.00 0.00
+## psi(Eau libre)p(Perturb)       5 103.36       6.52   0.01    -0.58 0.54
+## psi(Route)p(Perturb)           5 101.65       4.81   0.02     0.00 0.00
+## psi(Agriculture)p(Perturb)     5 104.40       7.56   0.01     0.00 0.00
+## psi(Site)p(Perturb)            5 104.57       7.73   0.00     0.00 0.00
+## psi(Milieux humides)p(Heure)   4 101.46       4.62   0.02     0.00 0.00
+## psi(Eau libre)p(Heure)         4 100.76       3.92   0.03    -0.57 0.53
+## psi(Route)p(Heure)             4  99.00       2.16   0.08     0.00 0.00
+## psi(Agriculture)p(Heure)       4 101.69       4.85   0.02     0.00 0.00
+## psi(Site)p(Heure)              4 102.14       5.30   0.02     0.00 0.00
+## psi(Milieux humides)p(Date)    4  99.24       2.40   0.07     0.00 0.00
+## psi(Eau libre)p(Date)          4  98.53       1.69   0.10    -0.56 0.53
+## psi(Route)p(Date)              4  96.84       0.00   0.24     0.00 0.00
+## psi(Agriculture)p(Date)        4  99.41       2.57   0.07     0.00 0.00
+## psi(Site)p(Date)               4  99.87       3.02   0.05     0.00 0.00
+## 
+## Model-averaged estimate with shrinkage: -0.1 
+## Unconditional SE: 0.32 
+## 95% Unconditional confidence interval: -0.72, 0.52</code></pre>
+<pre class="r"><code>modavgShrink(cand.set = Cands, modnames = Model.names, parm = &quot;date&quot;, parm.type = &quot;detect&quot;)</code></pre>
+<pre><code>## 
+## Multimodel inference on &quot;p(date)&quot; based on AICc
+## 
+## AICc table used to obtain model-averaged estimate with shrinkage:
+## 
+##                                K   AICc Delta_AICc AICcWt Estimate   SE
+## nul                            2  99.01       2.17   0.08     0.00 0.00
+## psi(Milieux humides)p(Qualité) 5 101.64       4.79   0.02     0.00 0.00
+## psi(Eau libre)p(Qualité)       5 100.61       3.77   0.04     0.00 0.00
+## psi(Route)p(Qualité)           5  99.07       2.23   0.08     0.00 0.00
+## psi(Agriculture)p(Qualité)     5 101.72       4.88   0.02     0.00 0.00
+## psi(Site)p(Qualité)            5 101.74       4.90   0.02     0.00 0.00
+## psi(Milieux humides)p(Perturb) 5 104.41       7.57   0.01     0.00 0.00
+## psi(Eau libre)p(Perturb)       5 103.36       6.52   0.01     0.00 0.00
+## psi(Route)p(Perturb)           5 101.65       4.81   0.02     0.00 0.00
+## psi(Agriculture)p(Perturb)     5 104.40       7.56   0.01     0.00 0.00
+## psi(Site)p(Perturb)            5 104.57       7.73   0.00     0.00 0.00
+## psi(Milieux humides)p(Heure)   4 101.46       4.62   0.02     0.00 0.00
+## psi(Eau libre)p(Heure)         4 100.76       3.92   0.03     0.00 0.00
+## psi(Route)p(Heure)             4  99.00       2.16   0.08     0.00 0.00
+## psi(Agriculture)p(Heure)       4 101.69       4.85   0.02     0.00 0.00
+## psi(Site)p(Heure)              4 102.14       5.30   0.02     0.00 0.00
+## psi(Milieux humides)p(Date)    4  99.24       2.40   0.07     0.27 0.13
+## psi(Eau libre)p(Date)          4  98.53       1.69   0.10     0.27 0.13
+## psi(Route)p(Date)              4  96.84       0.00   0.24     0.27 0.13
+## psi(Agriculture)p(Date)        4  99.41       2.57   0.07     0.27 0.13
+## psi(Site)p(Date)               4  99.87       3.02   0.05     0.27 0.13
+## 
+## Model-averaged estimate with shrinkage: 0.14 
+## Unconditional SE: 0.16 
+## 95% Unconditional confidence interval: -0.18, 0.46</code></pre>
+<pre class="r"><code>##data frame to make predictions
+##all variables are held constant, except Shade
+extractX(cand.set = Cands, modnames = Model.names, parm.type = &quot;psi&quot;)</code></pre>
+<pre><code>## 
+## Predictors appearing in candidate models:
+## Humide    Eau    Route    Agriculture    Site
+## 
+## Structure of predictors in siteCovs:
+##  $ Humide     : num [1:26, 1] 0.798 0.321 1.033 0.675 0.625 ...
+##   ..- attr(*, &quot;scaled:center&quot;)= num 193579
+##   ..- attr(*, &quot;scaled:scale&quot;)= num 85961
+##  $ Eau        : num [1:26, 1] -0.502 -0.502 -0.502 -0.502 1.462 ...
+##   ..- attr(*, &quot;scaled:center&quot;)= num 15236
+##   ..- attr(*, &quot;scaled:scale&quot;)= num 30374
+##  $ Route      : num [1:26, 1] -0.528 1.254 -0.528 1.192 -0.528 ...
+##   ..- attr(*, &quot;scaled:center&quot;)= num 161
+##   ..- attr(*, &quot;scaled:scale&quot;)= num 305
+##  $ Agriculture: num [1:26, 1] -0.895 0.483 -1.344 -1.213 -1.369 ...
+##   ..- attr(*, &quot;scaled:center&quot;)= num 46507
+##   ..- attr(*, &quot;scaled:scale&quot;)= num 33977
+##  $ Site       : Factor w/ 2 levels &quot;foret&quot;,&quot;lisiere&quot;: 1 2 1 2 1 2 2 1 2 2 ...</code></pre>
+<pre class="r"><code>predData &lt;- data.frame(
+Humide = c(0, 0),
+Eau = c(0, 0),
+Route = c(0, 1),
+Agriculture = c(0, 0),
+Site = factor(&quot;lisiere&quot;,
+              levels = levels(occupation$Site))
+)
+##predictions from model
+predict(m0, newdata = predData, se.fit = TRUE, type = &quot;state&quot;)</code></pre>
+<pre><code>##   Predicted        SE     lower     upper
+## 1 0.4474236 0.1036628 0.2625274 0.6481009
+## 2 0.4474236 0.1036628 0.2625274 0.6481009</code></pre>
+<pre class="r"><code>modavgPred(cand.set = Cands, modnames = Model.names, newdata = predData, parm.type = &quot;psi&quot;, type = &quot;response&quot;)</code></pre>
+<pre><code>## 
+## Model-averaged predictions on the response scale
+## based on entire model set and 95% confidence interval:
+## 
+##   mod.avg.pred uncond.se lower.CL upper.CL
+## 1           NA        NA       NA       NA
+## 2           NA        NA       NA       NA</code></pre>
+<pre class="r"><code>##data frame to make predictions
+##all variables are held constant, except Shade
+extractX(cand.set = Cands, modnames = Model.names, parm.type = &quot;detect&quot;)</code></pre>
+<pre><code>## 
+## Predictors appearing in candidate models:
+## qualite    disturbance    heure    date
+## 
+## Structure of predictors in obsCovs:
+##  $ qualite    : Factor w/ 3 levels &quot;bad&quot;,&quot;good&quot;,&quot;moderate&quot;: 3 3 3 3 3 3 3 2 2 2 ...
+##  $ disturbance: Factor w/ 3 levels &quot;human&quot;,&quot;meteo&quot;,..: 1 2 1 2 1 2 1 3 1 3 ...
+##  $ heure      : int  21 1 21 1 21 1 21 1 21 1 ...
+##  $ date       : int  108 109 115 116 108 109 115 116 109 110 ...</code></pre>
+<pre class="r"><code>predData &lt;- data.frame(
+qualite = factor(&quot;good&quot;, 
+                 levels = levels(anoure$RecordingQuality)),
+disturbance = factor(&quot;human&quot;, 
+                 levels = levels(anoure$DisturbanceType)),
+heure = c(0, 0),
+date = c(0, 1)
+)
+##predictions from model
+predict(mDR, newdata = predData, se.fit = TRUE, type = &quot;det&quot;)</code></pre>
+<pre><code>##      Predicted           SE        lower     upper
+## 1 8.830116e-14 1.338772e-12 1.097833e-26 0.4152819
+## 2 1.153214e-13 1.732973e-12 1.864719e-26 0.4162940</code></pre>
+<pre class="r"><code>modavgPred(cand.set = Cands, modnames = Model.names, newdata = predData, parm.type = &quot;detect&quot;, type = &quot;response&quot;)</code></pre>
+<pre><code>## 
+## Model-averaged predictions on the response scale
+## based on entire model set and 95% confidence interval:
+## 
+##   mod.avg.pred uncond.se lower.CL upper.CL
+## 1           NA        NA       NA       NA
+## 2           NA        NA       NA       NA</code></pre>
+</div>
 </div>
 </div>
 </div>
