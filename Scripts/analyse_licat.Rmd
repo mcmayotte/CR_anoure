@@ -6,7 +6,7 @@ output:
 ---
 ```{r lecture données, echo = FALSE}
 setwd("~/Desktop/Credits_recherche/CR_anoure")
-anoure <- read.csv('donnees/anoure_nett.csv', header = T)
+anoure_licat <- read.csv('donnees/anoure_licat.csv', header = T)
 library(unmarked)
 library(AICcmodavg)
 
@@ -52,6 +52,10 @@ str(licat)
 ```{r correlation annee date}
 str(jj_licat)
 str(annee_licat)
+
+boxplot(anoure_licat$jour_julien ~ anoure_licat$Year)
+boxplot(anoure_licat$RecordingQuality ~ anoure_licat$Year)
+boxplot(anoure_licat$DisturbanceType ~ anoure_licat$Year)
 ```
 
 ## Variables d'occupation
@@ -60,6 +64,18 @@ str(annee_licat)
 * **Route** : Nombre de km de route total
 * **Agriculture** : Regroupement de tous les types d'agriculture
 * **Site** : Si le site est en lisière ou en forêt (donnée prise lors de la pause des enregistreurs) 
+```{r visulaliser occupation}
+str(occupation)
+```
+Standardiser occupation
+```{r standardiser occupation}
+occupation$Route <- scale(occupation$Route)
+occupation$Agriculture <- scale(occupation$Agriculture)
+occupation$Eau <- scale(occupation$Eau)
+occupation$Humide <- scale(occupation$Humide)
+colnames(occupation) <- c('Enregistre', 'Route', 'Agriculture', 'Eau', 'Humide', 'Site', 'annee')
+str(occupation)
+```
 
 ## Création des modèles
 Création du tableau de données pour le package unmarked
@@ -71,35 +87,35 @@ summary(licat.data)
 Modèles
 ```{r modèles}
 #Détectabilité et occupation constante
-m0 <- occu(~ 1 ~ 1, data = licat.data)
+m0 <- occu(~ annee ~ annee, data = licat.data)
 
 ##Détectabilité varie selon la qualité de l'enregistrement et l'occupation varie selon...
-mQH <- occu(~ qualite ~ Humide, data = licat.data)
-mQE <- occu(~ qualite ~ Eau, data = licat.data)
-mQR <- occu(~ qualite ~ Route, data = licat.data)
-mQA <- occu(~ qualite ~ Agriculture, data = licat.data)
-mQS <- occu(~ qualite ~ Site, data = licat.data)
+mQH <- occu(~ qualite + annee ~ Humide + annee, data = licat.data)
+mQE <- occu(~ qualite + annee ~ Eau + annee, data = licat.data)
+mQR <- occu(~ qualite + annee ~ Route + annee, data = licat.data)
+mQA <- occu(~ qualite + annee ~ Agriculture + annee, data = licat.data)
+mQS <- occu(~ qualite + annee ~ Site + annee, data = licat.data)
 
 ##Détectabilité varie selon le type de perturbation et occupation varie selon ...
-mPH <- occu(~ disturbance ~ Humide, data = licat.data)
-mPE <- occu(~ disturbance ~ Eau, data = licat.data)
-mPR <- occu(~ disturbance ~ Route, data = licat.data)
-mPA <- occu(~ disturbance ~ Agriculture, data = licat.data)
-mPS <- occu(~ disturbance ~ Site, data = licat.data)
+mPH <- occu(~ disturbance + annee ~ Humide + annee, data = licat.data)
+mPE <- occu(~ disturbance + annee ~ Eau + annee, data = licat.data)
+mPR <- occu(~ disturbance + annee ~ Route + annee, data = licat.data)
+mPA <- occu(~ disturbance + annee ~ Agriculture + annee, data = licat.data)
+mPS <- occu(~ disturbance + annee ~ Site + annee, data = licat.data)
 
 ##Détectabilité varie selon l'année et occupation varie selon ...
-mAH <- occu(~ annee ~ Humide, data = licat.data)
-mAE <- occu(~ annee ~ Eau, data = licat.data)
-mAR <- occu(~ annee ~ Route, data = licat.data)
-mAA <- occu(~ annee ~ Agriculture, data = licat.data)
-mAS <- occu(~ annee ~ Site, data = licat.data)
+mAH <- occu(~ annee ~ Humide + annee, data = licat.data)
+mAE <- occu(~ annee ~ Eau + annee, data = licat.data)
+mAR <- occu(~ annee ~ Route + annee, data = licat.data)
+mAA <- occu(~ annee ~ Agriculture + annee, data = licat.data)
+mAS <- occu(~ annee ~ Site + annee, data = licat.data)
 
 ##Détectabilité varie selon les jours juliens et occupation varie selon ...
-mDH <- occu(~ date ~ Humide, data = licat.data)
-mDE <- occu(~ date ~ Eau, data = licat.data)
-mDR <- occu(~ date ~ Route, data = licat.data)
-mDA <- occu(~ date ~ Agriculture, data = licat.data)
-mDS <- occu(~ date ~ Site, data = licat.data)
+mDH <- occu(~ date + annee ~ Humide + annee, data = licat.data)
+mDE <- occu(~ date + annee ~ Eau + annee, data = licat.data)
+mDR <- occu(~ date + annee ~ Route + annee, data = licat.data)
+mDA <- occu(~ date + annee ~ Agriculture + annee, data = licat.data)
+mDS <- occu(~ date + annee ~ Site + annee, data = licat.data)
 ```
 
 Tableau de tous les modèles avec le poid AIC
@@ -114,14 +130,14 @@ aictab(cand.set = Cands,  modnames = Model.names)
 ```
 
 ### Vérification ajustement du modèle
-Modèles avec tout le poid sont celui avec **Route** et **Qualité** et celui avec **Site** et **Qualité**
+Modèles avec tout le poid sont celui avec **Eau libre** et **Qualité** et celui avec **Route** et **Qualité**
 ```{r, modèle avec plus de poid}
+mQE
 mQR
-mQS
 ```
 Code ajustement du modèle
 ```{r, ajustement du modèle, eval = FALSE}
-ajust <- mb.gof.test(mQR, nsim = 5000, plot.hist=T)
+ajust <- mb.gof.test(mQH, nsim = 5000, plot.hist=T)
 save(ajust, file = "licat_ajust_gof.Rdata")
 ```
 

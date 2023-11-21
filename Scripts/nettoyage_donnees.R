@@ -56,6 +56,42 @@ anoure_2022 <- subset(anoure, anoure$Year == "2022")
 anoure_2021$jour_julien <- julian(as.Date(paste(anoure_2021$Year, anoure_2021$Month, anoure_2021$Day), format = "%Y %m %d"), origin = as.Date("2021-01-01"))
 anoure_2022$jour_julien <- julian(as.Date(paste(anoure_2022$Year, anoure_2022$Month, anoure_2022$Day), format = "%Y %m %d"), origin = as.Date("2022-01-01"))
 
+anoure_licat_2021 <- subset(anoure_2021, anoure_2021$jour_julien >= 146 & anoure_2021$jour_julien <= 187)
+anoure_licat_2022 <- subset(anoure_2022, anoure_2022$jour_julien >= 144 & anoure_2021$jour_julien <= 200)
+
+anoure_licat <- rbind(anoure_licat_2021, anoure_licat_2022)
+
+anoure_licat$Year <- as.numeric(anoure_licat$Year)
+
+convert_to_numeric <- function(value) {
+  if (value == "bad") {
+    return(1)
+  } else if (value == "moderate") {
+    return(2)
+  } else if (value == "good") {
+    return(3)
+  } else {
+    return(NA)  # Gérer les cas non prévus
+  }
+}
+
+# Appliquer la fonction pour convertir les valeurs catégorielles en numériques
+anoure_licat$RecordingQuality <- sapply(anoure_licat$RecordingQuality, convert_to_numeric)
+
+convert_to_numeric <- function(value) {
+  if (value == "none") {
+    return(1)
+  } else if (value == "meteo") {
+    return(2)
+  } else if (value == "human") {
+    return(3)
+  } else {
+    return(NA)  # Gérer les cas non prévus
+  }
+}
+
+# Appliquer la fonction pour convertir les valeurs catégorielles en numériques
+anoure_licat$DisturbanceType <- sapply(anoure_licat$DisturbanceType, convert_to_numeric)
 #------------------------------
 # données MH
 #------------------------------
@@ -174,7 +210,12 @@ occupation_anoure$Humide <- occupation_anoure$Marecage + occupation_anoure$`Mili
 occupation_anoure <- subset(occupation_anoure, select = c(Enregistre, Total, Agriculture, Eau, Humide, Type)) 
 colnames(occupation_anoure) <- c("Enregistre", "Route", "Agriculture", "Eau", "Humide", "Site")
 
-occupation_licat <- rbind(occupation_anoure, occupation_anoure)
+occupation_anoure_2021 <- occupation_anoure
+occupation_anoure_2021$annee<-"2021"
+
+occupation_anoure_2022 <- occupation_anoure
+occupation_anoure_2022$annee<-"2022"
+occupation_licat <- rbind(occupation_anoure_2021, occupation_anoure_2022)
 
 #------------------------------
 # tableaux variables réponses
@@ -653,10 +694,9 @@ jj_lisyl <- subset(jj_lisyl, select = c(V1, V2, V3, V4))
 #------------------------------
 # Enregistrement données nettoyées
 #------------------------------
-#write.csv(uti_terr, 'donnees/utilisation_territoire_nett.csv', row.names = FALSE)
-#write.csv(MH, 'donnees/MH_nett.csv', row.names = FALSE)
 write.csv(anoure, 'donnees/anoure_nett.csv', row.names = FALSE)
-#write.csv(routes, 'donnees/routes_nett.csv', row.names = FALSE)
+write.csv(anoure_licat, 'donnees/anoure_licat.csv', row.names = FALSE)
+
 write.csv(occupation_anoure, 'donnees/donnees_occupation.csv', row.names = FALSE)
 write.csv(occupation_licat, 'donnees/donnees_occupation_licat.csv', row.names = FALSE)
 

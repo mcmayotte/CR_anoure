@@ -1,5 +1,5 @@
 ---
-title: Analyse
+title: Analyse Grenouille des bois
 output:
   html_document: default
   pdf_document: default
@@ -72,6 +72,14 @@ Check model structure carefully as some models may be redundant*
 
 ```{r structure tableau occ}
 str(occupation)
+```
+
+Standardiser les données d'occupation
+```{r standardiser occupation}
+occupation$Route <- scale(occupation$Route)
+occupation$Agriculture <- scale(occupation$Agriculture)
+occupation$Eau <- scale(occupation$Eau)
+occupation$Humide <- scale(occupation$Humide)
 ```
 
 ### Corrélation des variables
@@ -147,55 +155,4 @@ Le mb.gof.test produit vraiment beaucoup de ces warning: producedWarning: NAs. E
 load("lisyl_ajust_gof.Rdata")
 ajust
 ```
-##### Refaire la sélection de modèles avec ajustement
-
-Le warning de R dit que je dois garder 1 si le c.hat est inférieur à 1:
-
-*Error in AICc.unmarkedFit(X[[i]], ...) : 
-You should set 'c.hat' to 1 if < 1, but values << 1 might also indicate lack of fit*
-
-Ce qui revient aux même aictab qu'avant
-
-
-```{r}
-########################################## 
-##present results of survey type in plot
-##create a data frame to make predictions 
-##note that all variables on the parameter must appear here; mean of centered variable is 0 
-pred.data <- data.frame(date = 0, heure = c(0,1))
-##Type was coded 1 (minnow trap) or 0 (call ##survey)
-##compute model-averaged predictions with ##modavgPred on probability scale
-out.preds <- modavgPred(cand.set = Cands, modnames = Model.names, newdata = pred.data, parm.type = "detect", type = "response")
-##compute model-averaged predictions with ##modavgPred on link scale
-out.preds.logit <- modavgPred(cand.set = Cands, modnames = Model.names, newdata = pred.data, parm.type = "detect", type = "link")
-##add predictions to data set to keep everything ##in the same place
-pred.data$fit <- out.preds$mod.avg.pred 
-pred.data$se.fit <- out.preds$uncond.se 
-##compute 95% CI on logit scale, then back ##transform; these asymmetric CI’s have better ##properties
-pred.data$low95 <- plogis(out.preds.logit$mod.avg.pred - 1.96 * out.preds.logit$uncond.se) 
-pred.data$upp95 <- plogis( out.preds.logit$mod.avg.pred + 1.96 * out.preds.logit$uncond.se)
-##compare against predictions for a single model ##this is ONLY appropriate IF top model has most ##of the weight (w_i > 0.90); this not the case ##here
-predict(m2, newdata = pred.data, type = "det", backTransform = TRUE)
-########################################## 
-##create plot and save it directly in a file 
-##you will not see the plot in R, as it will be stored in the file you specify; the file will be stored at the location specified by setwd( ) above; see ?Devices for all the file types available (pdf, jpeg, tiff, etc...)
-png(file = "lisyl_type.png", width = 3600, height = 3600, res = 675)
-##remove white space above plot
-par(mar = c(5, 4, 2, 2) + 0.1)
-##plot without x axis, we’ll add later 
-plot(pred.data$fit ~ c(0.25, 0.75),
-ylab = "Detection probability", xlab = "Survey type", xaxt = "n", ylim = range(c(pred.data$low95, pred.data$upp95)), 
-#to avoid truncating confidence limits on plot 
-xlim = c(0, 1), cex.lab = 1.2,
-#make axis labels 1.2 times larger than default 
-cex.axis = 1.2) 
-#make tick labels 1.2 times #larger than default
-##add x axis
-axis(side = 1, labels = c("Perturbation", "Qualite"), at = c(0.25, 0.75), cex.axis = 1.2)
-##add error bars; segments( ) draws lines from ##point (x0, y0) to point (x1, y1)
-segments(x0 = c(0.25, 0.75), x1 = c(0.25, 0.75), y0 = pred.data$low95, y1 = pred.data$upp95)
-
-```
-
-
-
+c-hat de 0.77 alors pas de changement à faire
