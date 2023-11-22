@@ -41,7 +41,7 @@ str(lisyl)
 * **Types de Perturbation** : Human, meteo ou none
 * **Qualité de l'enregistrement** : Good, moderate ou bad
 * **Heure de l'enregistrement**: 21h ou 1h
-* **Date de l'enregistrement**: en jour julien
+* **Jour de l'enregistrement**: en jour julien
 
 Difficile de joindre ensemble deux classes de données pour qualité de l'enregistrement. J'ai de loin beaucoup plus de moderate que de bad ou good
 ```{r table qualité}
@@ -54,14 +54,11 @@ table(anoure$RecordingQuality)
 table(anoure$RecordingQuality, anoure$DisturbanceType)
 ```
 
-```{r correlation heure date}
+```{r correlation heure Jour}
 str(jj_lisyl)
 str(heure_lisyl)
 ```
-C'est certain que heure et date sont très corrélés. Est-ce que c'est juste de garder les deux dans les modèles?
-Selon moi c'est pour ça qu'on voit ce warning quand je roule les poids AIC des modèles :
-*Warning: 
-Check model structure carefully as some models may be redundant*
+
 
 ## Variables d'occupation
 * **Milieux humide** : Regroupement de Milieu humide, Tourbières et Marécage (à partir de la couche de milieu humide)
@@ -90,7 +87,7 @@ plot(occupation)
 ## Création des modèles
 Création du tableau de données pour le package unmarked
 ```{r}
-lisyl.data <- unmarkedFrameOccu(y = lisyl, siteCovs = occupation, obsCovs = list(disturbance = perturb_lisyl, qualite = qualite_lisyl, heure = heure_lisyl, date = jj_lisyl))
+lisyl.data <- unmarkedFrameOccu(y = lisyl, siteCovs = occupation, obsCovs = list(disturbance = perturb_lisyl, qualite = qualite_lisyl, heure = heure_lisyl, jour = jj_lisyl))
 summary(lisyl.data)
 ```
 
@@ -121,11 +118,11 @@ mHA <- occu(~ heure ~ Agriculture, data = lisyl.data)
 mHS <- occu(~ heure ~ Site, data = lisyl.data)
 
 ##Détectabilité varie selon les jours juliens et occupation varie selon ...
-mDH <- occu(~ date ~ Humide, data = lisyl.data)
-mDE <- occu(~ date ~ Eau, data = lisyl.data)
-mDR <- occu(~ date ~ Route, data = lisyl.data)
-mDA <- occu(~ date ~ Agriculture, data = lisyl.data)
-mDS <- occu(~ date ~ Site, data = lisyl.data)
+mDH <- occu(~ jour ~ Humide, data = lisyl.data)
+mDE <- occu(~ jour ~ Eau, data = lisyl.data)
+mDR <- occu(~ jour ~ Route, data = lisyl.data)
+mDA <- occu(~ jour ~ Agriculture, data = lisyl.data)
+mDS <- occu(~ jour ~ Site, data = lisyl.data)
 ```
 
 Tableau de tous les modèles avec le poid AIC
@@ -133,14 +130,14 @@ Tableau de tous les modèles avec le poid AIC
 Cands <- list(m0, mQH, mQE, mQR, mQA, mQS, mPH, mPE, mPR, mPA, mPS, mHH, mHE, mHR, mHA, mHS, mDH, mDE, mDR, mDA, mDS)
 
 ##Donner les noms significaifs aux modèles
-Model.names <- c("nul","psi(Milieux humides)p(Qualité)", "psi(Eau libre)p(Qualité)", "psi(Route)p(Qualité)", "psi(Agriculture)p(Qualité)", "psi(Site)p(Qualité)", "psi(Milieux humides)p(Perturb)", "psi(Eau libre)p(Perturb)", "psi(Route)p(Perturb)", "psi(Agriculture)p(Perturb)", "psi(Site)p(Perturb)", "psi(Milieux humides)p(Heure)", "psi(Eau libre)p(Heure)", "psi(Route)p(Heure)", "psi(Agriculture)p(Heure)", "psi(Site)p(Heure)", "psi(Milieux humides)p(Date)", "psi(Eau libre)p(Date)", "psi(Route)p(Date)", "psi(Agriculture)p(Date)", "psi(Site)p(Date)") 
+Model.names <- c("nul","psi(Milieux humides)p(Qualité)", "psi(Eau libre)p(Qualité)", "psi(Route)p(Qualité)", "psi(Agriculture)p(Qualité)", "psi(Site)p(Qualité)", "psi(Milieux humides)p(Perturb)", "psi(Eau libre)p(Perturb)", "psi(Route)p(Perturb)", "psi(Agriculture)p(Perturb)", "psi(Site)p(Perturb)", "psi(Milieux humides)p(Heure)", "psi(Eau libre)p(Heure)", "psi(Route)p(Heure)", "psi(Agriculture)p(Heure)", "psi(Site)p(Heure)", "psi(Milieux humides)p(Jour)", "psi(Eau libre)p(Jour)", "psi(Route)p(Jour)", "psi(Agriculture)p(Jour)", "psi(Site)p(Jour)") 
 
 ##do model selection based on AICc 
 aictab(cand.set = Cands,  modnames = Model.names)
 ```
 
 ### Vérification ajustement du modèle
-Modèle avec le plus de poid est celui avec **Route** et **Date**
+Modèle avec le plus de poid est celui avec **Route** et **Jour**
 ```{r, modèle avec plus de poid}
 mDR
 ```
@@ -161,7 +158,7 @@ c-hat de 0.77 alors pas de changement à faire
 ```{r inférence multimodèle avec SHRINK}
 modavgShrink(cand.set = Cands, modnames = Model.names, parm = "Route", parm.type = "psi")
 modavgShrink(cand.set = Cands, modnames = Model.names, parm = "Eau", parm.type = "psi")
-modavgShrink(cand.set = Cands, modnames = Model.names, parm = "date", parm.type = "detect")
+modavgShrink(cand.set = Cands, modnames = Model.names, parm = "jour", parm.type = "detect")
 ```
 
 ```{r predictions}
@@ -192,7 +189,7 @@ qualite = factor("good",
 disturbance = factor("human", 
                  levels = levels(anoure$DisturbanceType)),
 heure = c(0, 0),
-date = c(0, 1)
+jour = c(0, 1)
 )
 ##predictions from model
 predict(mDR, newdata = predData, se.fit = TRUE, type = "det")

@@ -46,11 +46,11 @@ str(licat)
 ## Variables de détection
 * **Types de Perturbation** : Human, meteo ou none
 * **Qualité de l'enregistrement** : Good, moderate ou bad
-* **Date de l'enregistrement**: en jour julien
+* **Jour de l'enregistrement**: en jour julien
 * **Année**: 2021 ou 2022
 
-
-```{r correlation annee date}
+### Corrélation des variables
+```{r correlation annee Jour}
 str(jj_licat)
 annee_licat$V1<-as.factor(annee_licat$V1)
 annee_licat$V2<-as.factor(annee_licat$V2)
@@ -59,14 +59,18 @@ annee_licat$V4<-as.factor(annee_licat$V4)
 annee_licat$V5<-as.factor(annee_licat$V5)
 annee_licat$V6<-as.factor(annee_licat$V6)
 annee_licat$V7<-as.factor(annee_licat$V7)
-annee_licat$V8<-as.factor(annee_licat$V8)
-annee_licat$V9<-as.factor(annee_licat$V9)
+annee_licat$V8<-factor(annee_licat$V8, levels = c("2021", "2022"))
+annee_licat$V9<-factor(annee_licat$V9, levels = c("2021", "2022"))
 str(annee_licat)
-
+par(mfrow=c(2,2))
 boxplot(anoure_licat$jour_julien ~ anoure_licat$Year)
 boxplot(anoure_licat$RecordingQuality ~ anoure_licat$Year)
 boxplot(anoure_licat$DisturbanceType ~ anoure_licat$Year)
 ```
+La qualité d'enregistrement et le type de perturbation ne varient pas avec l'année alors on peu faire les modèles jumelant ces variables
+
+Le jour varie entre les années alors il ne faut pas les laisser ensemble dans les modèles
+
 
 ## Variables d'occupation
 * **Milieux humide** : Regroupement de Milieu humide, Tourbières et Marécage (à partir de la couche de milieu humide)
@@ -74,9 +78,8 @@ boxplot(anoure_licat$DisturbanceType ~ anoure_licat$Year)
 * **Route** : Nombre de km de route total
 * **Agriculture** : Regroupement de tous les types d'agriculture
 * **Site** : Si le site est en lisière ou en forêt (donnée prise lors de la pause des enregistreurs) 
-```{r visulaliser occupation}
-str(occupation)
-```
+
+Les superficies ont été transformées en pourcentage de recouvrement puis standardisées
 Standardiser occupation
 ```{r standardiser occupation}
 occupation$Route <- scale(occupation$Route)
@@ -91,7 +94,7 @@ str(occupation)
 ## Création des modèles
 Création du tableau de données pour le package unmarked
 ```{r creation dataframe unmarked}
-licat.data <- unmarkedFrameOccu(y = licat, siteCovs = occupation, obsCovs = list(disturbance = perturb_licat, qualite = qualite_licat, annee = annee_licat, date = jj_licat))
+licat.data <- unmarkedFrameOccu(y = licat, siteCovs = occupation, obsCovs = list(disturbance = perturb_licat, qualite = qualite_licat, annee = annee_licat, jour = jj_licat))
 summary(licat.data)
 ```
 
@@ -122,30 +125,33 @@ mAA <- occu(~ annee ~ Agriculture + annee, data = licat.data)
 mAS <- occu(~ annee ~ Site + annee, data = licat.data)
 
 ##Détectabilité varie selon les jours juliens et occupation varie selon ...
-mDH <- occu(~ date ~ Humide + annee, data = licat.data)
-mDE <- occu(~ date ~ Eau + annee, data = licat.data)
-mDR <- occu(~ date ~ Route + annee, data = licat.data)
-mDA <- occu(~ date ~ Agriculture + annee, data = licat.data)
-mDS <- occu(~ date ~ Site + annee, data = licat.data)
+mDH <- occu(~ jour ~ Humide + annee, data = licat.data)
+mDE <- occu(~ jour ~ Eau + annee, data = licat.data)
+mDR <- occu(~ jour ~ Route + annee, data = licat.data)
+mDA <- occu(~ jour ~ Agriculture + annee, data = licat.data)
+mDS <- occu(~ jour ~ Site + annee, data = licat.data)
 ```
 
-Tableau de tous les modèles avec le poid AIC
+Sélection des modèles basée sur le AICc
 ```{r, modèles candidats}
+# Liste des modèles candidats
 Cands <- list(m0, mQH, mQE, mQR, mQA, mQS, mPH, mPE, mPR, mPA, mPS, mAH, mAE, mAR, mAA, mAS, mDH, mDE, mDR, mDA, mDS)
 
-##Donner les noms significaifs aux modèles
-Model.names <- c("nul","psi(Milieux humides)p(Qualité)", "psi(Eau libre)p(Qualité)", "psi(Route)p(Qualité)", "psi(Agriculture)p(Qualité)", "psi(Site)p(Qualité)", "psi(Milieux humides)p(Perturb)", "psi(Eau libre)p(Perturb)", "psi(Route)p(Perturb)", "psi(Agriculture)p(Perturb)", "psi(Site)p(Perturb)", "psi(Milieux humides)p(Année)", "psi(Eau libre)p(Année)", "psi(Route)p(Année)", "psi(Agriculture)p(Année)", "psi(Site)p(Année)", "psi(Milieux humides)p(Date)", "psi(Eau libre)p(Date)", "psi(Route)p(Date)", "psi(Agriculture)p(Date)", "psi(Site)p(Date)") 
+# Noms des modèles
+Model.names <- c("nul","psi(Milieux humides)p(Qualité)", "psi(Eau libre)p(Qualité)", "psi(Route)p(Qualité)", "psi(Agriculture)p(Qualité)", "psi(Site)p(Qualité)", "psi(Milieux humides)p(Perturb)", "psi(Eau libre)p(Perturb)", "psi(Route)p(Perturb)", "psi(Agriculture)p(Perturb)", "psi(Site)p(Perturb)", "psi(Milieux humides)p(Année)", "psi(Eau libre)p(Année)", "psi(Route)p(Année)", "psi(Agriculture)p(Année)", "psi(Site)p(Année)", "psi(Milieux humides)p(Jour)", "psi(Eau libre)p(Jour)", "psi(Route)p(Jour)", "psi(Agriculture)p(Jour)", "psi(Site)p(Jour)") 
 
-##do model selection based on AICc 
+# Sélection modèles
 aictab(cand.set = Cands,  modnames = Model.names)
 ```
+Modèles avec tout le poid sont celui avec **Agriculture** et **Qualité** et celui avec **Milieux humides** et **Qualité**
+```{r, modèle avec plus de poid}
+mQA
+mQH
+```
+
 
 ### Vérification ajustement du modèle
-Modèles avec tout le poid sont celui avec **Eau libre** et **Qualité** et celui avec **Route** et **Qualité**
-```{r, modèle avec plus de poid}
-mQE
-mQR
-```
+
 Code ajustement du modèle
 ```{r, ajustement du modèle, eval = FALSE}
 ajust <- mb.gof.test(mQH, nsim = 5000, plot.hist=T)
@@ -194,4 +200,3 @@ predict(mQE, newdata = predData, se.fit = TRUE, type = "state")
 
 modavgPred(cand.set = Cands, modnames = Model.names, newdata = predData, parm.type = "psi", type = "response")
 ```
-
