@@ -212,7 +212,6 @@ colnames(occupation_anoure) <- c("Enregistre", "Route", "Agriculture", "Eau", "H
 
 superficie <- pi*(300^2)
 
-occupation_anoure$Route <- occupation_anoure$Route/superficie
 occupation_anoure$Agriculture <- occupation_anoure$Agriculture/superficie
 occupation_anoure$Eau <- occupation_anoure$Eau/superficie
 occupation_anoure$Humide <- occupation_anoure$Humide/superficie
