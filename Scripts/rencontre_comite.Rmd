@@ -10,6 +10,7 @@ anoure <- read.csv('donnees/anoure_nett.csv', header = T)
 anoure_licat <- read.csv('donnees/anoure_licat.csv', header = T)
 library(unmarked)
 library(AICcmodavg)
+library(knitr)
 
 #Données réponse
 licat <- read.csv('donnees/licat.csv', header = T)
@@ -43,6 +44,11 @@ annee_licat$V8<-factor(annee_licat$V8, levels = c("2021", "2022"))
 occupation_licat$annee <- as.factor(occupation_licat$annee)
 annee_licat$V9<-factor(annee_licat$V9, levels = c("2021", "2022"))
 
+anoure$Year <- as.factor(anoure$Year)
+heure_lisyl$V1<-factor(heure_lisyl$V1, levels = c("21", "1"))
+heure_lisyl$V2<-factor(heure_lisyl$V2, levels = c("21", "1"))
+heure_lisyl$V3<-factor(heure_lisyl$V3, levels = c("21", "1"))
+heure_lisyl$V4<-factor(heure_lisyl$V4, levels = c("21", "1"))
 
 ```
 
@@ -51,7 +57,7 @@ annee_licat$V9<-factor(annee_licat$V9, levels = c("2021", "2022"))
 ## Méthode
 Des enregistreurs ont été placés sur 26 étangs de reproductions d'anoures et ils ont été opérationnels du 5 mai 2021 au 13 juillet 2021 et du 19 avril 2022 au 27 juillet 2022. Des enregistrements de 3 minutes ont eu lieux à 15h, à 21h et à 1h à chaque semaine. Chaque enregistrement a été écouté et pour chacun j'ai noté le site, la date, l’heure, la qualité de l'enregistrement, la principale perturbation sonore ainsi que la présence ou absence de chaque espèce.
 
-Autour de chaque site, une zone tampon d'un rayon de 300 m a été délimité puisque c'est la moyenne de distance parcourue par les anoures. Sur QGIS, j'ai utilisé les couches gouvernementales d'utilisation du territoire, de réseu routier et de milieux humides potentiels pour obtenir les superficies de recouvrement des différents types de milieux.
+Autour de chaque site, une zone tampon d'un rayon de 300 m a été délimitée puisque c'est la distance moyenne parcourue par les anoures. Sur QGIS, j'ai utilisé les couches gouvernementales d'utilisation du territoire, de réseau routier et de milieux humides potentiels pour obtenir les superficies de recouvrement des différents types de milieux.
 
 ## Objectifs
 * Évaluer les relations entre les variables environnementales et la probabilité d'occupation des espèces d’anoures dans différents étangs de reproduction. 
@@ -59,7 +65,7 @@ Autour de chaque site, une zone tampon d'un rayon de 300 m a été délimité pu
 * Déterminer quelle variable ou quel ensemble de variables environnementales influence le plus la probabilité d'occupation de chaque espèce d’anoure
 
 ## Hypothèses
-Je n'ai pas pus aller sur le terrain finalement et peu de variables pouvaient être utilisées pour les différents modèles alors j'ai du changer mes hypothèses. De plus, j'ai du utiliser la présence au lieu de l'abondance dans les modèles statistiques. Voici mes hypothèses modifiées compte tenu des restrictions :
+Je n'ai pas pu aller sur le terrain finalement et peu de variables pouvaient être utilisées pour les différents modèles alors j'ai du changer mes hypothèses. De plus, j'ai du utiliser la présence au lieu de l'abondance dans les modèles statistiques. Voici mes hypothèses modifiées compte tenu des restrictions :
 
 * 1.1 La présence de milieux humides en périphérie des étangs de reproduction augmente la présence d'anoures
 
@@ -69,15 +75,13 @@ Je n'ai pas pus aller sur le terrain finalement et peu de variables pouvaient ê
 
 * 1.4 la présence de routes en périphérie des étangs réduit l’abondance d’anoures puisqu’elles sont une cause de mortalité importante 
 
-Hypothèses de détection???
-
 # Analyse statistique 
-L'analyse statistique est faite à partir du package `unmarked`
+L'analyse statistique est faite à partir du package `unmarked` et `AICcmodavg`
 
-Les modèles prennent en compte la *probabilité de détection* qui varie selon les conditions de l'échantillonnage, et la *probabilité d'occupation* qui varie selon les caractéristiques du site et du paysage.
+Les modèles prennent en compte la **probabilité de détection**, qui varie selon les conditions de l'échantillonnage, et la **probabilité d'occupation**, qui varie selon les caractéristiques du site et du paysage.
 
 ## Variable réponse (présence ou absence)
-Les deux seules espèces ayant un nombre d'observation suffisant et n'étaient pas présentes dans tous les sites sont la *grenouille des bois* et le *ouaouaron*. Ce sont donc les deux espèces utilisées dans l'analyse
+Les deux seules espèces ayant un nombre d'observation suffisant et qui n'étaient pas présentes dans tous les sites sont la **grenouille des bois** et le **ouaouaron**. Ce sont donc les deux espèces utilisées dans l'analyse
 
 ### Grenouille des bois 
 Les données sont celles de 2022 seulement puisqu'il n'y a aucune observation en 2021 (les enregistrements ont commencé trop tard). Les observations de l'espèce ont eu lieu à 21h et à 1h. 
@@ -92,7 +96,7 @@ str(lisyl)
 ```
 
 ### Ouaouaron 
-Les observations sont à 1 h en 2021 et 2022. Les visites à 15 h et 21 h n'ont pas été utilisé puisqu'il n'y avait qu'une à trois observations
+Les observations sont à 1 h en 2021 et 2022. Les visites à 15 h et 21 h n'ont pas été utilisées puisqu'il n'y avait qu'une à trois observations
 
 Nombre d'observations 2021: 43
 
@@ -108,6 +112,8 @@ Dates de visites (quand l'espèce est active) 2022: 25 mai au 20 juillet
 ```{r structure tableau licat}
 str(licat)
 ```
+
+Les visites de 2022 ont été ajoutées sous celles de 2021. Donc pour chaque visite (V), il y a les enregistrements de 2021 et de 2022. Puisque l'espèce était active moins longtemps en 2021, il y a des NAs dans le tableau aux visites V8 et V9.
 
 ## Variables de détection
 * **Types de Perturbation** : Human, meteo ou none
@@ -134,7 +140,7 @@ boxplot(anoure_licat$RecordingQuality ~ anoure_licat$Year, xlab = 'Année (ouaou
 boxplot(anoure_licat$DisturbanceType ~ anoure_licat$Year, xlab = 'Année (ouaouaron)', ylab = "Type de perturbation")
 ```
 
-La qualité d'enregistrement et le type de perturbation ne varient pas avec l'année alors on peu faire les modèles jumelant ces variables
+La qualité d'enregistrement et le type de perturbation ne varient pas avec l'année alors on peut faire les modèles jumelant ces variables
 
 Le jour varie entre les années alors il ne faut pas les laisser ensemble dans les modèles
 
@@ -149,8 +155,7 @@ Obtenues à partir de couches qgis
 * **Eau libre** : Superficie (m2) des milieux humides de type Marais, Lac, Eau peu profonde et Eau
 * **Route** : Nombre de km de route total
 * **Agriculture** : Superficie (m2) de tous les types d'agriculture
-* **Site** : Facteur de lisière de forêt ou en forêt
-
+* **Site** : Facteur ; lisière de forêt ou en forêt
 * **Annéee** : Pour le ouaouaron seulement puisque les données sont sur deux années. Facteur entre 2021 et 2022
 
 Les superficies ont été transformées en pourcentage de recouvrement puis standardisées avec la fonction `scale()`
@@ -166,6 +171,9 @@ occupation_lisyl$Agriculture <- scale(occupation_lisyl$Agriculture)
 occupation_lisyl$Eau <- scale(occupation_lisyl$Eau)
 occupation_lisyl$Humide <- scale(occupation_lisyl$Humide)
 occupation_lisyl$Site <- as.factor(occupation_lisyl$Site)
+
+anoure$RecordingQuality <- as.factor(anoure$RecordingQuality)
+anoure$DisturbanceType <- as.factor(anoure$DisturbanceType)
 ```
 
 ```{r structure occupation}
@@ -230,7 +238,7 @@ Tableau de tous les modèles avec le poid AIC
 Cands <- list(mb0, mbQH, mbQE, mbQR, mbQA, mbQS, mbPH, mbPE, mbPR, mbPA, mbPS, mbHH, mbHE, mbHR, mbHA, mbHS, mbDH, mbDE, mbDR, mbDA, mbDS)
 
 # Noms des modèles
-Model.names <- c("nul","psi(Milieux humides)p(Qualité)", "psi(Eau libre)p(Qualité)", "psi(Route)p(Qualité)", "psi(Agriculture)p(Qualité)", "psi(Site)p(Qualité)", "psi(Milieux humides)p(Perturb)", "psi(Eau libre)p(Perturb)", "psi(Route)p(Perturb)", "psi(Agriculture)p(Perturb)", "psi(Site)p(Perturb)", "psi(Milieux humides)p(Heure)", "psi(Eau libre)p(Heure)", "psi(Route)p(Heure)", "psi(Agriculture)p(Heure)", "psi(Site)p(Heure)", "psi(Milieux humides)p(Jour)", "psi(Eau libre)p(Jour)", "psi(Route)p(Jour)", "psi(Agriculture)p(Jour)", "psi(Site)p(Jour)") 
+Model.names <- c("nul","occupation(Milieux humides)détection(Qualité)", "occupation(Eau libre)détection(Qualité)", "occupation(Route)détection(Qualité)", "occupation(Agriculture)détection(Qualité)", "occupation(Site)détection(Qualité)", "occupation(Milieux humides)détection(Perturb)", "occupation(Eau libre)détection(Perturb)", "occupation(Route)détection(Perturb)", "occupation(Agriculture)détection(Perturb)", "occupation(Site)détection(Perturb)", "occupation(Milieux humides)détection(Heure)", "occupation(Eau libre)détection(Heure)", "occupation(Route)détection(Heure)", "occupation(Agriculture)détection(Heure)", "occupation(Site)détection(Heure)", "occupation(Milieux humides)détection(Jour)", "occupation(Eau libre)détection(Jour)", "occupation(Route)détection(Jour)", "occupation(Agriculture)détection(Jour)", "occupation(Site)détection(Jour)") 
 
 # Sélection des modèles basées sur AICc
 aictab(cand.set = Cands,  modnames = Model.names)
@@ -238,7 +246,7 @@ aictab(cand.set = Cands,  modnames = Model.names)
 
 L'AICc dépend de la vraisemblance (négative) et du nombre de paramètres (positivement). Il permet donc de trouver le/les modèle qui explique le mieux la variation des données. Un petit AIC est donc préféré.
 
-Delta AICc est la différence entre le AICc du modèle et celui du meilleur modèle. On veut donc un DeltaAICc le plus petit (<=2)
+Delta AICc est la différence entre le AICc du modèle et celui du meilleur modèle. On veut donc un DeltaAICc le plus petit (< 2)
 
 Les modèles qui ont le plus de poids (AICcWt) (qui expliquent une plus grande proportion de la variation dans les variables réponses) sont ceux avec **Route** et **Jour**, suivi de **Eau libre** et **Jour**
 
@@ -246,7 +254,7 @@ Les modèles qui ont le plus de poids (AICcWt) (qui expliquent une plus grande p
 mbDR
 mbDE
 ```
-La détection est influencé positivement par le jour de l'enregistrement (pente = 0,267 et p-value = 0.0465).
+La détection est influencée positivement par le jour de l'enregistrement (pente = 0,267 et p-value = 0.0465).
 
 La relation entre l'occupation et la route ou l'eau libre n'est pas significative.
 
@@ -263,6 +271,43 @@ load("lisyl_ajust_gof.Rdata")
 ajust
 ```
 Pas besoin de réajuster le modèle puisque le c-hat (0.79) est < à 1
+
+### Inférence multimodèles
+Avec l'utilisation du package `AICcmodavg`
+
+Important parce que les meilleurs modèles n'ont pas tout le poids AIC. Permet de combiner les différents modèles selon leur poids AIC.
+
+La seule variable ayant une influence significative sur la détection : **Jour**
+```{r inférence multimodèle avec SHRINK, lisyl}
+modavgShrink(cand.set = Cands, modnames = Model.names, parm = "jour", parm.type = "detect")
+```
+La pente de détection ~ jour serait de 0,14 (au lieu de 0,267).
+
+### Graphique
+```{r graphique lisyl, eval = FALSE}
+## Data frame où la seule variable qui varie est le jour
+pred.data.bois <- data.frame(qualite = factor("bad", levels = levels(anoure$RecordingQuality)),
+disturbance = factor("human", levels = levels(anoure$DisturbanceType)),
+heure = factor("21", levels = c("21", "1")),
+jour = seq(108, 117, length.out = 10))
+
+# Tableau des prédictions avec inférence multimodèle
+out.preds.bois <- modavgPred(cand.set = Cands, modnames = Model.names, newdata = pred.data.bois, parm.type = "detect", type = "response")
+# Ajout des prédiction au tableau des variables 
+pred.data.bois$fit <- out.preds.bois$mod.avg.pred 
+pred.data.bois$se.fit <- out.preds.bois$uncond.se 
+# Ajouts des intervals de confiance au tableau
+pred.data.bois$low95 <- out.preds.bois$lower.CL 
+pred.data.bois$upp95 <- out.preds.bois$upper.CL
+
+# Graphique
+pred.data.bois$xvals <- seq(108, 117, length.out = 10)
+plot(fit ~ xvals, data = pred.data.bois, ylim = range(low95, upp95),xlab = "Jours julien", ylab = "Probabilité de détection", cex.axis = 1.2, cex.lab = 1.2)
+
+# Ajout des intervals de croissance
+segments(x0 = pred.data.bois$xvals, x1 = pred.data.bois$xvals, y0 = pred.data.bois$low95, pred.data.bois$upp95)
+```
+
 
 ## Création des modèles pour le ouaouaron
 Création de la base de données pour le package `unmarked`
@@ -304,26 +349,33 @@ moDR <- occu(~ jour ~ Route + annee, data = licat.data)
 moDA <- occu(~ jour ~ Agriculture + annee, data = licat.data)
 moDS <- occu(~ jour ~ Site + annee, data = licat.data)
 ```
-Ici, l'année est ajouté à tous les modèles dans la détection et dans l'occupation puisque les données sont prisent sur deux années. Cependant, elle n'a pas été rajoutée aux modèles ou la détection varie avec le jour puisque les jours juliens variaient d'une année à l'autre.
+Ici, l'année est ajoutée à tous les modèles dans la détection et dans l'occupation puisque les données sont prisent sur deux années. Cependant, elle n'a pas été rajoutée aux modèles où la détection varie avec le jour puisque les jours juliens variaient d'une année à l'autre.
 
-Tableau de tous les modèles avec le poid AIC
+#### Tableau de tous les modèles avec le poid AIC
 ```{r, modèles candidats licat}
 # Liste des modèles
 Cands <- list(mo0, moQH, moQE, moQR, moQA, moQS, moPH, moPE, moPR, moPA, moPS, moAH, moAE, moAR, moAA, moAS, moDH, moDE, moDR, moDA, moDS)
 
 # Noms des modèles
-Model.names <- c("nul","psi(Milieux humides)p(Qualité)", "psi(Eau libre)p(Qualité)", "psi(Route)p(Qualité)", "psi(Agriculture)p(Qualité)", "psi(Site)p(Qualité)", "psi(Milieux humides)p(Perturb)", "psi(Eau libre)p(Perturb)", "psi(Route)p(Perturb)", "psi(Agriculture)p(Perturb)", "psi(Site)p(Perturb)", "psi(Milieux humides)p(Année)", "psi(Eau libre)p(Année)", "psi(Route)p(Année)", "psi(Agriculture)p(Année)", "psi(Site)p(Année)", "psi(Milieux humides)p(Jour)", "psi(Eau libre)p(Jour)", "psi(Route)p(Jour)", "psi(Agriculture)p(Jour)", "psi(Site)p(Jour)") 
+Model.names <- c("nul","occupation(Milieux humides et Année)détection(Qualité et Année)", "occupation(Eau libre et Année)détection(Qualité et Année)", "occupation(Route et Année)détection(Qualité et Année)", "occupation(Agriculture et Année)détection(Qualité et Année)", "occupation(Site et Année)détection(Qualité et Année)", "occupation(Milieux humides et Année)détection(Perturbation  et Année)", "occupation(Eau libre et Année)détection(Perturbation  et Année)", "occupation(Route)détection(Perturbation  et Année)", "occupation(Agriculture et Année)détection(Perturbation  et Année)", "occupation(Site et Année)détection(Perturbation et Année)", "occupation(Milieux humides et Année)détection(Année)", "occupation(Eau libre et Année)détection(Année)", "occupation(Route et Année)détection(Année)", "occupation(Agriculture et Année)détection(Année)", "occupation(Site et Année)détection(Année)", "occupation(Milieux humides et Année)détection(Jour)", "occupation(Eau libre et Année)détection(Jour)", "occupation(Route et Année)détection(Jour)", "occupation(Agriculture et Année)détection(Jour)", "occupation(Site et Année)détection(Jour)") 
 
 # Sélection de modèles basées sur AICc
-aictab(cand.set = Cands,  modnames = Model.names)
+cands_licat<-aictab(cand.set = Cands,  modnames = Model.names)
+
+kable(cands_licat, format = "org", digits = 2)
+kable(cands_licat[,1:7], format = "org", digits = 2, label = NA)
+
+write.csv(cands_licat, 'cands_licat.csv', row.names = F)
 ```
 
-Modèles avec tout le poid sont celui avec **Route** et **Qualité** et celui avec **Site** et **Qualité**
+Modèles avec tout le poids sont ceux avec **Agriculture** et **Qualité** et avec **Milieux humide** et **Qualité**
 ```{r, modèle avec plus de poid licat}
 moQA
 moQH
 ```
-INTERPRÉTER 
+L'occupation varie significativement avec les milieux humides (pente = 0,867 et p-value = 0,0293). L'occupation n'est pas significative avec l'agriculture (pente = 1,199 p-value = 0,0775). Je ne sais pas si on peut tout de même conclure quelque chose puisque le p-value est proche assez faible? La pente est assez élevée et surprenante puisqu'elle est positive alors que je me serais attendue que l'occupation soit diminuée avec l'augmentation en superficie agricole.
+
+La détection varie très faiblement, mais significativement avec l'année (pente = -1,42 et p-value = 0,000199).
 
 ### Vérification ajustement du modèle
 
@@ -340,55 +392,83 @@ ajust
 Pas besoin de réajuster le modèle puisque le c-hat (0.43) est < à 1
 
 ### Inférence multimodèles
-Avec l'utilisation du package `AICcmodavg`
 
-Important parce que les meilleurs modèles n'ont pas tout le poids AIC. Permet de combiner les différents modèles selon leur poids AIC.
-
-Les variables ayant une influence significative sur la détection ou l'année : **Humide** **annee2022** et peut-être? **Agriculture**
-```{r inférence multimodèle avec SHRINK}
+Les variables ayant une influence significative sur la détection ou l'occupation : **Humide**, **annee2022** et peut-être? **agriculture**
+```{r inférence multimodèle avec SHRINK licat}
 modavgShrink(cand.set = Cands, modnames = Model.names, parm = "Humide", parm.type = "psi")
 modavgShrink(cand.set = Cands, modnames = Model.names, parm = "annee2022", parm.type = "detect")
 modavgShrink(cand.set = Cands, modnames = Model.names, parm = "Agriculture", parm.type = "psi")
 ```
-Si je comprends bien, les pentes seraient ainsi plutôt de 
+Les pentes sont de 
 
-* 0,25 entre Milieux humides et occupation
-* -1.35 entre annee2022 et détection
-* 0.74 entre Agriculture et occupation
+* 0,25 entre Milieux humides et occupation (au lieux de 0,867)
+* -1.35 entre annee2022 et détection (au lieux de -1,42)
+* 0.74 entre Agriculture et occupation (au lieux de 1.199)
 
-```{r graphique}
-## Data frame pour faire les prédictions
-extractX(cand.set = Cands, modnames = Model.names, parm.type = "psi")
-pred.data <- data.frame(annee = factor("2021",
-                                      levels = levels(occupation_licat$annee)),
-Eau = c(0,0),
-Humide = seq(-2.28, 1.05, length.out = 40),
-Route = c(0, 0),
-Agriculture = c(0, 0),
-Site = factor("lisiere",
-              levels = levels(occupation_licat$Site))
-)
+### Graphique 
 
+```{r graphique licat, eval = FALSE}
+## Data frame où la seule variable qui varie est le recouvrement en Eau libre
+pred.data <- data.frame(annee = factor("2021", levels = levels(occupation_licat$annee)), Eau = 0, Humide = seq(-2.28, 1.05, length.out = 40), Route = 0, Agriculture = 0, Site = factor("lisiere", levels = levels(occupation_licat$Site)))
+
+# Tableau des prédictions avec inférence multimodèle
 out.preds <- modavgPred(cand.set = Cands, modnames = Model.names, newdata = pred.data, parm.type = "psi", type = "response")
-##add predictions to data set to keep everything ##in the same place
+# Ajout des prédiction au tableau des variables 
 pred.data$fit <- out.preds$mod.avg.pred 
 pred.data$se.fit <- out.preds$uncond.se 
-##compute 95% CI on logit scale, then back ##transform; these asymmetric CI’s have better ##properties
+# Ajouts des intervals de confiance au tableau
 pred.data$low95 <- out.preds$lower.CL 
 pred.data$upp95 <- out.preds$upper.CL
 
-pred.data$xvals <- seq(-2.28, 1.05, length.out = 40)
-plot(fit ~ xvals,
-data = pred.data,
-ylim = range(low95, upp95),
-xlab = "Proportion de recouvrement de milieux humides (standardisé)",
-ylab = "Présence de ouaouarons",
-cex.axis = 1.2,
-cex.lab = 1.2)
+# Graphique
+pred.data$xvals <- seq(0, 0.4, length.out = 40)
+plot(fit ~ xvals, data = pred.data, ylim = range(low95, upp95), xlab = "Proportion de recouvrement de milieux humides", ylab = "Probabilité d'occupation", cex.axis = 1.2, cex.lab = 1.2)
 
+# Ajout des intervals de croissance
 segments(x0 = pred.data$xvals, x1 = pred.data$xvals, y0 = pred.data$low95, pred.data$upp95)
 ```
 
-# Questions
+```{r graphique agriculture licat, eval = F}
+## Data frame où la seule variable qui varie est le recouvrement en Agriculture
+pred.data.agr <- data.frame(annee = factor("2021",levels = levels(occupation_licat$annee)), Eau = 0, Humide = 0, Route = 0, Agriculture = seq(-1.39, 1.65, length.out = 40), Site = factor("lisiere", levels = levels(occupation_licat$Site)))
 
-Ajouter des hypothèses de détection?
+# Tableau des prédictions avec inférence multimodèle
+out.preds.agr <- modavgPred(cand.set = Cands, modnames = Model.names, newdata = pred.data.agr, parm.type = "psi", type = "response")
+# Ajout des prédiction au tableau des variables 
+pred.data.agr$fit <- out.preds.agr$mod.avg.pred 
+pred.data.agr$se.fit <- out.preds.agr$uncond.se 
+# Ajouts des intervals de confiance au tableau
+pred.data.agr$low95 <- out.preds.agr$lower.CL 
+pred.data.agr$upp95 <- out.preds.agr$upper.CL
+
+# Graphique
+pred.data.agr$xvals <- seq(0, 0.4, length.out = 40)
+plot(fit ~ xvals, data = pred.data.agr, ylim = range(low95, upp95), xlab = "Proportion de recouvrement agricole", ylab = "Probabilité d'occupation", cex.axis = 1.2, cex.lab = 1.2)
+
+# Ajout des intervals de croissance
+segments(x0 = pred.data.agr$xvals, x1 = pred.data.agr$xvals, y0 = pred.data.agr$low95, pred.data.agr$upp95)
+```
+
+```{r graphique année licat}
+## Data frame où la seule variable qui varie est année
+pred.data.an <- data.frame(qualite = factor("bad", levels = levels(anoure$RecordingQuality)),
+disturbance = factor("human", levels = levels(anoure$DisturbanceType)),
+annee = factor(c("2021", "2022"), levels = levels(anoure$Year)),
+jour = 0)
+
+# Tableau des prédictions avec inférence multimodèle
+out.preds.an <- modavgPred(cand.set = Cands, modnames = Model.names, newdata = pred.data.an, parm.type = "detect", type = "response")
+# Ajout des prédiction au tableau des variables 
+pred.data.an$fit <- out.preds.an$mod.avg.pred 
+pred.data.an$se.fit <- out.preds.an$uncond.se 
+# Ajouts des intervals de confiance au tableau
+pred.data.an$low95 <- out.preds.an$lower.CL 
+pred.data.an$upp95 <- out.preds.an$upper.CL
+
+# Graphique
+pred.data.an$xvals <- c("2021", "2022")
+plot(fit ~ xvals, data = pred.data.an,  ylim = range(low95, 0.0005), xlab = "Année", ylab = "Probabilité d'occupation", cex.axis = 1.2, cex.lab = 1.2)
+
+# Ajout des intervals de confiance
+# segments(x0 = pred.data.an$xvals, x1 = pred.data.an$xvals, y0 = pred.data.an$low95, pred.data.an$upp95)
+```
